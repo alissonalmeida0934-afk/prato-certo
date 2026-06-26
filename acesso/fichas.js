@@ -2186,6 +2186,1197 @@ window.PRATO_CERTO = {
       fichas: []
     },
     {
+      id: "jr",
+      nome: "Jantares Rápidos",
+      emoji: "🍽️",
+      subtitulo: "15 jantares prontos em menos de 30 minutos — saborosos e equilibrados.",
+      capa: "../img/ls-capa.png",
+      pdfDownload: true,
+      pdf: "../pdfs/Jantares Rapidos.pdf",
+      fichas: [
+        {
+          secao: "🥩 Com Frango",
+          nome: "Frango Grelhado com Vegetais",
+          img: "../img/ls-capa.png",
+          tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "2 peitos de frango — cerca de 300 g",
+            "1 courgette em rodelas",
+            "1 pimento vermelho em tiras",
+            "Azeite, alho, sal, pimenta e ervas a gosto"
+          ],
+          preparo: [
+            "Tempera o frango com azeite, alho, sal e ervas. Marina 10 minutos.",
+            "Grelha os peitos numa frigideira quente, 5 minutos por lado.",
+            "Na mesma frigideira, salteia os vegetais 4–5 minutos.",
+            "Serve o frango fatiado sobre os vegetais."
+          ],
+          dica: "Substitui a courgette por brócolos ou cenoura — fica igualmente delicioso."
+        },
+        {
+          secao: "🥩 Com Frango",
+          nome: "Strogonoff de Frango Light",
+          img: "../img/ls-capa.png",
+          tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "300 g de peito de frango em tiras",
+            "1 cebola picada, 2 dentes de alho",
+            "200 g de cogumelos fatiados",
+            "150 g de iogurte natural magro",
+            "1 colher de sopa de mostarda",
+            "Sal, pimenta e salsa a gosto"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite até amolecer.",
+            "Adiciona o frango e os cogumelos, cozinha 8 minutos.",
+            "Retira do lume, mistura o iogurte e a mostarda.",
+            "Serve com arroz integral ou massa."
+          ],
+          dica: "O iogurte substitui as natas sem perder a cremosidade — menos 60% de gordura."
+        },
+        {
+          secao: "🥩 Com Frango",
+          nome: "Frango no Tacho com Tomate",
+          img: "../img/ls-capa.png",
+          tempo: "30 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de frango em pedaços",
+            "400 g de tomate pelado em lata",
+            "1 cebola, 2 alhos, 1 folha de louro",
+            "Azeite, sal, pimenta e oregãos a gosto"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o frango e doura de todos os lados.",
+            "Junta o tomate, o louro e os temperos.",
+            "Cozinha 20 minutos em lume brando com tampa."
+          ],
+          dica: "Congela porções individuais — dura 60 dias no congelador."
+        },
+        {
+          secao: "🥩 Com Frango",
+          nome: "Salada de Quinoa com Frango",
+          img: "../img/ls-capa.png",
+          tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "150 g de quinoa cozida",
+            "200 g de frango grelhado desfiado",
+            "1 pepino, tomates cherry, azeitonas",
+            "Sumo de limão, azeite, sal e salsa"
+          ],
+          preparo: [
+            "Coze a quinoa conforme instruções e deixa arrefecer.",
+            "Mistura todos os ingredientes numa taça.",
+            "Tempera com limão, azeite e sal.",
+            "Serve fresco ou guarda no frigorífico até 3 dias."
+          ],
+          dica: "Adiciona abacate fatiado para mais gordura saudável e saciedade."
+        },
+        {
+          secao: "🥩 Com Frango",
+          nome: "Wok de Frango e Vegetais",
+          img: "../img/ls-capa.png",
+          tempo: "15 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "300 g de frango em tiras",
+            "1 cenoura em palitos, 1 pimento, 1 courgette",
+            "2 colheres de sopa de molho de soja light",
+            "Alho, gengibre fresco, azeite a gosto"
+          ],
+          preparo: [
+            "Aquece o azeite em lume alto numa frigideira grande.",
+            "Salteia o frango 4–5 minutos até dourar.",
+            "Adiciona os vegetais e o gengibre, salteia 3 minutos.",
+            "Junta o molho de soja, mexe e serve."
+          ],
+          dica: "Serve com arroz de jasmim ou massa de arroz — pronto em 15 minutos."
+        },
+        {
+          secao: "🐟 Com Peixe",
+          nome: "Salmão no Forno com Limão",
+          img: "../img/ls-capa.png",
+          tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "2 postas de salmão — cerca de 300 g",
+            "Sumo de 1 limão",
+            "Alho, azeite, endro fresco, sal e pimenta"
+          ],
+          preparo: [
+            "Coloca o salmão numa assadeira com papel vegetal.",
+            "Tempera com alho, azeite, limão, endro, sal e pimenta.",
+            "Assa a 200 °C por 15 minutos.",
+            "Serve com batata doce assada ou salada."
+          ],
+          dica: "O salmão está pronto quando a carne solta facilmente com um garfo."
+        },
+        {
+          secao: "🐟 Com Peixe",
+          nome: "Bacalhau à Brás Leve",
+          img: "../img/ls-capa.png",
+          tempo: "25 min", doses: "2 pessoas", dificuldade: "Médio",
+          ingredientes: [
+            "200 g de bacalhau desfiado demolhado",
+            "2 ovos",
+            "1 cebola, 2 alhos",
+            "50 g de batata palha (ou batata cozida esmagada)",
+            "Azeite, azeitonas, sal, pimenta e salsa"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o bacalhau e cozinha 3 minutos.",
+            "Junta a batata, mexe e adiciona os ovos batidos.",
+            "Cozinha em lume brando mexendo sempre. Finaliza com azeitonas e salsa."
+          ],
+          dica: "Para versão mais leve, usa batata cozida esmagada em vez de batata palha frita."
+        },
+        {
+          secao: "🐟 Com Peixe",
+          nome: "Atum com Batata-Doce",
+          img: "../img/ls-capa.png",
+          tempo: "20 min", doses: "1 pessoa", dificuldade: "Fácil",
+          ingredientes: [
+            "1 lata de atum ao natural",
+            "1 batata-doce média cozida ou assada",
+            "Cebolinho, limão, azeite, sal e pimenta"
+          ],
+          preparo: [
+            "Assa ou coze a batata-doce até amolecer.",
+            "Corta ao meio e abre como barco.",
+            "Mistura o atum com cebolinho, limão e azeite.",
+            "Recheio a batata-doce com o atum e serve."
+          ],
+          dica: "Podes acrescentar ricota ou queijo cottage para mais proteína."
+        },
+        {
+          secao: "🐟 Com Peixe",
+          nome: "Massa de Atum ao Tomate",
+          img: "../img/ls-capa.png",
+          tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "160 g de massa integral",
+            "2 latas de atum ao natural",
+            "400 g de tomate pelado em lata",
+            "1 cebola, 2 alhos, azeite, oregãos, sal"
+          ],
+          preparo: [
+            "Coze a massa al dente. Reserva.",
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o tomate e cozinha 8 minutos.",
+            "Junta o atum escorrido, mistura e serve sobre a massa."
+          ],
+          dica: "Adiciona azeitonas e alcaparras para um sabor mais intenso."
+        },
+        {
+          secao: "🥕 Com Vegetais",
+          nome: "Omelete de Vegetais",
+          img: "../img/ls-capa.png",
+          tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
+          ingredientes: [
+            "3 ovos",
+            "½ pimento, ½ cebola, 1 tomate",
+            "1 punhado de espinafres",
+            "Sal, pimenta, azeite e queijo magro opcional"
+          ],
+          preparo: [
+            "Salteia os vegetais com azeite 3–4 minutos.",
+            "Bate os ovos com sal e pimenta.",
+            "Adiciona os ovos sobre os vegetais.",
+            "Dobra ao meio quando a base firmar. Serve imediatamente."
+          ],
+          dica: "Serve com salada verde e fatia de pão integral — jantar completo em 15 minutos."
+        },
+        {
+          secao: "🥕 Com Vegetais",
+          nome: "Courgette Recheada",
+          img: "../img/ls-capa.png",
+          tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
+          ingredientes: [
+            "2 courgettes grandes",
+            "200 g de carne picada ou frango picado",
+            "1 tomate, 1 cebola, alho, sal e pimenta",
+            "50 g de queijo mozzarella ralado"
+          ],
+          preparo: [
+            "Corta as courgettes ao meio no sentido do comprimento. Retira o interior.",
+            "Refoga a cebola, o alho e a carne com o tomate e a polpa da courgette.",
+            "Recheia as courgettes com a carne.",
+            "Cobre com queijo e assa a 200 °C por 20 minutos."
+          ],
+          dica: "Substitui a carne por cogumelos e grão para versão vegetariana."
+        },
+        {
+          secao: "🥕 Com Vegetais",
+          nome: "Frango com Batata-Doce Assada",
+          img: "../img/ls-capa.png",
+          tempo: "30 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "2 peitos de frango",
+            "2 batatas-doces médias em cubos",
+            "Brócolos q.b.",
+            "Azeite, alho, paprika, sal e pimenta"
+          ],
+          preparo: [
+            "Coloca a batata-doce numa assadeira, tempera com azeite e paprika.",
+            "Assa a 200 °C por 15 minutos.",
+            "Adiciona o frango temperado e os brócolos.",
+            "Assa mais 15 minutos até tudo dourar."
+          ],
+          dica: "Prepara em duplicado — marmita do dia seguinte pronta!"
+        },
+        {
+          secao: "🥕 Com Vegetais",
+          nome: "Esparguete de Courgette com Atum",
+          img: "../img/ls-capa.png",
+          tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
+          ingredientes: [
+            "1 courgette grande (espiralizadora ou descascador)",
+            "1 lata de atum ao natural",
+            "Tomate cherry, azeite, alho, sal e manjericão"
+          ],
+          preparo: [
+            "Espitaliza a courgette com espiralizadora ou faz tiras com descascador.",
+            "Salteia 2–3 minutos com azeite e alho.",
+            "Junta o atum e o tomate cherry cortado ao meio.",
+            "Finaliza com manjericão fresco e serve."
+          ],
+          dica: "Zero hidratos de carbono, proteína completa. Ideal para dias mais pesados."
+        },
+        {
+          secao: "🥩 Com Frango",
+          nome: "Frango com Arroz Integral e Brócolos",
+          img: "../img/ls-capa.png",
+          tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "300 g de peito de frango em cubos",
+            "150 g de arroz integral cozido",
+            "200 g de brócolos cozidos a vapor",
+            "Azeite, alho, limão, sal e pimenta"
+          ],
+          preparo: [
+            "Salteia o frango em cubos com azeite e alho até dourar.",
+            "Tempera com limão, sal e pimenta.",
+            "Serve o frango sobre o arroz e os brócolos.",
+            "Rega com um fio de azeite e sumo de limão."
+          ],
+          dica: "Marmita clássica de academia — proteína, hidratos e vegetais no prato."
+        },
+        {
+          secao: "🐟 Com Peixe",
+          nome: "Frango Tikka Masala Leve",
+          img: "../img/ls-capa.png",
+          tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
+          ingredientes: [
+            "300 g de peito de frango em cubos",
+            "200 g de tomate pelado",
+            "100 g de iogurte natural magro",
+            "1 cebola, 2 alhos, 1 colher de chá de caril, cominhos, paprika"
+          ],
+          preparo: [
+            "Marina o frango no iogurte com as especiarias 15 minutos.",
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o frango marinado e cozinha 5 minutos.",
+            "Junta o tomate e cozinha mais 10 minutos. Serve com arroz."
+          ],
+          dica: "Varia as especiarias ao teu gosto — mais ou menos picante."
+        }
+      ]
+    },
+    {
+      id: "sc",
+      nome: "Sopas & Cremes",
+      emoji: "🥣",
+      subtitulo: "15 sopas e cremes reconfortantes — prontos em 30 minutos.",
+      capa: "../img/pa-capa.png",
+      pdfDownload: true,
+      pdf: "../pdfs/Sopas e Cremes.pdf",
+      fichas: [
+        {
+          secao: "🍂 Cremes",
+          nome: "Creme de Abóbora",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "600 g de abóbora em cubos",
+            "1 cenoura, 1 cebola, 2 alhos",
+            "700 ml de caldo de legumes",
+            "Azeite, sal, pimenta e noz-moscada"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona a abóbora e a cenoura, cobre com o caldo.",
+            "Cozinha 20 minutos até amolecer.",
+            "Tritura tudo com a varinha mágica. Tempera e serve."
+          ],
+          dica: "Finaliza com sementes de abóbora torradas e um fio de azeite de qualidade."
+        },
+        {
+          secao: "🍂 Cremes",
+          nome: "Creme de Cenoura e Gengibre",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "500 g de cenoura em rodelas",
+            "1 cebola, 2 alhos",
+            "1 colher de chá de gengibre fresco ralado",
+            "700 ml de caldo de legumes, azeite, sal"
+          ],
+          preparo: [
+            "Refoga a cebola, o alho e o gengibre com azeite.",
+            "Adiciona as cenouras e o caldo.",
+            "Cozinha 20 minutos até amolecer bem.",
+            "Tritura até obter creme homogéneo."
+          ],
+          dica: "O gengibre dá um toque especial anti-inflamatório. Serve com pão torrado."
+        },
+        {
+          secao: "🍂 Cremes",
+          nome: "Creme de Brócolos",
+          img: "../img/pa-capa.png",
+          tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "1 brócolos inteiro — cerca de 500 g",
+            "1 batata pequena, 1 cebola, 2 alhos",
+            "600 ml de caldo de legumes",
+            "Azeite, sal e pimenta"
+          ],
+          preparo: [
+            "Coze todos os ingredientes em simultâneo no caldo.",
+            "Cozinha 15 minutos até a batata amolecer.",
+            "Tritura tudo com a varinha mágica.",
+            "Ajusta o sal e serve com queijo parmesão ralado opcional."
+          ],
+          dica: "Guarda reservas da floricultura de brócolos para decorar."
+        },
+        {
+          secao: "🍂 Cremes",
+          nome: "Creme de Alho Francês",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "3 alhos franceses em rodelas",
+            "2 batatas médias, 1 cebola",
+            "700 ml de caldo de frango ou legumes",
+            "Azeite, sal, pimenta branca, salsa"
+          ],
+          preparo: [
+            "Refoga o alho francês e a cebola com azeite até amolecer.",
+            "Adiciona as batatas em cubos e o caldo.",
+            "Cozinha 20 minutos. Tritura.",
+            "Serve com salsa picada e croutons de pão integral."
+          ],
+          dica: "Versão light da vichyssoise — servida quente ou fria no verão."
+        },
+        {
+          secao: "🍂 Cremes",
+          nome: "Creme de Ervilhas com Hortelã",
+          img: "../img/pa-capa.png",
+          tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de ervilhas (congeladas servem)",
+            "1 cebola, 2 alhos",
+            "Folhas de hortelã fresca",
+            "600 ml de caldo de legumes, azeite, sal"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona as ervilhas e o caldo, cozinha 10 minutos.",
+            "Junta a hortelã e tritura tudo.",
+            "Serve com iogurte natural e mais hortelã fresca."
+          ],
+          dica: "Cor vibrante e sabor fresco — excelente servido frio no verão."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Legumes",
+          img: "../img/pa-capa.png",
+          tempo: "30 min", doses: "5 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "1 cebola, 2 cenouras, 1 nabo",
+            "2 batatas, 1 couve, 1 alho francês",
+            "1,5 litros de água, azeite e sal"
+          ],
+          preparo: [
+            "Lava e corta todos os legumes em pedaços.",
+            "Refoga a cebola com azeite.",
+            "Adiciona todos os legumes e a água.",
+            "Cozinha 25 minutos. Tritura parcialmente ou serve em pedaços."
+          ],
+          dica: "Congela em porções individuais — dura 60 dias e é o jantar mais rápido do mundo."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Caldo Verde",
+          img: "../img/pa-capa.png",
+          tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "4 batatas médias",
+            "1 cebola, 2 alhos",
+            "200 g de couve galega ou couve portuguesa finamente cortada",
+            "Azeite, sal e pimenta"
+          ],
+          preparo: [
+            "Coze as batatas com a cebola e o alho em água temperada.",
+            "Tritura a sopa de batata até ficar cremosa.",
+            "Junta a couve fatiada finamente e cozinha 3 minutos.",
+            "Finaliza com azeite em fio e serve."
+          ],
+          dica: "Clássico português — sem chouriço fica mais leve mas igualmente reconfortante."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Feijão",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de feijão encarnado cozido (lata serve)",
+            "1 cenoura, 1 cebola, 2 alhos",
+            "1 tomate, 1 folha de louro",
+            "Azeite, sal, pimenta e salsa"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o tomate, a cenoura e o louro.",
+            "Junta o feijão e 700 ml de água.",
+            "Cozinha 15 minutos. Tritura metade para engrossar."
+          ],
+          dica: "Rica em proteína vegetal e fibra — jantar completo com pão integral."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Lentilhas",
+          img: "../img/pa-capa.png",
+          tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "250 g de lentilhas vermelhas",
+            "1 cebola, 2 alhos, 1 cenoura",
+            "1 colher de chá de cominhos, 1 de curcuma",
+            "Azeite, sal e sumo de limão"
+          ],
+          preparo: [
+            "Refoga a cebola, o alho e as especiarias com azeite.",
+            "Adiciona a cenoura e as lentilhas lavadas.",
+            "Cobre com 1 litro de água e cozinha 25 minutos.",
+            "Tritura parcialmente. Termina com limão."
+          ],
+          dica: "As lentilhas vermelhas não precisam de demolho — cozem rápido."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Grão",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de grão cozido",
+            "1 cenoura, 1 cebola, 2 alhos",
+            "200 g de espinafres frescos",
+            "Azeite, sal, pimenta e paprika"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite e paprika.",
+            "Adiciona a cenoura e o grão, cobre com água.",
+            "Cozinha 15 minutos. Tritura metade.",
+            "Junta os espinafres, cozinha 2 minutos e serve."
+          ],
+          dica: "O grão tem 7 g de proteína por 100 g — sopa super saciante."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Cogumelos",
+          img: "../img/pa-capa.png",
+          tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de cogumelos frescos fatiados",
+            "1 cebola, 2 alhos",
+            "500 ml de caldo de frango ou legumes",
+            "Azeite, sal, pimenta e tomilho"
+          ],
+          preparo: [
+            "Salteia a cebola e o alho com azeite.",
+            "Adiciona os cogumelos e cozinha até reduzir.",
+            "Cobre com o caldo e cozinha 10 minutos.",
+            "Tritura metade para cremosidade. Serve com tomilho."
+          ],
+          dica: "Usa mix de cogumelos (shitake, pleurotus, paris) para mais sabor."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Tomate Fresco",
+          img: "../img/pa-capa.png",
+          tempo: "25 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "600 g de tomate maduro",
+            "1 cebola, 2 alhos, 1 cenoura",
+            "Azeite, sal, açúcar de coco, manjericão"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o tomate em pedaços e a cenoura.",
+            "Cozinha 20 minutos em lume brando.",
+            "Tritura, ajusta o sal e serve com manjericão."
+          ],
+          dica: "Uma colher de café de açúcar de coco equilibra a acidez do tomate."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Gazpacho Português",
+          img: "../img/pa-capa.png",
+          tempo: "10 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "600 g de tomate maduro",
+            "1 pepino, ½ pimento vermelho, 1 dente de alho",
+            "2 colheres de sopa de azeite",
+            "Sumo de limão, sal, vinagre de vinho"
+          ],
+          preparo: [
+            "Tritura todos os ingredientes na liquidificadora.",
+            "Ajusta o tempero — sal, limão e vinagre.",
+            "Refrigera pelo menos 1 hora antes de servir.",
+            "Serve muito frio com cubos de pão torrado."
+          ],
+          dica: "Sopa fria de verão — zero cozinhado, máximo sabor. Rico em licopeno."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Sopa de Courgette e Hortelã",
+          img: "../img/pa-capa.png",
+          tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "3 courgettes médias",
+            "1 batata pequena, 1 cebola",
+            "Folhas de hortelã a gosto",
+            "Azeite, sal e sumo de limão"
+          ],
+          preparo: [
+            "Refoga a cebola com azeite.",
+            "Adiciona as courgettes em cubos e a batata.",
+            "Cobre com água, cozinha 15 minutos.",
+            "Tritura com hortelã e termina com limão."
+          ],
+          dica: "Courgette tem 95% de água — sopa muito levinha e refrescante."
+        },
+        {
+          secao: "🫕 Sopas",
+          nome: "Caldo de Frango Aromático",
+          img: "../img/pa-capa.png",
+          tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de frango desfiado cozido",
+            "1 cenoura, 1 alho francês, 1 nabo",
+            "1 litro de caldo de frango caseiro ou de caixa",
+            "Salsa, louro, sal e pimenta"
+          ],
+          preparo: [
+            "Aquece o caldo numa panela.",
+            "Adiciona os vegetais em juliana fina.",
+            "Cozinha 15 minutos em lume médio.",
+            "Junta o frango desfiado, aquece 2 minutos e serve."
+          ],
+          dica: "Ideal quando estás constipado ou precisas de algo reconfortante e leve."
+        }
+      ]
+    },
+    {
+      id: "ds",
+      nome: "Doces Saudáveis",
+      emoji: "🍰",
+      subtitulo: "15 sobremesas saudáveis sem culpa — doces de verdade, feitos em casa.",
+      capa: "../img/ld-capa.png",
+      pdfDownload: true,
+      pdf: "../pdfs/Doces Saudaveis.pdf",
+      fichas: [
+        {
+          secao: "🍫 Com Chocolate",
+          nome: "Brownie de Banana e Cacau",
+          img: "../img/ld-capa.png",
+          tempo: "25 min", doses: "8 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "2 bananas maduras",
+            "2 ovos",
+            "4 colheres de sopa de cacau em pó — ou 40 g",
+            "4 colheres de sopa de farelo de aveia — ou 40 g",
+            "1 colher de sopa de mel ou adoçante",
+            "1 colher de café de fermento em pó"
+          ],
+          preparo: [
+            "Esmaga as bananas e mistura com os ovos.",
+            "Adiciona o cacau, o farelo, o mel e o fermento.",
+            "Deita numa forma untada.",
+            "Assa a 180 °C por 18–20 minutos."
+          ],
+          dica: "Não cozes em demasia — o centro deve ficar húmido para textura de brownie."
+        },
+        {
+          secao: "🍫 Com Chocolate",
+          nome: "Mousse de Chocolate e Abacate",
+          img: "../img/ld-capa.png",
+          tempo: "10 min", doses: "4 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "2 abacates maduros",
+            "3 colheres de sopa de cacau em pó",
+            "3 colheres de sopa de mel ou adoçante",
+            "1 colher de café de essência de baunilha",
+            "Pitada de sal"
+          ],
+          preparo: [
+            "Bate todos os ingredientes na liquidificadora até cremoso.",
+            "Ajusta a doçura.",
+            "Distribui em taças e refrigera 30 minutos.",
+            "Serve com raspas de chocolate 70% ou fruta vermelha."
+          ],
+          dica: "Ninguém adivinha o abacate — fica incrivelmente cremoso e rico em gorduras saudáveis."
+        },
+        {
+          secao: "🍫 Com Chocolate",
+          nome: "Bolachas de Aveia e Chocolate",
+          img: "../img/ld-capa.png",
+          tempo: "20 min", doses: "15 bolachas", dificuldade: "Fácil",
+          ingredientes: [
+            "2 bananas maduras",
+            "150 g de flocos de aveia",
+            "50 g de pepitas de chocolate negro 70%",
+            "1 colher de chá de canela"
+          ],
+          preparo: [
+            "Esmaga as bananas e mistura com a aveia e a canela.",
+            "Dobra as pepitas de chocolate.",
+            "Modela em bolachas sobre papel vegetal.",
+            "Assa a 180 °C por 12–15 minutos."
+          ],
+          dica: "Congela as bolachas já assadas — duram 30 dias e descongelam em 5 minutos."
+        },
+        {
+          secao: "🍫 Com Chocolate",
+          nome: "Trufas de Cacau",
+          img: "../img/ld-capa.png",
+          tempo: "15 min", doses: "20 trufas", dificuldade: "Fácil",
+          ingredientes: [
+            "200 g de tâmaras sem caroço",
+            "3 colheres de sopa de cacau em pó",
+            "50 g de coco ralado",
+            "1 colher de sopa de manteiga de amendoim"
+          ],
+          preparo: [
+            "Processa as tâmaras até formar uma pasta.",
+            "Mistura com o cacau e a manteiga de amendoim.",
+            "Modela em bolinhas.",
+            "Rola no coco ralado ou no cacau. Refrigera 1 hora."
+          ],
+          dica: "Guarda em caixa hermética no frigorífico — duram 2 semanas."
+        },
+        {
+          secao: "🍋 Com Fruta",
+          nome: "Tarte de Limão Fit",
+          img: "../img/ld-capa.png",
+          tempo: "20 min", doses: "8 fatias", dificuldade: "Médio",
+          ingredientes: [
+            "Base: 150 g de tâmaras + 100 g de aveia processados juntos",
+            "Recheio: 300 g de iogurte grego magro",
+            "Sumo e raspa de 2 limões",
+            "3 colheres de sopa de mel, 1 gelatina incolor"
+          ],
+          preparo: [
+            "Pressiona a base de tâmaras e aveia numa forma de fundo amovível.",
+            "Dissolve a gelatina em água quente e mistura com iogurte, limão e mel.",
+            "Deita sobre a base e refrigera 4 horas.",
+            "Serve decorada com rodelas de limão."
+          ],
+          dica: "Sem forno, sem manteiga — fresca e cremosa."
+        },
+        {
+          secao: "🍋 Com Fruta",
+          nome: "Pudim de Chia",
+          img: "../img/ld-capa.png",
+          tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "4 colheres de sopa de sementes de chia",
+            "250 ml de leite vegetal ou magro",
+            "1 colher de sopa de mel",
+            "Fruta fresca para finalizar"
+          ],
+          preparo: [
+            "Mistura a chia, o leite e o mel numa taça.",
+            "Mexe bem para não ficar com grumos.",
+            "Refrigera pelo menos 4 horas ou de um dia para o outro.",
+            "Serve com fruta fresca e granola."
+          ],
+          dica: "Prepara 3–4 porções ao mesmo tempo para a semana toda."
+        },
+        {
+          secao: "🍋 Com Fruta",
+          nome: "Torta de Laranja sem Farinha",
+          img: "../img/ld-capa.png",
+          tempo: "35 min", doses: "8 fatias", dificuldade: "Médio",
+          ingredientes: [
+            "4 ovos",
+            "Sumo e raspa de 2 laranjas",
+            "100 g de adoçante ou açúcar",
+            "100 g de amêndoa em pó",
+            "1 colher de café de fermento"
+          ],
+          preparo: [
+            "Bate os ovos com o adoçante até dobrar de volume.",
+            "Adiciona o sumo, a raspa de laranja e a amêndoa.",
+            "Junta o fermento e envolve suavemente.",
+            "Assa em forma untada a 180 °C por 25 minutos."
+          ],
+          dica: "Sem glúten naturalmente — húmida e aromática."
+        },
+        {
+          secao: "🍋 Com Fruta",
+          nome: "Gelado de Morango Proteico",
+          img: "../img/ld-capa.png",
+          tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "200 g de morangos congelados",
+            "1 iogurte natural magro — 170 g",
+            "30 g de proteína em pó de baunilha ou leite em pó",
+            "Adoçante a gosto"
+          ],
+          preparo: [
+            "Tritura os morangos congelados no processador.",
+            "Adiciona o iogurte, a proteína e o adoçante.",
+            "Bate até cremoso e homogéneo.",
+            "Serve de imediato ou congela 1 hora para textura firme."
+          ],
+          dica: "Usa framboesas ou manga congelada para variar o sabor."
+        },
+        {
+          secao: "🥛 Com Laticínios",
+          nome: "Crepe Doce de Ricota",
+          img: "../img/ld-capa.png",
+          tempo: "15 min", doses: "2 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "2 ovos",
+            "2 colheres de sopa de fécula de tapioca",
+            "100 g de ricota fresca",
+            "Mel, canela, fruta fresca para servir"
+          ],
+          preparo: [
+            "Mistura ovos e fécula para a massa do crepe.",
+            "Faz 2 crepes finos na frigideira antiaderente.",
+            "Recheio com ricota temperada com mel e canela.",
+            "Dobra e serve com fruta fresca."
+          ],
+          dica: "Dobra e serve com morangos fatiados ou compota de fruta sem açúcar."
+        },
+        {
+          secao: "🥛 Com Laticínios",
+          nome: "Bolo de Iogurte",
+          img: "../img/ld-capa.png",
+          tempo: "40 min", doses: "10 fatias", dificuldade: "Fácil",
+          ingredientes: [
+            "1 pote de iogurte natural — 170 g (usa a embalagem como medida)",
+            "2 ovos",
+            "2 potes de farinha de aveia",
+            "1 pote de adoçante ou açúcar",
+            "½ pote de azeite",
+            "1 colher de sopa de fermento"
+          ],
+          preparo: [
+            "Mistura o iogurte, os ovos e o azeite.",
+            "Adiciona a farinha e o adoçante, mexe.",
+            "Adiciona o fermento e envolve suavemente.",
+            "Assa em forma untada a 180 °C por 30–35 minutos."
+          ],
+          dica: "O pote do iogurte serve de medida — prático e sempre igual."
+        },
+        {
+          secao: "🥛 Com Laticínios",
+          nome: "Semifrio de Maracujá",
+          img: "../img/ld-capa.png",
+          tempo: "15 min", doses: "6 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "Polpa de 4 maracujás",
+            "400 g de iogurte natural magro",
+            "200 g de queijo creme light",
+            "3 colheres de sopa de mel",
+            "2 gelatinas sem sabor"
+          ],
+          preparo: [
+            "Dissolve as gelatinas em água quente.",
+            "Bate iogurte, queijo creme, mel e polpa de maracujá.",
+            "Junta a gelatina arrefecida e mistura.",
+            "Deita numa forma forrada com película e refrigera 4 horas."
+          ],
+          dica: "Decora com sementes de maracujá fresco antes de servir."
+        },
+        {
+          secao: "🥛 Com Laticínios",
+          nome: "Pavlova Proteica",
+          img: "../img/ld-capa.png",
+          tempo: "60 min", doses: "8 porções", dificuldade: "Médio",
+          ingredientes: [
+            "4 claras de ovo",
+            "150 g de adoçante em pó",
+            "1 colher de chá de vinagre de maçã",
+            "200 g de iogurte grego magro para servir",
+            "Fruta fresca variada"
+          ],
+          preparo: [
+            "Bate as claras em castelo bem firme com o adoçante.",
+            "Adiciona o vinagre no final.",
+            "Forma um disco sobre papel vegetal.",
+            "Assa a 120 °C por 60 minutos. Arrefece no forno. Serve com iogurte e fruta."
+          ],
+          dica: "O centro deve ficar ligeiramente húmido — é a textura certa."
+        },
+        {
+          secao: "🍌 Com Banana",
+          nome: "Barras de Cereais Caseiras",
+          img: "../img/ld-capa.png",
+          tempo: "20 min", doses: "10 barras", dificuldade: "Fácil",
+          ingredientes: [
+            "2 bananas maduras",
+            "150 g de flocos de aveia",
+            "50 g de frutos secos picados (nozes, amêndoa, caju)",
+            "2 colheres de sopa de mel ou xarope de ácer",
+            "Sementes de chia ou sésamo"
+          ],
+          preparo: [
+            "Esmaga as bananas e mistura com todos os ingredientes.",
+            "Espalha numa assadeira forrada com papel vegetal — cerca de 1 cm de espessura.",
+            "Assa a 180 °C por 18–20 minutos.",
+            "Deixa arrefecer antes de cortar em barras."
+          ],
+          dica: "Congela individualmente embrulhadas em película — lanche de emergência pronto."
+        },
+        {
+          secao: "🍌 Com Banana",
+          nome: "Cookies de Aveia",
+          img: "../img/ld-capa.png",
+          tempo: "20 min", doses: "12 cookies", dificuldade: "Fácil",
+          ingredientes: [
+            "2 bananas maduras",
+            "120 g de flocos de aveia",
+            "1 ovo",
+            "1 colher de sopa de manteiga de amendoim",
+            "Canela e pepitas de chocolate optional"
+          ],
+          preparo: [
+            "Mistura todos os ingredientes numa taça.",
+            "Modela em cookies sobre papel vegetal.",
+            "Assa a 180 °C por 12–14 minutos.",
+            "Deixa arrefecer — ficam mais firmes frios."
+          ],
+          dica: "Sem açúcar adicionado, glúten opcional — e super saciantes."
+        },
+        {
+          secao: "🍌 Com Banana",
+          nome: "Compota de Fruta sem Açúcar",
+          img: "../img/ld-capa.png",
+          tempo: "20 min", doses: "12 porções", dificuldade: "Fácil",
+          ingredientes: [
+            "500 g de fruta da época (morango, pêssego, ameixa)",
+            "Sumo de 1 limão",
+            "1 colher de sopa de chia — para engrossar",
+            "Adoçante a gosto"
+          ],
+          preparo: [
+            "Coloca a fruta cortada com o sumo de limão numa panela.",
+            "Cozinha em lume brando 15 minutos mexendo.",
+            "Adiciona a chia e o adoçante. Mexe bem.",
+            "Guarda em frasco de vidro esterilizado no frigorífico até 10 dias."
+          ],
+          dica: "Usa em bolos, iogurtes e barras — substitui qualquer compota com açúcar."
+        }
+      ]
+    },
+    {
+      id: "ms",
+      nome: "Marmitas da Semana",
+      emoji: "🥡",
+      subtitulo: "15 marmitas completas para preparar ao domingo — come bem toda a semana.",
+      capa: "../img/bs-capa.png",
+      pdfDownload: true,
+      pdf: "../pdfs/Marmitas da Semana.pdf",
+      fichas: [
+        {
+          secao: "🍚 Com Arroz",
+          nome: "Frango com Arroz Integral e Brócolos",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "600 g de peito de frango",
+            "300 g de arroz integral cozido",
+            "400 g de brócolos cozidos a vapor",
+            "Azeite, alho, limão, sal e pimenta"
+          ],
+          preparo: [
+            "Coze o arroz integral conforme instruções.",
+            "Grelha o frango temperado com alho, sal e limão.",
+            "Cozinha os brócolos a vapor 5 minutos.",
+            "Divide em 4 marmitas: arroz + frango fatiado + brócolos."
+          ],
+          dica: "Aguenta 5 dias no frigorífico. A marmita mais popular do método Prato Certo."
+        },
+        {
+          secao: "🍚 Com Arroz",
+          nome: "Frango com Arroz e Feijão",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "500 g de frango desfiado temperado",
+            "200 g de arroz integral cozido",
+            "200 g de feijão preto cozido",
+            "Cebola, alho, azeite, coentros, sal"
+          ],
+          preparo: [
+            "Refoga a cebola e o alho com azeite.",
+            "Adiciona o frango desfiado e o feijão, tempera.",
+            "Coze o arroz separado.",
+            "Divide em marmitas com arroz na base e frango + feijão por cima."
+          ],
+          dica: "Proteína completa: frango + feijão = todos os aminoácidos essenciais."
+        },
+        {
+          secao: "🍚 Com Arroz",
+          nome: "Strogonoff de Frango com Arroz",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "500 g de frango em tiras",
+            "200 g de cogumelos, 1 cebola",
+            "150 g de iogurte, 1 col. sopa de mostarda",
+            "200 g de arroz integral cozido"
+          ],
+          preparo: [
+            "Prepara o strogonoff: refoga cebola, adiciona frango e cogumelos.",
+            "Fora do lume mistura iogurte e mostarda.",
+            "Coze o arroz integral.",
+            "Marmita: arroz + strogonoff por cima."
+          ],
+          dica: "O strogonoff aguenta 4 dias no frigorífico — faz duplicado e congela."
+        },
+        {
+          secao: "🍚 Com Arroz",
+          nome: "Bacalhau com Grão e Brócolos",
+          img: "../img/bs-capa.png",
+          tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de bacalhau desfiado demolhado",
+            "300 g de grão cozido",
+            "200 g de brócolos",
+            "Azeite, alho, ovos cozidos, sal e pimenta"
+          ],
+          preparo: [
+            "Coze os brócolos a vapor e os ovos.",
+            "Salteia o bacalhau com azeite e alho.",
+            "Adiciona o grão e mistura.",
+            "Marmita: bacalhau + grão + brócolos + meio ovo."
+          ],
+          dica: "Típico português e muito nutritivo — ómega-3 + proteína + fibra."
+        },
+        {
+          secao: "🌾 Com Massa",
+          nome: "Massa Integral com Frango",
+          img: "../img/bs-capa.png",
+          tempo: "25 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "320 g de massa integral (esparguete ou penne)",
+            "400 g de peito de frango grelhado",
+            "400 g de tomate pelado",
+            "Azeite, alho, manjericão, sal"
+          ],
+          preparo: [
+            "Coze a massa al dente.",
+            "Prepara molho: refoga alho, adiciona tomate, cozinha 10 min.",
+            "Grelha o frango e fatia.",
+            "Marmita: massa + molho + frango."
+          ],
+          dica: "A massa integral sacia mais e tem menos impacto na glicémia."
+        },
+        {
+          secao: "🌾 Com Massa",
+          nome: "Massa de Atum e Tomate",
+          img: "../img/bs-capa.png",
+          tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "240 g de massa integral",
+            "3 latas de atum ao natural",
+            "400 g de tomate pelado",
+            "Cebola, alho, oregãos, azeite"
+          ],
+          preparo: [
+            "Coze a massa. Reserva.",
+            "Refoga cebola e alho, adiciona tomate, cozinha 8 min.",
+            "Junta o atum escorrido.",
+            "Mistura com a massa e divide em marmitas."
+          ],
+          dica: "Marmita fria também funciona — ótima para levar ao trabalho."
+        },
+        {
+          secao: "🥔 Com Batata",
+          nome: "Frango com Batata-Doce e Espargos",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de peito de frango",
+            "2 batatas-doces médias em cubos",
+            "200 g de espargos",
+            "Azeite, paprika, alho, sal"
+          ],
+          preparo: [
+            "Assa a batata-doce com azeite e paprika a 200 °C por 20 min.",
+            "Grelha o frango temperado.",
+            "Salteia os espargos 3 minutos com azeite.",
+            "Divide em marmitas."
+          ],
+          dica: "Batata-doce assada tem índice glicémico mais baixo que cozida."
+        },
+        {
+          secao: "🥔 Com Batata",
+          nome: "Frango Assado com Vegetais",
+          img: "../img/bs-capa.png",
+          tempo: "35 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "600 g de frango em pedaços",
+            "2 batatas médias, 1 curgete, 1 cenoura",
+            "Azeite, alho, tomilho, sal e pimenta"
+          ],
+          preparo: [
+            "Coloca tudo numa assadeira, tempera generosamente.",
+            "Assa a 200 °C por 30–35 minutos.",
+            "A meio da cozedura volta os ingredientes.",
+            "Divide em 4 marmitas."
+          ],
+          dica: "Faz tudo de uma vez na assadeira — mínimo esforço, máxima recompensa."
+        },
+        {
+          secao: "🌿 Com Leguminosas",
+          nome: "Quinoa com Vegetais Assados",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "200 g de quinoa cozida",
+            "1 pimento, 1 courgette, 1 cenoura, 1 cebola",
+            "100 g de grão cozido",
+            "Azeite, alho, curcuma, sal"
+          ],
+          preparo: [
+            "Assa os vegetais cortados em cubos a 200 °C por 20 min.",
+            "Coze a quinoa conforme instruções.",
+            "Mistura quinoa + vegetais assados + grão.",
+            "Tempera com azeite e curcuma."
+          ],
+          dica: "Marmita 100% vegetariana, proteína completa da quinoa + grão."
+        },
+        {
+          secao: "🌿 Com Leguminosas",
+          nome: "Lentilhas com Arroz",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "200 g de lentilhas verdes",
+            "150 g de arroz integral",
+            "1 cebola, 2 alhos, 1 cenoura",
+            "Azeite, cominhos, sal e sumo de limão"
+          ],
+          preparo: [
+            "Coze as lentilhas e o arroz separados.",
+            "Refoga cebola, alho e cenoura com cominhos.",
+            "Mistura com as lentilhas.",
+            "Marmita: camada de arroz + lentilhas."
+          ],
+          dica: "Mujaddara — prato tradicional do Médio Oriente, muito nutritivo."
+        },
+        {
+          secao: "🌿 Com Leguminosas",
+          nome: "Grão com Espinafres",
+          img: "../img/bs-capa.png",
+          tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de grão cozido",
+            "200 g de espinafres frescos",
+            "1 cebola, 2 alhos, 1 tomate",
+            "Azeite, paprika, sal, cominho"
+          ],
+          preparo: [
+            "Refoga a cebola, o alho com azeite e paprika.",
+            "Adiciona o tomate picado e cozinha 3 minutos.",
+            "Junta o grão e os espinafres, cozinha 5 minutos.",
+            "Serve sozinho ou com arroz integral."
+          ],
+          dica: "Prato espanhol (Espinacas con Garbanzos) — rico em ferro e fibra."
+        },
+        {
+          secao: "🌿 Com Leguminosas",
+          nome: "Frango com Courgette e Tomate",
+          img: "../img/bs-capa.png",
+          tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "400 g de frango em cubos",
+            "2 courgettes em meias-luas",
+            "400 g de tomate pelado",
+            "Cebola, alho, azeite, oregãos, sal"
+          ],
+          preparo: [
+            "Salteia o frango até dourar. Reserva.",
+            "Refoga cebola e alho, adiciona a courgette 3 minutos.",
+            "Junta o tomate e o frango, cozinha 15 minutos.",
+            "Serve com arroz ou massa integral."
+          ],
+          dica: "Prepara duplicado — congela em porções para até 60 dias."
+        },
+        {
+          secao: "🍳 Com Ovos",
+          nome: "Omelete de Batata e Espinafres",
+          img: "../img/bs-capa.png",
+          tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "4 ovos",
+            "2 batatas médias cozidas e fatiadas",
+            "100 g de espinafres",
+            "1 cebola, azeite, sal e pimenta"
+          ],
+          preparo: [
+            "Salteia a cebola e os espinafres com azeite.",
+            "Adiciona as batatas fatiadas.",
+            "Deita os ovos batidos por cima.",
+            "Cozinha 5 minutos. Vira e termina 2 minutos."
+          ],
+          dica: "A tortilha espanhola mais simples — fria é igualmente deliciosa."
+        },
+        {
+          secao: "🍳 Com Ovos",
+          nome: "Arroz Integral com Atum",
+          img: "../img/bs-capa.png",
+          tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
+          ingredientes: [
+            "200 g de arroz integral",
+            "3 latas de atum ao natural",
+            "1 cenoura, ½ pimento, milho e ervilhas",
+            "Azeite, limão, sal e cebolinho"
+          ],
+          preparo: [
+            "Coze o arroz integral.",
+            "Mistura com os vegetais crus ou ligeiramente salteados.",
+            "Adiciona o atum escorrido.",
+            "Tempera com azeite, limão e cebolinho. Divide em marmitas."
+          ],
+          dica: "Marmita fria ideal para o verão — ótima textura mesmo depois de refrigerada."
+        },
+        {
+          secao: "🍳 Com Ovos",
+          nome: "Risotto de Frango Light",
+          img: "../img/bs-capa.png",
+          tempo: "30 min", doses: "3 marmitas", dificuldade: "Médio",
+          ingredientes: [
+            "150 g de arroz arbóreo",
+            "300 g de frango desfiado",
+            "700 ml de caldo de frango quente",
+            "1 cebola, 50 g de queijo parmesão light, azeite"
+          ],
+          preparo: [
+            "Refoga a cebola com azeite, adiciona o arroz e tosta 1 minuto.",
+            "Adiciona o caldo quente colher a colher, mexendo sempre.",
+            "Quando cremoso, mistura o frango.",
+            "Finaliza com queijo parmesão e serve."
+          ],
+          dica: "O risotto reaquece bem com uma colher de água — adiciona antes de aquecer."
+        }
+      ]
+    },
+    {
       id: "vd",
       nome: "Receitas em Vídeo",
       emoji: "▶️",
