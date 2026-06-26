@@ -2190,7 +2190,7 @@ window.PRATO_CERTO = {
       nome: "Jantares Rápidos",
       emoji: "🍽️",
       subtitulo: "15 jantares prontos em menos de 30 minutos — saborosos e equilibrados.",
-      capa: "../img/ls-capa.png",
+      capa: "",
       pdfDownload: true,
       pdf: "../pdfs/Jantares Rapidos.pdf",
       fichas: [
@@ -2486,7 +2486,7 @@ window.PRATO_CERTO = {
       nome: "Sopas & Cremes",
       emoji: "🥣",
       subtitulo: "15 sopas e cremes reconfortantes — prontos em 30 minutos.",
-      capa: "../img/pa-capa.png",
+      capa: "",
       pdfDownload: true,
       pdf: "../pdfs/Sopas e Cremes.pdf",
       fichas: [
@@ -2780,7 +2780,7 @@ window.PRATO_CERTO = {
       nome: "Doces Saudáveis",
       emoji: "🍰",
       subtitulo: "15 sobremesas saudáveis sem culpa — doces de verdade, feitos em casa.",
-      capa: "../img/ld-capa.png",
+      capa: "",
       pdfDownload: true,
       pdf: "../pdfs/Doces Saudaveis.pdf",
       fichas: [
@@ -3086,7 +3086,7 @@ window.PRATO_CERTO = {
       nome: "Marmitas da Semana",
       emoji: "🥡",
       subtitulo: "15 marmitas completas para preparar ao domingo — come bem toda a semana.",
-      capa: "../img/bs-capa.png",
+      capa: "",
       pdfDownload: true,
       pdf: "../pdfs/Marmitas da Semana.pdf",
       fichas: [

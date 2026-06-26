@@ -57,6 +57,9 @@ main{max-width:600px;margin:0 auto;padding:20px 14px 80px}
 .mod-card .mc-prog .mbar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
 .mod-card .mc-prog .mbar i{display:block;height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .6s}
 .mod-card .mc-prog .mtxt{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
+.mc-emoji-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(145deg,#1e1e1e,#2a2a2a)}
+.mc-emoji-ph .ep-icon{font-size:3rem;line-height:1}
+.mc-emoji-ph .ep-name{font-size:.72rem;font-weight:700;color:rgba(240,231,216,.5);text-align:center;padding:0 8px;letter-spacing:.04em}
 
 /* bónus */
 .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -132,15 +135,17 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   var data=window.PRATO_CERTO;
   var grid=document.getElementById('grid');
   var totalAll=0, doneAll=0;
+  var NEW_IDS=['jr','sc','ds','ms'];
+  var VID_IDS=['vd'];
 
   function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
 
-  data.categorias.forEach(function(cat,idx){
+  function makeCard(cat){
     var n,d,pct,progHtml;
     if(cat.videoList){
       n=cat.videos.length;
       progHtml='<span class="mtxt" style="color:var(--primary)">'+n+' vídeos ▶</span>';
-    } else if(cat.pdfDownload){
+    } else if(cat.pdfDownload && (!cat.fichas||cat.fichas.length===0)){
       n=1; d=localStorage.getItem('pc_pdf_done_'+cat.id)==='true'?1:0; pct=d?100:0;
       totalAll+=1; doneAll+=d;
       progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
@@ -152,18 +157,38 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
       pct=n?Math.round(d/n*100):0;
       progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
     }
-    var img=cat.capa||(cat.fichas[0]?cat.fichas[0].img:'');
+    var imgHtml=cat.capa
+      ?'<img src="'+cat.capa+'" alt="'+cat.nome+'">'
+      :'<div class="mc-emoji-ph"><span class="ep-icon">'+cat.emoji+'</span><span class="ep-name">'+cat.nome+'</span></div>';
     var a=document.createElement('a');
     a.className='mod-card';
     a.href='livro.html?cat='+cat.id;
     a.innerHTML=
-      '<div class="mc-img"><img src="'+img+'" alt="'+cat.nome+'"></div>'+
+      '<div class="mc-img">'+imgHtml+'</div>'+
       '<div class="mc-info">'+
         '<div class="mc-name">'+cat.nome+'</div>'+
         '<div class="mc-prog">'+progHtml+'</div>'+
       '</div>';
     grid.appendChild(a);
-  });
+  }
+
+  function sep(label){
+    var d=document.createElement('div');
+    d.className='mod-sep';
+    d.innerHTML='<span>'+label+'</span>';
+    grid.appendChild(d);
+  }
+
+  // grupo 1 — módulos principais
+  data.categorias.filter(function(c){return VID_IDS.indexOf(c.id)===-1&&NEW_IDS.indexOf(c.id)===-1}).forEach(makeCard);
+
+  // separador + vídeos
+  sep('▶ Receitas em Vídeo');
+  data.categorias.filter(function(c){return VID_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
+
+  // separador + novos módulos
+  sep('✨ Módulos Extra');
+  data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
   var pct=totalAll?Math.round(doneAll/totalAll*100):0;
   document.getElementById('progBadge').textContent=doneAll+' de '+totalAll+' receitas';
