@@ -266,7 +266,7 @@ body{background:
     return;
   }
 
-  if(cat.pdfDownload){
+  if(cat.pdfDownload && (!cat.fichas || cat.fichas.length===0)){
     document.getElementById('navbar').style.display='none';
     book.innerHTML=
       '<div class="page pdf-dl-page">'+
@@ -316,6 +316,7 @@ body{background:
         '<h1 class="serif">'+cat.nome+'</h1>'+
         '<p>'+cat.subtitulo+'</p>'+
         '<p class="sub2">'+total+' receitas · toca num nome para ir direto</p>'+
+        (cat.pdfDownload?'<a class="pdf-dl-btn" style="margin:10px auto 0;display:inline-flex;font-size:.82rem;padding:9px 18px" href="'+cat.pdf+'" download="'+cat.nome+'.pdf" onclick="localStorage.setItem(\'pc_pdf_done_'+cat.id+'\',\'true\')"><span class="btn-icon">⬇️</span> Descarregar PDF</a>':'')+
       '</div>'+
       '<ul class="recipe-list" id="rcList">'+items+'</ul>'+
     '</div>';
