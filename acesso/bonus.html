@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Bónus e Extras — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;--secondary:#5a9a40;--accent-brown:#c8956a;
+  --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;--text:#F0EDE8;--muted:#8A8078;--line:rgba(255,255,255,.08)
+}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Playfair Display',serif}
+
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;
+  padding:14px 18px;background:rgba(12,12,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .back{display:inline-flex;align-items:center;gap:6px;color:var(--text);text-decoration:none;font-weight:600;
+  font-size:.85rem;padding:8px 13px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+header .ttl{flex:1;text-align:center;font-weight:800;color:var(--primary)}
+
+main{max-width:820px;margin:0 auto;padding:24px 18px 80px}
+.intro{text-align:center;padding:18px 6px 6px}
+.intro h1{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--text);line-height:1.15;margin-bottom:10px}
+.intro p{color:var(--muted);max-width:480px;margin:0 auto;line-height:1.6}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px 22px;margin-top:26px;scroll-margin-top:80px}
+.panel-h{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.panel-h .tag{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--primary-vibrant);padding:3px 9px;border-radius:99px}
+.panel-h h2{font-size:1.3rem;color:var(--text)}
+.panel .desc{color:var(--muted);font-size:.9rem;line-height:1.55;margin-bottom:18px}
+
+/* lista de compras */
+.lc-pick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.lc-pick select,.lc-pick button,.lc-add input,.lc-add button{font-family:inherit}
+.lc-pick select{flex:1;min-width:180px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface2);color:var(--text);font-size:.9rem}
+.btn{background:var(--primary);color:#fff;border:none;font-weight:600;font-size:.9rem;padding:11px 18px;border-radius:12px;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--primary-vibrant)}
+.btn.ghost{background:transparent;color:var(--primary);border:1.5px solid var(--primary)}
+.lc-add{display:flex;gap:8px;margin-bottom:16px}
+.lc-add input{flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:12px;font-size:.9rem;background:var(--surface2);color:var(--text)}
+.lc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.lc-list li{display:flex;align-items:center;gap:12px;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;color:var(--text)}
+.lc-list li.have{opacity:.45;text-decoration:line-through}
+.lc-list li .ck{width:22px;height:22px;border-radius:6px;border:2px solid var(--primary);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#fff}
+.lc-list li.have .ck{background:var(--secondary);border-color:var(--secondary)}
+.lc-list li .nm{flex:1;font-size:.92rem}
+.lc-list li .del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem}
+.lc-empty{color:var(--muted);font-size:.9rem;text-align:center;padding:18px}
+.lc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
+.lc-foot small{color:var(--muted)}
+
+/* favoritas */
+.fav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.fav-card{background:var(--surface2);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--text);transition:.2s}
+.fav-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px -14px rgba(228,108,68,.35)}
+.fav-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.fav-card .fc-b{padding:10px 12px}
+.fav-card .fc-b h4{font-size:.88rem;color:var(--text);line-height:1.25}
+.fav-card .fc-b span{font-size:.72rem;color:var(--muted)}
+.fav-empty{text-align:center;color:var(--muted);padding:26px 10px;line-height:1.6}
+
+/* truques */
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.tk-grid{grid-template-columns:1fr}}
+.tk{background:var(--surface2);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tk img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#1a1a1a}
+.tk .tk-ic{font-size:2.4rem;padding:22px 18px 0;line-height:1}
+.tk .tk-b{padding:16px 16px 18px}
+.tk h4{font-size:1.02rem;color:var(--text);margin-bottom:6px}
+.tk p{font-size:.86rem;color:var(--muted);line-height:1.55}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">‹ Área de membros</a>
+  <div class="ttl">🎁 Bónus e extras</div>
+  <span style="width:40px"></span>
+</header>
+
+<main>
+  <div class="intro">
+    <h1 class="serif">Mais do que receitas.</h1>
+    <p>Ferramentas extra para te organizares, poupares tempo e nunca mais ficares sem ideias na cozinha.</p>
+  </div>
+
+  <!-- LISTA DE COMPRAS -->
+  <section class="panel" id="lista">
+    <div class="panel-h"><span class="tag">Bónus</span><h2>🛒 Lista de compras inteligente</h2></div>
+    <p class="desc">Escolhe uma receita e os ingredientes entram na lista automaticamente. Marca o que já tens em casa e fica só com o que falta comprar.</p>
+    <div class="lc-pick">
+      <select id="recSel"></select>
+      <button class="btn" id="addRec">Juntar à lista</button>
+    </div>
+    <div class="lc-add">
+      <input id="manualItem" placeholder="Acrescentar item à mão…" autocomplete="off">
+      <button class="btn ghost" id="addManual">+</button>
+    </div>
+    <ul class="lc-list" id="lcList"></ul>
+    <div class="lc-empty" id="lcEmpty">A tua lista está vazia. Escolhe uma receita acima para começar. 🥕</div>
+    <div class="lc-foot">
+      <small id="lcCount"></small>
+      <button class="btn ghost" id="lcClear">Limpar lista</button>
+    </div>
+  </section>
+
+  <!-- FAVORITAS -->
+  <section class="panel" id="favoritos">
+    <div class="panel-h"><span class="tag">Bónus</span><h2>❤️ As minhas favoritas</h2></div>
+    <p class="desc">As receitas que guardaste enquanto folheavas os livros aparecem aqui.</p>
+    <div class="fav-grid" id="favGrid"></div>
+    <div class="fav-empty" id="favEmpty">Ainda não guardaste favoritas.<br>Abre um livro e toca no coração 🤍 numa receita que gostes.</div>
+  </section>
+
+  <!-- TRUQUES -->
+  <section class="panel" id="truques">
+    <div class="panel-h"><span class="tag">Bónus</span><h2>💡 Truques de meal-prep</h2></div>
+    <p class="desc">O método para deixares a semana resolvida em poucas horas.</p>
+    <div class="tk-grid">
+      <div class="tk"><div class="tk-ic">🍱</div>
+        <div class="tk-b"><h4>O truque 3×3</h4><p>3 proteínas, 3 hidratos e 3 legumes cozinhados ao domingo dão-te dezenas de combinações para a semana inteira.</p></div></div>
+      <div class="tk"><div class="tk-ic">🧊</div>
+        <div class="tk-b"><h4>Armazenamento inteligente</h4><p>Recipientes de vidro, etiquetas com data e a regra "o que entra primeiro, sai primeiro" para nada se estragar.</p></div></div>
+      <div class="tk"><div class="tk-ic">🧾</div>
+        <div class="tk-b"><h4>Compras sem desperdício</h4><p>Vai ao supermercado só com a lista feita a partir das receitas da semana — poupas dinheiro e tempo.</p></div></div>
+      <div class="tk"><div class="tk-ic">🧭</div>
+        <div class="tk-b"><h4>GPS nutricional</h4><p>Monta cada prato com metade de legumes, um quarto de proteína e um quarto de hidratos. Simples e sempre equilibrado.</p></div></div>
+    </div>
+  </section>
+</main>
+
+<script src="fichas.js"></script>
+<script>
+(function(){
+  var data=window.PRATO_CERTO;
+
+  /* ---- LISTA DE COMPRAS ---- */
+  var LC='pc_lista';
+  function load(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return []}}
+  function loadObj(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  var lista=load(LC); // [{nome, have}]
+
+  var sel=document.getElementById('recSel');
+  var opts='<option value="">— escolhe uma receita —</option>';
+  data.categorias.forEach(function(cat){
+    opts+='<optgroup label="'+cat.emoji+' '+cat.nome+'">';
+    cat.fichas.forEach(function(f,i){ opts+='<option value="'+cat.id+'|'+i+'">'+f.nome+'</option>'; });
+    opts+='</optgroup>';
+  });
+  sel.innerHTML=opts;
+
+  function findFicha(cid,i){var c=data.categorias.filter(function(x){return x.id===cid})[0];return c?c.fichas[i]:null;}
+
+  function renderLista(){
+    var ul=document.getElementById('lcList');
+    document.getElementById('lcEmpty').style.display=lista.length?'none':'block';
+    ul.innerHTML=lista.map(function(it,i){
+      return '<li class="'+(it.have?'have':'')+'" data-i="'+i+'">'+
+        '<span class="ck">'+(it.have?'✓':'')+'</span>'+
+        '<span class="nm">'+it.nome+'</span>'+
+        '<button class="del" title="Remover">×</button></li>';
+    }).join('');
+    var falta=lista.filter(function(x){return !x.have}).length;
+    document.getElementById('lcCount').textContent=lista.length?(falta+' por comprar · '+lista.length+' no total'):'';
+    Array.prototype.forEach.call(ul.querySelectorAll('li'),function(li){
+      var i=+li.dataset.i;
+      li.querySelector('.ck').onclick=function(){lista[i].have=!lista[i].have;save(LC,lista);renderLista();};
+      li.querySelector('.nm').onclick=function(){lista[i].have=!lista[i].have;save(LC,lista);renderLista();};
+      li.querySelector('.del').onclick=function(){lista.splice(i,1);save(LC,lista);renderLista();};
+    });
+  }
+  function addItem(nome){
+    nome=(nome||'').trim(); if(!nome)return;
+    if(lista.some(function(x){return x.nome.toLowerCase()===nome.toLowerCase()}))return;
+    lista.push({nome:nome,have:false});
+  }
+  document.getElementById('addRec').onclick=function(){
+    var v=sel.value; if(!v)return;
+    var p=v.split('|'); var f=findFicha(p[0],+p[1]); if(!f)return;
+    f.ingredientes.forEach(addItem); save(LC,lista); renderLista();
+  };
+  document.getElementById('addManual').onclick=function(){
+    var inp=document.getElementById('manualItem'); addItem(inp.value); inp.value=''; save(LC,lista); renderLista();
+  };
+  document.getElementById('manualItem').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){document.getElementById('addManual').click();}
+  });
+  document.getElementById('lcClear').onclick=function(){
+    if(!lista.length)return; lista=[]; save(LC,lista); renderLista();
+  };
+  renderLista();
+
+  /* ---- FAVORITAS ---- */
+  var fav=loadObj('pc_fav');
+  var keys=Object.keys(fav).filter(function(k){return fav[k]});
+  var grid=document.getElementById('favGrid');
+  if(!keys.length){document.getElementById('favEmpty').style.display='block';}
+  else{
+    document.getElementById('favEmpty').style.display='none';
+    grid.innerHTML=keys.map(function(k){
+      var dash=k.lastIndexOf('-'); var cid=k.slice(0,dash), i=+k.slice(dash+1);
+      var cat=data.categorias.filter(function(x){return x.id===cid})[0]; if(!cat)return '';
+      var f=cat.fichas[i]; if(!f)return '';
+      return '<a class="fav-card" href="livro.html?cat='+cid+'&f='+(i+1)+'">'+
+        '<img src="'+f.img+'" alt="'+f.nome+'">'+
+        '<div class="fc-b"><h4>'+f.nome+'</h4><span>'+cat.emoji+' '+cat.nome+'</span></div></a>';
+    }).join('');
+  }
+})();
+</script>
+</body>
+</html>

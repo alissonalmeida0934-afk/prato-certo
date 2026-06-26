@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Livro de Receitas — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;--secondary:#3D5723;--accent-brown:#86592D;
+  --background:#F7F5ED;--surface:#FAF9F5;--text:#231E1A;--muted:#7A726A;
+  --paper:#FBF8F0;--line:rgba(134,89,45,.16);--shadow:rgba(60,40,20,.18);
+}
+body{font-family:'Rubik',sans-serif;background:#2c2117;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+body{background:
+  radial-gradient(1000px 500px at 50% -5%, rgba(228,108,68,.12), transparent 55%),
+  #0c0c0c;}
+
+/* topo */
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;
+  padding:12px 16px;background:rgba(12,12,12,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.topbar .back{display:inline-flex;align-items:center;gap:6px;color:#F0E7D8;text-decoration:none;
+  font-size:.85rem;font-weight:600;padding:8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.14)}
+.topbar .back:hover{background:rgba(255,255,255,.08)}
+.topbar .title{flex:1;text-align:center;color:#F7F1E6;font-weight:700;font-size:.95rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar .tools{display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);color:#F0E7D8;font-size:1.05rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.2s}
+.icon-btn:hover{background:rgba(255,255,255,.12)}
+
+/* palco do livro */
+.stage{display:flex;align-items:center;justify-content:center;padding:24px 14px 110px;min-height:calc(100vh - 64px)}
+.book{position:relative;width:min(760px,100%);}
+.page{background:var(--paper);border-radius:18px;overflow:hidden;
+  box-shadow:0 20px 50px -12px var(--shadow), 0 2px 0 rgba(255,255,255,.5) inset;
+  border:1px solid var(--line);position:relative}
+.page::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;
+  background:linear-gradient(90deg,rgba(134,89,45,.16),transparent);pointer-events:none;z-index:2}
+.page.turning{animation:flip .45s ease}
+@keyframes flip{0%{transform:perspective(1400px) rotateY(0);opacity:1}
+  45%{transform:perspective(1400px) rotateY(-12deg);opacity:.55}
+  100%{transform:perspective(1400px) rotateY(0);opacity:1}}
+
+/* SUMÁRIO / CAPA */
+.capa-hero{width:100%;display:block;max-height:72vh;object-fit:contain;background:#faf3e8}
+.cover-toc{padding:28px 22px 36px}
+.cover-toc .ctop{text-align:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.cover-toc .ctop .cem{font-size:2.8rem;line-height:1;margin-bottom:10px}
+.cover-toc .ctop h1{font-size:clamp(1.5rem,5vw,2.1rem);color:var(--secondary);line-height:1.15;margin-bottom:8px}
+.cover-toc .ctop p{color:var(--muted);font-size:.9rem;line-height:1.5}
+.cover-toc .ctop .sub2{margin-top:6px;font-size:.78rem;color:var(--primary);font-weight:600}
+.recipe-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.recipe-list li button{width:100%;display:flex;align-items:center;gap:11px;background:#fff;
+  border:1px solid var(--line);border-radius:12px;padding:10px 13px;cursor:pointer;
+  font-family:inherit;text-align:left;transition:.15s}
+.recipe-list li button:hover{border-color:var(--primary);background:rgba(228,108,68,.04)}
+.rnum{width:28px;height:28px;border-radius:7px;background:rgba(228,108,68,.12);color:var(--primary);
+  font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rname{flex:1;font-size:.9rem;font-weight:500;color:var(--text)}
+.rmark{font-size:.95rem}
+
+/* FICHA */
+.ficha{display:grid;grid-template-columns:1fr;}
+.ficha .photo{position:relative;aspect-ratio:16/11;background:#efe7d6;overflow:hidden}
+.ficha .photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.ficha .photo .cat-tab{position:absolute;top:14px;left:14px;background:rgba(35,30,26,.78);color:#fff;
+  font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:99px;backdrop-filter:blur(4px)}
+.ficha .photo .fav{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;
+  border:none;background:rgba(255,255,255,.92);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.ficha .body{padding:24px 26px 30px}
+.ficha h2{font-size:clamp(1.3rem,4.5vw,1.7rem);line-height:1.2;color:var(--secondary);margin-bottom:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:500;color:var(--accent-brown);
+  background:rgba(134,89,45,.09);padding:6px 12px;border-radius:99px}
+.cols{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:560px){.cols{grid-template-columns:.85fr 1.15fr;gap:30px}}
+.block h3{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+  font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ing{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ing li{position:relative;padding-left:22px;font-size:.95rem;line-height:1.45}
+.ing li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;
+  background:var(--primary-vibrant)}
+.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:14px}
+.steps li{position:relative;padding-left:40px;font-size:.96rem;line-height:1.5;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;
+  background:var(--secondary);color:#fff;font-size:.85rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.dica{margin-top:24px;background:linear-gradient(180deg,rgba(253,134,14,.1),rgba(253,134,14,.05));
+  border:1px solid rgba(253,134,14,.25);border-radius:14px;padding:16px 18px;font-size:.92rem;line-height:1.5}
+.dica strong{color:var(--primary)}
+.done-row{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.done-btn{flex:1;min-width:160px;border:1.5px solid var(--secondary);background:transparent;color:var(--secondary);
+  font-family:inherit;font-weight:600;font-size:.92rem;padding:12px;border-radius:12px;cursor:pointer;transition:.2s}
+.done-btn.is-done{background:var(--secondary);color:#fff}
+.done-btn:hover{filter:brightness(1.05)}
+
+/* navegação inferior */
+.navbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:14px;
+  justify-content:center;padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+  background:linear-gradient(0deg,rgba(12,12,12,.97),rgba(12,12,12,.75));backdrop-filter:blur(8px)}
+.nav-btn{width:54px;height:54px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:1.4rem;
+  cursor:pointer;box-shadow:0 8px 20px -6px rgba(228,108,68,.7);display:flex;align-items:center;justify-content:center;transition:.2s}
+.nav-btn:hover{background:var(--primary-vibrant)}
+.nav-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+.pageno{color:#F0E7D8;font-size:.85rem;font-weight:600;min-width:96px;text-align:center}
+.pagedots{display:flex;gap:5px;margin-top:2px;justify-content:center;flex-wrap:wrap;max-width:200px}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dot.on{background:var(--primary-vibrant)}
+.dot.read{background:rgba(122,164,90,.9)}
+
+/* índice (modal) */
+.sheet{position:fixed;inset:0;z-index:40;background:rgba(20,14,9,.6);backdrop-filter:blur(4px);
+  display:none;align-items:flex-end;justify-content:center}
+.sheet.open{display:flex}
+.sheet-inner{background:var(--surface);width:min(600px,100%);max-height:80vh;overflow:auto;
+  border-radius:22px 22px 0 0;padding:22px 18px 30px}
+.sheet h3{font-size:1.1rem;color:var(--secondary);margin-bottom:4px}
+.sheet .sub{font-size:.82rem;color:var(--muted);margin-bottom:16px}
+.toc{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc li button{width:100%;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:10px 12px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s}
+.toc li button:hover{border-color:var(--primary)}
+.toc .tnum{width:30px;height:30px;border-radius:8px;background:rgba(228,108,68,.12);color:var(--primary);
+  font-weight:700;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc .tname{flex:1;font-size:.92rem;font-weight:500;color:var(--text)}
+.toc .tmark{font-size:1rem}
+.sheet-close{margin-top:16px;width:100%;background:var(--secondary);color:#fff;border:none;font-family:inherit;
+  font-weight:600;padding:13px;border-radius:12px;cursor:pointer}
+.err{color:#fff;text-align:center;padding:60px 20px}
+.err a{color:var(--primary-vibrant)}
+
+/* página de vídeos */
+.vid-page{padding:0 0 40px}
+.vid-page .vp-cover{width:100%;max-height:52vw;object-fit:cover;display:block}
+.vid-page .vp-head{padding:20px 20px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.vid-page .vp-head h2{font-size:1.2rem;color:#F0EDE8}
+.vid-page .vp-head p{font-size:.85rem;color:var(--muted);margin-top:4px}
+.vid-item{border-bottom:1px solid rgba(255,255,255,.07)}
+.vid-item .vi-title{display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;cursor:pointer;gap:12px;-webkit-tap-highlight-color:transparent}
+.vid-item .vi-title:hover{background:rgba(255,255,255,.04)}
+.vi-num{font-size:.72rem;font-weight:700;color:var(--primary);min-width:22px}
+.vi-name{flex:1;font-size:.95rem;font-weight:600;color:#F0EDE8;line-height:1.3}
+.vi-arrow{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.vid-item.open .vi-arrow{transform:rotate(180deg)}
+.vi-player{display:none;padding:0 0 12px}
+.vi-player.show{display:block}
+.vi-frame-wrap{position:relative;padding-bottom:56.25%;background:#000}
+.vi-frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* página de download PDF */
+.pdf-dl-page{padding:36px 26px 40px;display:flex;flex-direction:column;align-items:center;gap:0;text-align:center}
+.pdf-dl-page .pd-cover{width:100%;max-height:46vh;object-fit:cover;object-position:center;display:block;border-radius:12px 12px 0 0;margin:-0px}
+.pdf-dl-page .pd-body{padding:28px 24px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;width:100%}
+.pdf-dl-page .pd-emoji{font-size:2.4rem;line-height:1}
+.pdf-dl-page h2{font-size:clamp(1.3rem,4.5vw,1.8rem);color:var(--secondary);line-height:1.2}
+.pdf-dl-page .pd-sub{font-size:.95rem;color:var(--muted);line-height:1.55;max-width:420px}
+.pdf-dl-btn{display:inline-flex;align-items:center;gap:10px;margin-top:10px;
+  background:var(--primary);color:#fff;font-family:inherit;font-weight:700;font-size:1.05rem;
+  padding:15px 32px;border-radius:14px;text-decoration:none;border:none;cursor:pointer;
+  box-shadow:0 8px 24px -8px rgba(228,108,68,.65);transition:.2s}
+.pdf-dl-btn:hover{background:var(--primary-vibrant);transform:translateY(-2px)}
+.pdf-dl-btn .btn-icon{font-size:1.2rem}
+.pdf-dl-note{font-size:.8rem;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="index.html">‹ Área de membros</a>
+  <div class="title" id="bookTitle">Prato Certo</div>
+  <div class="tools">
+    <button class="icon-btn" id="tocBtn" title="Índice">☰</button>
+    <button class="icon-btn" id="fsBtn" title="Ecrã cheio">⛶</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="book" id="book"></div>
+</div>
+
+<div class="navbar" id="navbar" style="display:none">
+  <button class="nav-btn" id="prev" title="Anterior">‹</button>
+  <div>
+    <div class="pageno" id="pageno">Sumário</div>
+    <div class="pagedots" id="dots"></div>
+  </div>
+  <button class="nav-btn" id="next" title="Seguinte">›</button>
+</div>
+
+<div class="sheet" id="sheet">
+  <div class="sheet-inner">
+    <h3 id="tocTitle">Índice</h3>
+    <div class="sub" id="tocSub"></div>
+    <ul class="toc" id="toc"></ul>
+    <button class="sheet-close" id="tocClose">Fechar</button>
+  </div>
+</div>
+
+<script src="fichas.js"></script>
+<script>
+(function(){
+  var params=new URLSearchParams(location.search);
+  var catId=params.get('cat')||'pa';
+  var data=window.PRATO_CERTO;
+  var cat=data&&data.categorias.filter(function(c){return c.id===catId})[0];
+  var book=document.getElementById('book');
+
+  if(!cat){
+    document.getElementById('navbar').style.display='none';
+    book.innerHTML='<div class="err"><h2 class="serif">Categoria não encontrada</h2>'+
+      '<p style="margin-top:10px"><a href="index.html">Voltar à área de membros</a></p></div>';
+    return;
+  }
+
+  document.getElementById('bookTitle').textContent=cat.nome;
+
+  if(cat.videoList){
+    document.getElementById('navbar').style.display='none';
+    var vhtml='<div class="vid-page">'+
+      '<img class="vp-cover" src="'+cat.capa+'" alt="'+cat.nome+'">'+
+      '<div class="vp-head">'+
+        '<h2 class="serif">'+cat.nome+'</h2>'+
+        '<p>'+cat.subtitulo+'</p>'+
+      '</div>';
+    cat.videos.forEach(function(v,i){
+      vhtml+='<div class="vid-item" id="vi'+i+'">'+
+        '<div class="vi-title" onclick="toggleVid('+i+',\''+v.id+'\')">'+
+          '<span class="vi-num">'+String(i+1).padStart(2,'0')+'</span>'+
+          '<span class="vi-name">'+v.titulo+'</span>'+
+          '<span class="vi-arrow">▼</span>'+
+        '</div>'+
+        '<div class="vi-player" id="vp'+i+'">'+
+          '<div class="vi-frame-wrap" id="vf'+i+'"></div>'+
+        '</div>'+
+      '</div>';
+    });
+    vhtml+='</div>';
+    book.innerHTML=vhtml;
+
+    window.toggleVid=function(i,ytId){
+      var item=document.getElementById('vi'+i);
+      var player=document.getElementById('vp'+i);
+      var frame=document.getElementById('vf'+i);
+      var isOpen=item.classList.contains('open');
+      // close all
+      cat.videos.forEach(function(_,j){
+        document.getElementById('vi'+j).classList.remove('open');
+        document.getElementById('vp'+j).classList.remove('show');
+        document.getElementById('vf'+j).innerHTML=''; // remove iframe to pause
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        player.classList.add('show');
+        frame.innerHTML='<iframe src="https://www.youtube.com/embed/'+ytId+'?autoplay=1" allow="autoplay;fullscreen" allowfullscreen></iframe>';
+        setTimeout(function(){item.scrollIntoView({behavior:'smooth',block:'start'})},120);
+      }
+    };
+    return;
+  }
+
+  if(cat.pdfDownload){
+    document.getElementById('navbar').style.display='none';
+    book.innerHTML=
+      '<div class="page pdf-dl-page">'+
+        '<img class="pd-cover" src="'+cat.capa+'" alt="'+cat.nome+'">'+
+        '<div class="pd-body">'+
+          '<div class="pd-emoji">'+cat.emoji+'</div>'+
+          '<h2 class="serif">'+cat.nome+'</h2>'+
+          '<p class="pd-sub">'+cat.subtitulo+'</p>'+
+          '<a class="pdf-dl-btn" href="'+cat.pdf+'" download="'+cat.nome+'.pdf" onclick="localStorage.setItem(\'pc_pdf_done_'+cat.id+'\',\'true\')">'+
+            '<span class="btn-icon">⬇️</span> Descarregar PDF'+
+          '</a>'+
+          '<p class="pdf-dl-note">Guarda no telemóvel ou imprime para teres sempre à mão.</p>'+
+        '</div>'+
+      '</div>';
+    return;
+  }
+
+  var fichas=cat.fichas;
+  var total=fichas.length;
+  var idx=0; // 0 = sumário; 1..total = fichas
+  var fParam=parseInt(params.get('f'),10);
+  if(fParam>=1&&fParam<=total)idx=fParam;
+
+  var DONE='pc_done_'+catId, FAV='pc_fav';
+  function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  var done=load(DONE), fav=load(FAV);
+  function favKey(i){return catId+'-'+i}
+
+  function chip(ic,t){return '<span class="chip">'+ic+' '+t+'</span>'}
+
+  function renderCover(){
+    var items='';
+    for(var i=0;i<total;i++){
+      var isDone=!!done[i];
+      var isFav=!!fav[favKey(i)];
+      var mark=isDone?'✓':isFav?'❤️':'';
+      items+='<li><button data-i="'+(i+1)+'">'+
+        '<span class="rnum">'+(i+1)+'</span>'+
+        '<span class="rname">'+fichas[i].nome+'</span>'+
+        (mark?'<span class="rmark">'+mark+'</span>':'')+
+        '</button></li>';
+    }
+    return '<div class="page cover-toc">'+
+      '<div class="ctop">'+
+        '<div class="cem">'+cat.emoji+'</div>'+
+        '<h1 class="serif">'+cat.nome+'</h1>'+
+        '<p>'+cat.subtitulo+'</p>'+
+        '<p class="sub2">'+total+' receitas · toca num nome para ir direto</p>'+
+      '</div>'+
+      '<ul class="recipe-list" id="rcList">'+items+'</ul>'+
+    '</div>';
+  }
+
+  function renderFicha(i){
+    var f=fichas[i];
+    var isDone=!!done[i];
+    var isFav=!!fav[favKey(i)];
+    return '<div class="page"><div class="ficha">'+
+      '<div class="photo">'+
+        '<span class="cat-tab">'+cat.emoji+' '+cat.nome+'</span>'+
+        '<button class="fav" id="favBtn" title="Guardar nos favoritos">'+(isFav?'❤️':'🤍')+'</button>'+
+        '<img src="'+f.img+'" alt="'+f.nome+'" loading="lazy" style="object-position:'+(f.imgPos||'top')+'">'+
+      '</div>'+
+      '<div class="body">'+
+        '<h2>'+f.nome+'</h2>'+
+        '<div class="meta">'+chip('⏱️',f.tempo)+chip('🍽️',f.doses)+chip('📊',f.dificuldade)+'</div>'+
+        '<div class="cols">'+
+          '<div class="block"><h3>🧺 Ingredientes</h3><ul class="ing"><li>'+f.ingredientes.join('</li><li>')+'</li></ul></div>'+
+          '<div class="block"><h3>👩‍🍳 Modo de preparação</h3><ol class="steps"><li>'+f.preparo.join('</li><li>')+'</li></ol></div>'+
+        '</div>'+
+        '<div class="dica"><strong>💡 Dica da Fernanda:</strong> '+f.dica+'</div>'+
+        '<div class="done-row">'+
+          '<button class="done-btn'+(isDone?' is-done':'')+'" id="doneBtn">'+(isDone?'✓ Receita feita':'Marcar como feita')+'</button>'+
+        '</div>'+
+      '</div>'+
+    '</div></div>';
+  }
+
+  function render(){
+    if(idx===0){
+      book.innerHTML=renderCover();
+      Array.prototype.forEach.call(document.querySelectorAll('#rcList button'),function(b){
+        b.onclick=function(){go(parseInt(b.dataset.i,10));};
+      });
+    } else {
+      book.innerHTML=renderFicha(idx-1);
+      var page=book.querySelector('.page'); page.classList.add('turning');
+      setTimeout(function(){page.classList.remove('turning')},460);
+      document.getElementById('doneBtn').onclick=function(){
+        var i=idx-1; done[i]=!done[i]; save(DONE,done); render(); updateNav();
+      };
+      document.getElementById('favBtn').onclick=function(){
+        var i=idx-1, k=favKey(i); fav[k]=!fav[k]; save(FAV,fav); render();
+      };
+    }
+    updateNav();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function updateNav(){
+    document.getElementById('navbar').style.display='flex';
+    document.getElementById('prev').disabled=(idx===0);
+    document.getElementById('next').disabled=(idx===total);
+    document.getElementById('pageno').textContent= idx===0?'Sumário':('Ficha '+idx+' de '+total);
+    var dots='';
+    for(var i=1;i<=total;i++){
+      var cls='dot'+(i===idx?' on':'')+(done[i-1]?' read':'');
+      dots+='<span class="'+cls+'"></span>';
+    }
+    document.getElementById('dots').innerHTML=dots;
+  }
+
+  function go(n){ if(n<0||n>total)return; idx=n; render(); }
+  document.getElementById('prev').onclick=function(){go(idx-1)};
+  document.getElementById('next').onclick=function(){go(idx+1)};
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')go(idx+1);
+    if(e.key==='ArrowLeft')go(idx-1);
+    if(e.key==='Escape')closeToc();
+  });
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return; var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>55){ dx<0?go(idx+1):go(idx-1); } x0=null;
+  },{passive:true});
+
+  var sheet=document.getElementById('sheet');
+  function openToc(){
+    document.getElementById('tocTitle').textContent='Índice · '+cat.nome;
+    var d=Object.keys(done).filter(function(k){return done[k]}).length;
+    document.getElementById('tocSub').textContent=d+' de '+total+' receitas feitas';
+    var html='';
+    for(var i=0;i<total;i++){
+      var mark=done[i]?'✓':(fav[favKey(i)]?'❤️':'');
+      html+='<li><button data-i="'+(i+1)+'"><span class="tnum">'+(i+1)+'</span>'+
+        '<span class="tname">'+fichas[i].nome+'</span><span class="tmark">'+mark+'</span></button></li>';
+    }
+    document.getElementById('toc').innerHTML=html;
+    Array.prototype.forEach.call(document.querySelectorAll('#toc button'),function(b){
+      b.onclick=function(){go(parseInt(b.dataset.i,10));closeToc();};
+    });
+    sheet.classList.add('open');
+  }
+  function closeToc(){sheet.classList.remove('open')}
+  document.getElementById('tocBtn').onclick=openToc;
+  document.getElementById('tocClose').onclick=closeToc;
+  sheet.onclick=function(e){if(e.target===sheet)closeToc()};
+
+  document.getElementById('fsBtn').onclick=function(){
+    if(!document.fullscreenElement){ (document.documentElement.requestFullscreen||function(){})(); }
+    else{ (document.exitFullscreen||function(){})(); }
+  };
+
+  render();
+})();
+</script>
+</body>
+</html>

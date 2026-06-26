@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Área de Membros — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;--secondary:#5a9a40;--accent-brown:#c8956a;
+  --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;--text:#F0EDE8;--muted:#8A8078;--line:rgba(255,255,255,.08);
+}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Playfair Display',serif}
+
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;background:rgba(12,12,12,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--primary);font-size:1rem}
+header .brand .logo{width:32px;height:32px;border-radius:8px;object-fit:cover}
+.prog-badge{font-size:.72rem;color:var(--accent-brown);border:1px solid var(--line);padding:5px 12px;border-radius:99px;font-weight:600;background:rgba(255,255,255,.04)}
+
+/* boas-vindas compacto */
+.welcome-bar{padding:22px 18px 6px;text-align:center}
+.welcome-bar .hello{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:8px}
+.welcome-bar h1{font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.15;color:var(--text)}
+.prog-row{max-width:340px;margin:18px auto 0;display:flex;align-items:center;gap:12px}
+.prog-row .bar{flex:1;height:7px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.prog-row .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--primary-vibrant));transition:width .7s ease}
+.prog-row .pct{font-size:.78rem;color:var(--muted);font-weight:600;white-space:nowrap}
+
+main{max-width:600px;margin:0 auto;padding:20px 14px 80px}
+
+/* cabeçalho de secção */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;padding:20px 4px 12px}
+.sec-head h2{font-size:1.05rem;font-weight:700;color:var(--text)}
+.sec-head .see{font-size:.82rem;color:var(--primary);font-weight:600;text-decoration:none}
+.sec-head .see:hover{text-decoration:underline}
+
+/* grelha de módulos — 2 colunas */
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod-sep{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:10px 0 4px}
+.mod-sep::before,.mod-sep::after{content:'';flex:1;height:1px;background:var(--line)}
+.mod-sep span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+.mod-card{border-radius:14px;overflow:hidden;text-decoration:none;color:var(--text);
+  background:var(--surface);display:flex;flex-direction:column;transition:.2s}
+.mod-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px -10px rgba(228,108,68,.3)}
+.mod-card .mc-img{position:relative;aspect-ratio:2/3;overflow:hidden;background:#1a1a1a}
+.mod-card .mc-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:.35s}
+.mod-card:hover .mc-img img{transform:scale(1.04)}
+.mod-card .mc-info{padding:10px 12px 12px}
+.mod-card .mc-name{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.2}
+.mod-card .mc-prog{display:flex;align-items:center;gap:7px}
+.mod-card .mc-prog .mbar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
+.mod-card .mc-prog .mbar i{display:block;height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .6s}
+.mod-card .mc-prog .mtxt{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
+
+/* bónus */
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:420px){.bonus-grid{grid-template-columns:1fr}}
+.bcard{background:var(--surface);border:1px dashed rgba(228,108,68,.3);border-radius:14px;padding:16px 14px;
+  text-decoration:none;color:var(--text);transition:.2s;display:flex;flex-direction:column;gap:7px}
+.bcard:hover{background:var(--surface2);border-color:var(--primary);border-style:solid;transform:translateY(-2px)}
+.bcard .btag{align-self:flex-start;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--primary-vibrant);padding:2px 8px;border-radius:99px}
+.bcard .bi{font-size:1.5rem}
+.bcard h4{font-size:.88rem;color:var(--text);line-height:1.3}
+.bcard p{font-size:.76rem;color:var(--muted);line-height:1.45}
+
+
+footer{text-align:center;padding:28px 18px;border-top:1px solid var(--line);margin-top:10px}
+footer p{font-size:.76rem;color:var(--muted)}
+footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#25D366;color:#fff;
+  text-decoration:none;font-weight:600;font-size:.84rem;padding:10px 18px;border-radius:99px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><img class="logo" src="../img/logo-prato-certo.jpg" alt="Prato Certo">Prato Certo</div>
+  <div class="prog-badge" id="progBadge">0 de 0 receitas</div>
+</header>
+
+<div class="welcome-bar">
+  <div class="hello">Bem-vindo(a) à tua área de membros</div>
+  <h1 class="serif">A tua cozinha saudável,<br>num só lugar.</h1>
+  <div class="prog-row">
+    <div class="bar"><i id="progBar"></i></div>
+    <span class="pct" id="progPct">0%</span>
+  </div>
+</div>
+
+<main>
+  <div class="sec-head">
+    <h2>📚 Os teus livros</h2>
+  </div>
+  <div class="mod-grid" id="grid"></div>
+
+  <div class="sec-head" style="margin-top:14px">
+    <h2>🎁 Bónus e extras</h2>
+  </div>
+  <div class="bonus-grid">
+    <a class="bcard" href="bonus.html#lista">
+      <span class="btag">Bónus</span><div class="bi">🛒</div>
+      <h4>Lista de compras</h4>
+      <p>Monta a lista da semana automaticamente.</p>
+    </a>
+    <a class="bcard" href="bonus.html#favoritos">
+      <span class="btag">Bónus</span><div class="bi">❤️</div>
+      <h4>As minhas favoritas</h4>
+      <p>Todas as receitas que guardaste.</p>
+    </a>
+    <a class="bcard" href="bonus.html#truques">
+      <span class="btag">Bónus</span><div class="bi">💡</div>
+      <h4>Meal-prep</h4>
+      <p>Organiza a semana em 2 horas.</p>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>Prato Certo · A tua transformação começa no prato.</p>
+  <a class="wa" href="#" id="waBtn">💬 Falar com a equipa</a>
+</footer>
+
+<script src="fichas.js"></script>
+<script>
+(function(){
+  var data=window.PRATO_CERTO;
+  var grid=document.getElementById('grid');
+  var totalAll=0, doneAll=0;
+
+  function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
+
+  data.categorias.forEach(function(cat,idx){
+    var n,d,pct,progHtml;
+    if(cat.videoList){
+      n=cat.videos.length;
+      progHtml='<span class="mtxt" style="color:var(--primary)">'+n+' vídeos ▶</span>';
+    } else if(cat.pdfDownload){
+      n=1; d=localStorage.getItem('pc_pdf_done_'+cat.id)==='true'?1:0; pct=d?100:0;
+      totalAll+=1; doneAll+=d;
+      progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
+    } else {
+      var done=load('pc_done_'+cat.id);
+      n=cat.fichas.length;
+      d=Object.keys(done).filter(function(k){return done[k]}).length;
+      totalAll+=n; doneAll+=d;
+      pct=n?Math.round(d/n*100):0;
+      progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
+    }
+    var img=cat.capa||(cat.fichas[0]?cat.fichas[0].img:'');
+    var a=document.createElement('a');
+    a.className='mod-card';
+    a.href='livro.html?cat='+cat.id;
+    a.innerHTML=
+      '<div class="mc-img"><img src="'+img+'" alt="'+cat.nome+'"></div>'+
+      '<div class="mc-info">'+
+        '<div class="mc-name">'+cat.nome+'</div>'+
+        '<div class="mc-prog">'+progHtml+'</div>'+
+      '</div>';
+    grid.appendChild(a);
+  });
+
+  var pct=totalAll?Math.round(doneAll/totalAll*100):0;
+  document.getElementById('progBadge').textContent=doneAll+' de '+totalAll+' receitas';
+  document.getElementById('progPct').textContent=pct+'%';
+  setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
+})();
+</script>
+</body>
+</html>
