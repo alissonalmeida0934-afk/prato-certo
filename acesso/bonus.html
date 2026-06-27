@@ -2,7 +2,16 @@
 <html lang="pt-PT">
 <head>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>document.documentElement.style.visibility='hidden';netlifyIdentity.on('init',function(u){if(!u){window.location.replace('/login.html');}else{document.documentElement.style.visibility='';}});</script>
+<script>
+(function(){
+  var L='/login.html';
+  function show(){document.documentElement.style.visibility='';}
+  function guard(u){if(!u){window.location.replace(L);}else{show();}}
+  if(localStorage.getItem('gotrue.user')){show();}else{document.documentElement.style.visibility='hidden';}
+  netlifyIdentity.on('init',guard);
+  window.addEventListener('pageshow',function(e){if(e.persisted){var u=netlifyIdentity.currentUser();guard(u);}});
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Bónus e Extras — Prato Certo</title>

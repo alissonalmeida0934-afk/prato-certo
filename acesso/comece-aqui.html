@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+(function(){
+  var L='/login.html';
+  function show(){document.documentElement.style.visibility='';}
+  function guard(u){if(!u){window.location.replace(L);}else{show();}}
+  if(localStorage.getItem('gotrue.user')){show();}else{document.documentElement.style.visibility='hidden';}
+  netlifyIdentity.on('init',guard);
+  window.addEventListener('pageshow',function(e){if(e.persisted){var u=netlifyIdentity.currentUser();guard(u);}});
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Comece Aqui — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;
+  --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;
+  --text:#F0EDE8;--muted:#8A8078;--line:rgba(255,255,255,.08)
+}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;
+  padding:14px 18px;background:rgba(12,12,12,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .back{display:inline-flex;align-items:center;gap:6px;color:var(--text);text-decoration:none;
+  font-weight:600;font-size:.85rem;padding:8px 13px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+header .ttl{flex:1;text-align:center;font-weight:800;color:var(--primary);font-size:.95rem}
+
+main{max-width:680px;margin:0 auto;padding:24px 18px 80px}
+
+.intro{text-align:center;padding:10px 6px 28px}
+.intro .badge{display:inline-block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:#fff;background:var(--primary);padding:3px 12px;border-radius:99px;margin-bottom:14px}
+.intro h1{font-size:clamp(1.6rem,5vw,2.2rem);color:var(--text);line-height:1.15;margin-bottom:10px}
+.intro p{color:var(--muted);font-size:.9rem;line-height:1.6;max-width:440px;margin:0 auto}
+
+.vid-section{margin-bottom:28px}
+.vid-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.vid-label .num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;
+  font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vid-label h2{font-size:1rem;font-weight:700;color:var(--text)}
+
+.vid-player{border-radius:14px;overflow:hidden;background:#000;position:relative;width:100%;aspect-ratio:16/9}
+.vid-player iframe,.vid-player video{width:100%;height:100%;border:none;display:block}
+.vid-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:12px;background:var(--surface2);border:1px solid var(--line);border-radius:14px}
+.vid-placeholder .ph-icon{font-size:3rem}
+.vid-placeholder p{color:var(--muted);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">‹ Área de membros</a>
+  <div class="ttl">🚀 Comece Aqui</div>
+  <span style="width:80px"></span>
+</header>
+
+<main>
+  <div class="intro">
+    <div class="badge">Começa aqui</div>
+    <h1>Bem-vindo(a) ao<br>Prato Certo!</h1>
+    <p>Vê os vídeos abaixo para instalares a aplicação e começares a usar a tua área de membros.</p>
+  </div>
+
+  <!-- Vídeo 1 — iOS -->
+  <div class="vid-section">
+    <div class="vid-label">
+      <div class="num">1</div>
+      <h2>Como instalar a aplicação no iOS 🍎</h2>
+    </div>
+    <div class="vid-player" id="vid-ios">
+      <iframe src="https://drive.google.com/file/d/1sUiwVVL42NCUtMMtPYxeWI57R1BYWVRV/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Vídeo 2 — Android -->
+  <div class="vid-section">
+    <div class="vid-label">
+      <div class="num">2</div>
+      <h2>Como instalar a aplicação no Android 🤖</h2>
+    </div>
+    <div class="vid-player" id="vid-android">
+      <iframe src="https://drive.google.com/file/d/1BL68cfLPAuSI91ygXpi63xa1uh0z86oD/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
