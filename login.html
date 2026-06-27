@@ -28,15 +28,18 @@ p{color:#8A8078;font-size:.9rem;line-height:1.5;margin-bottom:32px}
   <p class="note">Problemas? Contacta o suporte.</p>
 </div>
 <script>
+var acesso = window.location.hostname.includes('netlify.app')
+  ? 'https://prato-certo.pages.dev/acesso/'
+  : '/acesso/';
 netlifyIdentity.on('init', function(user) {
-  if (user) { window.location.replace('/acesso/'); }
+  if (user) { window.location.replace(acesso); }
   var h = window.location.hash;
   if (h.includes('invite_token') || h.includes('recovery_token') || h.includes('confirmation_token')) {
     netlifyIdentity.open();
   }
 });
 netlifyIdentity.on('login', function() {
-  window.location.replace('/acesso/');
+  window.location.replace(acesso);
 });
 document.getElementById('loginBtn').onclick = function() {
   netlifyIdentity.open('login');
