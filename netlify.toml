@@ -1,2 +1,12 @@
 [functions]
   directory = "netlify/functions"
+
+[[redirects]]
+  from = "/"
+  to = "/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/acesso/*"
+  to = "/acesso/:splat"
+  status = 200

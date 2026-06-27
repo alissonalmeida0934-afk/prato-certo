@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Rubik',system-ui,sans-serif;background:#0c0c0c;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px 40px;text-align:center;max-width:400px;width:100%}
+.logo{font-size:3rem;margin-bottom:16px}
+h1{color:#F0EDE8;font-size:1.4rem;font-weight:700;margin-bottom:8px}
+p{color:#8A8078;font-size:.9rem;line-height:1.5;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:#E46C44;color:#fff;font-weight:700;font-size:1rem;padding:14px 32px;border-radius:12px;border:none;cursor:pointer;width:100%;justify-content:center;transition:.2s}
+.btn:hover{background:#FD860E;transform:translateY(-1px)}
+.note{margin-top:20px;font-size:.78rem;color:#5A5250}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">🍽️</div>
+  <h1>Área de Membros</h1>
+  <p>Entra com o email e a senha que recebeste após a compra.</p>
+  <button class="btn" id="loginBtn">Entrar na minha área</button>
+  <p class="note">Problemas? Contacta o suporte.</p>
+</div>
+<script>
+netlifyIdentity.on('init', function(user) {
+  if (user) { window.location.replace('/acesso/'); }
+  var h = window.location.hash;
+  if (h.includes('invite_token') || h.includes('recovery_token') || h.includes('confirmation_token')) {
+    netlifyIdentity.open();
+  }
+});
+netlifyIdentity.on('login', function() {
+  window.location.replace('/acesso/');
+});
+document.getElementById('loginBtn').onclick = function() {
+  netlifyIdentity.open('login');
+};
+</script>
+</body>
+</html>
