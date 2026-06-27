@@ -5,6 +5,7 @@
   from = "/"
   to = "/login.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/acesso/*"
