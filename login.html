@@ -5,45 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Entrar — Prato Certo</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>netlifyIdentity.init({APIUrl:'https://cool-lokum-0d01a0.netlify.app/.netlify/identity'});</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Rubik',system-ui,sans-serif;background:#0c0c0c;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .card{background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px 40px;text-align:center;max-width:400px;width:100%}
+@media(max-width:480px){.card{padding:36px 24px}}
 .logo{font-size:3rem;margin-bottom:16px}
 h1{color:#F0EDE8;font-size:1.4rem;font-weight:700;margin-bottom:8px}
-p{color:#8A8078;font-size:.9rem;line-height:1.5;margin-bottom:32px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:#E46C44;color:#fff;font-weight:700;font-size:1rem;padding:14px 32px;border-radius:12px;border:none;cursor:pointer;width:100%;justify-content:center;transition:.2s}
+.sub{color:#8A8078;font-size:.9rem;line-height:1.5;margin-bottom:28px}
+input{display:block;width:100%;background:#1e1e1e;border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  color:#F0EDE8;font-size:.95rem;padding:13px 16px;margin-bottom:12px;outline:none;font-family:inherit}
+input:focus{border-color:#E46C44}
+input::placeholder{color:#5A5250}
+.btn{display:block;width:100%;background:#E46C44;color:#fff;font-weight:700;font-size:1rem;
+  padding:14px 32px;border-radius:12px;border:none;cursor:pointer;transition:.2s;font-family:inherit;margin-top:4px}
 .btn:hover{background:#FD860E;transform:translateY(-1px)}
-.note{margin-top:20px;font-size:.78rem;color:#5A5250}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-ghost{background:none;color:#8A8078;font-size:.82rem;padding:10px;border:none;cursor:pointer;font-family:inherit;margin-top:8px;text-decoration:underline;display:block;width:100%}
+.btn-ghost:hover{color:#F0EDE8}
+.err{color:#ff6b6b;font-size:.82rem;margin-top:10px;min-height:20px}
+.note{margin-top:16px;font-size:.78rem;color:#5A5250}
+.hidden{display:none}
 </style>
 </head>
 <body>
-<div class="card">
+
+<div class="card" id="v-login">
   <div class="logo">🍽️</div>
   <h1>Área de Membros</h1>
-  <p>Entra com o email e a senha que recebeste após a compra.</p>
-  <button class="btn" id="loginBtn">Entrar na minha área</button>
-  <p class="note">Problemas? Contacta o suporte.</p>
+  <p class="sub">Entra com o teu email e senha.</p>
+  <input type="email" id="email" placeholder="Email" autocomplete="email">
+  <input type="password" id="password" placeholder="Senha" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+  <button class="btn" id="btn-login" onclick="doLogin()">Entrar na minha área</button>
+  <button class="btn-ghost" onclick="showForgot()">Esqueci a senha</button>
+  <p class="err" id="err-login"></p>
 </div>
+
+<div class="card hidden" id="v-forgot">
+  <div class="logo">📧</div>
+  <h1>Recuperar senha</h1>
+  <p class="sub">Insere o teu email para receberes o link de recuperação.</p>
+  <input type="email" id="forgot-email" placeholder="Email">
+  <button class="btn" onclick="doForgot()">Enviar link</button>
+  <button class="btn-ghost" onclick="showLogin()">‹ Voltar ao login</button>
+  <p class="err" id="err-forgot"></p>
+</div>
+
+<div class="card hidden" id="v-setpw">
+  <div class="logo">🔑</div>
+  <h1>Define a tua senha</h1>
+  <p class="sub">Bem-vindo(a) ao Prato Certo! Escolhe uma senha para aceder à tua área.</p>
+  <input type="password" id="newpw" placeholder="Nova senha (mín. 6 caracteres)" autocomplete="new-password">
+  <input type="password" id="confirmpw" placeholder="Confirmar senha" autocomplete="new-password">
+  <button class="btn" onclick="doSetPassword()">Guardar e entrar</button>
+  <p class="err" id="err-setpw"></p>
+</div>
+
+<div class="card hidden" id="v-sent">
+  <div class="logo">✉️</div>
+  <h1>Email enviado!</h1>
+  <p class="sub">Verifica a tua caixa de entrada e clica no link para definires a tua nova senha.</p>
+  <p class="note">Não recebeste? Verifica a pasta de spam.</p>
+</div>
+
 <script>
-var acesso = window.location.hostname.includes('netlify.app')
-  ? 'https://prato-certo.pages.dev/acesso/'
-  : '/acesso/';
-netlifyIdentity.on('init', function(user) {
-  if (user) { window.location.replace(acesso); }
-  var h = window.location.hash;
-  if (h.includes('invite_token') || h.includes('recovery_token') || h.includes('confirmation_token')) {
-    netlifyIdentity.open();
+var _s = window.supabase.createClient(
+  'https://achtuwinkhhqiovzpoth.supabase.co',
+  'sb_publishable_bu-Kz9vcPInHCxwUOqy7yw_8e_7GXgy'
+);
+var ACESSO = '/acesso/';
+var views = ['v-login','v-forgot','v-setpw','v-sent'];
+var tokenFlow = /type=(invite|recovery)/.test(window.location.hash);
+
+function show(id) {
+  views.forEach(function(v){ document.getElementById(v).classList.toggle('hidden', v !== id); });
+}
+function showLogin() { show('v-login'); }
+function showForgot() {
+  document.getElementById('forgot-email').value = document.getElementById('email').value;
+  show('v-forgot');
+}
+
+_s.auth.onAuthStateChange(function(event, session) {
+  if (tokenFlow && (event === 'SIGNED_IN' || event === 'PASSWORD_RECOVERY')) {
+    show('v-setpw');
+  } else if (!tokenFlow && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
+    window.location.replace(ACESSO);
   }
 });
-netlifyIdentity.on('login', function() {
-  window.location.replace(acesso);
-});
-document.getElementById('loginBtn').onclick = function() {
-  netlifyIdentity.open('login');
-};
+
+if (!tokenFlow) {
+  _s.auth.getSession().then(function(r) {
+    if (r.data.session) window.location.replace(ACESSO);
+  });
+}
+
+async function doLogin() {
+  var email = document.getElementById('email').value.trim();
+  var pw = document.getElementById('password').value;
+  var err = document.getElementById('err-login');
+  var btn = document.getElementById('btn-login');
+  err.textContent = '';
+  if (!email || !pw) { err.textContent = 'Preenche todos os campos.'; return; }
+  btn.disabled = true; btn.textContent = 'A entrar...';
+  var r = await _s.auth.signInWithPassword({ email: email, password: pw });
+  btn.disabled = false; btn.textContent = 'Entrar na minha área';
+  if (r.error) {
+    err.textContent = r.error.message === 'Invalid login credentials' ? 'Email ou senha incorretos.' : r.error.message;
+  }
+}
+
+async function doForgot() {
+  var email = document.getElementById('forgot-email').value.trim();
+  var err = document.getElementById('err-forgot');
+  err.textContent = '';
+  if (!email) { err.textContent = 'Insere o teu email.'; return; }
+  var r = await _s.auth.resetPasswordForEmail(email, { redirectTo: 'https://prato-certo.pages.dev/login.html' });
+  if (r.error) { err.textContent = r.error.message; }
+  else { show('v-sent'); }
+}
+
+async function doSetPassword() {
+  var pw = document.getElementById('newpw').value;
+  var confirm = document.getElementById('confirmpw').value;
+  var err = document.getElementById('err-setpw');
+  err.textContent = '';
+  if (pw !== confirm) { err.textContent = 'As senhas não coincidem.'; return; }
+  if (pw.length < 6) { err.textContent = 'Senha muito curta (mín. 6 caracteres).'; return; }
+  var r = await _s.auth.updateUser({ password: pw });
+  if (r.error) { err.textContent = r.error.message; }
+  else { window.location.replace(ACESSO); }
+}
 </script>
 </body>
 </html>

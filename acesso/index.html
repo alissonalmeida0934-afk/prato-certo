@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>netlifyIdentity.init({APIUrl:'https://cool-lokum-0d01a0.netlify.app/.netlify/identity'});</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
 (function(){
+  var _s=window.supabase.createClient('https://achtuwinkhhqiovzpoth.supabase.co','sb_publishable_bu-Kz9vcPInHCxwUOqy7yw_8e_7GXgy');
+  window._sb=_s;
   var L='/login.html';
-  function show(){document.documentElement.style.visibility='';}
-  function guard(u){if(!u){window.location.replace(L);}else{show();}}
-  if(localStorage.getItem('gotrue.user')){show();}else{document.documentElement.style.visibility='hidden';}
-  netlifyIdentity.on('init',guard);
-  window.addEventListener('pageshow',function(e){if(e.persisted){var u=netlifyIdentity.currentUser();guard(u);}});
+  var hasSb=Object.keys(localStorage).some(function(k){return k.startsWith('sb-')&&k.includes('auth');});
+  if(!hasSb)document.documentElement.style.visibility='hidden';
+  function chk(){_s.auth.getSession().then(function(r){if(!r.data.session){window.location.replace(L);}else{document.documentElement.style.visibility='';}});}
+  chk();
+  window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
 })();
 </script>
 <meta charset="UTF-8">
@@ -112,7 +113,10 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
 
 <header>
   <div class="brand"><img class="logo" src="../img/logo-prato-certo.jpg" alt="Prato Certo">Prato Certo</div>
-  <div class="prog-badge" id="progBadge">0 de 0 receitas</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="prog-badge" id="progBadge">0 de 0 receitas</div>
+    <button style="background:none;border:none;color:#5A5250;font-size:.75rem;cursor:pointer;font-family:inherit;padding:4px 6px" onclick="window._sb.auth.signOut().then(function(){window.location.replace('/login.html');})">Sair</button>
+  </div>
 </header>
 
 <div class="welcome-bar">
