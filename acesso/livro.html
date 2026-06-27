@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>document.documentElement.style.visibility='hidden';netlifyIdentity.on('init',function(u){if(!u){window.location.replace('/login.html');}else{document.documentElement.style.visibility='';}});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Livro de Receitas — Prato Certo</title>
@@ -330,7 +332,9 @@ body{background:
       '<div class="photo">'+
         '<span class="cat-tab">'+cat.emoji+' '+cat.nome+'</span>'+
         '<button class="fav" id="favBtn" title="Guardar nos favoritos">'+(isFav?'❤️':'🤍')+'</button>'+
-        '<img src="'+f.img+'" alt="'+f.nome+'" loading="lazy" style="object-position:'+(f.imgPos||'top')+'">'+
+        (f.img
+          ? '<img src="'+f.img+'" alt="'+f.nome+'" loading="lazy" style="object-position:'+(f.imgPos||'top')+'">'
+          : '<div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#fdf6ec,#f5e9d4);"><span style="font-size:4.5rem;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.12));">'+cat.emoji+'</span><span style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b07840;opacity:.7;">'+cat.nome+'</span></div>')+
       '</div>'+
       '<div class="body">'+
         '<h2>'+f.nome+'</h2>'+

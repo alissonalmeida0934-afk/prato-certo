@@ -2197,7 +2197,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango Grelhado com Vegetais",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 peitos de frango — cerca de 300 g",
@@ -2216,7 +2216,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Strogonoff de Frango Light",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de peito de frango em tiras",
@@ -2237,7 +2237,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango no Tacho com Tomate",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "30 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango em pedaços",
@@ -2256,7 +2256,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Salada de Quinoa com Frango",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "150 g de quinoa cozida",
@@ -2275,7 +2275,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Wok de Frango e Vegetais",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "15 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de frango em tiras",
@@ -2294,7 +2294,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Salmão no Forno com Limão",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 postas de salmão — cerca de 300 g",
@@ -2312,7 +2312,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Bacalhau à Brás Leve",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "200 g de bacalhau desfiado demolhado",
@@ -2332,7 +2332,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Atum com Batata-Doce",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "20 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "1 lata de atum ao natural",
@@ -2350,7 +2350,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Massa de Atum ao Tomate",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "160 g de massa integral",
@@ -2369,7 +2369,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Omelete de Vegetais",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "3 ovos",
@@ -2388,7 +2388,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Courgette Recheada",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "2 courgettes grandes",
@@ -2407,7 +2407,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Frango com Batata-Doce Assada",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 peitos de frango",
@@ -2426,7 +2426,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Esparguete de Courgette com Atum",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "1 courgette grande (espiralizadora ou descascador)",
@@ -2444,7 +2444,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango com Arroz Integral e Brócolos",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de peito de frango em cubos",
@@ -2463,7 +2463,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Frango Tikka Masala Leve",
-          img: "../img/ls-capa.png",
+          img: "",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "300 g de peito de frango em cubos",
@@ -2493,7 +2493,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Abóbora",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de abóbora em cubos",
@@ -2512,7 +2512,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Cenoura e Gengibre",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de cenoura em rodelas",
@@ -2531,7 +2531,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Brócolos",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "1 brócolos inteiro — cerca de 500 g",
@@ -2550,7 +2550,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Alho Francês",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "3 alhos franceses em rodelas",
@@ -2569,7 +2569,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Ervilhas com Hortelã",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de ervilhas (congeladas servem)",
@@ -2588,7 +2588,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Legumes",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "30 min", doses: "5 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "1 cebola, 2 cenouras, 1 nabo",
@@ -2606,7 +2606,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Caldo Verde",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "4 batatas médias",
@@ -2625,7 +2625,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Feijão",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de feijão encarnado cozido (lata serve)",
@@ -2644,7 +2644,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Lentilhas",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "250 g de lentilhas vermelhas",
@@ -2663,7 +2663,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Grão",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de grão cozido",
@@ -2682,7 +2682,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Cogumelos",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de cogumelos frescos fatiados",
@@ -2701,7 +2701,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Tomate Fresco",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "25 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de tomate maduro",
@@ -2719,7 +2719,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Gazpacho Português",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "10 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de tomate maduro",
@@ -2738,7 +2738,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Courgette e Hortelã",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "3 courgettes médias",
@@ -2757,7 +2757,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Caldo de Frango Aromático",
-          img: "../img/pa-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango desfiado cozido",
@@ -2787,7 +2787,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Brownie de Banana e Cacau",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "25 min", doses: "8 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -2808,7 +2808,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Mousse de Chocolate e Abacate",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "10 min", doses: "4 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 abacates maduros",
@@ -2828,7 +2828,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Bolachas de Aveia e Chocolate",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "20 min", doses: "15 bolachas", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -2847,7 +2847,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Trufas de Cacau",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "15 min", doses: "20 trufas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de tâmaras sem caroço",
@@ -2866,7 +2866,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Tarte de Limão Fit",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "20 min", doses: "8 fatias", dificuldade: "Médio",
           ingredientes: [
             "Base: 150 g de tâmaras + 100 g de aveia processados juntos",
@@ -2885,7 +2885,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Pudim de Chia",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "4 colheres de sopa de sementes de chia",
@@ -2904,7 +2904,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Torta de Laranja sem Farinha",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "35 min", doses: "8 fatias", dificuldade: "Médio",
           ingredientes: [
             "4 ovos",
@@ -2924,7 +2924,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Gelado de Morango Proteico",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "200 g de morangos congelados",
@@ -2943,7 +2943,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Crepe Doce de Ricota",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "15 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 ovos",
@@ -2962,7 +2962,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Bolo de Iogurte",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "40 min", doses: "10 fatias", dificuldade: "Fácil",
           ingredientes: [
             "1 pote de iogurte natural — 170 g (usa a embalagem como medida)",
@@ -2983,7 +2983,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Semifrio de Maracujá",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "15 min", doses: "6 porções", dificuldade: "Fácil",
           ingredientes: [
             "Polpa de 4 maracujás",
@@ -3003,7 +3003,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Pavlova Proteica",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "60 min", doses: "8 porções", dificuldade: "Médio",
           ingredientes: [
             "4 claras de ovo",
@@ -3023,7 +3023,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Barras de Cereais Caseiras",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "20 min", doses: "10 barras", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -3043,7 +3043,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Cookies de Aveia",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "20 min", doses: "12 cookies", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -3063,7 +3063,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Compota de Fruta sem Açúcar",
-          img: "../img/ld-capa.png",
+          img: "",
           tempo: "20 min", doses: "12 porções", dificuldade: "Fácil",
           ingredientes: [
             "500 g de fruta da época (morango, pêssego, ameixa)",
@@ -3093,7 +3093,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Frango com Arroz Integral e Brócolos",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de peito de frango",
@@ -3112,7 +3112,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Frango com Arroz e Feijão",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de frango desfiado temperado",
@@ -3131,7 +3131,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Strogonoff de Frango com Arroz",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de frango em tiras",
@@ -3150,7 +3150,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Bacalhau com Grão e Brócolos",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de bacalhau desfiado demolhado",
@@ -3169,7 +3169,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌾 Com Massa",
           nome: "Massa Integral com Frango",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "25 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "320 g de massa integral (esparguete ou penne)",
@@ -3188,7 +3188,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌾 Com Massa",
           nome: "Massa de Atum e Tomate",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "240 g de massa integral",
@@ -3207,7 +3207,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥔 Com Batata",
           nome: "Frango com Batata-Doce e Espargos",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de peito de frango",
@@ -3226,7 +3226,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥔 Com Batata",
           nome: "Frango Assado com Vegetais",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "35 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de frango em pedaços",
@@ -3244,7 +3244,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Quinoa com Vegetais Assados",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de quinoa cozida",
@@ -3263,7 +3263,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Lentilhas com Arroz",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de lentilhas verdes",
@@ -3282,7 +3282,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Grão com Espinafres",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de grão cozido",
@@ -3301,7 +3301,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Frango com Courgette e Tomate",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango em cubos",
@@ -3320,7 +3320,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Omelete de Batata e Espinafres",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "4 ovos",
@@ -3339,7 +3339,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Arroz Integral com Atum",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de arroz integral",
@@ -3358,7 +3358,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Risotto de Frango Light",
-          img: "../img/bs-capa.png",
+          img: "",
           tempo: "30 min", doses: "3 marmitas", dificuldade: "Médio",
           ingredientes: [
             "150 g de arroz arbóreo",

@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/", "destination": "/prato-certo-landing.html" }]
+}
