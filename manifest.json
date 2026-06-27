@@ -1,0 +1,21 @@
+{
+  "name": "Prato Certo",
+  "short_name": "Prato Certo",
+  "description": "A tua área de membros Prato Certo",
+  "start_url": "/acesso/",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#E46C44",
+  "icons": [
+    {
+      "src": "/img/logo-prato-certo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/img/logo-prato-certo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
