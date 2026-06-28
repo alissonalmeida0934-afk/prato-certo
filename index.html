@@ -10,21 +10,6 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','840452762252112');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=840452762252112&ev=PageView&noscript=1"/></noscript>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  // intercepts invite_token and recovery_token from email links
-  (function(){
-    var hash = window.location.hash;
-    if(hash.includes('invite_token') || hash.includes('recovery_token') || hash.includes('confirmation_token')){
-      netlifyIdentity.on('init', function(){
-        netlifyIdentity.open();
-      });
-      netlifyIdentity.on('login', function(){
-        window.location.replace('/acesso/');
-      });
-    }
-  })();
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prato Certo — Come bem, sem complicações</title>
