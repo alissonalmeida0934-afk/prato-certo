@@ -826,5 +826,13 @@ fbq('init','840452762252112');fbq('track','PageView');
   });
 })();
 </script>
+<script>
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var utms={};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))utms[k]=p.get(k);});
+  if(Object.keys(utms).length)fbq('trackCustom','UTMPageView',utms);
+})();
+</script>
 </body>
 </html>

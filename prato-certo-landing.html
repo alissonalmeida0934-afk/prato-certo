@@ -1,6 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-PT">
 <head>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','840452762252112');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=840452762252112&ev=PageView&noscript=1"/></noscript>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   // intercepts invite_token and recovery_token from email links
@@ -815,6 +824,14 @@
     if(up){ up.addEventListener(evs[0], press(base*7), {passive:true}); up.addEventListener(evs[1], rel); up.addEventListener(evs[2], rel); }
     if(dn){ dn.addEventListener(evs[0], press(-base*5), {passive:true}); dn.addEventListener(evs[1], rel); dn.addEventListener(evs[2], rel); }
   });
+})();
+</script>
+<script>
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var utms={};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))utms[k]=p.get(k);});
+  if(Object.keys(utms).length)fbq('trackCustom','UTMPageView',utms);
 })();
 </script>
 </body>
