@@ -892,14 +892,17 @@ fbq('init','840452762252112');fbq('track','PageView');
 <script>
 (function(){
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  var els = document.querySelectorAll('section,.feature-card,.bonus,.tst');
-  els.forEach(function(el){ el.classList.add('rev'); });
+  var vh = window.innerHeight;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
     });
-  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
-  els.forEach(function(el){ obs.observe(el); });
+  },{threshold:0.06,rootMargin:'0px 0px -16px 0px'});
+  document.querySelectorAll('section,.feature-card,.bonus,.tst').forEach(function(el){
+    if(el.getBoundingClientRect().top < vh * 0.92) return; // já visível — não animar
+    el.classList.add('rev');
+    obs.observe(el);
+  });
 })();
 </script>
 </body>
