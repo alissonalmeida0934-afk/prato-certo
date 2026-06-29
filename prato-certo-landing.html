@@ -327,6 +327,25 @@ fbq('init','840452762252112');fbq('track','PageView');
     .bio h2{font-size:38px}
   }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+  /* scroll reveal */
+  .rev{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
+  .rev.in{opacity:1;transform:none}
+
+  /* hero gradient bg */
+  .hero{background:radial-gradient(ellipse 130% 80% at 50% -10%,rgba(61,87,35,.10) 0%,transparent 58%)}
+
+  /* CTA pulse */
+  @keyframes cta-glow{0%,100%{box-shadow:0 0 0 10px rgba(228,108,68,.25),0 20px 40px rgba(228,108,68,.35)}50%{box-shadow:0 0 0 24px rgba(228,108,68,.08),0 24px 50px rgba(228,108,68,.18)}}
+  .btn-primary:not(:hover):not(:focus-visible){animation:cta-glow 2.8s ease-in-out infinite}
+
+  /* text marquee strip */
+  .txt-mq{overflow:hidden;background:var(--secondary);padding:13px 0;border-top:3px solid rgba(253,134,14,.45);border-bottom:3px solid rgba(253,134,14,.45)}
+  .txt-mq-inner{display:inline-flex;will-change:transform;animation:txt-scroll 24s linear infinite}
+  @keyframes txt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .txt-mq-item{display:inline-flex;align-items:center;gap:14px;padding:0 26px;font-weight:700;font-size:13px;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;color:#fff}
+  .txt-mq-dot{width:5px;height:5px;border-radius:50%;background:var(--primary-vibrant);flex-shrink:0}
+  @media(prefers-reduced-motion:reduce){.txt-mq-inner{animation:none}}
 </style>
 </head>
 <body>
@@ -346,6 +365,25 @@ fbq('init','840452762252112');fbq('track','PageView');
       <p class="reassure">Mais de 150 receitas · Sem dietas malucas · Sem passar fome</p>
     </div>
   </section>
+
+  <div class="txt-mq" aria-hidden="true">
+    <div class="txt-mq-inner">
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>+150 Receitas Saudáveis</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Plano Semanal Pronto</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Lista de Compras Automática</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>+25 Mil Alunos</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Informação Nutricional</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Sem Dietas Malucas</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Garantia 7 Dias</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>+150 Receitas Saudáveis</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Plano Semanal Pronto</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Lista de Compras Automática</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>+25 Mil Alunos</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Informação Nutricional</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Sem Dietas Malucas</span>
+      <span class="txt-mq-item"><span class="txt-mq-dot"></span>Garantia 7 Dias</span>
+    </div>
+  </div>
 
   <!-- 3 BENEFÍCIOS RÁPIDOS -->
   <section style="background:#EEF3E4;padding:40px 0">
@@ -849,6 +887,19 @@ fbq('init','840452762252112');fbq('track','PageView');
   var utms={};
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))utms[k]=p.get(k);});
   if(Object.keys(utms).length)fbq('trackCustom','UTMPageView',utms);
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var els = document.querySelectorAll('section,.feature-card,.bonus,.tst');
+  els.forEach(function(el){ el.classList.add('rev'); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
 })();
 </script>
 </body>
