@@ -98,10 +98,11 @@ fbq('init','840452762252112');fbq('track','PageView');
   .recipe .label small{display:block;color:var(--text-muted);font-weight:500;font-size:13px;margin-top:2px}
 
   /* feature cards */
-  .feature-grid{display:grid;grid-template-columns:1fr;gap:24px}
-  .feature-card{background:var(--surface);border-radius:var(--radius-card);padding:24px;box-shadow:0 40px 80px 0 var(--shadow-warm);text-align:center}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .feature-card{background:var(--surface);border-radius:var(--radius-card);padding:14px 10px 16px;box-shadow:0 40px 80px 0 var(--shadow-warm);text-align:center}
   .pill-title{display:inline-block;background:linear-gradient(180deg,#F2A85C,#E08A3C);color:#5A3A1A;font-weight:700;font-size:22px;border-radius:12px;padding:10px 24px;margin-bottom:16px}
-  .feature-card p{font-size:16px;margin-top:14px;line-height:1.4}
+  .feature-card .pill-title{font-size:12px;padding:5px 10px;border-radius:8px;margin-bottom:10px;white-space:nowrap}
+  .feature-card p{font-size:13px;margin-top:8px;line-height:1.35;color:var(--text)}
 
   /* bonus */
   .bonus-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px}
@@ -486,10 +487,10 @@ fbq('init','840452762252112');fbq('track','PageView');
       <h2 class="center-h2">Os 4 pilares que tornam o método <span class="orange">infalível</span></h2>
       <p class="lead">Cada pilar foi pensado para simplificar a tua vida na cozinha.</p>
       <div class="feature-grid" style="margin-top:18px">
-        <article class="feature-card"><div class="slot filled natural" style="max-width:260px;margin:0 auto 14px;border-radius:12px"><img loading="lazy" src="img/truque-3x3.png" alt="Truque 3x3"></div><p>Monta qualquer refeição em 3 passos: base, proteína e acompanhamento.</p></article>
-        <article class="feature-card"><div class="slot filled natural" style="max-width:260px;margin:0 auto 14px;border-radius:12px"><img loading="lazy" src="img/lista-compras.png" alt="Lista de Compras"></div><p>A app cria a tua lista a partir das receitas da semana. Poupas tempo e dinheiro.</p></article>
-        <article class="feature-card"><div class="slot filled natural" style="max-width:260px;margin:0 auto 14px;border-radius:12px"><img loading="lazy" src="img/gps-nutricional.png" alt="GPS Nutricional"></div><p>Cada receita com a informação nutricional detalhada, para saberes sempre o que comes.</p></article>
-        <article class="feature-card"><div class="slot filled natural" style="max-width:260px;margin:0 auto 14px;border-radius:12px"><img loading="lazy" src="img/armazenamento-inteligente.png" alt="Armazenamento Inteligente"></div><p>Guia de congelação para preparares em lote e teres comida pronta a semana toda.</p></article>
+        <article class="feature-card"><span class="pill-title">Truque 3×3</span><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/truque-3x3.png" alt="Truque 3x3"></div><p>Monta qualquer refeição em 3 passos: base, proteína e acompanhamento.</p></article>
+        <article class="feature-card"><span class="pill-title">Lista de Compras</span><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/lista-compras.png" alt="Lista de Compras"></div><p>A app cria a tua lista a partir das receitas da semana. Poupas tempo e dinheiro.</p></article>
+        <article class="feature-card"><span class="pill-title">GPS Nutricional</span><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/gps-nutricional.png" alt="GPS Nutricional"></div><p>Cada receita com a informação nutricional detalhada, para saberes sempre o que comes.</p></article>
+        <article class="feature-card"><span class="pill-title">Armazenamento</span><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/armazenamento-inteligente.png" alt="Armazenamento Inteligente"></div><p>Guia de congelação para preparares em lote e teres comida pronta a semana toda.</p></article>
       </div>
     </div>
   </section>
