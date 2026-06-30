@@ -68,22 +68,19 @@ fbq('init','840452762252112');fbq('track','PageView');
   .hero .sub .brown{color:var(--accent-brown);font-weight:700}
   .reassure{margin-top:14px;font-size:15px;font-weight:600;color:var(--text-muted)}
 
-  /* hero v2 */
+  /* hero v2 — full-bleed verde */
+  .hero.hero-green{background:var(--secondary);width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:48px 0}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
   .hero-copy{text-align:left}
-  .hero-eyebrow{color:var(--primary);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:15px;margin-bottom:8px}
-  .hero-h1-v2{font-size:32px;line-height:1.18;font-weight:800;color:var(--text);letter-spacing:-.01em}
-  .hero-h1-v2 .green{color:var(--secondary)}
-  .hero-bullets{margin:24px 0;display:flex;flex-direction:column;gap:16px;text-align:left}
-  .hero-bullet{display:flex;gap:14px;align-items:flex-start}
-  .hb-ic{flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:rgba(61,87,35,.12);display:grid;place-items:center;font-size:19px}
-  .hero-bullet b{display:block;color:var(--secondary);font-size:15px;font-weight:800;margin-bottom:2px}
-  .hero-bullet p{margin:0;font-size:14px;color:var(--text);line-height:1.4}
-  .hero-image img{width:100%;max-width:380px;display:block;margin:0 auto;filter:drop-shadow(0 24px 50px rgba(217,119,87,.25))}
+  .hero-eyebrow{color:var(--background);opacity:.85;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:15px;margin-bottom:8px}
+  .hero-h1-v2{font-size:30px;line-height:1.2;font-weight:800;color:#fff;letter-spacing:-.01em}
+  .hero-h1-v2 .hl{color:var(--background)}
+  .hero-sub-green{color:rgba(255,255,255,.85);font-size:16px;line-height:1.5;margin:18px 0 26px}
+  .hero-image img{width:100%;max-width:380px;display:block;margin:0 auto;filter:drop-shadow(0 24px 50px rgba(0,0,0,.35))}
   @media(min-width:900px){
     .hero-grid{grid-template-columns:1.05fr 1fr;text-align:left}
     .hero-eyebrow,.hero-h1-v2{text-align:left}
-    .hero-h1-v2{font-size:42px}
+    .hero-h1-v2{font-size:44px}
     .hero-image img{max-width:440px;margin:0 0 0 auto}
   }
 
@@ -398,18 +395,13 @@ fbq('init','840452762252112');fbq('track','PageView');
   </div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-green">
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-eyebrow">As melhores receitas</p>
-        <h1 class="hero-h1-v2">Para organizar a <span class="green">tua alimentação</span>, poupar tempo <span class="green">e cuidar de ti</span>!</h1>
-        <div class="hero-bullets">
-          <div class="hero-bullet"><span class="hb-ic">📖</span><div><b>Receitas práticas e saudáveis</b><p>Mais de 150 receitas deliciosas para o dia a dia.</p></div></div>
-          <div class="hero-bullet"><span class="hb-ic">⏱️</span><div><b>Poupa tempo e dinheiro</b><p>Planeia as tuas refeições, evita desperdícios e compra com inteligência.</p></div></div>
-          <div class="hero-bullet"><span class="hb-ic">❤️</span><div><b>Alimenta-te bem e sente-te bem</b><p>Receitas equilibradas para mais energia, bem-estar e uma vida mais leve.</p></div></div>
-        </div>
+        <h1 class="hero-h1-v2">Para organizar a <span class="hl">tua alimentação</span>, poupar tempo <span class="hl">e cuidar de ti</span>!</h1>
+        <p class="hero-sub-green">Mais de 150 receitas práticas para poupar tempo e comer melhor.<br>Sem dietas malucas · Sem passar fome</p>
         <a href="#oferta" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
-        <p class="reassure">Mais de 150 receitas · Sem dietas malucas · Sem passar fome</p>
       </div>
       <div class="hero-image">
         <img src="img/hero-tablet-mockup.png" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager">
