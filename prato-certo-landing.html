@@ -929,6 +929,7 @@ fbq('init','840452762252112');fbq('track','PageView');
     if(i===0) return; // hero fica como está
     if(s.classList.contains('offer-green')){s.classList.add('s-card');return;}
     if(s.style.background){s.classList.add('s-card');return;} // inline bg (3-benefits)
+    if(s.querySelector('.carousel')) return; // galerias de receitas ficam sempre no fundo creme
     if(i%2===0) s.classList.add('s-white-alt');
   });
 
