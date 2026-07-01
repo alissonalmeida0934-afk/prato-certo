@@ -389,6 +389,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .s-card{border-radius:36px 36px 0 0;position:relative;z-index:1}
   /* white-alt for visual rhythm between cream sections */
   .s-white-alt{background:#fff!important}
+  /* sage-green section */
+  .s-verde-suave{background-color:#EDF2E8;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg fill='none' stroke='%232D4A1A' stroke-linecap='round' opacity='0.07'%3E%3Cellipse cx='45' cy='55' rx='9' ry='21' stroke-width='1.5' transform='rotate(-25 45 55)'/%3E%3Cellipse cx='90' cy='25' rx='8' ry='19' stroke-width='1.5' transform='rotate(10 90 25)'/%3E%3Cellipse cx='135' cy='65' rx='9' ry='20' stroke-width='1.5' transform='rotate(-15 135 65)'/%3E%3Cellipse cx='60' cy='130' rx='8' ry='18' stroke-width='1.5' transform='rotate(20 60 130)'/%3E%3Cellipse cx='140' cy='140' rx='10' ry='22' stroke-width='1.5' transform='rotate(-35 140 140)'/%3E%3Cline x1='45' y1='34' x2='45' y2='12' stroke-width='1.5'/%3E%3Cline x1='60' y1='112' x2='60' y2='95' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E");background-size:180px}
 
   /* scroll reveal */
   .rev{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
@@ -473,7 +475,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   </section>
 
   <!-- TEMPO POUPADO + BENEFÍCIOS -->
-  <section>
+  <section class="s-verde-suave">
     <div class="container">
       <p class="eyebrow">Para que serve o Prato Certo</p>
       <h2 class="center-h2">A app que resolve o <span class="orange">teu maior problema</span> na cozinha</h2>
@@ -973,6 +975,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     if(s.classList.contains('offer-green')){s.classList.add('s-card');return;}
     if(s.style.background){s.classList.add('s-card');return;} // inline bg (3-benefits)
     if(s.querySelector('.carousel')) return; // galerias de receitas ficam sempre no fundo creme
+    if(s.classList.contains('s-verde-suave')) return;
     if(i%2===0) s.classList.add('s-white-alt');
   });
 
