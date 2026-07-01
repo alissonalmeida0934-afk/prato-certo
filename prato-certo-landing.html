@@ -994,6 +994,52 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   });
 })();
 </script>
+<script>
+(function(){
+  // ViewContent — entra no viewport da secção de preço
+  (function(){
+    var fired=false;
+    var el=document.getElementById('checkout-btn');
+    if(!el) return;
+    var obs=new IntersectionObserver(function(entries){
+      if(fired) return;
+      if(entries[0].isIntersecting){
+        fired=true;obs.disconnect();
+        var id='vc_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+        fbq('track','ViewContent',{content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'},{eventID:id});
+        _pcCAPI('ViewContent',id,{content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'});
+      }
+    },{threshold:0.4});
+    obs.observe(el);
+  })();
+  // ScrollDepth 50% e 90%
+  (function(){
+    var marks={50:false,90:false};
+    var tick=false;
+    function chk(){
+      var pct=Math.round((window.scrollY+window.innerHeight)/document.body.scrollHeight*100);
+      [50,90].forEach(function(m){
+        if(!marks[m]&&pct>=m){
+          marks[m]=true;
+          var id='sd'+m+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+          fbq('trackCustom','ScrollDepth',{depth:m},{eventID:id});
+          _pcCAPI('ScrollDepth',id,{depth:m});
+        }
+      });
+      tick=false;
+    }
+    window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(chk);}},{passive:true});
+  })();
+  // TimeOnPage 30s — utilizador engajado
+  (function(){
+    setTimeout(function(){
+      var id='top30_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+      fbq('trackCustom','TimeOnPage30',{},{eventID:id});
+      _pcCAPI('TimeOnPage30',id);
+    },30000);
+  })();
+})();
+</script>
 </body>
 </html>
 
