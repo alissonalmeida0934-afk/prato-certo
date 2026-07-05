@@ -309,7 +309,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .learn-marquee{margin-top:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;touch-action:pan-y}
   .learn-marquee-row{display:flex;gap:10px;width:max-content;animation:marquee-l 22s linear infinite;touch-action:pan-y;user-select:none}
   .learn-marquee-row.reverse{animation:marquee-r 24s linear infinite}
-  .learn-marquee-row .slot.filled{background:var(--background)}
+  .learn-marquee-row .slot.filled{background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.13)}
   .learn-marquee-row .slot,.learn-marquee-row img{touch-action:pan-y;pointer-events:none;-webkit-user-drag:none}
   .learn-marquee-row .slot{flex:0 0 220px;aspect-ratio:1;min-height:0;border-radius:10px}
   .learn-marquee-row .slot.app-shot{flex-basis:220px;aspect-ratio:9/16;border-radius:22px;border:3px solid #161311}
@@ -547,7 +547,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 
 
   <!-- TUDO QUE VAIS APRENDER -->
-  <section>
+  <section data-nocycle>
     <div class="container">
       <div class="learn">
         <h2>Tudo o que vais <span class="g">aprender</span></h2>
