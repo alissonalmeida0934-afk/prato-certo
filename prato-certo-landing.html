@@ -103,6 +103,13 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .hero-bullet b{font-family:'Montserrat',sans-serif;display:block;color:#1A2A12;text-transform:uppercase;font-size:17px;font-weight:800;margin-bottom:5px;letter-spacing:.02em}
   .hero-bullet p{margin:0;font-size:15px;color:rgba(31,45,26,.75);line-height:1.45;font-weight:500}
   .hero-cta{text-align:center}
+  .hero-social-proof{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:14px}
+  .hsp-avatars{display:flex}
+  .hsp-avatars img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-10px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .hsp-avatars img:first-child{margin-left:0}
+  .hsp-text{display:flex;flex-direction:column;text-align:left}
+  .hsp-count{font-weight:800;font-size:14px;color:#1A2A12;font-family:'Montserrat',sans-serif}
+  .hsp-sub{font-size:12px;color:rgba(31,45,26,.7);margin-top:2px}
   @keyframes float-tablet{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   .hero-image img{width:100%;max-width:360px;display:block;margin:0 auto;filter:drop-shadow(0 28px 55px rgba(217,119,87,.30));animation:float-tablet 4s ease-in-out infinite}
   @media(min-width:900px){
@@ -461,6 +468,19 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       </div>
       <div class="hero-cta">
         <a href="#checkout-btn" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
+        <div class="hero-social-proof">
+          <div class="hsp-avatars">
+            <img src="img/cliente-1.webp" alt="Cliente 1">
+            <img src="img/cliente-2.webp" alt="Cliente 2">
+            <img src="img/cliente-3.webp" alt="Cliente 3">
+            <img src="img/cliente-4.webp" alt="Cliente 4">
+            <img src="img/cliente-5.webp" alt="Cliente 5">
+          </div>
+          <div class="hsp-text">
+            <span class="hsp-count">Mais de 2.000 clientes</span>
+            <span class="hsp-sub">Recebe tudo na hora, diretamente no teu <span style="color:#E46C44">✉</span> e-mail</span>
+          </div>
+        </div>
       </div>
       <div class="hero-bullets">
         <div class="hero-bullet"><span class="hb-ic">⏱️</span><div><b>Poupa Tempo Já Hoje</b><p>Acaba o "o que vou cozinhar hoje?". Receitas rápidas e práticas, prontas em minutos.</p></div></div>
