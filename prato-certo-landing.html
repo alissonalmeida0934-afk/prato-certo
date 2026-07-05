@@ -113,8 +113,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 
   /* buttons */
   .cta-wrap{margin-top:28px;text-align:center}
-  .btn-primary{display:inline-block;background:var(--primary);color:#fff;font-size:19px;font-weight:700;font-family:inherit;padding:24px 52px;border:none;border-radius:var(--radius-pill);text-decoration:none;cursor:pointer;box-shadow:0 0 0 10px var(--primary-25),0 20px 40px rgba(228,108,68,.35);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
-  .btn-primary:hover{background:rgba(228,108,68,.92);transform:translateY(-2px) scale(1.02);box-shadow:0 0 0 14px rgba(228,108,68,.20),0 24px 48px rgba(228,108,68,.40)}
+  .btn-primary{display:inline-block;background:var(--primary);color:#fff;font-size:19px;font-weight:700;font-family:inherit;padding:24px 52px;border:none;border-radius:var(--radius-pill);text-decoration:none;cursor:pointer;box-shadow:0 0 0 3px #FD860E,0 0 0 8px rgba(253,134,14,.4),0 20px 40px rgba(228,108,68,.4);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  .btn-primary:hover{background:rgba(228,108,68,.92);transform:translateY(-2px) scale(1.02);box-shadow:0 0 0 3px #FD860E,0 0 0 12px rgba(253,134,14,.35),0 24px 48px rgba(228,108,68,.45)}
   .btn-primary:focus-visible{outline:3px solid var(--secondary);outline-offset:4px}
   .micro{margin-top:16px;font-size:13px;color:var(--text-muted)}
 
@@ -403,7 +403,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     radial-gradient(ellipse 130% 80% at 50% -10%,rgba(61,87,35,.10) 0%,transparent 58%)}
 
   /* CTA pulse */
-  @keyframes cta-glow{0%,100%{box-shadow:0 0 0 10px rgba(228,108,68,.25),0 20px 40px rgba(228,108,68,.35)}50%{box-shadow:0 0 0 24px rgba(228,108,68,.08),0 24px 50px rgba(228,108,68,.18)}}
+  @keyframes cta-glow{0%,100%{box-shadow:0 0 0 3px #FD860E,0 0 0 8px rgba(253,134,14,.4),0 20px 40px rgba(228,108,68,.4)}50%{box-shadow:0 0 0 3px #FD860E,0 0 0 16px rgba(253,134,14,.15),0 24px 50px rgba(228,108,68,.2)}}
   .btn-primary:not(:hover):not(:focus-visible){animation:cta-glow 2.8s ease-in-out infinite}
 
   /* text marquee strip */
@@ -749,7 +749,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       <div class="offer-price-block" id="checkout-btn">
         <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
         <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
-        <div class="offer-parcelas">ou em prestações sem juros</div>
       </div>
       <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
