@@ -101,7 +101,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .hero-bullet b{font-family:'Montserrat',sans-serif;display:block;color:#1F2D1A;text-transform:uppercase;font-size:15px;font-weight:700;margin-bottom:3px}
   .hero-bullet p{margin:0;font-size:14px;color:rgba(61,87,35,.7);line-height:1.4}
   .hero-cta{text-align:center}
-  .hero-image img{width:100%;max-width:360px;display:block;margin:0 auto;filter:drop-shadow(0 24px 50px rgba(217,119,87,.25));mix-blend-mode:multiply}
+  @keyframes float-tablet{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .hero-image img{width:100%;max-width:360px;display:block;margin:0 auto;filter:drop-shadow(0 28px 55px rgba(217,119,87,.30));animation:float-tablet 4s ease-in-out infinite}
   @media(min-width:900px){
     .hero-grid{grid-template-columns:1.05fr 1fr;gap:60px;
       grid-template-areas:"title image" "bullets image" "cta image"}
@@ -435,7 +436,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <h1 class="hero-h1-v2"><span class="l1">Para organizar a</span><span class="l2">tua alimentação,</span><span class="l3">poupar tempo e cuidar de ti!</span></h1>
       </div>
       <div class="hero-image">
-        <img src="img/hero-tablet-mockup.png" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager">
+        <img src="img/tablet-hero.png" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager">
       </div>
       <div class="hero-cta">
         <a href="#checkout-btn" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
