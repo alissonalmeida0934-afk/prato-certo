@@ -238,26 +238,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .offer-eur{font-size:32px;font-weight:800}
   .offer-parcelas{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px}
   .offer-btn{display:block;max-width:320px;margin:0 auto;font-size:17px}
-  .pay-trust{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
-  .pay-logos{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
-  .pay-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:7px;padding:5px 10px;font-weight:800;font-size:12px;letter-spacing:.01em;height:32px}
-  .pay-mbway{background:#FF006B;color:#fff;gap:3px}
-  .pay-mbway .mb-mb{background:#fff;color:#FF006B;border-radius:3px;padding:1px 4px;font-size:11px;font-weight:900}
-  .pay-multi{background:#003087;color:#fff}
-  .pay-visa{background:#fff;color:#1A1F71;border:1.5px solid rgba(255,255,255,.3);font-style:italic;font-size:16px;font-family:serif;letter-spacing:-.02em}
-  .pay-mc{background:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:7px;padding:4px 8px;height:32px;display:inline-flex;align-items:center;gap:-6px}
-  .mc-r{width:18px;height:18px;border-radius:50%;background:#EB001B}
-  .mc-o{width:18px;height:18px;border-radius:50%;background:#F79E1B;margin-left:-8px}
-  .rgpd-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,48,135,.55);border:1px solid rgba(100,149,237,.4);border-radius:99px;padding:5px 14px;font-size:11px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.04em}
   .offer-bottom-box{background:rgba(255,255,255,.1);border-radius:14px;padding:20px 22px;margin-top:28px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.9);text-align:center}
   .offer-eco{color:var(--primary-vibrant);font-weight:700}
-  .cdown-wrap{margin:0 auto 22px;max-width:340px}
-  .cdown-label{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85);text-transform:uppercase;margin-bottom:10px;text-align:center}
-  .cdown{display:flex;align-items:flex-start;justify-content:center;gap:6px}
-  .cdown-box{background:rgba(0,0,0,.35);border-radius:10px;padding:10px 14px;min-width:68px;text-align:center}
-  .cdown-num{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;font-family:'Anton',sans-serif}
-  .cdown-unit{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
-  .cdown-sep{font-size:2rem;font-weight:800;color:rgba(255,255,255,.55);padding-top:6px}
 
   /* guarantee */
   .guarantee{background:var(--surface);border-radius:var(--radius-card);padding:40px 24px;box-shadow:0 12px 28px rgba(217,119,87,.12);text-align:center}
@@ -338,7 +320,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .learn-marquee-row .slot.filled{background:#1a1a1a;box-shadow:0 4px 16px rgba(0,0,0,.18)}
   .learn-marquee-row .slot,.learn-marquee-row img{touch-action:pan-y;pointer-events:none;-webkit-user-drag:none}
   .learn-marquee-row .slot{flex:0 0 200px;width:200px;height:200px;min-height:200px;border-radius:12px;overflow:hidden}
-  .learn-marquee-row .slot.food-shot{flex:0 0 280px;width:280px;height:158px;min-height:158px;border-radius:12px}
   .learn-marquee-row .slot.app-shot{flex:0 0 160px;width:160px;height:284px;min-height:284px;border-radius:20px;border:3px solid #161311;overflow:hidden}
   @keyframes marquee-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes marquee-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -552,6 +533,18 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     </div>
   </section>
 
+  <!-- O QUE É -->
+  <section>
+    <div class="container">
+      <div class="whatis">
+        <div class="pre">O que é o</div>
+        <h2>Prato Certo?</h2>
+        <p>Uma <span class="g">aplicação</span> criada por uma nutricionista, com as receitas <span class="g">saudáveis</span> mais saborosas, rápidas e fáceis de fazer — pensadas para o dia a dia real de quem não tem tempo a perder.</p>
+        <div class="tagline">Une saúde + praticidade + organização</div>
+      </div>
+    </div>
+  </section>
+
   <!-- DORES / IDEAL PARA QUEM -->
   <section>
     <div class="container">
@@ -573,6 +566,20 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     </div>
   </section>
 
+  <!-- OS 4 PILARES -->
+  <section>
+    <div class="container">
+      <p class="eyebrow">O método</p>
+      <h2 class="center-h2">Os 4 pilares que tornam o método <span class="orange">infalível</span></h2>
+      <p class="lead">Cada pilar foi pensado para simplificar a tua vida na cozinha.</p>
+      <div class="feature-grid" style="margin-top:18px">
+        <article class="feature-card"><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/truque-3x3.webp" alt="Truque 3x3"></div><p>Monta qualquer refeição em 3 passos: base, proteína e acompanhamento.</p></article>
+        <article class="feature-card"><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/lista-compras.webp" alt="Lista de Compras"></div><p>A app cria a tua lista a partir das receitas da semana. Poupas tempo e dinheiro.</p></article>
+        <article class="feature-card"><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/gps-nutricional.webp" alt="GPS Nutricional"></div><p>Cada receita com a informação nutricional detalhada, para saberes sempre o que comes.</p></article>
+        <article class="feature-card"><div class="slot filled natural" style="border-radius:10px"><img loading="lazy" src="img/armazenamento-inteligente.webp" alt="Armazenamento Inteligente"></div><p>Guia de congelação para preparares em lote e teres comida pronta a semana toda.</p></article>
+      </div>
+    </div>
+  </section>
 
 
   <!-- TUDO QUE VAIS APRENDER -->
@@ -583,7 +590,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="learn-item"><div class="ic">📖</div><p>Mais de <b>150 receitas</b> saudáveis e irresistíveis — com lista de ingredientes, modo de preparação e tabela nutricional detalhada.</p></div>
         <div class="learn-marquee">
           <div class="learn-marquee-row">
-            <div class="slot filled food-shot"><img src="img/carrossel-1.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-2.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-3.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-4.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-5.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-6.jpg" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-1.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-2.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-3.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-4.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-5.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-6.jpg" loading="lazy" alt=""></div>
+            <div class="slot filled"><img src="img/carrossel-1.webp" alt=""></div><div class="slot filled"><img src="img/carrossel-2.webp" alt=""></div><div class="slot filled"><img src="img/carrossel-3.webp" alt=""></div><div class="slot filled"><img src="img/carrossel-4.webp" alt=""></div><div class="slot filled"><img src="img/carrossel-5.webp" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-1.webp" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-2.webp" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-3.webp" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-4.webp" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-5.webp" loading="lazy" alt=""></div>
           </div>
         </div>
         <div class="learn-item"><div class="ic">🎥</div><p>Receitas com <b>vídeo passo a passo</b>, com eu mesma a ensinar-te diretamente na bancada. É como se estivéssemos a cozinhar juntas.</p></div>
@@ -601,7 +608,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="learn-item"><div class="ic">🔄</div><p><b>Conteúdo sempre atualizado</b>, com receitas novas a chegar todas as semanas.</p></div>
         <div style="text-align:center;margin-top:28px">
           <a href="#checkout-btn" class="btn-primary">QUERO O MEU ACESSO</a>
-          <p style="font-size:13px;color:rgba(31,45,26,.6);margin-top:8px;margin-bottom:0">🔒 Pagamento seguro · Acesso imediato</p>
         </div>
       </div>
     </div>
@@ -658,6 +664,44 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
             <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ld-brownie-chocolate-gelado.webp" alt="Brownie de chocolate com gelado"></div></div>
             <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ld-bolachas-aveia-chocolate.webp" alt="Bolachas de aveia e chocolate"></div></div>
             <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ld-bombons-chocolate-recheio-fruta.webp" alt="Bombons de chocolate com recheio de fruta"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="banner banner-recipe">Bolos Saudáveis</div>
+      <p class="lead">Aquele miminho doce que não estraga os teus objetivos.</p>
+      <div class="carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-banana-aveia.webp" alt="Bolo de banana e aveia"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-cenoura-chocolate-negro.webp" alt="Bolo de cenoura com cobertura de chocolate negro"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-coco-limao.webp" alt="Bolo de coco e limão"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-frutos-vermelhos-iogurte.webp" alt="Bolo de frutos vermelhos e iogurte"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-laranja-amendoa.webp" alt="Bolo de laranja com amêndoa"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/bs-bolo-maca-canela.webp" alt="Bolo de maçã e canela"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="banner banner-recipe">Lanches que parecem take-away</div>
+      <p class="lead">Aquele sabor de fast-food — só que feito por ti e bem mais leve.</p>
+      <div class="carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-hamburguer-frango-grelhado-pao-integral.webp" alt="Hambúrguer de frango grelhado com pão integral"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-pastel-forno-espinafres-queijo.webp" alt="Pastel de forno de espinafres e queijo"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-mini-pizza-base-aveia-legumes.webp" alt="Mini pizza de base de aveia e legumes"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-cachorro-quente-salsicha-aves-pao-integral.webp" alt="Cachorro quente de salsicha de aves com pão integral"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-baguete-integral-queijo-fresco-peru.webp" alt="Baguete integral com queijo fresco e peru"></div></div>
+            <div class="recipe"><div class="slot filled"><img loading="lazy" src="img/ta-batata-doce-frita-forno.webp" alt="Batata-doce frita no forno"></div></div>
           </div>
         </div>
       </div>
@@ -756,10 +800,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
       </div>
       <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
-      <div class="pay-trust">
-        <span class="rgpd-badge">🛡️ Em conformidade com o RGPD · Dados protegidos</span>
-        <p class="micro" style="color:rgba(255,255,255,.6);margin:0;font-size:12px">🔒 Pagamento 100% seguro · Acesso imediato após pagamento</p>
-      </div>
+      <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
       <div class="offer-bottom-box">
         Com os bónus do <b>Prato Certo</b> já <span class="offer-eco">economizas</span> mais do que o valor da aplicação na primeira semana.<br><br>
         E ainda trocas a angústia de <b>"o que vou comer hoje?"</b> por um frigorífico organizado e uma rotina <b>leve e saudável!</b>
@@ -908,20 +949,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   var m = (now.getMonth()+1).toString().padStart(2,'0');
   var y = now.getFullYear();
   el.textContent = dias[now.getDay()] + ', ' + d + '/' + m + '/' + y;
-})();
-
-(function(){
-  function cdTick(){
-    var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Lisbon'}));
-    var midnight=new Date(now);midnight.setHours(24,0,0,0);
-    var diff=Math.max(0,Math.floor((midnight-now)/1000));
-    var h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
-    var eH=document.getElementById('cdH'),eM=document.getElementById('cdM'),eS=document.getElementById('cdS');
-    if(eH)eH.textContent=String(h).padStart(2,'0');
-    if(eM)eM.textContent=String(m).padStart(2,'0');
-    if(eS)eS.textContent=String(s).padStart(2,'0');
-  }
-  cdTick();setInterval(cdTick,1000);
 })();
 
 (function(){
