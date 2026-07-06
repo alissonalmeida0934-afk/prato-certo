@@ -14,6 +14,7 @@
   window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
 })();
 </script>
+<script>if(localStorage.getItem('pc-theme')==='light')document.documentElement.classList.add('light');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Livro de Receitas — Prato Certo</title>
@@ -27,11 +28,17 @@
   --background:#F7F5ED;--surface:#FAF9F5;--text:#231E1A;--muted:#7A726A;
   --paper:#FBF8F0;--line:rgba(134,89,45,.16);--shadow:rgba(60,40,20,.18);
 }
-body{font-family:'Rubik',sans-serif;background:#2c2117;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Rubik',sans-serif;background:radial-gradient(1000px 500px at 50% -5%,rgba(228,108,68,.12),transparent 55%),#0c0c0c;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .25s}
 .serif{font-family:'Playfair Display',serif}
-body{background:
-  radial-gradient(1000px 500px at 50% -5%, rgba(228,108,68,.12), transparent 55%),
-  #0c0c0c;}
+html.light body{background:#e8e4dc}
+html.light .topbar{background:rgba(240,235,225,.96);border-bottom-color:rgba(0,0,0,.1)}
+html.light .topbar .back{color:#231E1A;border-color:rgba(0,0,0,.18)}
+html.light .topbar .title{color:#231E1A}
+html.light .icon-btn{color:#231E1A;border-color:rgba(0,0,0,.18);background:rgba(0,0,0,.04)}
+html.light .navbar{background:linear-gradient(0deg,rgba(232,228,220,.97),rgba(232,228,220,.75))}
+html.light .pageno{color:#231E1A}
+html.light .dot{background:rgba(0,0,0,.2)}
+html.light .pagedots .dot.on{background:var(--primary-vibrant)}
 
 /* topo */
 .topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;
@@ -115,16 +122,16 @@ body{background:
 .done-btn:hover{filter:brightness(1.05)}
 
 /* navegação inferior */
-.navbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:14px;
-  justify-content:center;padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+.navbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:10px;
+  justify-content:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
   background:linear-gradient(0deg,rgba(12,12,12,.97),rgba(12,12,12,.75));backdrop-filter:blur(8px)}
-.nav-btn{width:54px;height:54px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:1.4rem;
-  cursor:pointer;box-shadow:0 8px 20px -6px rgba(228,108,68,.7);display:flex;align-items:center;justify-content:center;transition:.2s}
+.nav-btn{height:42px;padding:0 20px;border-radius:99px;border:none;background:var(--primary);color:#fff;font-size:.88rem;font-weight:700;
+  cursor:pointer;box-shadow:0 4px 14px -4px rgba(228,108,68,.6);display:flex;align-items:center;gap:6px;transition:.2s;white-space:nowrap;font-family:inherit}
 .nav-btn:hover{background:var(--primary-vibrant)}
-.nav-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
-.pageno{color:#F0E7D8;font-size:.85rem;font-weight:600;min-width:96px;text-align:center}
-.pagedots{display:flex;gap:5px;margin-top:2px;justify-content:center;flex-wrap:wrap;max-width:200px}
-.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+.nav-btn:disabled{opacity:.3;cursor:default;box-shadow:none}
+.pageno{color:#F0E7D8;font-size:.8rem;font-weight:600;min-width:80px;text-align:center}
+.pagedots{display:flex;gap:5px;margin-top:2px;justify-content:center;flex-wrap:wrap;max-width:180px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25)}
 .dot.on{background:var(--primary-vibrant)}
 .dot.read{background:rgba(122,164,90,.9)}
 
@@ -200,12 +207,12 @@ body{background:
 </div>
 
 <div class="navbar" id="navbar" style="display:none">
-  <button class="nav-btn" id="prev" title="Anterior">‹</button>
+  <button class="nav-btn" id="prev" title="Anterior">← Anterior</button>
   <div>
     <div class="pageno" id="pageno">Sumário</div>
     <div class="pagedots" id="dots"></div>
   </div>
-  <button class="nav-btn" id="next" title="Seguinte">›</button>
+  <button class="nav-btn" id="next" title="Seguinte">Seguinte →</button>
 </div>
 
 <div class="sheet" id="sheet">
