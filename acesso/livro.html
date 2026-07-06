@@ -197,23 +197,18 @@ html.light .pagedots .dot.on{background:var(--primary-vibrant)}
   <a class="back" href="index.html">‹ Área de membros</a>
   <div class="title" id="bookTitle">Prato Certo</div>
   <div class="tools">
+    <button class="icon-btn" id="prev" title="Anterior" style="display:none">‹</button>
+    <button class="icon-btn" id="next" title="Seguinte" style="display:none">›</button>
     <button class="icon-btn" id="tocBtn" title="Índice">☰</button>
     <button class="icon-btn" id="fsBtn" title="Ecrã cheio">⛶</button>
   </div>
 </div>
 
-<div class="stage">
+<div class="stage" style="padding-bottom:24px">
   <div class="book" id="book"></div>
 </div>
 
-<div class="navbar" id="navbar" style="display:none">
-  <button class="nav-btn" id="prev" title="Anterior">← Anterior</button>
-  <div>
-    <div class="pageno" id="pageno">Sumário</div>
-    <div class="pagedots" id="dots"></div>
-  </div>
-  <button class="nav-btn" id="next" title="Seguinte">Seguinte →</button>
-</div>
+<div id="navbar" style="display:none"></div>
 
 <div class="sheet" id="sheet">
   <div class="sheet-inner">
@@ -391,16 +386,11 @@ html.light .pagedots .dot.on{background:var(--primary-vibrant)}
   }
 
   function updateNav(){
-    document.getElementById('navbar').style.display='flex';
-    document.getElementById('prev').disabled=(idx===0);
-    document.getElementById('next').disabled=(idx===total);
-    document.getElementById('pageno').textContent= idx===0?'Sumário':('Ficha '+idx+' de '+total);
-    var dots='';
-    for(var i=1;i<=total;i++){
-      var cls='dot'+(i===idx?' on':'')+(done[i-1]?' read':'');
-      dots+='<span class="'+cls+'"></span>';
-    }
-    document.getElementById('dots').innerHTML=dots;
+    var p=document.getElementById('prev'),n=document.getElementById('next');
+    p.style.display='flex'; n.style.display='flex';
+    p.disabled=(idx===0);
+    n.disabled=(idx===total);
+    document.getElementById('bookTitle').textContent=idx===0?cat.nome:('Receita '+idx+'/'+total+' · '+cat.nome);
   }
 
   function go(n){ if(n<0||n>total)return; idx=n; render(); }
