@@ -240,6 +240,13 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .offer-btn{display:block;max-width:320px;margin:0 auto;font-size:17px}
   .offer-bottom-box{background:rgba(255,255,255,.1);border-radius:14px;padding:20px 22px;margin-top:28px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.9);text-align:center}
   .offer-eco{color:var(--primary-vibrant);font-weight:700}
+  .cdown-wrap{margin:0 auto 22px;max-width:340px}
+  .cdown-label{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85);text-transform:uppercase;margin-bottom:10px;text-align:center}
+  .cdown{display:flex;align-items:flex-start;justify-content:center;gap:6px}
+  .cdown-box{background:rgba(0,0,0,.35);border-radius:10px;padding:10px 14px;min-width:68px;text-align:center}
+  .cdown-num{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;font-family:'Anton',sans-serif}
+  .cdown-unit{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+  .cdown-sep{font-size:2rem;font-weight:800;color:rgba(255,255,255,.55);padding-top:6px}
 
   /* guarantee */
   .guarantee{background:var(--surface);border-radius:var(--radius-card);padding:40px 24px;box-shadow:0 12px 28px rgba(217,119,87,.12);text-align:center}
@@ -320,6 +327,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .learn-marquee-row .slot.filled{background:#1a1a1a;box-shadow:0 4px 16px rgba(0,0,0,.18)}
   .learn-marquee-row .slot,.learn-marquee-row img{touch-action:pan-y;pointer-events:none;-webkit-user-drag:none}
   .learn-marquee-row .slot{flex:0 0 200px;width:200px;height:200px;min-height:200px;border-radius:12px;overflow:hidden}
+  .learn-marquee-row .slot.food-shot{flex:0 0 280px;width:280px;height:158px;min-height:158px;border-radius:12px}
   .learn-marquee-row .slot.app-shot{flex:0 0 160px;width:160px;height:284px;min-height:284px;border-radius:20px;border:3px solid #161311;overflow:hidden}
   @keyframes marquee-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes marquee-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -564,7 +572,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="learn-item"><div class="ic">📖</div><p>Mais de <b>150 receitas</b> saudáveis e irresistíveis — com lista de ingredientes, modo de preparação e tabela nutricional detalhada.</p></div>
         <div class="learn-marquee">
           <div class="learn-marquee-row">
-            <div class="slot filled"><img src="img/carrossel-1.jpg" alt=""></div><div class="slot filled"><img src="img/carrossel-2.jpg" alt=""></div><div class="slot filled"><img src="img/carrossel-3.jpg" alt=""></div><div class="slot filled"><img src="img/carrossel-4.jpg" alt=""></div><div class="slot filled"><img src="img/carrossel-5.jpg" alt=""></div><div class="slot filled"><img src="img/carrossel-6.jpg" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-1.jpg" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-2.jpg" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-3.jpg" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-4.jpg" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-5.jpg" loading="lazy" alt=""></div><div class="slot filled" aria-hidden="true"><img src="img/carrossel-6.jpg" loading="lazy" alt=""></div>
+            <div class="slot filled food-shot"><img src="img/carrossel-1.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-2.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-3.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-4.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-5.jpg" alt=""></div><div class="slot filled food-shot"><img src="img/carrossel-6.jpg" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-1.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-2.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-3.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-4.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-5.jpg" loading="lazy" alt=""></div><div class="slot filled food-shot" aria-hidden="true"><img src="img/carrossel-6.jpg" loading="lazy" alt=""></div>
           </div>
         </div>
         <div class="learn-item"><div class="ic">🎥</div><p>Receitas com <b>vídeo passo a passo</b>, com eu mesma a ensinar-te diretamente na bancada. É como se estivéssemos a cozinhar juntas.</p></div>
@@ -735,6 +743,17 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       <div class="offer-price-block" id="checkout-btn">
         <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
         <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
+        <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:6px">menos de 0,27€ por dia — menos do que um café</div>
+      </div>
+      <div class="cdown-wrap">
+        <div class="cdown-label">⏳ Esta oferta expira em:</div>
+        <div class="cdown">
+          <div class="cdown-box"><div class="cdown-num" id="cdH">00</div><div class="cdown-unit">horas</div></div>
+          <div class="cdown-sep">:</div>
+          <div class="cdown-box"><div class="cdown-num" id="cdM">00</div><div class="cdown-unit">min</div></div>
+          <div class="cdown-sep">:</div>
+          <div class="cdown-box"><div class="cdown-num" id="cdS">00</div><div class="cdown-unit">seg</div></div>
+        </div>
       </div>
       <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
@@ -886,6 +905,20 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   var m = (now.getMonth()+1).toString().padStart(2,'0');
   var y = now.getFullYear();
   el.textContent = dias[now.getDay()] + ', ' + d + '/' + m + '/' + y;
+})();
+
+(function(){
+  function cdTick(){
+    var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Lisbon'}));
+    var midnight=new Date(now);midnight.setHours(24,0,0,0);
+    var diff=Math.max(0,Math.floor((midnight-now)/1000));
+    var h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
+    var eH=document.getElementById('cdH'),eM=document.getElementById('cdM'),eS=document.getElementById('cdS');
+    if(eH)eH.textContent=String(h).padStart(2,'0');
+    if(eM)eM.textContent=String(m).padStart(2,'0');
+    if(eS)eS.textContent=String(s).padStart(2,'0');
+  }
+  cdTick();setInterval(cdTick,1000);
 })();
 
 (function(){
