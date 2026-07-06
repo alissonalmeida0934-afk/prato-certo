@@ -14,6 +14,7 @@
   window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
 })();
 </script>
+<script>if(localStorage.getItem('pc-theme')==='light')document.documentElement.classList.add('light');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Área de Membros — Prato Certo</title>
@@ -32,7 +33,13 @@
   --primary:#E46C44;--primary-vibrant:#FD860E;--secondary:#5a9a40;--accent-brown:#c8956a;
   --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;--text:#F0EDE8;--muted:#8A8078;--line:rgba(255,255,255,.08);
 }
-body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+html.light{
+  --background:#ffffff;--surface:#f5f5f5;--surface2:#ebebeb;--text:#1a1a1a;--muted:#666;--line:rgba(0,0,0,.1);
+}
+html.light header{background:rgba(255,255,255,.96)}
+html.light .prog-badge{background:rgba(0,0,0,.04)}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+.theme-btn{background:none;border:1.5px solid var(--line);border-radius:99px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:border-color .2s;flex-shrink:0}
 .serif{font-family:'Playfair Display',serif}
 
 header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
@@ -121,6 +128,7 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   <div class="brand"><img class="logo" src="../img/logo-prato-certo.jpg" alt="Prato Certo">Prato Certo</div>
   <div style="display:flex;align-items:center;gap:10px">
     <div class="prog-badge" id="progBadge">0 de 0 receitas</div>
+    <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema claro/escuro">🌙</button>
     <button style="background:none;border:none;color:#5A5250;font-size:.75rem;cursor:pointer;font-family:inherit;padding:4px 6px" onclick="window._sb.auth.signOut().then(function(){window.location.replace('/login.html');})">Sair</button>
   </div>
 </header>
@@ -242,6 +250,20 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   document.getElementById('progBadge').textContent=doneAll+' de '+totalAll+' receitas';
   document.getElementById('progPct').textContent=pct+'%';
   setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
+})();
+// tema claro/escuro
+(function(){
+  var btn=document.getElementById('themeBtn');
+  var stored=localStorage.getItem('pc-theme');
+  function apply(t){
+    if(t==='light'){document.documentElement.classList.add('light');btn.textContent='☀️';}
+    else{document.documentElement.classList.remove('light');btn.textContent='🌙';}
+    localStorage.setItem('pc-theme',t);
+  }
+  apply(stored||'dark');
+  btn.addEventListener('click',function(){
+    apply(document.documentElement.classList.contains('light')?'dark':'light');
+  });
 })();
 </script>
 </body>
