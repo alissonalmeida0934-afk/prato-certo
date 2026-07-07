@@ -86,8 +86,12 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   /* hero v3 — creme, fiel a imagem_principal.png */
   .hero.hero-cream{background:transparent;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:64px 0}
   .hero-inner{max-width:1100px;margin:0 auto;padding:0 16px}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;
     grid-template-areas:"title" "image" "cta" "bullets"}
+  @media(max-width:899px){
+    .hero-grid{grid-template-areas:"image" "title" "cta" "bullets"}
+    .hero-image img{max-width:280px}
+  }
   .hero-title-block{grid-area:title;text-align:center}
   .hero-image{grid-area:image;min-width:0}
   .hero-cta{grid-area:cta}
@@ -358,10 +362,10 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .para-quem-list .ck{flex:0 0 18px;margin-top:2px;stroke:var(--secondary);width:18px;height:18px}
 
   /* whatsapp */
-  .wa{position:fixed;right:16px;bottom:16px;z-index:50;border-radius:16px;background:var(--whatsapp);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:12px 14px;min-width:76px;box-shadow:0 10px 24px rgba(37,211,102,.4);color:#fff;text-decoration:none;transition:transform .15s ease}
-  .wa:hover{transform:scale(1.06)}
-  .wa svg{width:30px;height:30px}
-  .wa-label{font-size:9px;font-weight:800;letter-spacing:.6px;line-height:1.2;text-align:center;text-transform:uppercase}
+  .wa{position:fixed;right:14px;bottom:14px;z-index:50;width:46px;height:46px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.32);color:#fff;text-decoration:none;transition:transform .15s ease,opacity .15s;opacity:.6}
+  .wa:hover{transform:scale(1.08);opacity:1}
+  .wa svg{width:24px;height:24px}
+  .wa-label{display:none}
 
   /* 3-benefícios rápidos (estilo Pitada do Pai) */
   .quick-benefits{display:grid;grid-template-columns:1fr;gap:0;margin-top:0}
