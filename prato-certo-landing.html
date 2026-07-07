@@ -437,11 +437,17 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://api.prato-certo.com/ns.html?id=GTM-T2C2QJBP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div id="topbar" style="background:#F07B1D;color:#fff;text-align:center;padding:10px 16px;font-family:inherit;font-weight:800;font-size:15px;letter-spacing:.03em">
-  ⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE <span id="topbar-date"></span>
-</div>
-<div style="text-align:center;padding:8px 16px">
-  <span style="display:inline-block;background:#28a745;color:#fff;font-size:12px;font-weight:700;letter-spacing:.02em;border-radius:99px;padding:5px 18px">🔒 COMPRA 100% SEGURA E PROTEGIDA</span>
+<style>
+@keyframes urgency-pulse{0%,100%{background:#c0000e}50%{background:#e8000f}}
+@keyframes dot-blink{0%,100%{opacity:1}50%{opacity:.3}}
+#topbar-urgency{animation:urgency-pulse 1.6s ease-in-out infinite;color:#fff;text-align:center;padding:11px 16px;font-family:inherit;font-weight:800;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;gap:10px}
+#topbar-urgency .dot{width:9px;height:9px;border-radius:50%;background:#fff;display:inline-block;animation:dot-blink 1.6s ease-in-out infinite;flex-shrink:0}
+#topbar-urgency .dot:nth-child(2){animation-delay:.3s}
+</style>
+<div id="topbar-urgency">
+  <span class="dot"></span>
+  <span>⚠️ ATENÇÃO — ESTA OFERTA PODE TERMINAR A QUALQUER MOMENTO · GARANTE O TEU ACESSO AGORA</span>
+  <span class="dot"></span>
 </div>
 <script>
 (function(){
