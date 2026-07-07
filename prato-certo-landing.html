@@ -97,12 +97,11 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .hero-h1-v2 .l1{display:block;color:#1F2D1A;font-size:32px}
   .hero-h1-v2 .l2{display:block;color:#3D5A35;font-size:32px;margin-top:2px}
   .hero-h1-v2 .l3{display:block;color:#3D5A35;font-size:32px;margin-top:2px;font-style:italic}
-  .pain-block{text-align:left;background:rgba(255,255,255,.72);border-left:4px solid #E46C44;border-radius:0 14px 14px 0;padding:20px 20px 20px 22px;backdrop-filter:blur(4px)}
-  .pain-block .pain-q{font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;color:#1A2A12;line-height:1.3;margin-bottom:14px}
-  .pain-block .pain-q em{color:#E46C44;font-style:normal}
-  .pain-block .pain-body{font-size:15px;color:rgba(31,45,26,.82);line-height:1.65;margin-bottom:14px}
-  .pain-block .pain-body b{color:#1A2A12;font-weight:700}
-  .pain-block .pain-close{font-size:15px;font-weight:700;color:#3D5A35;font-style:italic}
+  .pain-block{text-align:left;display:flex;flex-direction:column;gap:10px}
+  .pain-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.78);border-radius:12px;padding:13px 16px;backdrop-filter:blur(4px)}
+  .pain-item .px{font-size:1.3rem;flex-shrink:0}
+  .pain-item p{margin:0;font-size:15px;font-weight:600;color:#1A2A12;line-height:1.3}
+  .pain-item p span{display:block;font-size:13px;font-weight:400;color:rgba(31,45,26,.65);margin-top:2px}
   .hero-cta{text-align:center}
   .hero-social-proof{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:14px}
   .hsp-avatars{display:flex}
@@ -475,13 +474,9 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <a href="#checkout-btn" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
       </div>
       <div class="pain-block">
-        <p class="pain-q">Chegaste a casa depois de um dia longo, abriste o frigorífico — e ficaste ali parada sem saber o que fazer.<br><em>"O que é que vou comer hoje?"</em></p>
-        <p class="pain-body">
-          Acabaste por pedir comida fora. <b>Outra vez.</b> Gastaste dinheiro que não tinhas, comeste o que não devias, e foste dormir com aquela sensação de culpa que já conheces bem.<br><br>
-          E no dia seguinte? A mesma história. O frigorífico cheio de coisas que não sabes como cozinhar. A semana a passar. O dinheiro a ir embora em <b>take-away e entregas ao domicílio.</b><br><br>
-          Queres comer melhor — mas não tens tempo, não sabes por onde começar, e as dietas que tentaste nunca duraram mais de uma semana.
-        </p>
-        <p class="pain-close">Se isto te é familiar, o Prato Certo foi feito para ti. 👇</p>
+        <div class="pain-item"><span class="px">❌</span><p>"O que é que vou comer hoje?"<span>Todos os dias a mesma pergunta, sem resposta.</span></p></div>
+        <div class="pain-item"><span class="px">❌</span><p>A gastar dinheiro em take-away<span>Porque é mais fácil — mas no fim do mês nota-se.</span></p></div>
+        <div class="pain-item"><span class="px">❌</span><p>Queres comer melhor mas não sabes por onde começar<span>Sem tempo, sem ideias, sem resultado.</span></p></div>
       </div>
     </div>
   </section>
