@@ -2197,7 +2197,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango Grelhado com Vegetais",
-          img: "",
+          img: "../img/jr-01.png",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 peitos de frango — cerca de 300 g",
@@ -2216,7 +2216,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Strogonoff de Frango Light",
-          img: "",
+          img: "../img/jr-02.png",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de peito de frango em tiras",
@@ -2237,7 +2237,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango no Tacho com Tomate",
-          img: "",
+          img: "../img/jr-03.png",
           tempo: "30 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango em pedaços",
@@ -2256,7 +2256,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Salada de Quinoa com Frango",
-          img: "",
+          img: "../img/jr-04.png",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "150 g de quinoa cozida",
@@ -2275,7 +2275,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Wok de Frango e Vegetais",
-          img: "",
+          img: "../img/jr-05.png",
           tempo: "15 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de frango em tiras",
@@ -2294,7 +2294,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Salmão no Forno com Limão",
-          img: "",
+          img: "../img/jr-06.png",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 postas de salmão — cerca de 300 g",
@@ -2312,7 +2312,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Bacalhau à Brás Leve",
-          img: "",
+          img: "../img/jr-07.png",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "200 g de bacalhau desfiado demolhado",
@@ -2332,7 +2332,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Atum com Batata-Doce",
-          img: "",
+          img: "../img/jr-08.png",
           tempo: "20 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "1 lata de atum ao natural",
@@ -2350,7 +2350,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Massa de Atum ao Tomate",
-          img: "",
+          img: "../img/jr-09.png",
           tempo: "20 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "160 g de massa integral",
@@ -2369,7 +2369,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Omelete de Vegetais",
-          img: "",
+          img: "../img/jr-10.png",
           tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "3 ovos",
@@ -2388,7 +2388,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Courgette Recheada",
-          img: "",
+          img: "../img/jr-11.png",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "2 courgettes grandes",
@@ -2407,7 +2407,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Frango com Batata-Doce Assada",
-          img: "",
+          img: "../img/jr-12.png",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "2 peitos de frango",
@@ -2426,7 +2426,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥕 Com Vegetais",
           nome: "Esparguete de Courgette com Atum",
-          img: "",
+          img: "../img/jr-13.png",
           tempo: "15 min", doses: "1 pessoa", dificuldade: "Fácil",
           ingredientes: [
             "1 courgette grande (espiralizadora ou descascador)",
@@ -2444,7 +2444,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥩 Com Frango",
           nome: "Frango com Arroz Integral e Brócolos",
-          img: "",
+          img: "../img/jr-14.png",
           tempo: "25 min", doses: "2 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "300 g de peito de frango em cubos",
@@ -2463,7 +2463,7 @@ window.PRATO_CERTO = {
         {
           secao: "🐟 Com Peixe",
           nome: "Frango Tikka Masala Leve",
-          img: "",
+          img: "../img/jr-15.png",
           tempo: "30 min", doses: "2 pessoas", dificuldade: "Médio",
           ingredientes: [
             "300 g de peito de frango em cubos",
