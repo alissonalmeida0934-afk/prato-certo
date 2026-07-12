@@ -246,6 +246,24 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .offer-bottom-box{background:rgba(255,255,255,.1);border-radius:14px;padding:20px 22px;margin-top:28px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.9);text-align:center}
   .offer-eco{color:var(--primary-vibrant);font-weight:700}
 
+  /* pricing table */
+  .pricing-table{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto 24px;text-align:left}
+  @media(max-width:600px){.pricing-table{grid-template-columns:1fr}}
+  .pricing-card{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;position:relative}
+  .pricing-card.pricing-popular{border-color:#FD860E;border-width:2px;background:rgba(253,134,14,.08)}
+  .pricing-badge{background:#FD860E;color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border-radius:99px;text-align:center;width:fit-content;margin:0 auto}
+  .pricing-img{width:100%;border-radius:12px;object-fit:cover}
+  .pricing-name{font-size:18px;font-weight:800;color:#fff}
+  .pricing-tagline{font-size:13px;color:rgba(255,255,255,.75);font-style:italic;line-height:1.4}
+  .pricing-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;flex:1}
+  .pricing-features li{font-size:13px;color:rgba(255,255,255,.9);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0}
+  .pricing-price-de{font-size:13px;color:rgba(255,255,255,.7)}
+  .pricing-riscado{text-decoration:line-through;color:#FD860E;font-weight:700}
+  .pricing-price{font-size:42px;font-weight:900;color:#fff;line-height:1}
+  .pricing-price span{font-size:22px;font-weight:800}
+  .pricing-btn{display:block;text-align:center;font-size:14px;padding:14px 20px;border-radius:12px;margin-top:auto}
+
   /* guarantee */
   .guarantee{background:var(--surface);border-radius:var(--radius-card);padding:40px 24px;box-shadow:0 12px 28px rgba(217,119,87,.12);text-align:center}
   .guarantee .seal{width:210px;max-width:60%;height:auto;margin:0 auto 24px;display:block;filter:drop-shadow(0 14px 28px rgba(180,130,40,.35))}
@@ -838,15 +856,48 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       </ul>
       <p class="offer-promo-label">Apenas com a <b>promoção especial válida</b> <span class="offer-hoje">HOJE</span></p>
       <div class="offer-date-badge" id="offerDate"></div>
-      <div class="offer-price-block" id="checkout-btn">
-        <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
-        <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
+      <div class="pricing-table" id="checkout-btn">
+        <div class="pricing-card">
+          <img src="img/plano-base.jpg" alt="Plano Base" class="pricing-img">
+          <div class="pricing-name">Plano Base</div>
+          <div class="pricing-tagline">&ldquo;Cozinha uma vez. Come a semana toda.&rdquo;</div>
+          <ul class="pricing-features">
+            <li>190 receitas de marmitas saud&aacute;veis</li>
+            <li>Plano semanal de marmitas (B&Oacute;NUS)</li>
+            <li>Calculadora de calorias</li>
+            <li>B&oacute;nus: Pequenos-Almo&ccedil;os que Saciam</li>
+            <li>B&oacute;nus: Ementas Autom&aacute;ticas</li>
+          </ul>
+          <div>
+            <div class="pricing-price-de">DE <span class="pricing-riscado">29,90 &euro;</span> POR:</div>
+            <div class="pricing-price">7,90 <span>&euro;</span></div>
+          </div>
+          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary pricing-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O PLANO BASE</a>
+          <p class="micro" style="color:rgba(255,255,255,.6);margin-top:6px;text-align:center;font-size:12px">Pagamento seguro &middot; Acesso imediato</p>
+        </div>
+        <div class="pricing-card pricing-popular">
+          <div class="pricing-badge">&#x1F525; MAIS POPULAR</div>
+          <img src="img/plano-premium.jpg" alt="Plano Premium" class="pricing-img">
+          <div class="pricing-name">Plano Premium</div>
+          <div class="pricing-tagline">&ldquo;O m&eacute;todo completo. A semana nas tuas m&atilde;os.&rdquo;</div>
+          <ul class="pricing-features">
+            <li>Tudo do Plano Base</li>
+            <li>Calculadora de Calorias personalizada</li>
+            <li>Guia Completo Marmitas Fit (PDF)</li>
+            <li>B&oacute;nus Exclusivo: Receitas Salva-Vidas</li>
+            <li>B&oacute;nus Extra: Hack do Iogurte</li>
+          </ul>
+          <div>
+            <div class="pricing-price-de">DE <span class="pricing-riscado">39,90 &euro;</span> POR:</div>
+            <div class="pricing-price">13,90 <span>&euro;</span></div>
+          </div>
+          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="btn-primary pricing-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O PLANO PREMIUM</a>
+          <p class="micro" style="color:rgba(255,255,255,.6);margin-top:6px;text-align:center;font-size:12px">Pagamento seguro &middot; Acesso imediato</p>
+        </div>
       </div>
-      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
-      <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
       <div class="offer-bottom-box">
-        Com os bónus do <b>Prato Certo</b> já <span class="offer-eco">economizas</span> mais do que o valor da aplicação na primeira semana.<br><br>
-        E ainda trocas a angústia de <b>"o que vou comer hoje?"</b> por um frigorífico organizado e uma rotina <b>leve e saudável!</b>
+        Com os b&oacute;nus do <b>Prato Certo</b> j&aacute; <span class="offer-eco">economizas</span> mais do que o valor da aplica&ccedil;&atilde;o na primeira semana.<br><br>
+        E ainda trocas a ang&uacute;stia de <b>&ldquo;o que vou comer hoje?&rdquo;</b> por um frigor&iacute;fico organizado e uma rotina <b>leve e saud&aacute;vel!</b>
       </div>
     </div>
   </section>
