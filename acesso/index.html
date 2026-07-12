@@ -58,6 +58,39 @@ header .brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(
 header .brand .logo{width:32px;height:32px;border-radius:8px;object-fit:cover}
 .prog-badge{font-size:.72rem;color:var(--accent-brown);border:1px solid var(--line);padding:5px 12px;border-radius:99px;font-weight:600;background:rgba(255,255,255,.04)}
 
+/* header direito */
+.h-right{display:flex;align-items:center;gap:8px}
+.h-search-wrap{position:relative;display:flex;align-items:center}
+.h-search{background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:7px 14px 7px 34px;font-family:inherit;font-size:.82rem;color:var(--text);outline:none;width:130px;transition:.2s}
+.h-search:focus{border-color:var(--primary);width:180px}
+.h-search::placeholder{color:var(--muted)}
+.h-search-ico{position:absolute;left:10px;width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.h-icon-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--surface2);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.15s;cursor:pointer}
+.h-icon-btn:hover{border-color:var(--primary)}
+.h-icon-btn svg{width:17px;height:17px;stroke:var(--text);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.h-av-wrap{position:relative}
+.h-av{width:34px;height:34px;border-radius:50%;background:var(--primary);border:none;color:#fff;font-family:inherit;font-size:.78rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.h-av:hover{background:var(--primary-vibrant)}
+.h-drop{position:absolute;top:calc(100% + 8px);right:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:140px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;z-index:200}
+.h-drop.open{display:block}
+.h-drop-item{display:block;padding:11px 16px;font-size:.84rem;color:var(--text);text-decoration:none;font-family:inherit;background:none;border:none;width:100%;text-align:left;cursor:pointer;transition:.1s}
+.h-drop-item:hover{background:var(--surface2);color:var(--primary)}
+.h-drop-sep{height:1px;background:var(--line)}
+.h-drop-sair{color:var(--muted)}
+
+/* search overlay */
+.s-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.6);display:none}
+.s-overlay.open{display:block}
+.s-box{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(560px,92vw);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.s-results{max-height:380px;overflow-y:auto}
+.s-item{display:flex;align-items:center;gap:12px;padding:12px 16px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line);transition:.1s}
+.s-item:last-child{border:none}
+.s-item:hover{background:var(--surface2)}
+.s-item .si-icon{font-size:1.4rem;width:36px;text-align:center;flex-shrink:0}
+.s-item .si-name{font-size:.88rem;font-weight:600;line-height:1.2}
+.s-item .si-mod{font-size:.72rem;color:var(--muted);margin-top:2px}
+.s-empty{padding:28px;text-align:center;color:var(--muted);font-size:.86rem}
+
 /* boas-vindas compacto */
 .welcome-bar{padding:22px 18px 6px;text-align:center}
 .welcome-bar .hello{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:8px}
@@ -158,12 +191,26 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
 
 <header>
   <div class="brand"><img class="logo" src="../img/logo-prato-certo.jpg" alt="Prato Certo">Prato Certo</div>
-  <div style="display:flex;align-items:center;gap:10px">
-    <div class="prog-badge" id="progBadge">0 de 0 receitas</div>
-    <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema claro/escuro">🌙</button>
-    <button style="background:none;border:none;color:#5A5250;font-size:.75rem;cursor:pointer;font-family:inherit;padding:4px 6px" onclick="window._sb.auth.signOut().then(function(){window.location.replace('/login.html');})">Sair</button>
+  <div class="h-right">
+    <div class="h-search-wrap">
+      <svg class="h-search-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input class="h-search" id="hSearch" type="search" placeholder="Pesquisar" autocomplete="off">
+    </div>
+    <a href="notificacoes.html" class="h-icon-btn" title="Notificações">
+      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </a>
+    <div class="h-av-wrap">
+      <button class="h-av" id="hAvBtn">?</button>
+      <div class="h-drop" id="hDrop">
+        <a href="minha-conta.html" class="h-drop-item">Minha conta</a>
+        <div class="h-drop-sep"></div>
+        <button class="h-drop-item h-drop-sair" onclick="window._sb.auth.signOut().then(function(){window.location.replace('/login.html');})">Sair</button>
+      </div>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema claro/escuro" style="display:none">🌙</button>
   </div>
 </header>
+<div class="s-overlay" id="sOverlay"><div class="s-box"><div class="s-results" id="sResults"></div></div></div>
 
 <div class="welcome-bar">
   <div class="hello">Bem-vindo(a) à tua área de membros</div>
@@ -290,19 +337,68 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   document.getElementById('progPct').textContent=pct+'%';
   setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
 })();
+// avatar initials
+(function(){
+  window._sb.auth.getUser().then(function(r){
+    var u=r.data&&r.data.user;
+    if(!u) return;
+    var meta=u.user_metadata||{};
+    var nome=meta.nome||meta.full_name||u.email||'?';
+    var initials=nome.trim().split(/\s+/).slice(0,2).map(function(w){return w[0].toUpperCase();}).join('');
+    document.getElementById('hAvBtn').textContent=initials||'?';
+  });
+  // dropdown toggle
+  var btn=document.getElementById('hAvBtn');
+  var drop=document.getElementById('hDrop');
+  btn.addEventListener('click',function(e){e.stopPropagation();drop.classList.toggle('open');});
+  document.addEventListener('click',function(){drop.classList.remove('open');});
+})();
+
+// search
+(function(){
+  var input=document.getElementById('hSearch');
+  var overlay=document.getElementById('sOverlay');
+  var results=document.getElementById('sResults');
+  var allRecipes=[];
+  function buildIndex(){
+    var data=window.PRATO_CERTO;
+    data.categorias.forEach(function(cat){
+      if(!cat.fichas) return;
+      cat.fichas.forEach(function(f){
+        if(!f.nome) return;
+        allRecipes.push({nome:f.nome,mod:cat.nome,emoji:cat.emoji,catId:cat.id,calc:cat.calculator});
+      });
+    });
+  }
+  function search(q){
+    q=q.toLowerCase().trim();
+    if(!q){overlay.classList.remove('open');return;}
+    overlay.classList.add('open');
+    var hits=allRecipes.filter(function(r){return r.nome.toLowerCase().indexOf(q)!==-1;}).slice(0,12);
+    if(!hits.length){results.innerHTML='<div class="s-empty">Sem resultados para "'+q+'"</div>';return;}
+    results.innerHTML=hits.map(function(r){
+      return '<a class="s-item" href="livro.html?cat='+r.catId+'">'+
+        '<span class="si-icon">'+r.emoji+'</span>'+
+        '<div><div class="si-name">'+r.nome+'</div><div class="si-mod">'+r.mod+'</div></div>'+
+      '</a>';
+    }).join('');
+  }
+  input.addEventListener('input',function(){search(this.value);});
+  input.addEventListener('focus',function(){if(this.value)search(this.value);});
+  overlay.addEventListener('click',function(e){if(e.target===overlay){overlay.classList.remove('open');input.value='';}});
+  // build index após PRATO_CERTO estar disponível
+  setTimeout(buildIndex,0);
+})();
+
 // tema claro/escuro
 (function(){
-  var btn=document.getElementById('themeBtn');
   var stored=localStorage.getItem('pc-theme');
   function apply(t){
-    if(t==='light'){document.documentElement.classList.add('light');btn.textContent='☀️';}
-    else{document.documentElement.classList.remove('light');btn.textContent='🌙';}
+    if(t==='light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
     localStorage.setItem('pc-theme',t);
   }
   apply(stored||'dark');
-  btn.addEventListener('click',function(){
-    apply(document.documentElement.classList.contains('light')?'dark':'light');
-  });
 })();
 
 // onboarding: novos utilizadores + quem esteve 5h+ fora
