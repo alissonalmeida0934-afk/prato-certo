@@ -422,9 +422,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-  /* food pattern body bg */
-  body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg opacity='0.065' fill='none' stroke-linecap='round'%3E%3Cline x1='40' y1='72' x2='40' y2='28' stroke='%233D5723' stroke-width='1.5'/%3E%3Cellipse cx='30' cy='50' rx='9' ry='16' stroke='%233D5723' stroke-width='1.5' transform='rotate(-35 30 50)'/%3E%3Cellipse cx='40' cy='36' rx='9' ry='17' stroke='%233D5723' stroke-width='1.5'/%3E%3Cellipse cx='50' cy='50' rx='9' ry='16' stroke='%233D5723' stroke-width='1.5' transform='rotate(35 50 50)'/%3E%3Cpath d='M162 14 L162 54 M157 14 L157 34 M167 14 L167 34 M157 34 C157 42 167 42 167 34' stroke='%23E46C44' stroke-width='1.5'/%3E%3Cpath d='M38 132 L50 170 L26 170Z' stroke='%23E46C44' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cline x1='38' y1='132' x2='31' y2='116' stroke='%233D5723' stroke-width='1.5'/%3E%3Cline x1='38' y1='132' x2='46' y2='115' stroke='%233D5723' stroke-width='1.5'/%3E%3Ccircle cx='158' cy='158' r='22' stroke='%233D5723' stroke-width='1.5'/%3E%3Ccircle cx='158' cy='158' r='13' stroke='%233D5723' stroke-width='1'/%3E%3Ccircle cx='100' cy='95' r='3' fill='%23E46C44'/%3E%3Ccircle cx='82' cy='128' r='2' fill='%233D5723'/%3E%3Ccircle cx='118' cy='42' r='4' fill='%23E46C44' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E");background-size:200px}
-
+  
   /* card stack on colored sections */
   .s-card{border-radius:36px 36px 0 0;position:relative;z-index:1}
   /* white-alt for visual rhythm between cream sections */
@@ -1169,7 +1167,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     if(pos!=='absolute'&&pos!=='fixed'){sec.style.position='relative';}
     sec.style.overflow='hidden';
     var d=document.createElement('div');
-    d.style.cssText='position:absolute;inset:0;background-image:url('+patterns[i%2]+');background-size:480px;background-repeat:repeat;opacity:0.07;pointer-events:none;z-index:0;';
+    d.style.cssText='position:absolute;inset:0;background-image:url('+patterns[i%2]+');background-size:480px;background-repeat:repeat;opacity:0.12;mix-blend-mode:multiply;pointer-events:none;z-index:0;';
     sec.insertBefore(d,sec.firstChild);
   });
 })();
