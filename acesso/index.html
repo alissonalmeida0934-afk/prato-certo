@@ -200,7 +200,9 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
       <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
     </a>
     <div class="h-av-wrap">
-      <button class="h-av" id="hAvBtn">?</button>
+      <button class="h-av" id="hAvBtn" onclick="toggleDrop(event)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
       <div class="h-drop" id="hDrop">
         <a href="minha-conta.html" class="h-drop-item">Minha conta</a>
         <div class="h-drop-sep"></div>
@@ -337,22 +339,15 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   document.getElementById('progPct').textContent=pct+'%';
   setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
 })();
-// avatar initials
-(function(){
-  window._sb.auth.getUser().then(function(r){
-    var u=r.data&&r.data.user;
-    if(!u) return;
-    var meta=u.user_metadata||{};
-    var nome=meta.nome||meta.full_name||u.email||'?';
-    var initials=nome.trim().split(/\s+/).slice(0,2).map(function(w){return w[0].toUpperCase();}).join('');
-    document.getElementById('hAvBtn').textContent=initials||'?';
-  });
-  // dropdown toggle
-  var btn=document.getElementById('hAvBtn');
-  var drop=document.getElementById('hDrop');
-  btn.addEventListener('click',function(e){e.stopPropagation();drop.classList.toggle('open');});
-  document.addEventListener('click',function(){drop.classList.remove('open');});
-})();
+// dropdown avatar
+function toggleDrop(e){
+  e.stopPropagation();
+  document.getElementById('hDrop').classList.toggle('open');
+}
+document.addEventListener('click',function(){
+  var d=document.getElementById('hDrop');
+  if(d) d.classList.remove('open');
+});
 
 // search
 (function(){
