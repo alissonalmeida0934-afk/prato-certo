@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Rubik',system-ui,sans-serif;background:#0c0c0c;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px 40px;text-align:center;max-width:400px;width:100%}
+body{font-family:'Rubik',system-ui,sans-serif;background:#0c0c0c url('/img/login-bg.jpg') center/cover no-repeat;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+body::before{content:'';position:fixed;inset:0;background:rgba(0,0,0,.55);pointer-events:none}
+.card{background:rgba(16,16,16,.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:48px 40px;text-align:center;max-width:400px;width:100%;position:relative;z-index:1}
 @media(max-width:480px){.card{padding:36px 24px}}
 .logo{font-size:3rem;margin-bottom:16px}
 h1{color:#F0EDE8;font-size:1.4rem;font-weight:700;margin-bottom:8px}
