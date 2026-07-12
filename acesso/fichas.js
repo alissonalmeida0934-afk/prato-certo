@@ -3093,7 +3093,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Frango com Arroz Integral e Brócolos",
-          img: "",
+          img: "../img/ms-01.png", imgPos: "center",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de peito de frango",
@@ -3112,7 +3112,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Frango com Arroz e Feijão",
-          img: "",
+          img: "../img/ms-02.png", imgPos: "center",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de frango desfiado temperado",
@@ -3131,7 +3131,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Strogonoff de Frango com Arroz",
-          img: "",
+          img: "../img/ms-03.png", imgPos: "center",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de frango em tiras",
@@ -3150,7 +3150,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍚 Com Arroz",
           nome: "Bacalhau com Grão e Brócolos",
-          img: "",
+          img: "../img/ms-04.png", imgPos: "center",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de bacalhau desfiado demolhado",
@@ -3169,7 +3169,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌾 Com Massa",
           nome: "Massa Integral com Frango",
-          img: "",
+          img: "../img/ms-05.png", imgPos: "center",
           tempo: "25 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "320 g de massa integral (esparguete ou penne)",
@@ -3188,7 +3188,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌾 Com Massa",
           nome: "Massa de Atum e Tomate",
-          img: "",
+          img: "../img/ms-06.png", imgPos: "center",
           tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "240 g de massa integral",
@@ -3207,7 +3207,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥔 Com Batata",
           nome: "Frango com Batata-Doce e Espargos",
-          img: "",
+          img: "../img/ms-07.png", imgPos: "center",
           tempo: "30 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de peito de frango",
@@ -3226,7 +3226,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥔 Com Batata",
           nome: "Frango Assado com Vegetais",
-          img: "",
+          img: "../img/ms-08.png", imgPos: "center",
           tempo: "35 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de frango em pedaços",
@@ -3244,7 +3244,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Quinoa com Vegetais Assados",
-          img: "",
+          img: "../img/ms-09.png", imgPos: "center",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de quinoa cozida",
@@ -3263,7 +3263,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Lentilhas com Arroz",
-          img: "",
+          img: "../img/ms-10.png", imgPos: "center",
           tempo: "30 min", doses: "4 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de lentilhas verdes",
@@ -3282,7 +3282,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Grão com Espinafres",
-          img: "",
+          img: "../img/ms-11.png", imgPos: "center",
           tempo: "20 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de grão cozido",
@@ -3301,7 +3301,7 @@ window.PRATO_CERTO = {
         {
           secao: "🌿 Com Leguminosas",
           nome: "Frango com Courgette e Tomate",
-          img: "",
+          img: "../img/ms-12.png", imgPos: "center",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango em cubos",
@@ -3320,7 +3320,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Omelete de Batata e Espinafres",
-          img: "",
+          img: "../img/ms-13.png", imgPos: "center",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "4 ovos",
@@ -3339,7 +3339,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Arroz Integral com Atum",
-          img: "",
+          img: "../img/ms-14.png", imgPos: "center",
           tempo: "25 min", doses: "3 marmitas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de arroz integral",
@@ -3358,7 +3358,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍳 Com Ovos",
           nome: "Risotto de Frango Light",
-          img: "",
+          img: "../img/ms-15.png", imgPos: "center",
           tempo: "30 min", doses: "3 marmitas", dificuldade: "Médio",
           ingredientes: [
             "150 g de arroz arbóreo",
