@@ -101,7 +101,7 @@ html.light .field input,html.light .field textarea,html.light .field select{colo
     <div>
       <div class="avatar-wrap">
         <div class="av-circle" id="avCircle">
-          ?
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span class="av-edit">✏️</span>
         </div>
         <div class="av-info">Foto de perfil<br><span id="userEmail" style="color:var(--muted)">—</span></div>
@@ -202,9 +202,6 @@ window._sb.auth.getUser().then(function(r){
   document.getElementById('fTelefone').value=meta.telefone||'';
   document.getElementById('fBio').value=meta.bio||'';
   document.getElementById('userEmail').textContent=u.email||'';
-  // avatar initials
-  var initials=nome.trim().split(/\s+/).slice(0,2).map(function(w){return w[0]?w[0].toUpperCase():'';}).join('');
-  document.getElementById('avCircle').childNodes[0].textContent=initials||'?';
   // fuso
   var fuso=meta.fuso||localStorage.getItem('pc-fuso')||'Europe/Lisbon';
   document.getElementById('fFuso').value=fuso;

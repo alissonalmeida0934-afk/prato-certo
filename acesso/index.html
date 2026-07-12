@@ -354,27 +354,35 @@ document.addEventListener('click',function(){
   var input=document.getElementById('hSearch');
   var overlay=document.getElementById('sOverlay');
   var results=document.getElementById('sResults');
-  var allRecipes=[];
+  var allItems=[];
   function buildIndex(){
     var data=window.PRATO_CERTO;
     data.categorias.forEach(function(cat){
-      if(!cat.fichas) return;
-      cat.fichas.forEach(function(f){
-        if(!f.nome) return;
-        allRecipes.push({nome:f.nome,mod:cat.nome,emoji:cat.emoji,catId:cat.id,calc:cat.calculator});
-      });
+      var href=cat.calculator?'calculadora.html':'livro.html?cat='+cat.id;
+      // módulo em si
+      allItems.push({nome:cat.nome,sub:'Módulo',emoji:cat.emoji,href:href,prio:1});
+      // receitas do módulo
+      if(cat.fichas){
+        cat.fichas.forEach(function(f){
+          if(!f.nome) return;
+          allItems.push({nome:f.nome,sub:cat.nome,emoji:cat.emoji,href:href,prio:0});
+        });
+      }
     });
   }
   function search(q){
     q=q.toLowerCase().trim();
     if(!q){overlay.classList.remove('open');return;}
     overlay.classList.add('open');
-    var hits=allRecipes.filter(function(r){return r.nome.toLowerCase().indexOf(q)!==-1;}).slice(0,12);
+    var hits=allItems.filter(function(r){return r.nome.toLowerCase().indexOf(q)!==-1;});
+    // módulos primeiro, depois receitas
+    hits.sort(function(a,b){return b.prio-a.prio;});
+    hits=hits.slice(0,14);
     if(!hits.length){results.innerHTML='<div class="s-empty">Sem resultados para "'+q+'"</div>';return;}
     results.innerHTML=hits.map(function(r){
-      return '<a class="s-item" href="livro.html?cat='+r.catId+'">'+
+      return '<a class="s-item" href="'+r.href+'">'+
         '<span class="si-icon">'+r.emoji+'</span>'+
-        '<div><div class="si-name">'+r.nome+'</div><div class="si-mod">'+r.mod+'</div></div>'+
+        '<div><div class="si-name">'+r.nome+'</div><div class="si-mod">'+r.sub+'</div></div>'+
       '</a>';
     }).join('');
   }
