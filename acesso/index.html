@@ -347,9 +347,22 @@ var PREMIUM_IDS=['jr','sc','ds'];
   sep('✨ Módulos Extra');
   data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
-  // separador + calculadora
-  sep('🔥 Calculadora de Calorias');
+  // separador + ferramentas
+  sep('🛠️ Ferramentas do Prato Certo');
   data.categorias.filter(function(c){return CALC_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
+  // card lista de compras
+  (function(){
+    var div=document.createElement('a');
+    div.className='mod-card';
+    div.href='bonus.html#lista';
+    div.innerHTML=
+      '<div class="mc-img"><img src="../img/lista-compras-capa.png" alt="Lista de Compras"></div>'+
+      '<div class="mc-info">'+
+        '<div class="mc-name">Lista de Compras</div>'+
+        '<div class="mc-prog"><span class="mtxt">Gera a lista da semana automaticamente</span></div>'+
+      '</div>';
+    grid.appendChild(div);
+  })();
 
   var pct=totalAll?Math.round(doneAll/totalAll*100):0;
   document.getElementById('progBadge').textContent=doneAll+' de 190 receitas';
