@@ -231,11 +231,6 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
     <h2>🎁 Bónus e extras</h2>
   </div>
   <div class="bonus-grid">
-    <a class="bcard" href="bonus.html#lista">
-      <span class="btag">Bónus</span><div class="bi">🛒</div>
-      <h4>Lista de compras</h4>
-      <p>Monta a lista da semana automaticamente.</p>
-    </a>
     <a class="bcard" href="bonus.html#favoritos">
       <span class="btag">Bónus</span><div class="bi">❤️</div>
       <h4>As minhas favoritas</h4>
@@ -343,10 +338,6 @@ var PREMIUM_IDS=['jr','sc','ds'];
   sep('▶ Receitas em Vídeo');
   data.categorias.filter(function(c){return VID_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
-  // separador + novos módulos
-  sep('✨ Módulos Extra');
-  data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
-
   // separador + ferramentas
   sep('🛠️ Ferramentas do Prato Certo');
   data.categorias.filter(function(c){return CALC_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
@@ -363,6 +354,10 @@ var PREMIUM_IDS=['jr','sc','ds'];
       '</div>';
     grid.appendChild(div);
   })();
+
+  // separador + novos módulos (premium)
+  sep('✨ Módulos Extra');
+  data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
   var pct=totalAll?Math.round(doneAll/totalAll*100):0;
   document.getElementById('progBadge').textContent=doneAll+' de 190 receitas';
