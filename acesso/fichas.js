@@ -3398,6 +3398,7 @@ window.PRATO_CERTO = {
       nome: "Calculadora de Calorias",
       emoji: "🔥",
       subtitulo: "Descobre quantas calorias precisas por dia e obtém o teu cardápio personalizado.",
+      capa: "../img/cc-capa.png",
       calculator: true,
       fichas: []
     }
