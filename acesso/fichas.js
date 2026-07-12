@@ -2787,7 +2787,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Brownie de Banana e Cacau",
-          img: "",
+          img: "../img/ds-01.png", imgPos: "center",
           tempo: "25 min", doses: "8 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -2808,7 +2808,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Mousse de Chocolate e Abacate",
-          img: "",
+          img: "../img/ds-02.png", imgPos: "center",
           tempo: "10 min", doses: "4 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 abacates maduros",
@@ -2828,7 +2828,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Bolachas de Aveia e Chocolate",
-          img: "",
+          img: "../img/ds-03.png", imgPos: "center",
           tempo: "20 min", doses: "15 bolachas", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -2847,7 +2847,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Trufas de Cacau",
-          img: "",
+          img: "../img/ds-04.png", imgPos: "center",
           tempo: "15 min", doses: "20 trufas", dificuldade: "Fácil",
           ingredientes: [
             "200 g de tâmaras sem caroço",
@@ -2866,7 +2866,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Tarte de Limão Fit",
-          img: "",
+          img: "../img/ds-05.png", imgPos: "center",
           tempo: "20 min", doses: "8 fatias", dificuldade: "Médio",
           ingredientes: [
             "Base: 150 g de tâmaras + 100 g de aveia processados juntos",
@@ -2885,7 +2885,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Pudim de Chia",
-          img: "",
+          img: "../img/ds-06.png", imgPos: "center",
           tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "4 colheres de sopa de sementes de chia",
@@ -2904,7 +2904,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Torta de Laranja sem Farinha",
-          img: "",
+          img: "../img/ds-07.png", imgPos: "center",
           tempo: "35 min", doses: "8 fatias", dificuldade: "Médio",
           ingredientes: [
             "4 ovos",
@@ -2924,7 +2924,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍋 Com Fruta",
           nome: "Gelado de Morango Proteico",
-          img: "",
+          img: "../img/ds-08.png", imgPos: "center",
           tempo: "10 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "200 g de morangos congelados",
@@ -2943,7 +2943,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Crepe Doce de Ricota",
-          img: "",
+          img: "../img/ds-09.png", imgPos: "center",
           tempo: "15 min", doses: "2 porções", dificuldade: "Fácil",
           ingredientes: [
             "2 ovos",
@@ -2962,7 +2962,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Bolo de Iogurte",
-          img: "",
+          img: "../img/ds-10.png", imgPos: "center",
           tempo: "40 min", doses: "10 fatias", dificuldade: "Fácil",
           ingredientes: [
             "1 pote de iogurte natural — 170 g (usa a embalagem como medida)",
@@ -2983,7 +2983,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Semifrio de Maracujá",
-          img: "",
+          img: "../img/ds-11.png", imgPos: "center",
           tempo: "15 min", doses: "6 porções", dificuldade: "Fácil",
           ingredientes: [
             "Polpa de 4 maracujás",
@@ -3003,7 +3003,7 @@ window.PRATO_CERTO = {
         {
           secao: "🥛 Com Laticínios",
           nome: "Pavlova Proteica",
-          img: "",
+          img: "../img/ds-12.png", imgPos: "center",
           tempo: "60 min", doses: "8 porções", dificuldade: "Médio",
           ingredientes: [
             "4 claras de ovo",
@@ -3023,7 +3023,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Barras de Cereais Caseiras",
-          img: "",
+          img: "../img/ds-13.png", imgPos: "center",
           tempo: "20 min", doses: "10 barras", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -3043,7 +3043,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Cookies de Aveia",
-          img: "",
+          img: "../img/ds-14.png", imgPos: "center",
           tempo: "20 min", doses: "12 cookies", dificuldade: "Fácil",
           ingredientes: [
             "2 bananas maduras",
@@ -3063,7 +3063,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍌 Com Banana",
           nome: "Compota de Fruta sem Açúcar",
-          img: "",
+          img: "../img/ds-15.png", imgPos: "center",
           tempo: "20 min", doses: "12 porções", dificuldade: "Fácil",
           ingredientes: [
             "500 g de fruta da época (morango, pêssego, ameixa)",
