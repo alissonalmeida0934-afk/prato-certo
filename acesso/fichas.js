@@ -2493,7 +2493,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Abóbora",
-          img: "",
+          img: "../img/sc-01.png",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de abóbora em cubos",
@@ -2512,7 +2512,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Cenoura e Gengibre",
-          img: "",
+          img: "../img/sc-02.png",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "500 g de cenoura em rodelas",
@@ -2531,7 +2531,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Brócolos",
-          img: "",
+          img: "../img/sc-03.png",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "1 brócolos inteiro — cerca de 500 g",
@@ -2550,7 +2550,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Alho Francês",
-          img: "",
+          img: "../img/sc-04.png",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "3 alhos franceses em rodelas",
@@ -2569,7 +2569,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍂 Cremes",
           nome: "Creme de Ervilhas com Hortelã",
-          img: "",
+          img: "../img/sc-05.png",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de ervilhas (congeladas servem)",
@@ -2588,7 +2588,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Legumes",
-          img: "",
+          img: "../img/sc-06.png",
           tempo: "30 min", doses: "5 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "1 cebola, 2 cenouras, 1 nabo",
@@ -2606,7 +2606,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Caldo Verde",
-          img: "",
+          img: "../img/sc-07.png",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "4 batatas médias",
@@ -2625,7 +2625,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Feijão",
-          img: "",
+          img: "../img/sc-08.png",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de feijão encarnado cozido (lata serve)",
@@ -2644,7 +2644,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Lentilhas",
-          img: "",
+          img: "../img/sc-09.png",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "250 g de lentilhas vermelhas",
@@ -2663,7 +2663,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Grão",
-          img: "",
+          img: "../img/sc-10.png",
           tempo: "25 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de grão cozido",
@@ -2682,7 +2682,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Cogumelos",
-          img: "",
+          img: "../img/sc-11.png",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de cogumelos frescos fatiados",
@@ -2701,7 +2701,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Tomate Fresco",
-          img: "",
+          img: "../img/sc-12.png",
           tempo: "25 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de tomate maduro",
@@ -2719,7 +2719,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Gazpacho Português",
-          img: "",
+          img: "../img/sc-13.png",
           tempo: "10 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "600 g de tomate maduro",
@@ -2738,7 +2738,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Sopa de Courgette e Hortelã",
-          img: "",
+          img: "../img/sc-14.png",
           tempo: "20 min", doses: "3 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "3 courgettes médias",
@@ -2757,7 +2757,7 @@ window.PRATO_CERTO = {
         {
           secao: "🫕 Sopas",
           nome: "Caldo de Frango Aromático",
-          img: "",
+          img: "../img/sc-15.png",
           tempo: "30 min", doses: "4 pessoas", dificuldade: "Fácil",
           ingredientes: [
             "400 g de frango desfiado cozido",
