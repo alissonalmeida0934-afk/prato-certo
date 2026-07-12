@@ -1162,13 +1162,13 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 (function(){
   var patterns=['img/bg-pattern-food.png','img/bg-pattern-fastfood.png'];
   document.querySelectorAll('section').forEach(function(sec,i){
-    var cs=window.getComputedStyle(sec);
-    var pos=sec.style.position||cs.position;
-    if(pos!=='absolute'&&pos!=='fixed'){sec.style.position='relative';}
-    sec.style.overflow='hidden';
+    sec.style.position='relative';
     var d=document.createElement('div');
-    d.style.cssText='position:absolute;inset:0;background-image:url('+patterns[i%2]+');background-size:480px;background-repeat:repeat;opacity:0.10;pointer-events:none;z-index:-1;';
+    d.style.cssText='position:absolute;inset:0;background-image:url('+patterns[i%2]+');background-size:420px;background-repeat:repeat;opacity:0.13;pointer-events:none;z-index:0;';
     sec.insertBefore(d,sec.firstChild);
+    Array.from(sec.children).forEach(function(child){
+      if(child!==d){child.style.position='relative';child.style.zIndex='1';}
+    });
   });
 })();
 </script>
