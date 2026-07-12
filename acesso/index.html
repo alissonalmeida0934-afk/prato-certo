@@ -114,6 +114,11 @@ main{max-width:600px;margin:0 auto;padding:20px 14px 80px}
 .mod-card .mc-prog .mbar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
 .mod-card .mc-prog .mbar i{display:block;height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .6s}
 .mod-card .mc-prog .mtxt{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
+.mod-locked{opacity:.7;cursor:default}
+.mod-locked:hover{transform:none!important;box-shadow:none!important}
+.lock-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.lock-icon{font-size:1.8rem;line-height:1}
+.lock-txt{font-size:.7rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;background:var(--primary);padding:3px 10px;border-radius:99px}
 .mc-emoji-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(145deg,#1e1e1e,#2a2a2a)}
 .mc-emoji-ph .ep-icon{font-size:3rem;line-height:1}
 .mc-emoji-ph .ep-name{font-size:.72rem;font-weight:700;color:rgba(240,231,216,.5);text-align:center;padding:0 8px;letter-spacing:.04em}
@@ -251,7 +256,9 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
 
 <script src="fichas.js"></script>
 <script>
-(function(){
+var PREMIUM_IDS=['ta','ri','hi','ge','t3','ci','vd','jr','sc','ds','ms'];
+
+(async function(){
   var data=window.PRATO_CERTO;
   var grid=document.getElementById('grid');
   var totalAll=0, doneAll=0;
@@ -259,9 +266,36 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   var CALC_IDS=['cc'];
   var VID_IDS=['vd'];
 
+  // obter plano do utilizador (base ou premium; default premium para retrocompat)
+  var _plano='premium';
+  try{
+    var _r=await window._sb.auth.getUser();
+    if(_r.data&&_r.data.user){
+      _plano=(_r.data.user.user_metadata||{}).plano||'premium';
+    }
+  }catch(e){}
+
   function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
 
   function makeCard(cat){
+    var locked=(_plano==='base'&&PREMIUM_IDS.indexOf(cat.id)!==-1);
+    if(locked){
+      var imgHtml=cat.capa
+        ?'<img src="'+cat.capa+'" alt="'+cat.nome+'">'
+        :'<div class="mc-emoji-ph"><span class="ep-icon">'+cat.emoji+'</span><span class="ep-name">'+cat.nome+'</span></div>';
+      var div=document.createElement('div');
+      div.className='mod-card mod-locked';
+      div.innerHTML=
+        '<div class="mc-img" style="position:relative">'+imgHtml+
+          '<div class="lock-overlay"><span class="lock-icon">🔒</span><span class="lock-txt">Plano Premium</span></div>'+
+        '</div>'+
+        '<div class="mc-info">'+
+          '<div class="mc-name">'+cat.nome+'</div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--muted);font-size:11px">Disponível no Plano Premium</span></div>'+
+        '</div>';
+      grid.appendChild(div);
+      return;
+    }
     var n,d,pct,progHtml;
     if(cat.calculator){
       progHtml='<span class="mtxt" style="color:var(--primary)">Calcular 🔥</span>';
