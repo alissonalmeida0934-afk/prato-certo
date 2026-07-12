@@ -114,8 +114,8 @@ main{max-width:600px;margin:0 auto;padding:20px 14px 80px}
 .mod-card .mc-prog .mbar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
 .mod-card .mc-prog .mbar i{display:block;height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .6s}
 .mod-card .mc-prog .mtxt{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
-.mod-locked{opacity:.7;cursor:default}
-.mod-locked:hover{transform:none!important;box-shadow:none!important}
+.mod-locked{opacity:.7;cursor:pointer}
+.mod-locked:hover{transform:translateY(-2px)!important;box-shadow:0 6px 20px rgba(0,0,0,.18)!important}
 .lock-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .lock-icon{font-size:1.8rem;line-height:1}
 .lock-txt{font-size:.7rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;background:var(--primary);padding:3px 10px;border-radius:99px}
@@ -241,12 +241,6 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
       <h4>Meal-prep</h4>
       <p>Organiza a semana em 2 horas.</p>
     </a>
-    <div class="bcard" id="card-intestino" style="opacity:.45;pointer-events:none;position:relative">
-      <span class="btag">Bónus Extra</span><div class="bi">🌿</div>
-      <h4>7 Dias Sem Prisão de Ventre</h4>
-      <p>Guia prático para regularizar o intestino em 1 semana.</p>
-      <span style="font-size:11px;color:#E46C44;font-weight:700">🔒 Disponível com upgrade</span>
-    </div>
   </div>
 </main>
 
@@ -261,16 +255,6 @@ var PREMIUM_IDS=['jr','sc','ds'];
 
 (async function(){
   var data=window.PRATO_CERTO;
-  // Desbloqueia card intestino se user tem intestino:true
-  if(data && data.user_metadata && data.user_metadata.intestino){
-    var ci=document.getElementById("card-intestino");
-    if(ci){ci.style.opacity="1";ci.style.pointerEvents="auto";
-      ci.onclick=function(){window.open("../guia-intestino-livre.html","_blank");};
-      ci.style.cursor="pointer";
-      var lock=ci.querySelector("span[style]");
-      if(lock)lock.textContent="📄 Abrir Guia";}
-  }
-
   var grid=document.getElementById('grid');
   var totalAll=0, doneAll=0;
   var NEW_IDS=['jr','sc','ds'];
@@ -278,12 +262,15 @@ var PREMIUM_IDS=['jr','sc','ds'];
   var CALC_IDS=['cc'];
   var VID_IDS=['vd'];
 
-  // obter plano do utilizador (base ou premium; default premium para retrocompat)
+  // obter plano e flags do utilizador
   var _plano='premium';
+  var _intestino=false;
   try{
     var _r=await window._sb.auth.getUser();
     if(_r.data&&_r.data.user){
-      _plano=(_r.data.user.user_metadata||{}).plano||'premium';
+      var _meta=_r.data.user.user_metadata||{};
+      _plano=_meta.plano||'premium';
+      _intestino=!!_meta.intestino;
     }
   }catch(e){}
 
@@ -297,13 +284,16 @@ var PREMIUM_IDS=['jr','sc','ds'];
         :'<div class="mc-emoji-ph"><span class="ep-icon">'+cat.emoji+'</span><span class="ep-name">'+cat.nome+'</span></div>';
       var div=document.createElement('div');
       div.className='mod-card mod-locked';
+      div.style.cursor='pointer';
+      div.title='Clica para fazer upgrade para Premium';
+      div.onclick=function(){window.open('https://pay.hotmart.com/N106709125N?checkoutMode=10','_blank');};
       div.innerHTML=
         '<div class="mc-img" style="position:relative">'+imgHtml+
-          '<div class="lock-overlay"><span class="lock-icon">🔒</span><span class="lock-txt">Plano Premium</span></div>'+
+          '<div class="lock-overlay"><span class="lock-icon">🔒</span><span class="lock-txt">PLANO PREMIUM</span></div>'+
         '</div>'+
         '<div class="mc-info">'+
           '<div class="mc-name">'+cat.nome+'</div>'+
-          '<div class="mc-prog"><span class="mtxt" style="color:var(--muted);font-size:11px">Disponível no Plano Premium</span></div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--primary);font-size:11px;font-weight:700">👆 Clica para fazer upgrade</span></div>'+
         '</div>';
       grid.appendChild(div);
       return;
@@ -376,6 +366,39 @@ var PREMIUM_IDS=['jr','sc','ds'];
 
   // separador + novos módulos (premium)
   sep('✨ Módulos Extra');
+
+  // módulo order bump — aparece PRIMEIRO (no lugar de Jantares Rápidos)
+  (function(){
+    var ig=document.createElement(_intestino?'a':'div');
+    if(_intestino){
+      ig.className='mod-card';
+      ig.href='../guia-intestino-livre.html';
+      ig.target='_blank';
+      ig.innerHTML=
+        '<div class="mc-img"><img src="../img/capa-guia.png" alt="7 Dias Sem Prisão de Ventre"></div>'+
+        '<div class="mc-info">'+
+          '<div class="mc-name">7 Dias Sem Prisão de Ventre</div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--primary)">Abrir Guia 📄</span></div>'+
+        '</div>';
+    } else {
+      ig.className='mod-card mod-locked';
+      ig.style.cursor='pointer';
+      ig.title='Clica para adicionar ao checkout';
+      ig.onclick=function(){window.open('https://pay.hotmart.com/N106709125N?checkoutMode=10','_blank');};
+      ig.innerHTML=
+        '<div class="mc-img" style="position:relative">'+
+          '<img src="../img/capa-guia.png" alt="7 Dias Sem Prisão de Ventre">'+
+          '<div class="lock-overlay"><span class="lock-icon">🔒</span><span class="lock-txt">Faça Upgrade</span></div>'+
+        '</div>'+
+        '<div class="mc-info">'+
+          '<div class="mc-name">7 Dias Sem Prisão de Ventre</div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--primary);font-size:11px;font-weight:700">👆 Clica para desbloquear</span></div>'+
+        '</div>';
+    }
+    grid.appendChild(ig);
+  })();
+
+  // depois: Jantares Rápidos, Sopas & Cremes, Doces Saudáveis
   data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
   var pct=totalAll?Math.round(doneAll/totalAll*100):0;
