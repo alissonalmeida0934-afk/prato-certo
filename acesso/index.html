@@ -286,7 +286,7 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   data.categorias.filter(function(c){return CALC_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
 
   var pct=totalAll?Math.round(doneAll/totalAll*100):0;
-  document.getElementById('progBadge').textContent=doneAll+' de '+totalAll+' receitas';
+  document.getElementById('progBadge').textContent=doneAll+' de 190 receitas';
   document.getElementById('progPct').textContent=pct+'%';
   setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
 })();
