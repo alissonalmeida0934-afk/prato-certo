@@ -3392,6 +3392,14 @@ window.PRATO_CERTO = {
         { titulo: "Suco Roxo para Emagrecer", id: "cJNyzBdQatI" }
       ],
       fichas: []
+    },
+    {
+      id: "cc",
+      nome: "Calculadora de Calorias",
+      emoji: "🔥",
+      subtitulo: "Descobre quantas calorias precisas por dia e obtém o teu cardápio personalizado.",
+      calculator: true,
+      fichas: []
     }
   ]
 };

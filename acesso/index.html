@@ -223,14 +223,16 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
   var data=window.PRATO_CERTO;
   var grid=document.getElementById('grid');
   var totalAll=0, doneAll=0;
-  var NEW_IDS=['jr','sc','ds','ms'];
+  var NEW_IDS=['jr','sc','ds','ms','cc'];
   var VID_IDS=['vd'];
 
   function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
 
   function makeCard(cat){
     var n,d,pct,progHtml;
-    if(cat.videoList){
+    if(cat.calculator){
+      progHtml='<span class="mtxt" style="color:var(--primary)">Calcular 🔥</span>';
+    } else if(cat.videoList){
       n=cat.videos.length;
       progHtml='<span class="mtxt" style="color:var(--primary)">'+n+' vídeos ▶</span>';
     } else if(cat.pdfDownload && (!cat.fichas||cat.fichas.length===0)){
@@ -250,7 +252,7 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
       :'<div class="mc-emoji-ph"><span class="ep-icon">'+cat.emoji+'</span><span class="ep-name">'+cat.nome+'</span></div>';
     var a=document.createElement('a');
     a.className='mod-card';
-    a.href='livro.html?cat='+cat.id;
+    a.href=cat.calculator?'calculadora.html':'livro.html?cat='+cat.id;
     a.innerHTML=
       '<div class="mc-img">'+imgHtml+'</div>'+
       '<div class="mc-info">'+
