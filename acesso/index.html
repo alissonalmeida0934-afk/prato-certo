@@ -78,18 +78,18 @@ header .brand .logo{width:32px;height:32px;border-radius:8px;object-fit:cover}
 .h-drop-sep{height:1px;background:var(--line)}
 .h-drop-sair{color:var(--muted)}
 
-/* search overlay */
-.s-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.6);display:none}
-.s-overlay.open{display:block}
-.s-box{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(560px,92vw);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.5)}
-.s-results{max-height:380px;overflow-y:auto}
-.s-item{display:flex;align-items:center;gap:12px;padding:12px 16px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line);transition:.1s}
+/* search dropdown */
+.h-search-wrap{position:relative}
+.s-drop{position:fixed;top:54px;right:16px;width:320px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:9999;display:none}
+.s-drop.open{display:block}
+.s-results{max-height:360px;overflow-y:auto}
+.s-item{display:flex;align-items:center;gap:12px;padding:11px 14px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line);transition:.1s}
 .s-item:last-child{border:none}
 .s-item:hover{background:var(--surface2)}
-.s-item .si-icon{font-size:1.4rem;width:36px;text-align:center;flex-shrink:0}
-.s-item .si-name{font-size:.88rem;font-weight:600;line-height:1.2}
-.s-item .si-mod{font-size:.72rem;color:var(--muted);margin-top:2px}
-.s-empty{padding:28px;text-align:center;color:var(--muted);font-size:.86rem}
+.s-item .si-icon{font-size:1.2rem;width:30px;text-align:center;flex-shrink:0}
+.s-item .si-name{font-size:.85rem;font-weight:600;line-height:1.2}
+.s-item .si-mod{font-size:.7rem;color:var(--muted);margin-top:2px}
+.s-empty{padding:20px;text-align:center;color:var(--muted);font-size:.84rem}
 
 /* boas-vindas compacto */
 .welcome-bar{padding:22px 18px 6px;text-align:center}
@@ -212,7 +212,7 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
     <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema claro/escuro" style="display:none">🌙</button>
   </div>
 </header>
-<div class="s-overlay" id="sOverlay"><div class="s-box"><div class="s-results" id="sResults"></div></div></div>
+<div class="s-drop" id="sDrop"><div class="s-results" id="sResults"></div></div>
 
 <div class="welcome-bar">
   <div class="hello">Bem-vindo(a) à tua área de membros</div>
@@ -352,16 +352,16 @@ document.addEventListener('click',function(){
 // search
 (function(){
   var input=document.getElementById('hSearch');
-  var overlay=document.getElementById('sOverlay');
+  var drop=document.getElementById('sDrop');
   var results=document.getElementById('sResults');
   var allItems=[];
+
   function buildIndex(){
     var data=window.PRATO_CERTO;
+    if(!data) return;
     data.categorias.forEach(function(cat){
       var href=cat.calculator?'calculadora.html':'livro.html?cat='+cat.id;
-      // módulo em si
       allItems.push({nome:cat.nome,sub:'Módulo',emoji:cat.emoji,href:href,prio:1});
-      // receitas do módulo
       if(cat.fichas){
         cat.fichas.forEach(function(f){
           if(!f.nome) return;
@@ -370,15 +370,19 @@ document.addEventListener('click',function(){
       }
     });
   }
-  function search(q){
-    q=q.toLowerCase().trim();
-    if(!q){overlay.classList.remove('open');return;}
-    overlay.classList.add('open');
+
+  function doSearch(q){
+    q=(q||'').toLowerCase().trim();
+    if(!q){drop.classList.remove('open');return;}
+    if(!allItems.length) buildIndex();
+    drop.classList.add('open');
     var hits=allItems.filter(function(r){return r.nome.toLowerCase().indexOf(q)!==-1;});
-    // módulos primeiro, depois receitas
     hits.sort(function(a,b){return b.prio-a.prio;});
     hits=hits.slice(0,14);
-    if(!hits.length){results.innerHTML='<div class="s-empty">Sem resultados para "'+q+'"</div>';return;}
+    if(!hits.length){
+      results.innerHTML='<div class="s-empty">Sem resultados para "'+q+'"</div>';
+      return;
+    }
     results.innerHTML=hits.map(function(r){
       return '<a class="s-item" href="'+r.href+'">'+
         '<span class="si-icon">'+r.emoji+'</span>'+
@@ -386,11 +390,13 @@ document.addEventListener('click',function(){
       '</a>';
     }).join('');
   }
-  input.addEventListener('input',function(){search(this.value);});
-  input.addEventListener('focus',function(){if(this.value)search(this.value);});
-  overlay.addEventListener('click',function(e){if(e.target===overlay){overlay.classList.remove('open');input.value='';}});
-  // build index após PRATO_CERTO estar disponível
-  setTimeout(buildIndex,0);
+
+  input.addEventListener('input',function(){doSearch(this.value);});
+  input.addEventListener('focus',function(){doSearch(this.value);});
+  document.addEventListener('click',function(e){
+    if(!drop.contains(e.target)&&e.target!==input) drop.classList.remove('open');
+  });
+  buildIndex();
 })();
 
 // tema claro/escuro
