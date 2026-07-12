@@ -257,7 +257,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .pricing-tagline{font-size:14px;color:#333;font-style:italic;line-height:1.4}
   .pricing-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;flex:1}
   .pricing-features li{font-size:14px;color:#111;font-style:italic;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0;font-style:normal}
+  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0;font-style:normal}.pricing-features li.no{color:#aaa}.pricing-features li.no::before{content:"✗";color:#e53935}.pricing-features li.no{color:#aaa}.pricing-features li.no::before{content:"✗";color:#e53935}
   .pricing-price-de{font-size:14px;color:#888}
   .pricing-riscado{text-decoration:line-through;color:#aaa;font-weight:700}
   .pricing-price{font-size:46px;font-weight:900;color:#FD860E;line-height:1}
@@ -862,14 +862,17 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
             <li>Bolos Saud&aacute;veis</li>
             <li>Marmitas da Semana</li>
             <li>Lanches que parecem take-away</li>
-            <li>Receitas Inclusivas</li>
-            <li>Hack do Iogurte</li>
-            <li>Gelado Express</li>
-            <li>T&eacute;cnica 3x3</li>
             <li>Congelamento Inteligente</li>
             <li>Receitas em V&iacute;deo</li>
             <li>Calculadora de Calorias</li>
             <li>Lista de Compras autom&aacute;tica</li>
+            <li class="no">Receitas Inclusivas</li>
+            <li class="no">Hack do Iogurte</li>
+            <li class="no">Gelado Express</li>
+            <li class="no">T&eacute;cnica 3x3</li>
+            <li class="no">Jantares R&aacute;pidos</li>
+            <li class="no">Sopas &amp; Cremes</li>
+            <li class="no">Doces Saud&aacute;veis</li>
           </ul>
           <div>
             <div class="pricing-price-de">DE <span class="pricing-riscado">29,90 &euro;</span> POR:</div>
@@ -888,6 +891,10 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
             <li>Jantares R&aacute;pidos (b&oacute;nus exclusivo)</li>
             <li>Sopas &amp; Cremes (b&oacute;nus exclusivo)</li>
             <li>Doces Saud&aacute;veis (b&oacute;nus exclusivo)</li>
+            <li>Receitas Inclusivas (b&oacute;nus exclusivo)</li>
+            <li>Hack do Iogurte (b&oacute;nus exclusivo)</li>
+            <li>Gelado Express (b&oacute;nus exclusivo)</li>
+            <li>T&eacute;cnica 3x3 (b&oacute;nus exclusivo)</li>
           </ul>
           <div>
             <div class="pricing-price-de">DE <span class="pricing-riscado">39,90 &euro;</span> POR:</div>
