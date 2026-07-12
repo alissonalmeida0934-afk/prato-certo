@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>7 Dias Sem Prisão de Ventre — Prato Certo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Rubik', Arial, sans-serif;
+    background: #e8e8e8;
+    color: #1a1a1a;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  /* ===== CORES ===== */
+  :root {
+    --laranja: #E46C44;
+    --verde: #3D5E25;
+    --verde-claro: #EFF5E0;
+    --creme: #FAF7F2;
+    --escuro: #1E2D10;
+  }
+
+  /* ===== CAPA ===== */
+  .cover {
+    background: linear-gradient(160deg, #2A4A1A 0%, #3D6E25 60%, #4a8a2a 100%);
+    color: white;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 40px;
+    position: relative;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(228,108,68,.25) 0%, transparent 65%);
+  }
+  .cover-badge {
+    background: #E46C44;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 99px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-titulo {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.05;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+  }
+  .cover-titulo span { color: #C8E67A; }
+  .cover-sub {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: .85;
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 18px auto 0;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-img-placeholder {
+    width: 320px;
+    height: 220px;
+    background: rgba(255,255,255,.08);
+    border-radius: 20px;
+    margin: 36px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    border: 1.5px dashed rgba(255,255,255,.25);
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+  }
+  .cover-brand {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+    margin-top: 32px;
+  }
+  .cover-brand span { color: #C8E67A; }
+
+  /* ===== INTERIOR ===== */
+  .page-inner {
+    padding: 48px 52px;
+    flex: 1;
+  }
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 52px;
+    background: var(--verde);
+    color: white;
+  }
+  .page-header span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+  .page-header strong { font-size: 12px; color: #C8E67A; }
+
+  .page-footer {
+    padding: 12px 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    margin-top: auto;
+  }
+  .page-footer span { font-size: 10px; color: #aaa; }
+  .page-num {
+    width: 26px; height: 26px;
+    background: var(--laranja);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+  }
+
+  h1.section-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  h1.section-title span { color: var(--laranja); }
+  .section-divider {
+    width: 48px; height: 4px;
+    background: var(--laranja);
+    border-radius: 99px;
+    margin-bottom: 28px;
+  }
+
+  h2.sub { font-size: 18px; font-weight: 700; color: var(--verde); margin: 28px 0 10px; }
+  p { font-size: 13.5px; line-height: 1.75; color: #333; margin-bottom: 14px; }
+  p strong { color: var(--escuro); }
+
+  .highlight-box {
+    background: var(--verde-claro);
+    border-left: 4px solid var(--laranja);
+    padding: 18px 22px;
+    border-radius: 0 10px 10px 0;
+    margin: 22px 0;
+  }
+  .highlight-box p { margin: 0; font-size: 13px; }
+  .highlight-box strong { color: var(--verde); }
+
+  .tip-box {
+    background: #FFF5EF;
+    border: 1.5px solid #E46C44;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin: 16px 0;
+  }
+  .tip-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--laranja);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 6px;
+  }
+  .tip-box p { margin: 0; font-size: 13px; }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .food-card {
+    background: var(--creme);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid #e8e0d4;
+  }
+  .food-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--verde);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .food-card ul { list-style: none; padding: 0; }
+  .food-card li {
+    font-size: 12px;
+    color: #444;
+    padding: 3px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.5;
+  }
+  .food-card li::before { content: '✓'; color: var(--laranja); font-weight: 700; flex-shrink: 0; }
+
+  .bad-card { background: #fff5f5; border-color: #f5c0c0; }
+  .bad-card .food-card-title { color: #c0392b; }
+  .bad-card li::before { content: '✗'; color: #c0392b; }
+
+  .day-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0;
+    margin-bottom: 2px;
+  }
+  .day-label {
+    background: var(--verde);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 6px;
+    line-height: 1.3;
+  }
+  .day-label:first-child { border-radius: 10px 0 0 0; }
+  .day-content {
+    background: var(--creme);
+    padding: 10px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #333;
+    border-bottom: 1px solid #e0d8cc;
+  }
+  .day-content strong { color: var(--laranja); }
+
+  .routine-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .routine-icon {
+    width: 40px; height: 40px;
+    background: var(--verde);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .routine-text h3 { font-size: 13px; font-weight: 700; color: var(--verde); margin-bottom: 4px; }
+  .routine-text p { font-size: 12px; margin: 0; color: #555; }
+
+  .recipe-box {
+    background: linear-gradient(135deg, #EFF5E0, #fff);
+    border: 1.5px solid #b8d88b;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .recipe-title { font-size: 16px; font-weight: 800; color: var(--verde); margin-bottom: 6px; }
+  .recipe-sub { font-size: 11px; color: var(--laranja); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+  .recipe-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .recipe-cols h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .recipe-cols ul { list-style: none; padding: 0; }
+  .recipe-cols li { font-size: 12px; color: #444; padding: 2px 0; display: flex; gap: 6px; }
+  .recipe-cols li::before { content: '•'; color: var(--laranja); }
+
+  .action-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--creme);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border: 1px solid #e0d8cc;
+  }
+  .action-num {
+    width: 32px; height: 32px;
+    background: var(--laranja);
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .action-text h3 { font-size: 13px; font-weight: 700; color: var(--escuro); margin-bottom: 3px; }
+  .action-text p { font-size: 12px; color: #666; margin: 0; }
+
+  .img-placeholder {
+    width: 100%;
+    height: 160px;
+    background: var(--verde-claro);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7aaa40;
+    font-size: 12px;
+    font-style: italic;
+    border: 1.5px dashed #a8cc6a;
+    margin: 20px 0;
+  }
+  .img-placeholder-sm {
+    width: 100%;
+    height: 120px;
+    background: var(--verde-claro);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7aaa40;
+    font-size: 11px;
+    font-style: italic;
+    border: 1.5px dashed #a8cc6a;
+    margin: 12px 0;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 12px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .toc-num { font-size: 22px; font-weight: 900; color: var(--laranja); width: 40px; flex-shrink: 0; }
+  .toc-text h3 { font-size: 13px; font-weight: 700; color: var(--escuro); }
+  .toc-text p { font-size: 11px; color: #888; margin: 0; }
+  .toc-page { margin-left: auto; font-size: 11px; color: #aaa; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ========== PÁGINA 1: CAPA ========== -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-badge">🌿 Guia Prático · Edição Exclusiva</div>
+    <div class="cover-titulo">
+      7 Dias Sem<br><span>Prisão de Ventre</span>
+    </div>
+    <div class="cover-sub">
+      O protocolo simples e natural que regula o teu intestino em menos de uma semana — sem laxantes, sem dietas radicais.
+    </div>
+    <img src="img/capa-guia.png" style="width:340px;max-width:90%;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.4);margin:36px auto;display:block;position:relative;z-index:1" alt="Capa guia"/>
+    <div class="cover-brand">Por <span>Prato Certo</span> · Nutrição que funciona</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 2: ÍNDICE ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>7 Dias Sem Prisão de Ventre</span>
+    <strong>Prato Certo</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">O que vais <span>aprender</span></h1>
+    <div class="section-divider"></div>
+
+    <div class="toc-item">
+      <div class="toc-num">01</div>
+      <div class="toc-text">
+        <h3>O que é a prisão de ventre e porque acontece</h3>
+        <p>As causas mais comuns e como identificar o teu padrão</p>
+      </div>
+      <div class="toc-page">Pág. 3</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">02</div>
+      <div class="toc-text">
+        <h3>Os alimentos que te ajudam</h3>
+        <p>O que comer para estimular o trânsito intestinal naturalmente</p>
+      </div>
+      <div class="toc-page">Pág. 4</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">03</div>
+      <div class="toc-text">
+        <h3>Os alimentos a evitar</h3>
+        <p>O que está a bloquear o teu intestino sem saberes</p>
+      </div>
+      <div class="toc-page">Pág. 5</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">04</div>
+      <div class="toc-text">
+        <h3>A tua rotina diária</h3>
+        <p>Hábitos simples de manhã, tarde e noite que fazem a diferença</p>
+      </div>
+      <div class="toc-page">Pág. 6</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">05</div>
+      <div class="toc-text">
+        <h3>Plano de 7 dias</h3>
+        <p>O que comer cada dia para regularizar o intestino</p>
+      </div>
+      <div class="toc-page">Pág. 7–8</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">06</div>
+      <div class="toc-text">
+        <h3>Receitas anti-prisão de ventre</h3>
+        <p>Smoothie verde + limonada com gengibre e chia</p>
+      </div>
+      <div class="toc-page">Pág. 9</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">07</div>
+      <div class="toc-text">
+        <h3>O teu plano de ação</h3>
+        <p>7 passos para manteres o intestino regulado para sempre</p>
+      </div>
+      <div class="toc-page">Pág. 10</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:32px">
+      <div class="tip-label">💡 Nota importante</div>
+      <p>Este guia é informativo e complementa uma alimentação saudável. Em casos de prisão de ventre crónica ou com sangue nas fezes, consulta sempre o teu médico.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">2</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 3: O QUE É ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 01</span>
+    <strong>O que é a Prisão de Ventre</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">Porque é que o teu<br>intestino <span>bloqueia?</span></h1>
+    <div class="section-divider"></div>
+
+    <div class="two-col">
+      <div>
+        <p>A prisão de ventre acontece quando o intestino demora mais de 3 dias a evacuar, ou quando as fezes são duras, secas e difíceis de expulsar. <strong>Não és o único — afecta mais de 20% dos adultos em Portugal.</strong></p>
+        <p>O problema raramente é "genético". Na maioria dos casos, a causa está na alimentação, na hidratação e no estilo de vida — e por isso <strong>tem solução.</strong></p>
+
+        <h2 class="sub">As causas mais comuns</h2>
+        <ul style="list-style:none;padding:0">
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Pouca fibra na alimentação</li>
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Beber menos de 1,5L de água por dia</li>
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Sedentarismo — o intestino precisa de movimento</li>
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Stress e ansiedade crónica</li>
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Ignorar a vontade de ir à casa de banho</li>
+          <li style="display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#444"><span style="color:#E46C44;font-weight:700">→</span> Excesso de farinhas brancas e processados</li>
+        </ul>
+      </div>
+      <div>
+        <img src="img/intestino-ilustracao.png" style="width:100%;border-radius:12px;margin:12px 0" alt="Intestino saudável"/>
+        <div class="highlight-box">
+          <p><strong>Sabias que?</strong> O intestino é considerado o "segundo cérebro". Quando está bem, tens mais energia, menos inchaço, melhor humor — e até melhor pele.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">3</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 4: ALIMENTOS QUE AJUDAM ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 02</span>
+    <strong>Alimentos que Ajudam</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">O que comer para <span>desbloqueares</span></h1>
+    <div class="section-divider"></div>
+
+    <p>A fibra alimentar é a tua melhor amiga. Existem dois tipos — <strong>fibra solúvel</strong> (forma um gel que amolece as fezes) e <strong>fibra insolúvel</strong> (acelera o trânsito intestinal). Precisas dos dois.</p>
+
+    <img src="img/alimentos-fibra.png" style="width:100%;height:140px;object-fit:cover;border-radius:12px;margin:16px 0" alt="Alimentos com fibra"/>
+
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="food-card-title">🥦 Legumes e Verduras</div>
+        <ul>
+          <li>Brócolos e couve-flor</li>
+          <li>Espinafres e agrião</li>
+          <li>Cenoura crua</li>
+          <li>Abóbora cozida</li>
+          <li>Alho-francês</li>
+        </ul>
+      </div>
+      <div class="food-card">
+        <div class="food-card-title">🍎 Frutas com fibra</div>
+        <ul>
+          <li>Ameixa (fresca ou seca)</li>
+          <li>Kiwi — melhor de manhã em jejum</li>
+          <li>Laranja com a parte branca</li>
+          <li>Pêra com casca</li>
+          <li>Banana madura</li>
+        </ul>
+      </div>
+      <div class="food-card">
+        <div class="food-card-title">🌾 Sementes e cereais</div>
+        <ul>
+          <li>Chia (deixar demolhar)</li>
+          <li>Linhaça moída</li>
+          <li>Aveia em flocos</li>
+          <li>Pão de centeio integral</li>
+          <li>Arroz integral</li>
+        </ul>
+      </div>
+      <div class="food-card">
+        <div class="food-card-title">💧 Hidratação extra</div>
+        <ul>
+          <li>Água morna com limão em jejum</li>
+          <li>Chá de sene (uso pontual)</li>
+          <li>Chá de erva-doce</li>
+          <li>Caldo de legumes</li>
+          <li>Água com rodela de pepino</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🥝 Dica rápida</div>
+      <p>2 kiwis em jejum, todas as manhãs, durante 7 dias. Estudos mostram que esta prática simples regula o intestino em mais de 80% dos casos.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">4</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 5: ALIMENTOS A EVITAR ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 03</span>
+    <strong>Alimentos a Evitar</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">O que está a <span>bloquear</span><br>o teu intestino</h1>
+    <div class="section-divider"></div>
+
+    <p>Alguns alimentos parecem inofensivos mas são grandes inimigos do trânsito intestinal. Durante os 7 dias do protocolo, <strong>reduz ao máximo estes alimentos.</strong></p>
+
+    <div class="food-grid">
+      <div class="food-card bad-card">
+        <div class="food-card-title">🍞 Farinhas refinadas</div>
+        <ul>
+          <li>Pão branco e tostas normais</li>
+          <li>Massa branca</li>
+          <li>Arroz branco em excesso</li>
+          <li>Biscoitos e bolachas</li>
+        </ul>
+      </div>
+      <div class="food-card bad-card">
+        <div class="food-card-title">🧀 Lácteos em excesso</div>
+        <ul>
+          <li>Leite de vaca em grandes quantidades</li>
+          <li>Queijo curado</li>
+          <li>Manteiga em excesso</li>
+          <li>Gelado</li>
+        </ul>
+      </div>
+      <div class="food-card bad-card">
+        <div class="food-card-title">🍔 Processados</div>
+        <ul>
+          <li>Fast food e frituras</li>
+          <li>Enchidos e carnes processadas</li>
+          <li>Snacks de pacote</li>
+          <li>Refeições congeladas</li>
+        </ul>
+      </div>
+      <div class="food-card bad-card">
+        <div class="food-card-title">☕ Desidratantes</div>
+        <ul>
+          <li>Café em excesso (+3 cafés/dia)</li>
+          <li>Álcool</li>
+          <li>Refrigerantes</li>
+          <li>Sumos industriais com açúcar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Atenção ao ferro:</strong> Suplementos de ferro e alguns medicamentos para a pressão podem causar prisão de ventre. Se estás a tomar medicação e tens este problema, fala com o teu médico.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">⚡ Substituição fácil</div>
+      <p>Troca o pão branco por pão de centeio, a massa branca por massa integral, e o arroz branco por arroz basmati ou integral. O sabor é semelhante — o efeito no intestino é completamente diferente.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">5</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 6: ROTINA DIÁRIA ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 04</span>
+    <strong>A Tua Rotina Diária</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">Hábitos que <span>transformam</span><br>o teu intestino</h1>
+    <div class="section-divider"></div>
+
+    <p>O intestino adora rotina. Horas certas para comer, para hidratares e para moveres o corpo fazem mais diferença do que qualquer suplemento.</p>
+
+    <div class="routine-item">
+      <div class="routine-icon">🌅</div>
+      <div class="routine-text">
+        <h3>Manhã — ao acordar (em jejum)</h3>
+        <p>Bebe um copo de água morna com o sumo de meio limão. Espera 20 minutos antes de comer. Se possível, come 1–2 kiwis antes do pequeno-almoço. Este ritual activa o peristaltismo (movimento intestinal).</p>
+      </div>
+    </div>
+    <div class="routine-item">
+      <div class="routine-icon">🥗</div>
+      <div class="routine-text">
+        <h3>Pequeno-almoço — com fibra</h3>
+        <p>Aveia com fruta fresca, iogurte natural com sementes de chia, ou pão de centeio com abacate. Evita croissants, cereais açucarados e pão branco.</p>
+      </div>
+    </div>
+    <div class="routine-item">
+      <div class="routine-icon">💧</div>
+      <div class="routine-text">
+        <h3>Durante o dia — hidratação constante</h3>
+        <p>Bebe pelo menos 1,5–2L de água. Coloca uma garrafa à vista. Bebe um copo antes de cada refeição — ajuda o bolo alimentar a movimentar-se mais facilmente.</p>
+      </div>
+    </div>
+    <div class="routine-item">
+      <div class="routine-icon">🚶</div>
+      <div class="routine-text">
+        <h3>Após o almoço — movimento</h3>
+        <p>Uma caminhada de apenas 10–15 minutos após o almoço estimula o trânsito intestinal. Evita deitar logo após comer.</p>
+      </div>
+    </div>
+    <div class="routine-item">
+      <div class="routine-icon">🌙</div>
+      <div class="routine-text">
+        <h3>Noite — jantar leve + chá</h3>
+        <p>Janta pelo menos 2 horas antes de deitar. Inclui sempre sopa de legumes ou salada. Um chá de erva-doce ou camomila depois do jantar relaxa o sistema digestivo.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🚽 Dica que ninguém fala</div>
+      <p>Nunca ignores a vontade de ir à casa de banho. O reflexo gastrocólico (vontade de evacuar depois de comer) é natural — ignorá-lo habitualmente é uma das principais causas de prisão de ventre crónica.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">6</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 7: PLANO DIAS 1-4 ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 05</span>
+    <strong>Plano de 7 Dias</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">O teu plano <span>dia a dia</span></h1>
+    <div class="section-divider"></div>
+    <p style="margin-bottom:20px">Segue este plano durante 7 dias seguidos. Não precisas de ser perfeito — 80% de adesão já faz uma grande diferença.</p>
+
+    <div class="day-row"><div class="day-label">DIA 1</div><div class="day-content"><strong>Pequeno-almoço:</strong> Aveia com banana madura e chia · <strong>Almoço:</strong> Sopa de legumes + frango grelhado com arroz integral e brócolos · <strong>Lanche:</strong> 1 pêra com casca · <strong>Jantar:</strong> Omelete de espinafres + salada</div></div>
+    <div class="day-row"><div class="day-label">DIA 2</div><div class="day-content"><strong>Pequeno-almoço:</strong> 2 kiwis + iogurte natural com linhaça moída · <strong>Almoço:</strong> Massa integral com atum e vegetais · <strong>Lanche:</strong> Ameixas frescas (3 unidades) · <strong>Jantar:</strong> Caldo verde + ovo estrelado</div></div>
+    <div class="day-row"><div class="day-label">DIA 3</div><div class="day-content"><strong>Pequeno-almoço:</strong> Pão de centeio com abacate e ovo cozido · <strong>Almoço:</strong> Feijão-verde salteado + bacalhau assado + batata-doce · <strong>Lanche:</strong> Smoothie verde (ver receita) · <strong>Jantar:</strong> Sopa de curgete + sardinhas grelhadas</div></div>
+    <div class="day-row"><div class="day-label">DIA 4</div><div class="day-content"><strong>Pequeno-almoço:</strong> Aveia com maçã ralada e canela · <strong>Almoço:</strong> Lentilhas com cenoura e chouriço de peru · <strong>Lanche:</strong> 1 laranja inteira + chá de erva-doce · <strong>Jantar:</strong> Sopa de espinafres + queijo-fresco</div></div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">7</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 8: PLANO DIAS 5-7 ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 05 — continuação</span>
+    <strong>Plano de 7 Dias</strong>
+  </div>
+  <div class="page-inner">
+    <div class="day-row"><div class="day-label">DIA 5</div><div class="day-content"><strong>Pequeno-almoço:</strong> Papas de aveia com frutos vermelhos + sementes de girassol · <strong>Almoço:</strong> Grão-de-bico com espinafres e tomate + pão de centeio · <strong>Lanche:</strong> Banana madura + caju (punhado) · <strong>Jantar:</strong> Sopa de abóbora + peru grelhado e salada</div></div>
+    <div class="day-row"><div class="day-label">DIA 6</div><div class="day-content"><strong>Pequeno-almoço:</strong> 2 kiwis em jejum + torrada de centeio com queijo-fresco · <strong>Almoço:</strong> Arroz integral com couve-salteada e frango no forno · <strong>Lanche:</strong> Iogurte natural com ameixas picadas e chia · <strong>Jantar:</strong> Sopa de alho-francês + ovos mexidos com legumes</div></div>
+    <div class="day-row"><div class="day-label">DIA 7</div><div class="day-content"><strong>Pequeno-almoço:</strong> Aveia com pêra, linhaça e mel · <strong>Almoço:</strong> Salmão no forno com brócolo e batata-doce assada · <strong>Lanche:</strong> Limonada com chia (ver receita) · <strong>Jantar:</strong> Caldo de vegetais com massa integral e legumes salteados</div></div>
+
+    <div class="highlight-box" style="margin-top:24px">
+      <p><strong>Regra de ouro dos 7 dias:</strong> Bebe sempre 1 copo de água morna com limão ao acordar. Inclui fibra em TODAS as refeições. Caminha pelo menos 15 minutos por dia. Estas 3 regras sozinhas já fazem a diferença.</p>
+    </div>
+
+    <div style="margin-top:20px;background:var(--creme);border-radius:14px;padding:20px 24px;border:1px solid #e0d8cc">
+      <p style="font-size:13px;font-weight:700;color:var(--verde);margin-bottom:12px">📊 O que esperar dia a dia:</p>
+      <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <li style="font-size:12px;color:#555;display:flex;gap:8px"><span style="color:#E46C44">Dias 1-2:</span> Menos inchaço</li>
+        <li style="font-size:12px;color:#555;display:flex;gap:8px"><span style="color:#E46C44">Dias 3-4:</span> Mais regularidade</li>
+        <li style="font-size:12px;color:#555;display:flex;gap:8px"><span style="color:#E46C44">Dias 5-6:</span> Trânsito normalizado</li>
+        <li style="font-size:12px;color:#555;display:flex;gap:8px"><span style="color:#E46C44">Dia 7:</span> Intestino regulado 🎉</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">8</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 9: RECEITAS ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 06</span>
+    <strong>Receitas Anti-Prisão de Ventre</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">Receitas que <span>desbloqueiam</span></h1>
+    <div class="section-divider"></div>
+
+    <div class="recipe-box">
+      <div class="recipe-sub">Receita 01 · Tomar em jejum</div>
+      <div class="recipe-title">🥤 Smoothie Verde Intestinal</div>
+      <div class="recipe-cols">
+        <div>
+          <h4>Ingredientes</h4>
+          <ul>
+            <li>1 kiwi descascado</li>
+            <li>1 punhado de espinafres frescos</li>
+            <li>½ banana madura</li>
+            <li>1 colher de sopa de linhaça moída</li>
+            <li>200ml de água de coco (ou água normal)</li>
+            <li>Sumo de ½ limão</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Modo de preparação</h4>
+          <ul>
+            <li>Coloca tudo no liquidificador</li>
+            <li>Bate até ficar homogéneo</li>
+            <li>Bebe imediatamente em jejum</li>
+            <li>Não adiciones açúcar</li>
+            <li>Repete durante 7 dias seguidos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <img src="img/smoothie-verde.png" style="width:100%;height:120px;object-fit:cover;border-radius:12px;margin:12px 0" alt="Smoothie verde"/>
+
+    <div class="recipe-box">
+      <div class="recipe-sub">Receita 02 · Tomar à tarde</div>
+      <div class="recipe-title">🍋 Limonada com Gengibre e Chia</div>
+      <div class="recipe-cols">
+        <div>
+          <h4>Ingredientes</h4>
+          <ul>
+            <li>Sumo de 1 limão grande</li>
+            <li>1 colher de chá de gengibre ralado</li>
+            <li>1 colher de sopa de sementes de chia</li>
+            <li>300ml de água</li>
+            <li>1 colher de chá de mel (opcional)</li>
+            <li>Gelo a gosto</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Modo de preparação</h4>
+          <ul>
+            <li>Mistura o limão, gengibre e mel na água</li>
+            <li>Adiciona as sementes de chia</li>
+            <li>Deixa repousar 5–10 minutos</li>
+            <li>A chia vai inchar — é isso que queremos</li>
+            <li>Bebe com uma palhinha</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">9</div>
+  </div>
+</div>
+
+<!-- ========== PÁGINA 10: PLANO DE AÇÃO ========== -->
+<div class="page">
+  <div class="page-header">
+    <span>Capítulo 07</span>
+    <strong>O Teu Plano de Ação</strong>
+  </div>
+  <div class="page-inner">
+    <h1 class="section-title">7 passos para um intestino<br><span>livre para sempre</span></h1>
+    <div class="section-divider"></div>
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text">
+        <h3>Água morna com limão em jejum todos os dias</h3>
+        <p>O hábito mais simples e mais poderoso. Activa o peristaltismo e prepara o intestino para o dia.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text">
+        <h3>2 litros de água por dia — sem excepção</h3>
+        <p>Coloca um alarme se precisares. Bebe um copo antes de cada refeição. Hidratação é 50% da solução.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text">
+        <h3>Fibra em todas as refeições</h3>
+        <p>Legumes, fruta com casca, cereais integrais, sementes. Objetivo: 25–30g de fibra por dia.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-text">
+        <h3>Caminha 15 minutos após o almoço</h3>
+        <p>O movimento físico é essencial para o trânsito intestinal. Não precisas de ginásio — basta caminhar.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-text">
+        <h3>Nunca ignores a vontade de ir à casa de banho</h3>
+        <p>Vai sempre que sentires necessidade. O teu intestino tem um relógio próprio — respeita-o.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-text">
+        <h3>Reduz o stress — o intestino sente tudo</h3>
+        <p>5 minutos de respiração profunda antes de comer ajudam a relaxar o sistema digestivo.</p>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">7</div>
+      <div class="action-text">
+        <h3>Repete o protocolo de 7 dias sempre que precisares</h3>
+        <p>Este plano pode ser feito mensalmente como "reset intestinal". O teu corpo vai agradecer.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:linear-gradient(135deg,#3D5E25,#2A4A1A);border-radius:16px;padding:22px 26px;text-align:center;color:white">
+      <p style="font-size:15px;font-weight:700;color:#C8E67A;margin-bottom:6px">Parabéns por chegares até aqui! 🎉</p>
+      <p style="font-size:12px;opacity:.85;margin:0">Tens agora todas as ferramentas para teres um intestino saudável e regulado. O segredo está na consistência — começa hoje.</p>
+      <p style="font-size:12px;color:#E46C44;font-weight:700;margin-top:10px">— Equipa Prato Certo</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Prato Certo © 2026</span>
+    <div class="page-num">10</div>
+  </div>
+</div>
+
+</body>
+</html>

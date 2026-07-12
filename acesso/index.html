@@ -241,6 +241,12 @@ footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;backgr
       <h4>Meal-prep</h4>
       <p>Organiza a semana em 2 horas.</p>
     </a>
+    <div class="bcard" id="card-intestino" style="opacity:.45;pointer-events:none;position:relative">
+      <span class="btag">Bónus Extra</span><div class="bi">🌿</div>
+      <h4>7 Dias Sem Prisão de Ventre</h4>
+      <p>Guia prático para regularizar o intestino em 1 semana.</p>
+      <span style="font-size:11px;color:#E46C44;font-weight:700">🔒 Disponível com upgrade</span>
+    </div>
   </div>
 </main>
 
@@ -255,6 +261,16 @@ var PREMIUM_IDS=['jr','sc','ds'];
 
 (async function(){
   var data=window.PRATO_CERTO;
+  // Desbloqueia card intestino se user tem intestino:true
+  if(data && data.user_metadata && data.user_metadata.intestino){
+    var ci=document.getElementById("card-intestino");
+    if(ci){ci.style.opacity="1";ci.style.pointerEvents="auto";
+      ci.onclick=function(){window.open("../guia-intestino-livre.html","_blank");};
+      ci.style.cursor="pointer";
+      var lock=ci.querySelector("span[style]");
+      if(lock)lock.textContent="📄 Abrir Guia";}
+  }
+
   var grid=document.getElementById('grid');
   var totalAll=0, doneAll=0;
   var NEW_IDS=['jr','sc','ds'];
