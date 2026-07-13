@@ -875,7 +875,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
         <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
       </div>
-      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
+      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout'});})()">QUERO O MEU ACESSO</a>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
       <div class="offer-bottom-box">
         Com os bónus do <b>Prato Certo</b> já <span class="offer-eco">economizas</span> mais do que o valor da aplicação na primeira semana.<br><br>
