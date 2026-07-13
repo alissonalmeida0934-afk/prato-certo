@@ -215,7 +215,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 
   /* offer */
   /* oferta verde */
-  .offer-green{background:#d6eab5;color:#1a1a1a;text-align:center;padding:48px 0}
+  .offer-green{background:#4A5C2A;color:#fff;text-align:center;padding:48px 0}
   .offer-title{font-size:28px;font-weight:800;line-height:1.15;color:#fff;margin-bottom:24px}
   .offer-visual{position:relative;margin:0 auto 28px;max-width:360px;min-height:260px}
   .offer-logo-float{position:absolute;top:-20px;left:-10px;z-index:4;width:80px;height:80px;border-radius:50%;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.4);border:3px solid #fff}
@@ -245,24 +245,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .offer-btn{display:block;max-width:320px;margin:0 auto;font-size:17px}
   .offer-bottom-box{background:rgba(255,255,255,.1);border-radius:14px;padding:20px 22px;margin-top:28px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.9);text-align:center}
   .offer-eco{color:var(--primary-vibrant);font-weight:700}
-
-  /* pricing table */
-  .pricing-table{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto 24px;text-align:left}
-  @media(max-width:600px){.pricing-table{grid-template-columns:1fr}}
-  .pricing-card{background:#fff;border:2px solid #e0e0e0;border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;position:relative}
-  .pricing-card.pricing-popular{border-color:#F5C400;border-width:2.5px;background:#fffdf0}
-  .pricing-badge{background:#FD860E;color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border-radius:99px;text-align:center;width:fit-content;margin:0 auto}
-  .pricing-img{width:100%;border-radius:12px;object-fit:cover}
-  .pricing-name{font-size:20px;font-weight:900;color:#1a1a1a;line-height:1.25}
-  .pricing-tagline{font-size:14px;color:#333;font-style:italic;line-height:1.4}
-  .pricing-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;flex:1}
-  .pricing-features li{font-size:14px;color:#111;font-style:italic;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0;font-style:normal}
-  .pricing-price-de{font-size:14px;color:#888}
-  .pricing-riscado{text-decoration:line-through;color:#aaa;font-weight:700}
-  .pricing-price{font-size:46px;font-weight:900;color:#FD860E;line-height:1}
-  .pricing-price span{font-size:24px;font-weight:800;color:#FD860E}
-  .pricing-btn{display:block;text-align:center;font-size:15px;font-weight:800;padding:16px 20px;border-radius:99px;margin-top:auto;background:#FD860E;color:#fff;letter-spacing:.04em}
 
   /* guarantee */
   .guarantee{background:var(--surface);border-radius:var(--radius-card);padding:40px 24px;box-shadow:0 12px 28px rgba(217,119,87,.12);text-align:center}
@@ -380,11 +362,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .para-quem-list li b{color:var(--primary)}
   .para-quem-list .ck{flex:0 0 18px;margin-top:2px;stroke:var(--secondary);width:18px;height:18px}
 
-  /* wpp testimonials grid */
-  .wpp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:780px;margin:0 auto}
-  @media(max-width:540px){.wpp-grid{grid-template-columns:1fr}}
-  .wpp-grid img{width:100%;border-radius:20px;box-shadow:0 6px 28px rgba(0,0,0,.15)}
-
   /* whatsapp */
   .wa{position:fixed;right:14px;bottom:14px;z-index:50;width:46px;height:46px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.32);color:#fff;text-decoration:none;transition:transform .15s ease,opacity .15s;opacity:.6}
   .wa:hover{transform:scale(1.08);opacity:1}
@@ -422,7 +399,9 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-  
+  /* food pattern body bg */
+  body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg opacity='0.065' fill='none' stroke-linecap='round'%3E%3Cline x1='40' y1='72' x2='40' y2='28' stroke='%233D5723' stroke-width='1.5'/%3E%3Cellipse cx='30' cy='50' rx='9' ry='16' stroke='%233D5723' stroke-width='1.5' transform='rotate(-35 30 50)'/%3E%3Cellipse cx='40' cy='36' rx='9' ry='17' stroke='%233D5723' stroke-width='1.5'/%3E%3Cellipse cx='50' cy='50' rx='9' ry='16' stroke='%233D5723' stroke-width='1.5' transform='rotate(35 50 50)'/%3E%3Cpath d='M162 14 L162 54 M157 14 L157 34 M167 14 L167 34 M157 34 C157 42 167 42 167 34' stroke='%23E46C44' stroke-width='1.5'/%3E%3Cpath d='M38 132 L50 170 L26 170Z' stroke='%23E46C44' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cline x1='38' y1='132' x2='31' y2='116' stroke='%233D5723' stroke-width='1.5'/%3E%3Cline x1='38' y1='132' x2='46' y2='115' stroke='%233D5723' stroke-width='1.5'/%3E%3Ccircle cx='158' cy='158' r='22' stroke='%233D5723' stroke-width='1.5'/%3E%3Ccircle cx='158' cy='158' r='13' stroke='%233D5723' stroke-width='1'/%3E%3Ccircle cx='100' cy='95' r='3' fill='%23E46C44'/%3E%3Ccircle cx='82' cy='128' r='2' fill='%233D5723'/%3E%3Ccircle cx='118' cy='42' r='4' fill='%23E46C44' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E");background-size:200px}
+
   /* card stack on colored sections */
   .s-card{border-radius:36px 36px 0 0;position:relative;z-index:1}
   /* white-alt for visual rhythm between cream sections */
@@ -480,9 +459,9 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   <section class="hero hero-cream">
     <div class="hero-inner hero-grid">
       <div class="hero-title-block">
-        <p class="hero-eyebrow">O método da nutricionista portuguesa que está a mudar famílias</p>
-        <h1 class="hero-h1-v2"><span class="l1">Chega de</span><span class="l2">comer fora!</span><span class="l3">Come saudável e poupa 2.000€/ano</span></h1>
-        <p style="margin-top:14px;font-size:16px;font-weight:600;color:#1A2A12;line-height:1.5">Receitas prontas em minutos com ingredientes simples.<br><span style="color:#E46C44;font-weight:800">+150 receitas saudáveis e económicas.</span></p>
+        <p class="hero-eyebrow">+150 receitas saudáveis e económicas</p>
+        <h1 class="hero-h1-v2"><span class="l1">Come bem todos</span><span class="l2">os dias</span><span class="l3">sem stress e sem gastar!</span></h1>
+        <p style="margin-top:14px;font-size:16px;font-weight:600;color:#1A2A12;line-height:1.5">Receitas prontas em minutos com ingredientes simples.<br><span style="color:#E46C44;font-weight:800">Poupa até 2.000€ por ano.</span></p>
       </div>
       <div class="hero-image">
         <img src="img/tablet-hero.webp" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager" fetchpriority="high">
@@ -501,15 +480,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   <!-- SECÇÃO DOR ECONÓMICA -->
   <section class="econ-pain" style="background:#2A4A1A;padding:52px 0">
     <div class="container" style="max-width:680px;text-align:center">
-      <div style="display:flex;justify-content:center;margin-bottom:36px">
-        <iframe width="315" height="560"
-          src="https://www.youtube.com/embed/MsiEI_386Z4"
-          title="Prato Certo" frameborder="0"
-          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-          allowfullscreen
-          style="border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
-        </iframe>
-      </div>
       <p style="font-size:clamp(1.25rem,4vw,1.65rem);font-weight:700;color:#C8E67A;line-height:1.45;margin-bottom:22px">
         Não é impressão tua.<br><strong style="color:#fff;font-size:clamp(1.4rem,4.5vw,1.9rem)">Tudo ficou mesmo mais caro.</strong>
       </p>
@@ -787,21 +757,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     </div>
   </section>
 
-  <!-- DEPOIMENTOS WA -->
-  <section style="background:#FEF3EE;padding:60px 0">
-    <div class="container" style="text-align:center">
-      <p style="font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--primary);margin-bottom:16px;line-height:1.3">O que estão a dizer sobre o método...</p>
-      <p style="font-size:17px;font-weight:700;color:#1A2A12;margin-bottom:6px">Tem comida sempre pronta no frigorífico.</p>
-      <p style="font-size:15px;color:#5A5250;margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6">E o melhor de tudo, comida saborosa, com gosto de comida feita na hora e 100% saudável.</p>
-      <div class="wpp-grid">
-        <img loading="lazy" src="img/dep1.jpg" alt="Testemunho 1">
-        <img loading="lazy" src="img/dep2.jpg" alt="Testemunho 2">
-        <img loading="lazy" src="img/dep3.jpg" alt="Testemunho 3">
-        <img loading="lazy" src="img/dep4.jpg" alt="Testemunho 4">
-      </div>
-    </div>
-  </section>
-
   <!-- PARA QUEM É -->
   <section>
     <div class="container">
@@ -814,6 +769,32 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Quem está <b>cansado de gastar com take-away</b> por falta de planeamento e quer poupar a sério.</span></li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Quem quer ter uma <b>rotina organizada</b> — sem improvisar, sem stress e sem loiça acumulada.</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section>
+    <div class="container">
+      <p class="eyebrow">Quem já usa, recomenda</p>
+      <div class="banner">Resultados reais</div>
+      <div class="tst-marquee">
+        <button class="tst-arrow tst-arrow-up" id="tstUp" aria-label="Prima para subir"><span class="tst-chevron">&#x276E;&#x276E;</span> Prima para subir &#x1F446;</button>
+        <div class="tst-marquee-inner" id="tstInner">
+          <div class="tst-marquee-track" id="tstTrack">
+            <div class="tst-slide"><img loading="lazy" src="img/rr-catarina-mendes.webp" alt="Depoimento Catarina Mendes"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr-margarida-sousa.webp" alt="Depoimento Margarida Sousa"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr-filipa-carvalho.webp" alt="Depoimento Filipa Carvalho"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr-ana-sofia-ferreira.webp" alt="Depoimento Ana Sofia Ferreira"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr-ines-rodrigues.webp" alt="Depoimento Inês Rodrigues"></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr-catarina-mendes.webp" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr-margarida-sousa.webp" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr-filipa-carvalho.webp" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr-ana-sofia-ferreira.webp" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr-ines-rodrigues.webp" alt=""></div>
+          </div>
+        </div>
+        <button class="tst-arrow tst-arrow-down" id="tstDown" aria-label="Prima para descer">&#x1F447; Prima para descer <span class="tst-chevron">&#x276F;&#x276F;</span></button>
       </div>
     </div>
   </section>
@@ -849,55 +830,30 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   <!-- OFERTA -->
   <section class="offer-green" id="oferta">
     <div class="container">
-      <div class="pricing-table" id="checkout-btn">
-        <div class="pricing-card" style="border-color:#1a1a1a;border-width:2.5px">
-          <img src="img/plano-base.jpg" alt="Plano Base" class="pricing-img">
-          <div class="pricing-name">Pack Poupan&ccedil;a</div>
-          <div class="pricing-tagline">&ldquo;Cozinha uma vez. Come a semana toda.&rdquo;</div>
-          <ul class="pricing-features">
-            <li>190 receitas de marmitas saud&aacute;veis</li>
-            <li>Pequenos-Almo&ccedil;os saud&aacute;veis</li>
-            <li>Lanches Saud&aacute;veis</li>
-            <li>Lanches Doces</li>
-            <li>Bolos Saud&aacute;veis</li>
-            <li>Marmitas da Semana</li>
-            <li>Lanches que parecem take-away</li>
-            <li>Receitas Inclusivas</li>
-            <li>Hack do Iogurte</li>
-            <li>Gelado Express</li>
-            <li>T&eacute;cnica 3x3</li>
-            <li>Congelamento Inteligente</li>
-            <li>Receitas em V&iacute;deo</li>
-            <li>Calculadora de Calorias</li>
-            <li>Lista de Compras autom&aacute;tica</li>
-          </ul>
-          <div>
-            <div class="pricing-price-de">DE <span class="pricing-riscado">29,90 &euro;</span> POR:</div>
-            <div class="pricing-price">7,90 <span>&euro;</span></div>
-          </div>
-          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary pricing-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O PACK POUPAN&Ccedil;A</a>
-          <p class="micro" style="color:#444;margin-top:6px;text-align:center;font-size:12px">Pagamento seguro &middot; Acesso imediato</p>
-        </div>
-        <div class="pricing-card pricing-popular">
-          <div class="pricing-badge">&#x1F525; OFERTA MAIS POPULAR</div>
-          <img src="img/plano-premium.jpg" alt="Plano Premium" class="pricing-img">
-          <div class="pricing-name">Pack Fam&iacute;lia</div>
-          <div class="pricing-tagline">&ldquo;Do almo&ccedil;o ao lanche. Da marmita &agrave; lancheira.&rdquo;</div>
-          <ul class="pricing-features">
-            <li><b>Tudo do Pack Poupan&ccedil;a</b></li>
-            <li>Jantares R&aacute;pidos (b&oacute;nus exclusivo)</li>
-            <li>Sopas &amp; Cremes (b&oacute;nus exclusivo)</li>
-            <li>Doces Saud&aacute;veis (b&oacute;nus exclusivo)</li>
-          </ul>
-          <div>
-            <div class="pricing-price-de">DE <span class="pricing-riscado">39,90 &euro;</span> POR:</div>
-            <div class="pricing-price">13,90 <span>&euro;</span></div>
-          </div>
-          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="btn-primary pricing-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O PACK FAM&Iacute;LIA</a>
-          <p class="micro" style="color:#444;margin-top:6px;text-align:center;font-size:12px">Pagamento seguro &middot; Acesso imediato</p>
-        </div>
-      </div
-      <div style="margin-top:28px;background:rgba(0,0,0,.18);border-radius:12px;padding:20px 24px;text-align:center;font-size:18px;font-weight:900;color:#1a3a0a;letter-spacing:.01em;letter-spacing:.01em">🔒 Pagamento seguro por MBWay ou referência multibanco · Acesso imediato após a compra · Disponível para sempre</div>
+      <h2 class="offer-title">Acesso imediato<br>a tudo isto:</h2>
+      <div class="offer-visual">
+        <img loading="lazy" src="img/mockup-kit-completo2.webp" alt="Kit completo Prato Certo" style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:16px;">
+      </div>
+      <p class="offer-tagline">🔥 Tudo o que precisas para <b>comer bem todos os dias</b> — num só lugar</p>
+      <ul class="offer-list">
+        <li><span class="ocheck">✓</span> Aplicação Prato Certo</li>
+        <li><span class="ocheck">✓</span> Bónus 1: Pequenos-Almoços que Saciam</li>
+        <li><span class="ocheck">✓</span> Bónus 2: Ementas Automáticas</li>
+        <li><span class="ocheck">✓</span> Bónus 3: SOS Take-Away: Receitas Salva-Vidas</li>
+        <li><span class="ocheck">✓</span> Bónus 4: Hack do Iogurte</li>
+      </ul>
+      <p class="offer-promo-label">Apenas com a <b>promoção especial válida</b> <span class="offer-hoje">HOJE</span></p>
+      <div class="offer-date-badge" id="offerDate"></div>
+      <div class="offer-price-block" id="checkout-btn">
+        <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
+        <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
+      </div>
+      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);})()">QUERO O MEU ACESSO</a>
+      <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
+      <div class="offer-bottom-box">
+        Com os bónus do <b>Prato Certo</b> já <span class="offer-eco">economizas</span> mais do que o valor da aplicação na primeira semana.<br><br>
+        E ainda trocas a angústia de <b>"o que vou comer hoje?"</b> por um frigorífico organizado e uma rotina <b>leve e saudável!</b>
+      </div>
     </div>
   </section>
 
@@ -931,7 +887,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     </div>
   </section>
 
-  <section data-nocycle style="padding-top:0;padding-bottom:32px;background:#F7F5ED">
+  <section data-nocycle style="padding-top:0;padding-bottom:32px">
     <div class="container" style="text-align:center">
       <div class="cta-wrap" style="margin-top:24px">
         <a href="#checkout-btn" class="btn-primary">QUERO O MEU ACESSO</a>
@@ -964,7 +920,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     </div>
   </section>
 
-  <section data-nocycle style="padding-top:0;padding-bottom:40px;background:#F7F5ED">
+  <section data-nocycle style="padding-top:0;padding-bottom:40px">
     <div class="container" style="text-align:center">
       <div class="cta-wrap" style="margin-top:24px">
         <a href="#checkout-btn" class="btn-primary">QUERO O MEU ACESSO</a>
@@ -1161,18 +1117,6 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       _pcCAPI('TimeOnPage30',id);
     },30000);
   })();
-})();
-</script>
-
-<script>
-(function(){
-  var d=document.createElement('div');
-  d.id='food-bg-pattern';
-  d.style.cssText='position:fixed;inset:0;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj4KPGRlZnM+CiAgPGcgaWQ9ImhiIj4KICAgIDxwYXRoIGQ9Ik0tMjIsLTE4IFEwLC0yOSAyMiwtMThaIi8+CiAgICA8bGluZSB4MT0iLTIyIiB5MT0iLTkiIHgyPSIyMiIgeTI9Ii05Ii8+CiAgICA8cGF0aCBkPSJNLTIyLC00IFEtNiwtOSA4LC00IFExOCwwIDIyLC00Ii8+CiAgICA8bGluZSB4MT0iLTIyIiB5MT0iMiIgeDI9IjIyIiB5Mj0iMiIvPgogICAgPHJlY3QgeD0iLTIyIiB5PSIyIiB3aWR0aD0iNDQiIGhlaWdodD0iMTMiIHJ4PSI2Ii8+CiAgPC9nPgogIDxnIGlkPSJhcCI+CiAgICA8cGF0aCBkPSJNMCwtMjIgQy0yMCwtMjIgLTI0LC00IC0xOCwxMCBDLTEyLDI0IC00LDI4IDAsMjggQzQsMjggMTIsMjQgMTgsMTAgQzI0LC00IDIwLC0yMiAwLC0yMloiLz4KICAgIDxwYXRoIGQ9Ik0wLC0yMiBDMiwtMzAgOSwtMzIgMTEsLTI3Ii8+CiAgICA8cGF0aCBkPSJNNCwtMjggUTExLC0zMCAxMywtMjEiLz4KICA8L2c+CiAgPGcgaWQ9ImNhIj4KICAgIDxwYXRoIGQ9Ik0wLDI2IEwtMTQsLTE4IEwxNCwtMThaIi8+CiAgICA8cGF0aCBkPSJNLTgsLTE4IFEtMTYsLTMwIC01LC0yNyIvPgogICAgPHBhdGggZD0iTTAsLTE4IFEwLC0zMiAzLC0yOCIvPgogICAgPHBhdGggZD0iTTgsLTE4IFExNiwtMzAgNywtMjUiLz4KICA8L2c+CiAgPGcgaWQ9ImZwIj4KICAgIDxjaXJjbGUgY3g9Ii0xMCIgY3k9IjAiIHI9IjE4Ii8+CiAgICA8cGF0aCBkPSJNOCwwIEw0MiwwIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgIDxjaXJjbGUgY3g9IjQyIiBjeT0iMCIgcj0iMy41Ii8+CiAgPC9nPgogIDxnIGlkPSJibiI+CiAgICA8cGF0aCBkPSJNLTI4LDEwIFEtMjQsLTIwIDAsLTIyIFEyNCwtMjAgMzAsOCIvPgogICAgPHBhdGggZD0iTS0yOCwxMCBRLTI2LDE2IC0yMCwxNCIvPgogICAgPHBhdGggZD0iTTMwLDggUTM0LDE0IDI4LDE4Ii8+CiAgPC9nPgogIDxnIGlkPSJibCI+CiAgICA8cGF0aCBkPSJNLTI2LDE2IEwtMjYsLTQgUS0yNiwtMjIgMCwtMjIgUTI2LC0yMiAyNiwtNCBMMjYsMTZaIi8+CiAgICA8bGluZSB4MT0iLTkiIHkxPSIxNiIgeDI9Ii05IiB5Mj0iLTIwIi8+CiAgICA8bGluZSB4MT0iOSIgeTE9IjE2IiB4Mj0iOSIgeTI9Ii0yMCIvPgogIDwvZz4KICA8ZyBpZD0ibWIiPgogICAgPHJlY3QgeD0iLTIwIiB5PSItNiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI2IiByeD0iNCIvPgogICAgPHJlY3QgeD0iLTIyIiB5PSItMTgiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxNCIgcng9IjQiLz4KICAgIDxwYXRoIGQ9Ik0tOCwtMTggTC04LC0yNCBMOCwtMjQgTDgsLTE4Ii8+CiAgICA8bGluZSB4MT0iLTEwIiB5MT0iNiIgeDI9IjEwIiB5Mj0iNiIvPgogIDwvZz4KICA8ZyBpZD0iY3MiPgogICAgPHBhdGggZD0iTS0yMiwyMCBMMCwtMjIgTDIyLDIwWiIvPgogICAgPHBhdGggZD0iTS03LC0xMyBRMCwtMjQgNywtMTMiLz4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMTkiIHI9IjMiLz4KICA8L2c+CiAgPGcgaWQ9ImJyIj4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMzAiIHgyPSIwIiB5Mj0iOCIvPgogICAgPGxpbmUgeDE9IjAiIHkxPSIxOCIgeDI9Ii0xMiIgeTI9IjgiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMTQiIHgyPSIxMiIgeTI9IjgiLz4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMSIgcj0iMTAiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMiIgY3k9IjYiIHI9IjkiLz4KICAgIDxjaXJjbGUgY3g9IjEyIiBjeT0iNSIgcj0iOSIvPgogIDwvZz4KICA8ZyBpZD0ic2IiPgogICAgPHBhdGggZD0iTTAsLTE2IEMtMTQsLTE2IC0xOCwwIC0xNCwxMiBDLTgsMjQgLTIsMjYgMCwyNiBDMiwyNiA4LDI0IDE0LDEyIEMxOCwwIDE0LC0xNiAwLC0xNloiLz4KICAgIDxwYXRoIGQ9Ik0tNSwtMTYgUS0xMCwtMjYgLTMsLTI0Ii8+CiAgICA8cGF0aCBkPSJNMCwtMTYgUTAsLTI4IDQsLTI0Ii8+CiAgICA8cGF0aCBkPSJNNSwtMTYgUTEwLC0yNiA2LC0yMiIvPgogICAgPGNpcmNsZSBjeD0iLTUiIGN5PSI0IiByPSIxLjUiLz4KICAgIDxjaXJjbGUgY3g9IjQiIGN5PSI4IiByPSIxLjUiLz4KICAgIDxjaXJjbGUgY3g9Ii0yIiBjeT0iMTYiIHI9IjEuNSIvPgogIDwvZz4KICA8ZyBpZD0icGsiPgogICAgPHBhdGggZD0iTS0yMCwxOCBRMCwyNCAyMCwxOCBRMjAsMTAgMCw2IFEtMjAsMTAgLTIwLDE4WiIvPgogICAgPHBhdGggZD0iTS0xOCw2IFEwLDEyIDE4LDYgUTE4LC0yIDAsLTYgUS0xOCwtMiAtMTgsNloiLz4KICAgIDxwYXRoIGQ9Ik0tMTUsLTYgUTAsMCAxNSwtNiBRMTUsLTE0IDAsLTE4IFEtMTUsLTE0IC0xNSwtNloiLz4KICA8L2c+CiAgPGcgaWQ9InNwIj4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMzIiIHgyPSIwIiB5Mj0iLTQiLz4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iLTE3IiByeD0iOSIgcnk9IjEzIi8+CiAgPC9nPgogIDxnIGlkPSJmayI+CiAgICA8bGluZSB4MT0iLTgiIHkxPSIyOCIgeDI9Ii04IiB5Mj0iLTIiLz4KICAgIDxsaW5lIHgxPSItMTQiIHkxPSItMiIgeDI9Ii0xNCIgeTI9Ii0yMiIvPgogICAgPGxpbmUgeDE9Ii04IiB5MT0iLTIiIHgyPSItOCIgeTI9Ii0yNCIvPgogICAgPGxpbmUgeDE9Ii0yIiB5MT0iLTIiIHgyPSItMiIgeTI9Ii0yMiIvPgogICAgPHBhdGggZD0iTS0xNCwtOCBRLTgsLTYgLTIsLTgiLz4KICAgIDxsaW5lIHgxPSI4IiB5MT0iMjgiIHgyPSI4IiB5Mj0iMCIvPgogICAgPHBhdGggZD0iTTgsMCBMOCwtMjQgUTE0LC0yMCA4LC0yNiIvPgogIDwvZz4KICA8ZyBpZD0idG0iPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjYiIHI9IjE4Ii8+CiAgICA8cGF0aCBkPSJNLTYsLTEyIFEtMTIsLTI0IC00LC0yMiIvPgogICAgPHBhdGggZD0iTTAsLTEyIFEwLC0yNiAzLC0yMiIvPgogICAgPHBhdGggZD0iTTYsLTEyIFExMiwtMjQgNSwtMjAiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTEyIiB4Mj0iMCIgeTI9Ii0xOCIvPgogIDwvZz4KICA8ZyBpZD0ib3IiPgogICAgPHBhdGggZD0iTS0yMCw4IFEtMjAsLTE0IDAsLTE0IFEyMCwtMTQgMjAsOFoiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTE0IiB4Mj0iMCIgeTI9IjgiLz4KICAgIDxsaW5lIHgxPSItMTIiIHkxPSItMTAiIHgyPSI4IiB5Mj0iOCIvPgogICAgPGxpbmUgeDE9IjEyIiB5MT0iLTEwIiB4Mj0iLTgiIHkyPSI4Ii8+CiAgPC9nPgogIDxnIGlkPSJiZyI+CiAgICA8cGF0aCBkPSJNLTMyLDcgUS0zOCwwIC0zMiwtNyBMMzIsLTcgUTM4LDAgMzIsN1oiLz4KICAgIDxsaW5lIHgxPSItMTYiIHkxPSItNyIgeDI9Ii04IiB5Mj0iNyIvPgogICAgPGxpbmUgeDE9IjAiIHkxPSItNyIgeDI9IjgiIHkyPSI3Ii8+CiAgICA8bGluZSB4MT0iMTYiIHkxPSItNyIgeDI9IjI0IiB5Mj0iNyIvPgogIDwvZz4KICA8ZyBpZD0iYmsiPgogICAgPHBhdGggZD0iTS0yNCwyMCBRLTI2LDIgLTI0LC04IEwyNCwtOCBRMjYsMiAyNCwyMFoiLz4KICAgIDxwYXRoIGQ9Ik0tMjYsLTggUTAsLTI0IDI2LC04Ii8+CiAgICA8bGluZSB4MT0iLTE1IiB5MT0iLTgiIHgyPSItMTIiIHkyPSIyMCIvPgogICAgPGxpbmUgeDE9IjAiIHkxPSItOCIgeDI9IjAiIHkyPSIyMCIvPgogICAgPGxpbmUgeDE9IjE1IiB5MT0iLTgiIHgyPSIxMiIgeTI9IjIwIi8+CiAgICA8bGluZSB4MT0iLTI0IiB5MT0iNCIgeDI9IjI0IiB5Mj0iNCIvPgogICAgPGxpbmUgeDE9Ii0yNCIgeTE9IjEyIiB4Mj0iMjQiIHkyPSIxMiIvPgogIDwvZz4KPC9kZWZzPgo8ZyBmaWxsPSJub25lIiBzdHJva2U9IiM4YjcwNDAiIHN0cm9rZS13aWR0aD0iMS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogIDx1c2UgaHJlZj0iI2hiIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODUsNzUpICAgcm90YXRlKDE1KSIvPgogIDx1c2UgaHJlZj0iI2FwIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjM1LDUyKSAgcm90YXRlKC0xMikiLz4KICA8dXNlIGhyZWY9IiNjYSIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwNSw4OCkgIHJvdGF0ZSgyMCkiLz4KICA8dXNlIGhyZWY9IiNmcCIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyMCw2OCkgIHJvdGF0ZSgtOCkiLz4KICA8dXNlIGhyZWY9IiNibiIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyLDIwOCkgIHJvdGF0ZSgtMjUpIi8+CiAgPHVzZSBocmVmPSIjYmwiICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODgsMTk1KSByb3RhdGUoOCkiLz4KICA8dXNlIGhyZWY9IiNtYiIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzNSwxNzgpIHJvdGF0ZSgtMTQpIi8+CiAgPHVzZSBocmVmPSIjY3MiICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NzUsMjE1KSByb3RhdGUoNikiLz4KICA8dXNlIGhyZWY9IiNiciIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCwzNTIpIHJvdGF0ZSgyMikiLz4KICA8dXNlIGhyZWY9IiNzYiIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0OCwzMzUpIHJvdGF0ZSgtOSkiLz4KICA8dXNlIGhyZWY9IiNwayIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM5MCwzNTgpIHJvdGF0ZSgxMCkiLz4KICA8dXNlIGhyZWY9IiNzcCIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNSwzMzIpIHJvdGF0ZSgtMjApIi8+CiAgPHVzZSBocmVmPSIjZmsiICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OCw0NzgpICByb3RhdGUoMTApIi8+CiAgPHVzZSBocmVmPSIjdG0iICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMTAsNDYyKSByb3RhdGUoLTEwKSIvPgogIDx1c2UgaHJlZj0iI29yIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU4LDQ4OCkgcm90YXRlKDE4KSIvPgogIDx1c2UgaHJlZj0iI2JnIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDkwLDQ2Mikgcm90YXRlKC02KSIvPgogIDx1c2UgaHJlZj0iI2JrIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTU1LDEzMikgcm90YXRlKC0yMikiLz4KICA8dXNlIGhyZWY9IiNhcCIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ1NSwxNDgpIHJvdGF0ZSgxNSkgIHNjYWxlKDAuOCkiLz4KICA8dXNlIGhyZWY9IiNoYiIgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxNSw0NDApIHJvdGF0ZSgtMTIpIHNjYWxlKDAuNzUpIi8+CiAgPHVzZSBocmVmPSIjc3AiICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAsMzAwKSByb3RhdGUoMzApICBzY2FsZSgwLjg1KSIvPgogIDx1c2UgaHJlZj0iI2NhIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTUwLDI4MCkgcm90YXRlKC0zMCkgc2NhbGUoMC44KSIvPgogIDx1c2UgaHJlZj0iI3NiIiAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDMwLDUwMCkgcm90YXRlKDI1KSAgc2NhbGUoMC43KSIvPgo8L2c+Cjwvc3ZnPg==");background-size:600px 600px;background-repeat:repeat;opacity:0.12;pointer-events:none;z-index:0;';
-  document.body.insertBefore(d,document.body.firstChild);
-  Array.from(document.body.children).forEach(function(c){
-    if(c!==d&&!c.style.zIndex){if(!c.style.position||c.style.position==='static')c.style.position='relative';c.style.zIndex='1';}
-  });
 })();
 </script>
 </body>
