@@ -254,10 +254,10 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   .pricing-badge{background:#FD860E;color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border-radius:99px;text-align:center;width:fit-content;margin:0 auto}
   .pricing-img{width:100%;border-radius:12px;object-fit:cover}
   .pricing-name{font-size:20px;font-weight:900;color:#1a1a1a;line-height:1.25}
-  .pricing-tagline{font-size:16px;color:#333;font-weight:700;font-style:normal;line-height:1.4}
+  .pricing-tagline{font-size:14px;color:#333;font-style:italic;line-height:1.4}
   .pricing-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;flex:1}
   .pricing-features li{font-size:14px;color:#111;font-style:italic;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0;font-style:normal}.pricing-features li.no{color:#aaa}.pricing-features li.no::before{content:"✗";color:#e53935}.pricing-features li.no{color:#aaa}.pricing-features li.no::before{content:"✗";color:#e53935}
+  .pricing-features li::before{content:"✓";color:#FD860E;font-weight:900;font-size:14px;flex-shrink:0;font-style:normal}
   .pricing-price-de{font-size:14px;color:#888}
   .pricing-riscado{text-decoration:line-through;color:#aaa;font-weight:700}
   .pricing-price{font-size:46px;font-weight:900;color:#FD860E;line-height:1}
@@ -478,23 +478,22 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
 
   <!-- HERO -->
   <section class="hero hero-cream">
-    <div style="text-align:center;padding:44px 20px 8px;max-width:600px;margin:0 auto">
-      <p style="font-size:clamp(1.4rem,5.5vw,2rem);font-weight:800;color:#1a2a12;line-height:1.45;margin-bottom:28px">
-        Milhares de famílias portuguesas estão a alimentar-se bem
-        e a poupar <span style="color:#E46C44">2.000€ por ano</span>
-        com estas <span style="color:#E46C44">190 receitas saudáveis</span>
-      </p>
-      <div style="display:flex;justify-content:center;margin-bottom:28px">
-        <iframe width="315" height="560"
-          src="https://www.youtube.com/embed/MsiEI_386Z4"
-          title="Prato Certo" frameborder="0"
-          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-          allowfullscreen
-          style="border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25)">
-        </iframe>
+    <div class="hero-inner hero-grid">
+      <div class="hero-title-block">
+        <p class="hero-eyebrow">O método da nutricionista portuguesa que está a mudar famílias</p>
+        <h1 class="hero-h1-v2"><span class="l1">Chega de</span><span class="l2">comer fora!</span><span class="l3">Come saudável e poupa 2.000€/ano</span></h1>
+        <p style="margin-top:14px;font-size:16px;font-weight:600;color:#1A2A12;line-height:1.5">Receitas prontas em minutos com ingredientes simples.<br><span style="color:#E46C44;font-weight:800">+150 receitas saudáveis e económicas.</span></p>
       </div>
-      <div style="display:flex;justify-content:center;padding-bottom:44px">
+      <div class="hero-image">
+        <img src="img/tablet-hero.webp" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager" fetchpriority="high">
+      </div>
+      <div class="hero-cta">
         <a href="#checkout-btn" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
+      </div>
+      <div class="pain-block">
+        <div class="pain-item"><span class="px">✕</span><p>"O que é que vou comer hoje?"<span>Todos os dias a mesma pergunta — sem resposta.</span></p></div>
+        <div class="pain-item"><span class="px">✕</span><p>A perder dinheiro em take-away e entregas<span>No fim do mês sentes — mas continuas na mesma.</span></p></div>
+        <div class="pain-item"><span class="px">✕</span><p>Queres comer melhor mas a vida não deixa<span>Sem tempo, sem receitas, sem motivação.</span></p></div>
       </div>
     </div>
   </section>
@@ -502,22 +501,14 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   <!-- SECÇÃO DOR ECONÓMICA -->
   <section class="econ-pain" style="background:#2A4A1A;padding:52px 0">
     <div class="container" style="max-width:680px;text-align:center">
-      <div style="text-align:center;margin-bottom:20px">
-        <span style="font-size:2.8rem;line-height:1">📈</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto">
-        <div style="border:2px solid #E46C44;border-radius:10px;padding:16px 22px;text-align:center;background:#fff8f2">
-          <p style="font-weight:800;color:#1a2a12;margin:0 0 4px;font-size:1.05rem">“O que é que vou comer hoje?”</p>
-          <span style="font-size:.82rem;color:#555">Todos os dias a mesma pergunta — sem resposta.</span>
-        </div>
-        <div style="border:2px solid #E46C44;border-radius:10px;padding:16px 22px;text-align:center;background:#fff8f2">
-          <p style="font-weight:800;color:#1a2a12;margin:0 0 4px;font-size:1.05rem">A perder dinheiro em take-away e entregas</p>
-          <span style="font-size:.82rem;color:#555">No fim do mês sentes — mas continuas na mesma.</span>
-        </div>
-        <div style="border:2px solid #E46C44;border-radius:10px;padding:16px 22px;text-align:center;background:#fff8f2">
-          <p style="font-weight:800;color:#1a2a12;margin:0 0 4px;font-size:1.05rem">Queres comer melhor mas a vida não deixa</p>
-          <span style="font-size:.82rem;color:#555">Sem tempo, sem receitas, sem motivação.</span>
-        </div>
+      <div style="display:flex;justify-content:center;margin-bottom:36px">
+        <iframe width="315" height="560"
+          src="https://www.youtube.com/embed/MsiEI_386Z4"
+          title="Prato Certo" frameborder="0"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+          allowfullscreen
+          style="border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+        </iframe>
       </div>
       <p style="font-size:clamp(1.25rem,4vw,1.65rem);font-weight:700;color:#C8E67A;line-height:1.45;margin-bottom:22px">
         Não é impressão tua.<br><strong style="color:#fff;font-size:clamp(1.4rem,4.5vw,1.9rem)">Tudo ficou mesmo mais caro.</strong>
@@ -862,7 +853,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="pricing-card" style="border-color:#1a1a1a;border-width:2.5px">
           <img src="img/plano-base.jpg" alt="Plano Base" class="pricing-img">
           <div class="pricing-name">Pack Poupan&ccedil;a</div>
-          <div class="pricing-tagline">Cozinha uma vez. Come a semana toda.</div>
+          <div class="pricing-tagline">&ldquo;Cozinha uma vez. Come a semana toda.&rdquo;</div>
           <ul class="pricing-features">
             <li>190 receitas de marmitas saud&aacute;veis</li>
             <li>Pequenos-Almo&ccedil;os saud&aacute;veis</li>
@@ -871,17 +862,14 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
             <li>Bolos Saud&aacute;veis</li>
             <li>Marmitas da Semana</li>
             <li>Lanches que parecem take-away</li>
+            <li>Receitas Inclusivas</li>
+            <li>Hack do Iogurte</li>
+            <li>Gelado Express</li>
+            <li>T&eacute;cnica 3x3</li>
             <li>Congelamento Inteligente</li>
             <li>Receitas em V&iacute;deo</li>
             <li>Calculadora de Calorias</li>
             <li>Lista de Compras autom&aacute;tica</li>
-            <li>Hack do Iogurte</li>
-            <li class="no">Receitas Inclusivas</li>
-            <li class="no">Gelado Express</li>
-            <li class="no">T&eacute;cnica 3x3</li>
-            <li class="no">Jantares R&aacute;pidos</li>
-            <li class="no">Sopas &amp; Cremes</li>
-            <li class="no">Doces Saud&aacute;veis</li>
           </ul>
           <div>
             <div class="pricing-price-de">DE <span class="pricing-riscado">29,90 &euro;</span> POR:</div>
@@ -894,15 +882,12 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
           <div class="pricing-badge">&#x1F525; OFERTA MAIS POPULAR</div>
           <img src="img/plano-premium.jpg" alt="Plano Premium" class="pricing-img">
           <div class="pricing-name">Pack Fam&iacute;lia</div>
-          <div class="pricing-tagline">Do almo&ccedil;o ao lanche. Da marmita &agrave; lancheira.</div>
+          <div class="pricing-tagline">&ldquo;Do almo&ccedil;o ao lanche. Da marmita &agrave; lancheira.&rdquo;</div>
           <ul class="pricing-features">
             <li><b>Tudo do Pack Poupan&ccedil;a</b></li>
             <li>Jantares R&aacute;pidos (b&oacute;nus exclusivo)</li>
             <li>Sopas &amp; Cremes (b&oacute;nus exclusivo)</li>
             <li>Doces Saud&aacute;veis (b&oacute;nus exclusivo)</li>
-            <li>Receitas Inclusivas (b&oacute;nus exclusivo)</li>
-            <li>Gelado Express (b&oacute;nus exclusivo)</li>
-            <li>T&eacute;cnica 3x3 (b&oacute;nus exclusivo)</li>
           </ul>
           <div>
             <div class="pricing-price-de">DE <span class="pricing-riscado">39,90 &euro;</span> POR:</div>
