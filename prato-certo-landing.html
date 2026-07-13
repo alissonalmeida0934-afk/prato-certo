@@ -182,7 +182,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   /* testimonials */
   .tst-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
   .tst{background:var(--surface);border-radius:var(--radius-card);padding:20px;box-shadow:0 12px 28px rgba(217,119,87,.12)}
-  .tst-marquee{max-width:360px;margin:16px auto 0;display:flex;flex-direction:column;gap:0}.tst-pair{display:flex;gap:8px;align-items:flex-start;margin-top:16px}.tst-pair .tst-marquee{flex:1;min-width:0;max-width:none;margin:0}
+  .tst-marquee{max-width:360px;margin:16px auto 0;display:flex;flex-direction:column;gap:0}.tst-pair{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:16px -16px 0;padding:0 8px}.tst-pair::-webkit-scrollbar{display:none}.tst-pair .tst-marquee{flex:0 0 88vw;max-width:340px;scroll-snap-align:start;margin:0}
   .tst-marquee::before,.tst-marquee::after{display:none}
 
 
