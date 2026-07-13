@@ -182,7 +182,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   /* testimonials */
   .tst-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
   .tst{background:var(--surface);border-radius:var(--radius-card);padding:20px;box-shadow:0 12px 28px rgba(217,119,87,.12)}
-  .tst-marquee{max-width:360px;margin:16px auto 0;display:flex;flex-direction:column;gap:0}
+  .tst-marquee{max-width:360px;margin:16px auto 0;display:flex;flex-direction:column;gap:0}.tst-pair{display:flex;gap:8px;align-items:flex-start;margin-top:16px}.tst-pair .tst-marquee{flex:1;min-width:0;max-width:none;margin:0}
   .tst-marquee::before,.tst-marquee::after{display:none}
 
 
@@ -787,6 +787,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
     <div class="container">
       <p class="eyebrow">Quem já usa, recomenda</p>
       <div class="banner">Resultados reais</div>
+      <div class="tst-pair">
       <div class="tst-marquee">
         <button class="tst-arrow tst-arrow-up" id="tstUp" aria-label="Prima para subir"><span class="tst-chevron">&#x276E;&#x276E;</span> Prima para subir &#x1F446;</button>
         <div class="tst-marquee-inner" id="tstInner">
@@ -804,6 +805,25 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
           </div>
         </div>
         <button class="tst-arrow tst-arrow-down" id="tstDown" aria-label="Prima para descer">&#x1F447; Prima para descer <span class="tst-chevron">&#x276F;&#x276F;</span></button>
+      </div>
+      <div class="tst-marquee">
+        <button class="tst-arrow tst-arrow-up" id="tstUp2" aria-label="Prima para subir"><span class="tst-chevron">&#x276E;&#x276E;</span> Prima para subir &#x1F446;</button>
+        <div class="tst-marquee-inner" id="tstInner2">
+          <div class="tst-marquee-track" id="tstTrack2">
+            <div class="tst-slide"><img loading="lazy" src="img/rr2-filipa.jpg" alt="Depoimento Filipa"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr2-ana-clara.jpg" alt="Depoimento Ana Clara"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr2-beatriz.jpg" alt="Depoimento Beatriz"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr2-ana-luiza.jpg" alt="Depoimento Ana Luíza"></div>
+            <div class="tst-slide"><img loading="lazy" src="img/rr2-jacke.jpg" alt="Depoimento Jacke"></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr2-filipa.jpg" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr2-ana-clara.jpg" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr2-beatriz.jpg" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr2-ana-luiza.jpg" alt=""></div>
+            <div class="tst-slide" aria-hidden="true"><img loading="lazy" src="img/rr2-jacke.jpg" alt=""></div>
+          </div>
+        </div>
+        <button class="tst-arrow tst-arrow-down" id="tstDown2" aria-label="Prima para descer">&#x1F447; Prima para descer <span class="tst-chevron">&#x276F;&#x276F;</span></button>
+      </div>
       </div>
     </div>
   </section>
@@ -1031,6 +1051,30 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   [['mousedown','mouseup','mouseleave'],['touchstart','touchend','touchcancel']].forEach(function(evs){
     if(up){ up.addEventListener(evs[0], press(base*7), {passive:true}); up.addEventListener(evs[1], rel); up.addEventListener(evs[2], rel); }
     if(dn){ dn.addEventListener(evs[0], press(-base*5), {passive:true}); dn.addEventListener(evs[1], rel); dn.addEventListener(evs[2], rel); }
+  });
+})();
+(function(){
+  var track2 = document.getElementById('tstTrack2');
+  if (!track2) return;
+  var pos2 = 0;
+  var base2 = 0.6;
+  var speed2 = base2;
+  function step2(){
+    var half2 = track2.offsetHeight / 2;
+    pos2 += speed2;
+    if (half2 > 0 && pos2 >= half2) pos2 -= half2;
+    if (pos2 < 0) pos2 += (half2 > 0 ? half2 : 9999);
+    track2.style.transform = 'translateY(-' + pos2 + 'px)';
+    requestAnimationFrame(step2);
+  }
+  requestAnimationFrame(step2);
+  var up2 = document.getElementById('tstUp2');
+  var dn2 = document.getElementById('tstDown2');
+  function press2(s){ return function(){ speed2 = s; }; }
+  function rel2(){ speed2 = base2; }
+  [['mousedown','mouseup','mouseleave'],['touchstart','touchend','touchcancel']].forEach(function(evs){
+    if(up2){ up2.addEventListener(evs[0], press2(base2*7), {passive:true}); up2.addEventListener(evs[1], rel2); up2.addEventListener(evs[2], rel2); }
+    if(dn2){ dn2.addEventListener(evs[0], press2(-base2*5), {passive:true}); dn2.addEventListener(evs[1], rel2); dn2.addEventListener(evs[2], rel2); }
   });
 })();
 </script>
