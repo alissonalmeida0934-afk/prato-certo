@@ -62,6 +62,7 @@ export default {
             body: JSON.stringify({ user_metadata: { plano, nome } })
           });
           await sendPurchaseToMeta(body, plano, env).catch(() => {});
+          await relayToServerGTM(body).catch(() => {});
           return new Response(JSON.stringify({ ok: true, action: 'updated', plano, email }), { status: 200 });
         }
         return new Response(JSON.stringify({ ok: false, createStatus: createRes.status, createBody: createText }), { status: 200 });
@@ -76,6 +77,7 @@ export default {
 
       // 3. reportar a venda confirmada ao Meta Conversions API
       await sendPurchaseToMeta(body, plano, env).catch(() => {});
+      await relayToServerGTM(body).catch(() => {});
 
       return new Response(JSON.stringify({ ok: true, action: 'invited', plano, email }), { status: 200 });
     } catch (err) {
@@ -126,5 +128,13 @@ async function sendPurchaseToMeta(body, plano, env) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
+  });
+}
+
+async function relayToServerGTM(body) {
+  await fetch('https://api.prato-certo.com/lead/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
   });
 }
