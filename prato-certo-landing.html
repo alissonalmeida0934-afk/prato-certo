@@ -4,20 +4,6 @@
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://gtm.prato-certo.com/4oestzvyvbnht.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6jfoz6k=HQxTJSI0W08mKjkgRSpEXAJVXExHXxIUSRgcAwIWWxkRGhoNWBoZFw%3D%3D');</script>
 <!-- End Google Tag Manager -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-(function(){var m=document.cookie.match(/_pceid=([^;]+)/);var eid=m?m[1]:('u'+Math.random().toString(36).substr(2,16)+Math.random().toString(36).substr(2,16));if(!m){var ex=new Date(Date.now()+365*864e5).toUTCString();document.cookie='_pceid='+eid+';expires='+ex+';path=/;SameSite=Lax';}window._pcEid=eid;})();
-fbq('init','840452762252112',{external_id:window._pcEid});
-var _pvId='pv_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-fbq('track','PageView',{},{eventID:_pvId});
-function _pcCAPI(en,eid,cd){var fbp=(document.cookie.match(/_fbp=([^;]+)/)||[])[1];var u=new URLSearchParams(location.search);var fbc=(document.cookie.match(/_fbc=([^;]+)/)||[])[1]||(u.get('fbclid')?'fb.1.'+Date.now()+'.'+u.get('fbclid'):null);var b={event_name:en,event_id:eid,event_source_url:location.href,user_data:{}};if(fbp)b.user_data.fbp=fbp;if(fbc)b.user_data.fbc=fbc;if(window._pcEid)b.user_data.external_id=window._pcEid;if(cd)b.custom_data=cd;fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}).catch(function(){});}
-window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=840452762252112&ev=PageView&noscript=1"/></noscript>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prato Certo — Come bem, sem complicações</title>
@@ -878,7 +864,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         <div class="offer-de">DE <span class="offer-riscado">29,90 €</span> POR:</div>
         <div class="offer-price">7,90 <span class="offer-eur">€</span></div>
       </div>
-      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);fbq('track','InitiateCheckout',{},{eventID:id});_pcCAPI('InitiateCheckout',id);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout'});})()">QUERO O MEU ACESSO</a>
+      <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary offer-btn" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id});})()">QUERO O MEU ACESSO</a>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:10px">Pagamento seguro · Acesso imediato</p>
       <div class="offer-bottom-box">
         Com os bónus do <b>Prato Certo</b> já <span class="offer-eco">economizas</span> mais do que o valor da aplicação na primeira semana.<br><br>
@@ -1084,7 +1070,7 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   var p=new URLSearchParams(window.location.search);
   var utms={};
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))utms[k]=p.get(k);});
-  if(Object.keys(utms).length)fbq('trackCustom','UTMPageView',utms);
+  if(Object.keys(utms).length){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:'utm_page_view'},utms));}
 })();
 </script>
 <script>
@@ -1128,8 +1114,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
       if(entries[0].isIntersecting){
         fired=true;obs.disconnect();
         var id='vc_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-        fbq('track','ViewContent',{content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'},{eventID:id});
-        _pcCAPI('ViewContent',id,{content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'});
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:'view_content',eventID:id,content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'});
       }
     },{threshold:0.4});
     obs.observe(el);
@@ -1144,8 +1130,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
         if(!marks[m]&&pct>=m){
           marks[m]=true;
           var id='sd'+m+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-          fbq('trackCustom','ScrollDepth',{depth:m},{eventID:id});
-          _pcCAPI('ScrollDepth',id,{depth:m});
+          window.dataLayer=window.dataLayer||[];
+          window.dataLayer.push({event:'scroll_depth',eventID:id,depth:m});
         }
       });
       tick=false;
@@ -1167,8 +1153,8 @@ window.addEventListener('load',function(){_pcCAPI('PageView',_pvId);});
   (function(){
     setTimeout(function(){
       var id='top30_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-      fbq('trackCustom','TimeOnPage30',{},{eventID:id});
-      _pcCAPI('TimeOnPage30',id);
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'time_on_page_30',eventID:id});
     },30000);
   })();
 })();
