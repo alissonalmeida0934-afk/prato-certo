@@ -25,6 +25,8 @@ export default {
 
       if (!email) return new Response('No email', { status: 400 });
 
+      const BUMP_ID = '8112009'; // 7 Dias Sem Prisão de Ventre
+      const isOrderBump = prodId === BUMP_ID;
       const plano = (prodId === String(env.PREMIUM_ID)) ? 'premium' : 'base';
 
       const headers = {
@@ -32,6 +34,27 @@ export default {
         'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
         'apikey': env.SUPABASE_SECRET_KEY
       };
+
+      // 0. order bump: encontra utilizador e adiciona intestino:true sem alterar plano
+      if (isOrderBump) {
+        const listRes = await fetch(
+          `${SUPABASE_URL}/auth/v1/admin/users?email=${encodeURIComponent(email)}&page=1&per_page=1`,
+          { headers }
+        );
+        const listJson = await listRes.json();
+        const userId = listJson.users?.[0]?.id;
+        const existingMeta = listJson.users?.[0]?.user_metadata || {};
+        if (userId) {
+          await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${userId}`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify({ user_metadata: { ...existingMeta, intestino: true } })
+          });
+          await sendPurchaseToMeta(body, existingMeta.plano || 'base', env).catch(() => {});
+          return new Response(JSON.stringify({ ok: true, action: 'bump_intestino', email }), { status: 200 });
+        }
+        return new Response(JSON.stringify({ ok: false, reason: 'user_not_found_for_bump', email }), { status: 200 });
+      }
 
       // 1. criar utilizador (auto-confirmado)
       const createRes = await fetch(`${SUPABASE_URL}/auth/v1/admin/users`, {
