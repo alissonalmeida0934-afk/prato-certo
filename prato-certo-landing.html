@@ -456,7 +456,7 @@
         <img src="img/tablet-hero.webp" alt="Aplicação Prato Certo num tablet, com plano de refeições e receitas" loading="eager" fetchpriority="high">
       </div>
       <div class="hero-cta">
-        <a href="#checkout-btn" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
+        <a href="#checkout-btn" id="hero-cta" class="btn-primary">QUERO POUPAR TEMPO E DINHEIRO</a>
       </div>
       <div class="pain-block">
         <div class="pain-item"><span class="px">✕</span><p>"O que é que vou comer hoje?"<span>Todos os dias a mesma pergunta — sem resposta.</span></p></div>
@@ -1157,6 +1157,28 @@
       window.dataLayer.push({event:'time_on_page_30',eventID:id});
     },30000);
   })();
+})();
+</script>
+<script>
+(function(){
+  var heroCta=document.getElementById('hero-cta');
+  var target=document.getElementById('checkout-btn');
+  if(!heroCta||!target) return;
+  heroCta.addEventListener('click',function(e){
+    e.preventDefault();
+    var startY=window.scrollY;
+    var endY=target.getBoundingClientRect().top+window.scrollY-20;
+    var duration=1400;
+    var startTime=null;
+    function ease(t){return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+    function step(ts){
+      if(!startTime)startTime=ts;
+      var progress=Math.min((ts-startTime)/duration,1);
+      window.scrollTo(0,startY+(endY-startY)*ease(progress));
+      if(progress<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
 })();
 </script>
 </body>
