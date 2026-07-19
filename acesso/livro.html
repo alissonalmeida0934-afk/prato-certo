@@ -324,6 +324,20 @@ html.light .nav-tip .nt-row{color:#1a1a1a}
   var done=load(DONE), fav=load(FAV);
   function favKey(i){return catId+'-'+i}
 
+  var lastLoggedIdx=-1;
+  function maybeLogRecipeOpen(){
+    if(idx<1||idx===lastLoggedIdx)return;
+    lastLoggedIdx=idx;
+    window._sb.auth.getUser().then(function(r){
+      var uid=r.data&&r.data.user&&r.data.user.id;
+      if(!uid)return;
+      window._sb.from('activity_log').insert({
+        user_id:uid, event_type:'recipe_open',
+        meta:{cat:catId, categoria:cat.nome, receita:fichas[idx-1].nome}
+      }).then(function(){});
+    }).catch(function(){});
+  }
+
   function chip(ic,t){return '<span class="chip">'+ic+' '+t+'</span>'}
 
   function renderCover(){
@@ -395,6 +409,7 @@ html.light .nav-tip .nt-row{color:#1a1a1a}
       };
     }
     updateNav();
+    maybeLogRecipeOpen();
     window.scrollTo({top:0,behavior:'smooth'});
   }
 

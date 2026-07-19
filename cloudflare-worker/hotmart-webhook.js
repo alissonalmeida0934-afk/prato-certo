@@ -1,10 +1,16 @@
 // Cloudflare Worker — Hotmart webhook → Supabase Auth + Meta Conversions API
-// Env vars required: SUPABASE_SECRET_KEY, PREMIUM_ID, CAPI_TOKEN
+// Env vars required: SUPABASE_SECRET_KEY, SUPABASE_ANON_KEY, PREMIUM_ID, CAPI_TOKEN, ADMIN_EMAIL
 const SUPABASE_URL = 'https://achtuwinkhhqiovzpoth.supabase.co';
 const PIXEL_ID = '840452762252112';
 
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/admin/users') {
+      return handleAdminUsers(request, env);
+    }
+
     try {
       if (request.method !== 'POST') {
         return new Response('OK', { status: 200 });
@@ -149,5 +155,87 @@ async function sendPurchaseToMeta(body, plano, env) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
+  });
+}
+
+const PUBLISHABLE_KEY = 'sb_publishable_bu-Kz9vcPInHCxwUOqy7yw_8e_7GXgy';
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Authorization, Content-Type'
+};
+
+async function handleAdminUsers(request, env) {
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: CORS_HEADERS });
+  }
+  if (request.method !== 'GET') {
+    return new Response('Method not allowed', { status: 405, headers: CORS_HEADERS });
+  }
+
+  const adminEmail = env.ADMIN_EMAIL || 'alissonalmeida0934@gmail.com';
+  const authHeader = request.headers.get('Authorization') || '';
+  const accessToken = authHeader.replace(/^Bearer\s+/i, '');
+  if (!accessToken) {
+    return json({ error: 'missing_token' }, 401);
+  }
+
+  const meRes = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+    headers: { 'Authorization': `Bearer ${accessToken}`, 'apikey': PUBLISHABLE_KEY }
+  });
+  if (!meRes.ok) return json({ error: 'invalid_token' }, 401);
+  const me = await meRes.json();
+  if ((me.email || '').toLowerCase() !== adminEmail.toLowerCase()) {
+    return json({ error: 'forbidden' }, 403);
+  }
+
+  const secretHeaders = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
+    'apikey': env.SUPABASE_SECRET_KEY
+  };
+
+  const usersRes = await fetch(`${SUPABASE_URL}/auth/v1/admin/users?page=1&per_page=1000`, { headers: secretHeaders });
+  const usersJson = await usersRes.json();
+  const users = usersJson.users || [];
+
+  const activityRes = await fetch(
+    `${SUPABASE_URL}/rest/v1/activity_log?select=user_id,event_type,meta,created_at&order=created_at.asc`,
+    { headers: secretHeaders }
+  );
+  const activity = activityRes.ok ? await activityRes.json() : [];
+
+  const byUser = {};
+  for (const row of activity) {
+    const b = (byUser[row.user_id] = byUser[row.user_id] || { loginDays: new Set(), lastLogin: null, recipeOpens: 0, lastRecipe: null });
+    if (row.event_type === 'login') {
+      b.loginDays.add(row.created_at.slice(0, 10));
+      b.lastLogin = row.created_at;
+    } else if (row.event_type === 'recipe_open') {
+      b.recipeOpens += 1;
+      b.lastRecipe = { nome: row.meta && row.meta.receita, categoria: row.meta && row.meta.categoria, em: row.created_at };
+    }
+  }
+
+  const result = users.map(u => {
+    const b = byUser[u.id] || { loginDays: new Set(), lastLogin: null, recipeOpens: 0, lastRecipe: null };
+    return {
+      email: u.email,
+      plano: (u.user_metadata && u.user_metadata.plano) || 'base',
+      criado_em: u.created_at,
+      ultimo_login: b.lastLogin || u.last_sign_in_at || null,
+      dias_logados: b.loginDays.size,
+      receitas_abertas: b.recipeOpens,
+      ultima_receita: b.lastRecipe
+    };
+  }).sort((a, b) => new Date(b.ultimo_login || 0) - new Date(a.ultimo_login || 0));
+
+  return json(result, 200);
+}
+
+function json(data, status) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...CORS_HEADERS }
   });
 }

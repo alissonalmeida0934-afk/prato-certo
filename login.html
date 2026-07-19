@@ -124,6 +124,8 @@ async function doLogin() {
   btn.disabled = false; btn.textContent = 'Entrar na minha área';
   if (r.error) {
     err.textContent = r.error.message === 'Invalid login credentials' ? 'Email ou senha incorretos.' : r.error.message;
+  } else if (r.data.session) {
+    _s.from('activity_log').insert({ user_id: r.data.session.user.id, event_type: 'login' }).then(function(){});
   }
 }
 
