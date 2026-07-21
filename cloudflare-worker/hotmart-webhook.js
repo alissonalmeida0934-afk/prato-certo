@@ -10,12 +10,6 @@ export default {
     if (url.pathname === '/admin/users') {
       return handleAdminUsers(request, env);
     }
-    if (url.pathname === '/admin/dashboard') {
-      return handleAdminDashboard(request, env);
-    }
-    if (url.pathname === '/admin/spend') {
-      return handleAdminSpend(request, env);
-    }
 
     try {
       if (request.method !== 'POST') {
@@ -63,7 +57,6 @@ export default {
             body: JSON.stringify({ user_metadata: { ...existingMeta, intestino: true } })
           });
           await sendPurchaseToMeta(body, existingMeta.plano || 'base', env).catch(() => {});
-          await logSale(body, existingMeta.plano || 'base', env).catch(() => {});
           return new Response(JSON.stringify({ ok: true, action: 'bump_intestino', email }), { status: 200 });
         }
         return new Response(JSON.stringify({ ok: false, reason: 'user_not_found_for_bump', email }), { status: 200 });
@@ -98,7 +91,6 @@ export default {
             body: JSON.stringify({ user_metadata: { plano, nome } })
           });
           await sendPurchaseToMeta(body, plano, env).catch(() => {});
-          await logSale(body, plano, env).catch(() => {});
           return new Response(JSON.stringify({ ok: true, action: 'updated', plano, email }), { status: 200 });
         }
         return new Response(JSON.stringify({ ok: false, createStatus: createRes.status, createBody: createText }), { status: 200 });
@@ -113,7 +105,6 @@ export default {
 
       // 3. reportar a venda confirmada ao Meta Conversions API
       await sendPurchaseToMeta(body, plano, env).catch(() => {});
-      await logSale(body, plano, env).catch(() => {});
 
       return new Response(JSON.stringify({ ok: true, action: 'invited', plano, email }), { status: 200 });
     } catch (err) {
@@ -247,117 +238,4 @@ function json(data, status) {
     status,
     headers: { 'Content-Type': 'application/json', ...CORS_HEADERS }
   });
-}
-
-async function logSale(body, plano, env) {
-  const buyer = body.data?.buyer || {};
-  const purchase = body.data?.purchase || {};
-  const product = body.data?.product || {};
-
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
-    'apikey': env.SUPABASE_SECRET_KEY
-  };
-
-  await fetch(`${SUPABASE_URL}/rest/v1/sales`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      email: buyer.email,
-      produto_id: String(product.id || ''),
-      plano,
-      valor: purchase.price?.value ?? 0,
-      moeda: purchase.price?.currency_value || 'EUR',
-      transacao: purchase.transaction || null,
-      evento: body.event
-    })
-  });
-}
-
-async function verifyAdmin(request, env) {
-  const adminEmail = env.ADMIN_EMAIL || 'alissonalmeida0934@gmail.com';
-  const authHeader = request.headers.get('Authorization') || '';
-  const accessToken = authHeader.replace(/^Bearer\s+/i, '');
-  if (!accessToken) return null;
-
-  const meRes = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
-    headers: { 'Authorization': `Bearer ${accessToken}`, 'apikey': PUBLISHABLE_KEY }
-  });
-  if (!meRes.ok) return null;
-  const me = await meRes.json();
-  if ((me.email || '').toLowerCase() !== adminEmail.toLowerCase()) return null;
-  return me;
-}
-
-async function handleAdminDashboard(request, env) {
-  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_HEADERS });
-  if (request.method !== 'GET') return new Response('Method not allowed', { status: 405, headers: CORS_HEADERS });
-
-  const me = await verifyAdmin(request, env);
-  if (!me) return json({ error: 'forbidden' }, 403);
-
-  const secretHeaders = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
-    'apikey': env.SUPABASE_SECRET_KEY
-  };
-
-  const salesRes = await fetch(`${SUPABASE_URL}/rest/v1/sales?select=*&order=criado_em.desc&limit=500`, { headers: secretHeaders });
-  const sales = salesRes.ok ? await salesRes.json() : [];
-
-  const spendRes = await fetch(`${SUPABASE_URL}/rest/v1/ad_spend?select=*&order=data.desc&limit=90`, { headers: secretHeaders });
-  const spend = spendRes.ok ? await spendRes.json() : [];
-
-  const today = new Date().toISOString().slice(0, 10);
-  const totalFaturamento = sales.reduce((s, r) => s + Number(r.valor || 0), 0);
-  const vendasHoje = sales.filter(r => (r.criado_em || '').slice(0, 10) === today);
-  const faturamentoHoje = vendasHoje.reduce((s, r) => s + Number(r.valor || 0), 0);
-  const gastoHoje = (spend.find(s => s.data === today) || {}).valor || 0;
-  const gastoTotal = spend.reduce((s, r) => s + Number(r.valor || 0), 0);
-
-  return json({
-    totalFaturamento,
-    faturamentoHoje,
-    gastoHoje,
-    gastoTotal,
-    roasHoje: gastoHoje > 0 ? faturamentoHoje / gastoHoje : 0,
-    roasTotal: gastoTotal > 0 ? totalFaturamento / gastoTotal : 0,
-    lucroHoje: faturamentoHoje - gastoHoje,
-    lucroTotal: totalFaturamento - gastoTotal,
-    vendasHojeCount: vendasHoje.length,
-    vendasTotalCount: sales.length,
-    spendHistory: spend,
-    salesRecent: sales.slice(0, 50)
-  }, 200);
-}
-
-async function handleAdminSpend(request, env) {
-  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_HEADERS });
-
-  const me = await verifyAdmin(request, env);
-  if (!me) return json({ error: 'forbidden' }, 403);
-
-  if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: CORS_HEADERS });
-
-  let payload;
-  try { payload = await request.json(); } catch { return json({ error: 'invalid_json' }, 400); }
-  const data = payload.data;
-  const valor = Number(payload.valor);
-  if (!data || isNaN(valor)) return json({ error: 'missing_fields' }, 400);
-
-  const secretHeaders = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
-    'apikey': env.SUPABASE_SECRET_KEY,
-    'Prefer': 'resolution=merge-duplicates'
-  };
-
-  await fetch(`${SUPABASE_URL}/rest/v1/ad_spend?on_conflict=data`, {
-    method: 'POST',
-    headers: secretHeaders,
-    body: JSON.stringify({ data, valor })
-  });
-
-  return json({ ok: true }, 200);
 }
