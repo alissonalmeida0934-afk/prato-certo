@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var _s=window.supabase.createClient('https://achtuwinkhhqiovzpoth.supabase.co','sb_publishable_bu-Kz9vcPInHCxwUOqy7yw_8e_7GXgy');
+  window._sb=_s;
+  var L='/login.html';
+  document.documentElement.style.visibility='hidden';
+  _s.auth.getSession().then(function(r){
+    if(!r.data.session){window.location.replace(L);return;}
+    if((r.data.session.user.email||'').toLowerCase()!=='alissonalmeida0934@gmail.com'){
+      window.location.replace('/acesso/');return;
+    }
+    document.documentElement.style.visibility='';
+  });
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Prato Certo</title>
+<link rel="icon" href="../img/logo-prato-certo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Rubik',sans-serif;background:#0c0c0c;color:#F0EDE8;padding:24px 16px 60px}
+h1{font-size:1.3rem;margin-bottom:4px}
+.sub{color:#8A8078;font-size:.85rem;margin-bottom:20px}
+a.nav-link{color:#E46C44;font-size:.82rem;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:24px}
+.card{background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px}
+.card .l{font-size:.7rem;color:#8A8078;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.card .n{font-size:1.35rem;font-weight:800}
+.card .n.pos{color:#5a9a40}
+.card .n.neg{color:#ff6b6b}
+.spend-form{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;background:#161616;border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:16px;margin-bottom:24px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:.72rem;color:#8A8078}
+.field input{background:#1e1e1e;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#F0EDE8;
+  padding:9px 12px;font-family:inherit;outline:none;font-size:.88rem}
+.field input:focus{border-color:#E46C44}
+.btn{background:#E46C44;color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.88rem;
+  padding:10px 20px;border-radius:8px;cursor:pointer}
+.btn:hover{background:#FD860E}
+.msg{font-size:.8rem;margin-left:4px}
+h2{font-size:1rem;margin:24px 0 10px}
+.tbl-wrap{overflow-x:auto;border:1px solid rgba(255,255,255,.08);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;white-space:nowrap}
+th{background:#161616;color:#8A8078;text-align:left;padding:9px 12px;font-size:.7rem;text-transform:uppercase}
+td{padding:9px 12px;border-top:1px solid rgba(255,255,255,.06)}
+.muted{color:#8A8078}
+.loading{padding:30px;text-align:center;color:#8A8078}
+</style>
+</head>
+<body>
+
+<a class="nav-link" href="admin.html">‹ Painel de utilizadores</a>
+<h1 style="margin-top:10px">Dashboard — Prato Certo</h1>
+<p class="sub">Faturamento automático (Hotmart) + gasto manual (Meta Ads)</p>
+
+<div class="grid" id="cards"><div class="loading">A carregar...</div></div>
+
+<div class="spend-form">
+  <div class="field">
+    <label>Data</label>
+    <input type="date" id="spendDate">
+  </div>
+  <div class="field">
+    <label>Gasto em anúncios (€)</label>
+    <input type="number" step="0.01" id="spendValor" placeholder="0.00">
+  </div>
+  <button class="btn" id="spendSave">Guardar gasto</button>
+  <span class="msg" id="spendMsg"></span>
+</div>
+
+<h2>Histórico de gasto</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Data</th><th>Gasto</th></tr></thead><tbody id="spendTbody"><tr><td colspan="2" class="loading">A carregar...</td></tr></tbody></table></div>
+
+<h2>Vendas recentes</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Data</th><th>Email</th><th>Plano</th><th>Valor</th><th>Evento</th></tr></thead><tbody id="salesTbody"><tr><td colspan="5" class="loading">A carregar...</td></tr></tbody></table></div>
+
+<script>
+var WORKER = 'https://hotmart-webhook.alissonalmeida0934.workers.dev';
+document.getElementById('spendDate').value = new Date().toISOString().slice(0,10);
+
+function eur(n){ return (Number(n)||0).toLocaleString('pt-PT',{style:'currency',currency:'EUR'}); }
+function fmtDate(iso){ if(!iso) return '—'; var d=new Date(iso); return d.toLocaleDateString('pt-PT')+' '+d.toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'}); }
+
+async function authHeader(){
+  var session = (await window._sb.auth.getSession()).data.session;
+  return { 'Authorization': 'Bearer ' + session.access_token };
+}
+
+function renderCards(d){
+  var cards = [
+    ['Faturamento hoje', eur(d.faturamentoHoje), ''],
+    ['Faturamento total', eur(d.totalFaturamento), ''],
+    ['Gasto hoje', eur(d.gastoHoje), ''],
+    ['Gasto total', eur(d.gastoTotal), ''],
+    ['ROAS hoje', d.roasHoje.toFixed(2), d.roasHoje>=1?'pos':'neg'],
+    ['ROAS total', d.roasTotal.toFixed(2), d.roasTotal>=1?'pos':'neg'],
+    ['Lucro hoje', eur(d.lucroHoje), d.lucroHoje>=0?'pos':'neg'],
+    ['Lucro total', eur(d.lucroTotal), d.lucroTotal>=0?'pos':'neg'],
+    ['Vendas hoje', d.vendasHojeCount, ''],
+    ['Vendas total', d.vendasTotalCount, '']
+  ];
+  document.getElementById('cards').innerHTML = cards.map(function(c){
+    return '<div class="card"><div class="l">'+c[0]+'</div><div class="n '+c[2]+'">'+c[1]+'</div></div>';
+  }).join('');
+}
+
+function renderSpendTable(rows){
+  var tbody = document.getElementById('spendTbody');
+  if(!rows.length){ tbody.innerHTML = '<tr><td colspan="2" class="muted" style="padding:16px">Sem registos ainda.</td></tr>'; return; }
+  tbody.innerHTML = rows.map(function(r){
+    return '<tr><td>'+r.data+'</td><td>'+eur(r.valor)+'</td></tr>';
+  }).join('');
+}
+
+function renderSalesTable(rows){
+  var tbody = document.getElementById('salesTbody');
+  if(!rows.length){ tbody.innerHTML = '<tr><td colspan="5" class="muted" style="padding:16px">Sem vendas ainda.</td></tr>'; return; }
+  tbody.innerHTML = rows.map(function(r){
+    return '<tr><td>'+fmtDate(r.criado_em)+'</td><td>'+r.email+'</td><td>'+(r.plano||'—')+'</td><td>'+eur(r.valor)+'</td><td>'+r.evento+'</td></tr>';
+  }).join('');
+}
+
+async function load(){
+  try{
+    var res = await fetch(WORKER + '/admin/dashboard', { headers: await authHeader() });
+    if(!res.ok){
+      document.getElementById('cards').innerHTML = '<div class="loading">Erro ao carregar (' + res.status + ')</div>';
+      return;
+    }
+    var d = await res.json();
+    renderCards(d);
+    renderSpendTable(d.spendHistory);
+    renderSalesTable(d.salesRecent);
+  }catch(e){
+    document.getElementById('cards').innerHTML = '<div class="loading">Erro: ' + e.message + '</div>';
+  }
+}
+
+document.getElementById('spendSave').addEventListener('click', async function(){
+  var data = document.getElementById('spendDate').value;
+  var valor = parseFloat(document.getElementById('spendValor').value);
+  var msg = document.getElementById('spendMsg');
+  if(!data || isNaN(valor)){ msg.textContent = 'Preenche data e valor.'; msg.style.color='#ff6b6b'; return; }
+  msg.textContent = 'A guardar...'; msg.style.color='#8A8078';
+  try{
+    var headers = Object.assign({'Content-Type':'application/json'}, await authHeader());
+    var res = await fetch(WORKER + '/admin/spend', { method:'POST', headers: headers, body: JSON.stringify({data:data, valor:valor}) });
+    if(!res.ok){ msg.textContent = 'Erro ao guardar.'; msg.style.color='#ff6b6b'; return; }
+    msg.textContent = 'Guardado ✓'; msg.style.color='#5a9a40';
+    document.getElementById('spendValor').value = '';
+    load();
+  }catch(e){ msg.textContent = 'Erro: ' + e.message; msg.style.color='#ff6b6b'; }
+});
+
+load();
+</script>
+</body>
+</html>
