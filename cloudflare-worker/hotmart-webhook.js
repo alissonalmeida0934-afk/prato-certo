@@ -119,12 +119,30 @@ async function sha256Hex(value) {
   return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+async function alreadySentToMeta(transaction, env) {
+  if (!transaction) return false;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/capi_purchases`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${env.SUPABASE_SECRET_KEY}`,
+      'apikey': env.SUPABASE_SECRET_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ transaction })
+  });
+  // insert deu certo (201) = primeira vez vendo essa transação. Conflito (409) = já foi enviada antes.
+  return res.status !== 201;
+}
+
 async function sendPurchaseToMeta(body, plano, env) {
   if (!env.CAPI_TOKEN) return;
 
   const buyer = body.data?.buyer || {};
   const purchase = body.data?.purchase || {};
   const transaction = purchase.transaction || ('hm_' + Date.now());
+
+  if (await alreadySentToMeta(transaction, env).catch(() => false)) return;
 
   const userData = { em: [await sha256Hex(buyer.email)] };
   const phone = buyer.checkout_phone || buyer.phone;
@@ -134,6 +152,7 @@ async function sendPurchaseToMeta(body, plano, env) {
     userData.fn = [await sha256Hex(parts[0])];
     if (parts.length > 1) userData.ln = [await sha256Hex(parts[parts.length - 1])];
   }
+  userData.external_id = [await sha256Hex(buyer.email)];
 
   const payload = {
     data: [{
