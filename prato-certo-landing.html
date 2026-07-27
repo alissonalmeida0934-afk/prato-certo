@@ -116,8 +116,13 @@
   .cta-wrap{margin-top:28px;text-align:center}
   .btn-primary{display:inline-block;background:#0D4D1F;color:#fff;font-size:19px;font-weight:700;font-family:inherit;padding:22px 48px;border:none;border-radius:var(--radius-pill);text-decoration:none;cursor:pointer;box-shadow:0 10px 24px rgba(13,77,31,.35);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
   .btn-primary:hover{background:#0A3D18;transform:translateY(-2px) scale(1.02);box-shadow:0 14px 30px rgba(13,77,31,.45)}
-  #hero-cta{background:#D9F76B;color:#0D4D1F;box-shadow:0 0 0 3px rgba(217,247,107,.55),0 0 0 8px rgba(217,247,107,.28),0 20px 40px rgba(13,77,31,.35)}
-  #hero-cta:hover{background:#CFF057;box-shadow:0 0 0 3px rgba(217,247,107,.55),0 0 0 12px rgba(217,247,107,.3),0 24px 48px rgba(13,77,31,.4)}
+  #hero-cta{background:#D9F76B;color:#0D4D1F;box-shadow:0 20px 40px rgba(13,77,31,.35);animation:heroPulse 1.8s ease-out infinite}
+  #hero-cta:hover{background:#CFF057}
+  @keyframes heroPulse{
+    0%{box-shadow:0 0 0 0 rgba(76,175,80,.7),0 20px 40px rgba(13,77,31,.35)}
+    70%{box-shadow:0 0 0 16px rgba(76,175,80,0),0 20px 40px rgba(13,77,31,.35)}
+    100%{box-shadow:0 0 0 0 rgba(76,175,80,0),0 20px 40px rgba(13,77,31,.35)}
+  }
   .btn-primary:focus-visible{outline:3px solid var(--secondary);outline-offset:4px}
   .micro{margin-top:16px;font-size:13px;color:var(--text-muted)}
 
