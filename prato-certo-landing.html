@@ -889,6 +889,8 @@
           .pc-riscado{text-decoration:line-through;text-decoration-color:#999;color:#999;font-weight:600;font-size:19px}
           .pc-price{color:#0D4D1F;font-weight:900;font-size:30px}
           .pc-cta{display:block;width:100%;box-sizing:border-box;background:#0D4D1F;color:#fff;font-weight:800;font-size:15px;padding:16px;border-radius:50px;text-transform:uppercase;letter-spacing:.01em}
+          @keyframes ctaWobble{0%,100%{transform:rotate(0)}15%{transform:rotate(-3deg)}30%{transform:rotate(3deg)}45%{transform:rotate(-2deg)}60%{transform:rotate(2deg)}75%{transform:rotate(-1deg)}}
+          .pc-cta.wobble{animation:ctaWobble 1s ease-in-out 2}
         </style>
 
         <div class="pc-tier" style="border:2px solid #2E7D32">
@@ -1164,6 +1166,21 @@
         var id='vc_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
         window.dataLayer=window.dataLayer||[];
         window.dataLayer.push({event:'view_content',eventID:id,content_name:'Prato Certo',content_type:'product',value:7.90,currency:'EUR'});
+      }
+    },{threshold:0.4});
+    obs.observe(el);
+  })();
+  // Wobble nos botões dos cards de preço ao entrar na tela
+  (function(){
+    var el=document.getElementById('checkout-btn');
+    if(!el) return;
+    var buttons=el.querySelectorAll('.pc-cta');
+    var fired=false;
+    var obs=new IntersectionObserver(function(entries){
+      if(fired) return;
+      if(entries[0].isIntersecting){
+        fired=true;obs.disconnect();
+        buttons.forEach(function(b){ b.classList.add('wobble'); });
       }
     },{threshold:0.4});
     obs.observe(el);
