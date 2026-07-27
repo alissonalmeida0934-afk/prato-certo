@@ -860,51 +860,51 @@
       </ul>
       <p class="offer-promo-label">Apenas com a <b>promoção especial válida</b> <span class="offer-hoje">HOJE</span></p>
       <div class="offer-date-badge" id="offerDate"></div>
-      <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:16px;max-width:660px;margin:0 auto;text-align:left">
+      <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:24px;max-width:680px;margin:0 auto">
         <style>
           @media(min-width:640px){#checkout-btn{grid-template-columns:1fr 1fr}}
-          .pc-tier{background:#fff;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
-          .pc-tier ul{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.35;color:#3a3a3a;font-weight:500}
-          .pc-tier .pc-cta{width:100%;display:block;text-align:center;box-sizing:border-box}
-          .pc-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:15px;color:#111;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
-          .pc-de{font-size:13px;font-weight:700;color:#666;margin-bottom:2px}
-          .pc-riscado{text-decoration:line-through;text-decoration-color:#c0392b;color:#c0392b;font-weight:800}
-          .pc-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:38px;color:#111;line-height:1;margin-bottom:16px}
-          .pc-price span{font-size:19px;font-weight:800}
+          .pc-tier{background:#fff;border-radius:14px;padding:20px 18px 26px;text-align:center;position:relative}
+          .pc-tier img{width:100%;border-radius:4px;margin-bottom:18px;display:block}
+          .pc-name{font-size:19px;font-weight:800;color:#111;line-height:1.25;margin-bottom:16px}
+          .pc-tier ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:15px;font-style:italic;color:#222}
+          .pc-plus{font-style:normal;font-size:15px;color:#222}
+          .pc-price-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
+          .pc-riscado{text-decoration:line-through;text-decoration-color:#999;color:#999;font-weight:600;font-size:19px}
+          .pc-price{color:#2E7D32;font-weight:900;font-size:30px}
+          .pc-cta{display:block;width:100%;box-sizing:border-box;background:#2E7D32;color:#fff;font-weight:800;font-size:15px;padding:16px;border-radius:50px;text-transform:uppercase;letter-spacing:.01em}
         </style>
 
-        <div class="pc-tier" style="border:3px solid #3D5723;padding:22px 18px 20px">
-          <div class="pc-name">Prato Certo</div>
-          <div class="pc-de">DE <span class="pc-riscado">29,90 €</span> POR:</div>
-          <div class="pc-price">7,90 <span>€</span></div>
+        <div class="pc-tier" style="border:2px solid #2E7D32">
+          <img src="img/pack-basico-mockup.webp" alt="Pack Básico Prato Certo">
+          <div class="pc-name">Prato Certo<br>"Cozinha uma vez.<br>Come a semana toda."</div>
           <ul>
-            <li>✓ Aplicação Prato Certo (180+ receitas)</li>
-            <li>✓ Bónus: Pequenos-Almoços que Saciam</li>
-            <li>✓ Bónus: Ementas Automáticas</li>
-            <li>✓ Bónus: SOS Take-Away</li>
-            <li>✓ Bónus: Hack do Iogurte</li>
+            <li>Aplicação Prato Certo (180+ receitas)</li>
+            <li class="pc-plus">+</li>
+            <li>Bónus 'Pequenos-Almoços que Saciam'</li>
+            <li class="pc-plus">+</li>
+            <li>Bónus 'Ementas Automáticas'</li>
           </ul>
-          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px;background:#3D5723" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'base'});})()">QUERO O ACESSO BÁSICO</a>
+          <div class="pc-price-row"><span class="pc-riscado">29,90€</span><span class="pc-price">7,90€</span></div>
+          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="pc-cta" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'base'});})()">Quero o Pack Básico</a>
         </div>
 
-        <div class="pc-tier" style="position:relative;border:5px solid #F5C400;padding:26px 18px 20px">
-          <div style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:#F5C400;color:#1A2A12;font-size:11px;font-weight:900;padding:6px 16px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)">🔥 Mais Completo</div>
-          <div class="pc-name" style="margin-top:6px">Prato Certo Premium</div>
-          <div class="pc-de">DE <span class="pc-riscado">49,90 €</span> POR:</div>
-          <div class="pc-price">13,90 <span>€</span></div>
+        <div class="pc-tier" style="border:2px solid #F5C400">
+          <div style="position:absolute;top:14px;left:14px;right:14px;background:#c5e8a8;color:#1A2A12;font-size:12px;font-weight:800;padding:8px;border-radius:6px;text-transform:uppercase;letter-spacing:.02em">🔥 Oferta Mais Popular</div>
+          <img src="img/pack-premium-mockup.webp" alt="Pack Premium Prato Certo" style="margin-top:46px">
+          <div class="pc-name">Prato Certo Premium<br>"Tudo o que precisas<br>para comer bem."</div>
           <ul>
-            <li>✓ Tudo do plano básico, mais:</li>
-            <li>🔥 Calculadora de Calorias personalizada</li>
-            <li>🥡 Guia Completo Marmitas Fit (15 marmitas)</li>
-            <li>🍽️ Jantares Rápidos (15 receitas)</li>
-            <li>🥣 Sopas &amp; Cremes (15 receitas)</li>
-            <li>🍰 Doces Saudáveis (15 receitas)</li>
-            <li>🥗 Receitas Inclusivas</li>
-            <li>🍦 Gelado Express</li>
-            <li>💡 Técnica 3x3</li>
-            <li>🧊 Congelamento Inteligente</li>
+            <li>Tudo do Pack Básico</li>
+            <li class="pc-plus">+</li>
+            <li>Calculadora de Calorias personalizada</li>
+            <li class="pc-plus">+</li>
+            <li>Guia Completo Marmitas Fit</li>
+            <li class="pc-plus">+</li>
+            <li>Jantares Rápidos, Sopas &amp; Cremes, Doces Saudáveis</li>
+            <li class="pc-plus">+</li>
+            <li>Receitas Inclusivas, Gelado Express, Técnica 3x3</li>
           </ul>
-          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px;background:#F5C400;color:#1A2A12" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'premium'});})()">QUERO O ACESSO PREMIUM</a>
+          <div class="pc-price-row"><span class="pc-riscado">49,90€</span><span class="pc-price">13,90€</span></div>
+          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="pc-cta" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'premium'});})()">Quero o Pack Premium</a>
         </div>
       </div>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:16px">🔒 Pagamento seguro por MB WAY ou Multibanco · Acesso imediato após a compra</p>
