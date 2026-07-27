@@ -860,33 +860,39 @@
       </ul>
       <p class="offer-promo-label">Apenas com a <b>promoção especial válida</b> <span class="offer-hoje">HOJE</span></p>
       <div class="offer-date-badge" id="offerDate"></div>
-      <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:14px;max-width:640px;margin:0 auto;text-align:left">
+      <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:16px;max-width:660px;margin:0 auto;text-align:left">
         <style>
           @media(min-width:640px){#checkout-btn{grid-template-columns:1fr 1fr}}
-          .pc-tier ul{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.35}
+          .pc-tier{background:#fff;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+          .pc-tier ul{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.35;color:#3a3a3a;font-weight:500}
           .pc-tier .pc-cta{width:100%;display:block;text-align:center;box-sizing:border-box}
+          .pc-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:15px;color:#111;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
+          .pc-de{font-size:13px;font-weight:700;color:#666;margin-bottom:2px}
+          .pc-riscado{text-decoration:line-through;text-decoration-color:#c0392b;color:#c0392b;font-weight:800}
+          .pc-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:38px;color:#111;line-height:1;margin-bottom:16px}
+          .pc-price span{font-size:19px;font-weight:800}
         </style>
 
-        <div class="pc-tier" style="background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.16);border-radius:16px;padding:22px 18px 20px">
-          <div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Prato Certo</div>
-          <div class="offer-de" style="font-size:14px;margin-bottom:2px">DE <span class="offer-riscado">29,90 €</span> POR:</div>
-          <div style="font-size:36px;font-weight:900;color:#fff;line-height:1;margin-bottom:16px">7,90 <span style="font-size:19px;font-weight:800">€</span></div>
-          <ul style="color:rgba(255,255,255,.9)">
+        <div class="pc-tier" style="border:3px solid #3D5723;padding:22px 18px 20px">
+          <div class="pc-name">Prato Certo</div>
+          <div class="pc-de">DE <span class="pc-riscado">29,90 €</span> POR:</div>
+          <div class="pc-price">7,90 <span>€</span></div>
+          <ul>
             <li>✓ Aplicação Prato Certo (180+ receitas)</li>
             <li>✓ Bónus: Pequenos-Almoços que Saciam</li>
             <li>✓ Bónus: Ementas Automáticas</li>
             <li>✓ Bónus: SOS Take-Away</li>
             <li>✓ Bónus: Hack do Iogurte</li>
           </ul>
-          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'base'});})()">QUERO O ACESSO BÁSICO</a>
+          <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px;background:#3D5723" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'base'});})()">QUERO O ACESSO BÁSICO</a>
         </div>
 
-        <div class="pc-tier" style="position:relative;background:rgba(253,134,14,.14);border:2px solid #FD860E;border-radius:16px;padding:26px 18px 20px">
-          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#FD860E;color:#1A2A12;font-size:11px;font-weight:900;padding:5px 16px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)">🔥 Mais Completo</div>
-          <div style="font-size:12px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Prato Certo Premium</div>
-          <div class="offer-de" style="font-size:14px;margin-bottom:2px">DE <span class="offer-riscado">49,90 €</span> POR:</div>
-          <div style="font-size:36px;font-weight:900;color:#fff;line-height:1;margin-bottom:16px">13,90 <span style="font-size:19px;font-weight:800">€</span></div>
-          <ul style="color:rgba(255,255,255,.95)">
+        <div class="pc-tier" style="position:relative;border:5px solid #F5C400;padding:26px 18px 20px">
+          <div style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:#F5C400;color:#1A2A12;font-size:11px;font-weight:900;padding:6px 16px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)">🔥 Mais Completo</div>
+          <div class="pc-name" style="margin-top:6px">Prato Certo Premium</div>
+          <div class="pc-de">DE <span class="pc-riscado">49,90 €</span> POR:</div>
+          <div class="pc-price">13,90 <span>€</span></div>
+          <ul>
             <li>✓ Tudo do plano básico, mais:</li>
             <li>🔥 Calculadora de Calorias personalizada</li>
             <li>🥡 Guia Completo Marmitas Fit (15 marmitas)</li>
@@ -898,7 +904,7 @@
             <li>💡 Técnica 3x3</li>
             <li>🧊 Congelamento Inteligente</li>
           </ul>
-          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px;background:#FD860E" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'premium'});})()">QUERO O ACESSO PREMIUM</a>
+          <a href="https://pay.hotmart.com/N106709125N?checkoutMode=10" class="btn-primary pc-cta" style="font-size:13.5px;padding:13px;background:#F5C400;color:#1A2A12" target="_blank" onclick="(function(){var id='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'premium'});})()">QUERO O ACESSO PREMIUM</a>
         </div>
       </div>
       <p class="micro" style="color:rgba(255,255,255,.7);margin-top:16px">🔒 Pagamento seguro por MB WAY ou Multibanco · Acesso imediato após a compra</p>
