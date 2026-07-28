@@ -436,6 +436,10 @@
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 </head>
 <body>
+<div style="position:sticky;top:0;z-index:999;background:#E46C44;color:#fff;text-align:center;padding:10px 12px;font-weight:800;font-size:13px;animation:topbarBlink 1.4s ease-in-out infinite">
+  🔥 OFERTA VÁLIDA ATÉ HOJE — <span id="topbar-date">...</span>
+</div>
+<style>@keyframes topbarBlink{0%,100%{opacity:1}50%{opacity:.55}}</style>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://gtm.prato-certo.com/ns.html?id=GTM-5RBWB3S2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -876,11 +880,7 @@
   <!-- OFERTA -->
   <section id="oferta" style="background:#f8faf2;padding:48px 0">
     <div class="container">
-      <h2 class="offer-title" style="color:#1A2A12;text-align:center;margin-bottom:16px">Escolhe o teu plano<br>e começa hoje</h2>
-      <div style="max-width:420px;margin:0 auto 28px;text-align:center;background:#fff3e6;border:2px solid #E46C44;border-radius:14px;padding:14px 18px">
-        <p style="margin:0 0 8px;font-size:13px;font-weight:800;color:#c0392b;text-transform:uppercase;letter-spacing:.03em">🔥 Oferta especial termina em</p>
-        <div id="countdown" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:#E46C44;letter-spacing:.02em">--:--:--</div>
-      </div>
+      <h2 class="offer-title" style="color:#1A2A12;text-align:center;margin-bottom:28px">Escolhe o teu plano<br>e começa hoje</h2>
       <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:24px;max-width:680px;margin:0 auto">
         <style>
           @media(min-width:480px){#checkout-btn{grid-template-columns:1fr 1fr;gap:12px}}
@@ -1060,20 +1060,18 @@
 })();
 
 (function(){
-  var el = document.getElementById('countdown');
+  var el = document.getElementById('topbar-date');
   if (!el) return;
-  function tick(){
+  var dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  function update(){
     var now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Lisbon'}));
-    var end = new Date(now); end.setHours(24,0,0,0);
-    var diff = Math.max(0, end - now);
-    var h = Math.floor(diff/3600000);
-    var m = Math.floor((diff%3600000)/60000);
-    var s = Math.floor((diff%60000)/1000);
-    function p(n){ return n.toString().padStart(2,'0'); }
-    el.textContent = p(h)+':'+p(m)+':'+p(s);
+    var d = now.getDate().toString().padStart(2,'0');
+    var m = (now.getMonth()+1).toString().padStart(2,'0');
+    var y = now.getFullYear();
+    el.textContent = dias[now.getDay()] + ', ' + d + '/' + m + '/' + y;
   }
-  tick();
-  setInterval(tick, 1000);
+  update();
+  setInterval(update, 60000);
 })();
 
 (function(){
