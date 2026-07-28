@@ -1,5 +1,6 @@
 {
   "routes": [
-    { "src": "/", "dest": "/prato-certo-landing.html" }
+    { "src": "/", "dest": "/prato-certo-landing.html" },
+    { "src": "/br/?", "dest": "/prato-certo-landing-br.html" }
   ]
 }

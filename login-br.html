@@ -135,8 +135,7 @@ async function doForgot() {
   var err = document.getElementById('err-forgot');
   err.textContent = '';
   if (!email) { err.textContent = 'Insira seu e-mail.'; return; }
-  // TODO-BR: trocar pelo dominio BR quando o Cloudflare Pages/dominio novo existir
-  var r = await _s.auth.resetPasswordForEmail(email, { redirectTo: 'https://SUBSTITUIR-DOMINIO-BR/login-br.html' });
+  var r = await _s.auth.resetPasswordForEmail(email, { redirectTo: 'https://prato-certo.pages.dev/login-br.html' });
   if (r.error) { err.textContent = r.error.message; }
   else { show('v-sent'); }
 }
