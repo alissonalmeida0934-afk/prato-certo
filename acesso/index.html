@@ -369,8 +369,9 @@ var PREMIUM_IDS=['jr','sc','ds','ri','ge','t3','cc','ms','ci'];
 
   // módulo order bump — aparece PRIMEIRO (no lugar de Jantares Rápidos)
   (function(){
-    var ig=document.createElement(_intestino?'a':'div');
-    if(_intestino){
+    var temIntestino=_intestino||_plano==='premium';
+    var ig=document.createElement(temIntestino?'a':'div');
+    if(temIntestino){
       ig.className='mod-card';
       ig.href='../guia-intestino-livre.html';
       ig.target='_blank';
