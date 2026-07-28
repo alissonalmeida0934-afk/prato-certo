@@ -3082,7 +3082,7 @@ window.PRATO_CERTO = {
         {
           secao: "🍫 Com Chocolate",
           nome: "Biscoitos de Sementes com Chocolate",
-          img: "../img/ds-16.png", imgPos: "center",
+          img: "../img/ds-16.webp", imgPos: "center",
           tempo: "30 min", doses: "10 biscoitos", dificuldade: "Fácil",
           ingredientes: [
             "150 g de mistura de sementes (girassol, abóbora, sésamo)",
