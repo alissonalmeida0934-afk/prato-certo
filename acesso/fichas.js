@@ -2779,7 +2779,7 @@ window.PRATO_CERTO = {
       id: "ds",
       nome: "Doces Saudáveis",
       emoji: "🍰",
-      subtitulo: "15 sobremesas saudáveis sem culpa — doces de verdade, feitos em casa.",
+      subtitulo: "16 sobremesas saudáveis sem culpa — doces de verdade, feitos em casa.",
       capa: "../img/ds-capa.png",
       pdfDownload: true,
       pdf: "../pdfs/Doces Saudaveis.pdf",
@@ -3078,6 +3078,29 @@ window.PRATO_CERTO = {
             "Guarda em frasco de vidro esterilizado no frigorífico até 10 dias."
           ],
           dica: "Usa em bolos, iogurtes e barras — substitui qualquer compota com açúcar."
+        },
+        {
+          secao: "🍫 Com Chocolate",
+          nome: "Biscoitos de Sementes com Chocolate",
+          img: "../img/ds-16.png", imgPos: "center",
+          tempo: "30 min", doses: "10 biscoitos", dificuldade: "Fácil",
+          ingredientes: [
+            "150 g de mistura de sementes (girassol, abóbora, sésamo)",
+            "50 g de flocos de aveia",
+            "2 colheres de sopa de mel ou adoçante",
+            "1 clara de ovo",
+            "Pitada de sal",
+            "100 g de chocolate negro 70% para derreter"
+          ],
+          preparo: [
+            "Numa tigela, mistura as sementes, a aveia, o mel, a clara de ovo e o sal até formar uma massa espessa.",
+            "Forra um tabuleiro com papel vegetal e faz montinhos com a massa, achatando ligeiramente com uma colher para formar discos.",
+            "Assa a 170 °C por 15–18 minutos, até dourarem nas bordas.",
+            "Deixa arrefecer completamente no tabuleiro — ficam frágeis quentes.",
+            "Derrete o chocolate em banho-maria e mergulha a base de cada biscoito no chocolate.",
+            "Coloca em papel vegetal até o chocolate solidificar."
+          ],
+          dica: "Deixa arrefecer bem antes de mexer — é o que dá a liga crocante ao biscoito."
         }
       ]
     },
