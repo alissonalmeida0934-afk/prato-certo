@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var _s=window.supabase.createClient('https://emxyyijgnjemogwhsokh.supabase.co','sb_publishable_b96piLFzkQEY2SKjwhYvKQ_lpmxeQKa');
+  window._sb=_s;
+  var L='/login-br.html';
+  var hasSb=Object.keys(localStorage).some(function(k){return k.startsWith('sb-')&&k.includes('auth');});
+  if(!hasSb)document.documentElement.style.visibility='hidden';
+  function chk(){_s.auth.getSession().then(function(r){if(!r.data.session){window.location.replace(L);}else{document.documentElement.style.visibility='';}});}
+  chk();
+  window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
+})();
+</script>
+<script>if(localStorage.getItem('pc-theme')==='light')document.documentElement.classList.add('light');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Área de Membros — Prato Certo</title>
+<link rel="icon" href="/img/logo-prato-certo.jpg">
+<link rel="apple-touch-icon" href="/img/logo-prato-certo.jpg">
+<meta name="apple-mobile-web-app-title" content="Prato Certo">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#E46C44">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;--secondary:#5a9a40;--accent-brown:#c8956a;
+  --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;--text:#F0EDE8;--muted:#8A8078;--line:rgba(255,255,255,.08);
+}
+html.light{
+  --background:#ffffff;--surface:#f5f5f5;--surface2:#ebebeb;--text:#1a1a1a;--muted:#666;--line:rgba(0,0,0,.1);
+}
+html.light header{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,.1)}
+html.light .prog-badge{background:rgba(0,0,0,.04);color:#7a5a3a}
+html.light .start-card{background:linear-gradient(135deg,#f0ebe3,#ebe4d8);border-color:rgba(228,108,68,.3)}
+html.light .start-card::before{background:linear-gradient(135deg,rgba(228,108,68,.05),transparent)}
+html.light .start-card .sc-thumb{background:linear-gradient(135deg,#e8dfd0,#ddd4c0)}
+html.light .start-card .sc-name{color:#1a1a1a}
+html.light .start-card .sc-desc{color:#666}
+html.light .mod-card .mc-img{background:#e0d8cc}
+html.light .mc-emoji-ph{background:linear-gradient(145deg,#ede8de,#e0d8cc)}
+html.light .mc-emoji-ph .ep-name{color:rgba(60,40,20,.5)}
+html.light .mod-card .mc-prog .mbar{background:rgba(0,0,0,.1)}
+html.light .prog-row .bar{background:rgba(0,0,0,.1)}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+.theme-btn{background:none;border:1.5px solid var(--line);border-radius:99px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:border-color .2s;flex-shrink:0}
+.serif{font-family:'Playfair Display',serif}
+
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;background:rgba(12,12,12,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--primary);font-size:1rem}
+header .brand .logo{width:32px;height:32px;border-radius:8px;object-fit:cover}
+.prog-badge{font-size:.72rem;color:var(--accent-brown);border:1px solid var(--line);padding:5px 12px;border-radius:99px;font-weight:600;background:rgba(255,255,255,.04)}
+
+/* header direito */
+.h-right{display:flex;align-items:center;gap:8px}
+.h-search-wrap{position:relative;display:flex;align-items:center}
+.h-search{background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:7px 14px 7px 34px;font-family:inherit;font-size:.82rem;color:var(--text);outline:none;width:130px;transition:.2s}
+.h-search:focus{border-color:var(--primary);width:180px}
+.h-search::placeholder{color:var(--muted)}
+.h-search-ico{position:absolute;left:10px;width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.h-icon-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--surface2);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.15s;cursor:pointer}
+.h-icon-btn:hover{border-color:var(--primary)}
+.h-icon-btn svg{width:17px;height:17px;stroke:var(--text);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.h-av-wrap{position:relative}
+.h-av{width:34px;height:34px;border-radius:50%;background:var(--primary);border:none;color:#fff;font-family:inherit;font-size:.78rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.h-av:hover{background:var(--primary-vibrant)}
+.h-drop{position:absolute;top:calc(100% + 8px);right:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:140px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;z-index:200}
+.h-drop.open{display:block}
+.h-drop-item{display:block;padding:11px 16px;font-size:.84rem;color:var(--text);text-decoration:none;font-family:inherit;background:none;border:none;width:100%;text-align:left;cursor:pointer;transition:.1s}
+.h-drop-item:hover{background:var(--surface2);color:var(--primary)}
+.h-drop-sep{height:1px;background:var(--line)}
+.h-drop-sair{color:var(--muted)}
+
+
+/* boas-vindas compacto */
+.welcome-bar{padding:22px 18px 6px;text-align:center}
+.welcome-bar .hello{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:8px}
+.welcome-bar h1{font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.15;color:var(--text)}
+.prog-row{max-width:340px;margin:18px auto 0;display:flex;align-items:center;gap:12px}
+.prog-row .bar{flex:1;height:7px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.prog-row .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--primary-vibrant));transition:width .7s ease}
+.prog-row .pct{font-size:.78rem;color:var(--muted);font-weight:600;white-space:nowrap}
+
+main{max-width:600px;margin:0 auto;padding:20px 14px 80px}
+
+/* cabeçalho de secção */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;padding:20px 4px 12px}
+.sec-head h2{font-size:1.05rem;font-weight:700;color:var(--text)}
+.sec-head .see{font-size:.82rem;color:var(--primary);font-weight:600;text-decoration:none}
+.sec-head .see:hover{text-decoration:underline}
+
+/* grelha de módulos — 2 colunas */
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod-sep{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:10px 0 4px}
+.mod-sep::before,.mod-sep::after{content:'';flex:1;height:1px;background:var(--line)}
+.mod-sep span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+.mod-card{border-radius:14px;overflow:hidden;text-decoration:none;color:var(--text);
+  background:var(--surface);display:flex;flex-direction:column;transition:.2s}
+.mod-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px -10px rgba(228,108,68,.3)}
+.mod-card .mc-img{position:relative;aspect-ratio:2/3;overflow:hidden;background:#1a1a1a}
+.mod-card .mc-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:.35s}
+.mod-card:hover .mc-img img{transform:scale(1.04)}
+.mod-card .mc-info{padding:10px 12px 12px}
+.mod-card .mc-name{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.2}
+.mod-card .mc-prog{display:flex;align-items:center;gap:7px}
+.mod-card .mc-prog .mbar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
+.mod-card .mc-prog .mbar i{display:block;height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .6s}
+.mod-card .mc-prog .mtxt{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
+.mod-locked{opacity:.7;cursor:pointer}
+.mod-locked:hover{transform:translateY(-2px)!important;box-shadow:0 6px 20px rgba(0,0,0,.18)!important}
+.lock-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.lock-icon{font-size:1.8rem;line-height:1}
+.lock-txt{font-size:.7rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;background:var(--primary);padding:3px 10px;border-radius:99px}
+.mc-emoji-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(145deg,#1e1e1e,#2a2a2a)}
+.mc-emoji-ph .ep-icon{font-size:3rem;line-height:1}
+.mc-emoji-ph .ep-name{font-size:.72rem;font-weight:700;color:rgba(240,231,216,.5);text-align:center;padding:0 8px;letter-spacing:.04em}
+
+/* comece aqui — card destaque */
+.start-card{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1e1e1e,#252218);
+  border:1px solid rgba(228,108,68,.35);border-radius:16px;padding:16px;text-decoration:none;color:var(--text);
+  transition:.2s;margin-bottom:16px;position:relative;overflow:hidden}
+.start-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(228,108,68,.07),transparent);pointer-events:none}
+.start-card:hover{transform:translateY(-2px);box-shadow:0 12px 32px -10px rgba(228,108,68,.4);border-color:var(--primary)}
+.start-card .sc-thumb{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#2a2a1e,#3a2e18);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2.4rem;overflow:hidden}
+.start-card .sc-thumb img{width:100%;height:100%;object-fit:cover}
+.start-card .sc-body{flex:1;min-width:0}
+.start-card .sc-tag{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--primary);padding:2px 9px;border-radius:99px;display:inline-block;margin-bottom:7px}
+.start-card .sc-name{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:3px}
+.start-card .sc-desc{font-size:.78rem;color:var(--muted);line-height:1.4}
+.start-card .sc-arr{font-size:1.2rem;color:var(--primary);flex-shrink:0}
+
+/* bónus */
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:420px){.bonus-grid{grid-template-columns:1fr}}
+.bcard{background:var(--surface);border:1px dashed rgba(228,108,68,.3);border-radius:14px;padding:16px 14px;
+  text-decoration:none;color:var(--text);transition:.2s;display:flex;flex-direction:column;gap:7px}
+.bcard:hover{background:var(--surface2);border-color:var(--primary);border-style:solid;transform:translateY(-2px)}
+.bcard .btag{align-self:flex-start;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--primary-vibrant);padding:2px 8px;border-radius:99px}
+.bcard .bi{font-size:1.5rem}
+.bcard h4{font-size:.88rem;color:var(--text);line-height:1.3}
+.bcard p{font-size:.76rem;color:var(--muted);line-height:1.45}
+
+
+footer{text-align:center;padding:28px 18px;border-top:1px solid var(--line);margin-top:10px}
+footer p{font-size:.76rem;color:var(--muted)}
+footer .wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#25D366;color:#fff;
+  text-decoration:none;font-weight:600;font-size:.84rem;padding:10px 18px;border-radius:99px}
+
+/* onboarding */
+.ob-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);display:flex;align-items:flex-end;justify-content:center;padding-bottom:env(safe-area-inset-bottom);animation:obIn .3s ease}
+@keyframes obIn{from{opacity:0}to{opacity:1}}
+.ob-sheet{background:var(--surface);border-radius:24px 24px 0 0;padding:28px 24px 32px;width:100%;max-width:520px;animation:obUp .35s ease}
+@keyframes obUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+.ob-icon{font-size:2.8rem;text-align:center;margin-bottom:12px}
+.ob-title{font-size:1.15rem;font-weight:800;color:var(--text);text-align:center;margin-bottom:8px;line-height:1.3}
+.ob-desc{font-size:.86rem;color:var(--muted);text-align:center;line-height:1.6;margin-bottom:18px}
+.ob-example{background:var(--surface2);border-radius:14px;padding:14px 16px;margin-bottom:22px}
+.ob-example .oe-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:10px}
+.ob-example .oe-item{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.86rem;color:var(--text)}
+.ob-example .oe-item:last-child{border:none}
+.ob-example .oe-cb{width:17px;height:17px;border-radius:5px;border:1.5px solid var(--primary);flex-shrink:0}
+.ob-actions{display:flex;flex-direction:column;gap:10px}
+.ob-btn-main{background:var(--primary);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.95rem;padding:14px;border-radius:14px;cursor:pointer;width:100%;transition:.2s}
+.ob-btn-main:hover{background:var(--primary-vibrant)}
+.ob-btn-skip{background:none;border:none;font-family:inherit;font-size:.84rem;color:var(--muted);cursor:pointer;padding:6px}
+
+/* theme tooltip */
+.th-tip{position:fixed;top:64px;right:12px;background:#111;color:#fff;font-size:.78rem;font-weight:600;padding:9px 14px;border-radius:10px;white-space:nowrap;z-index:600;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:obIn .4s ease;pointer-events:none}
+.th-tip::after{content:'';position:absolute;top:-5px;right:40px;width:10px;height:10px;background:#111;transform:rotate(45deg)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><img class="logo" src="../img/logo-prato-certo.jpg" alt="Prato Certo">Prato Certo</div>
+  <div class="h-right">
+    <a href="notificacoes.html" class="h-icon-btn" title="Notificações">
+      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </a>
+    <div class="h-av-wrap">
+      <button class="h-av" id="hAvBtn" onclick="toggleDrop(event)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <div class="h-drop" id="hDrop">
+        <a href="minha-conta.html" class="h-drop-item">Minha conta</a>
+        <div class="h-drop-sep"></div>
+        <button class="h-drop-item h-drop-sair" onclick="window._sb.auth.signOut().then(function(){window.location.replace('/login-br.html');})">Sair</button>
+      </div>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema claro/escuro" style="display:none">🌙</button>
+  </div>
+</header>
+
+<div class="welcome-bar">
+  <div class="hello">Bem-vindo(a) à sua área de membros</div>
+  <h1 class="serif">Sua cozinha saudável,<br>num só lugar.</h1>
+  <div class="prog-row">
+    <div class="bar"><i id="progBar"></i></div>
+    <span class="pct" id="progPct">0%</span>
+  </div>
+</div>
+
+<main>
+  <a class="start-card" href="comece-aqui.html">
+    <div class="sc-thumb" id="startThumb"><img src="../img/comece-aqui-icon.webp.png" alt="Comece Aqui"></div>
+    <div class="sc-body">
+      <span class="sc-tag">Comece aqui</span>
+      <div class="sc-name">Comece Aqui</div>
+      <div class="sc-desc">Instale o aplicativo e aproveite ao máximo sua área de membros.</div>
+    </div>
+    <div class="sc-arr">›</div>
+  </a>
+
+  <div class="sec-head">
+    <h2>📚 Seus livros</h2>
+  </div>
+  <div class="mod-grid" id="grid"></div>
+
+  <div class="sec-head" style="margin-top:14px">
+    <h2>🎁 Bônus e extras</h2>
+  </div>
+  <div class="bonus-grid">
+    <a class="bcard" href="bonus.html#favoritos">
+      <span class="btag">Bônus</span><div class="bi">❤️</div>
+      <h4>Minhas favoritas</h4>
+      <p>Todas as receitas que você salvou.</p>
+    </a>
+    <a class="bcard" href="bonus.html#truques">
+      <span class="btag">Bônus</span><div class="bi">💡</div>
+      <h4>Meal-prep</h4>
+      <p>Organize a semana em 2 horas.</p>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>Prato Certo · Sua transformação começa no prato.</p>
+  <!-- TODO-BR: substituir pelo numero de WhatsApp brasileiro -->
+  <a class="wa" href="https://wa.me/55XXXXXXXXXXX" target="_blank" id="waBtn">💬 Falar com a equipa</a>
+</footer>
+
+<script src="fichas.js"></script>
+<script>
+(async function(){
+  var data=window.PRATO_CERTO;
+  var grid=document.getElementById('grid');
+  var totalAll=0, doneAll=0;
+  var NEW_IDS=['jr','sc','ds','ri','ge','t3','ms','ci'];
+  var MAIN_ORDER=['pa','ls','ld','bs','ta','hi'];
+  var CALC_IDS=['cc'];
+  var VID_IDS=['vd'];
+
+  // BR: plano único — todo comprador tem acesso a tudo, exceto order bumps à parte (ver _intestino)
+  var _intestino=false;
+  try{
+    var _r=await window._sb.auth.getUser();
+    if(_r.data&&_r.data.user){
+      var _meta=_r.data.user.user_metadata||{};
+      _intestino=!!_meta.intestino;
+    }
+  }catch(e){}
+
+  function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
+
+  function makeCard(cat){
+    var n,d,pct,progHtml;
+    if(cat.calculator){
+      progHtml='<span class="mtxt" style="color:var(--primary)">Calcular 🔥</span>';
+    } else if(cat.videoList){
+      n=cat.videos.length;
+      progHtml='<span class="mtxt" style="color:var(--primary)">'+n+' vídeos ▶</span>';
+    } else if(cat.pdfDownload && (!cat.fichas||cat.fichas.length===0)){
+      n=1; d=localStorage.getItem('pc_pdf_done_'+cat.id)==='true'?1:0; pct=d?100:0;
+      totalAll+=1; doneAll+=d;
+      progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
+    } else {
+      var done=load('pc_done_'+cat.id);
+      n=cat.fichas.length;
+      d=Object.keys(done).filter(function(k){return done[k]}).length;
+      totalAll+=n; doneAll+=d;
+      pct=n?Math.round(d/n*100):0;
+      progHtml='<div class="mbar"><i style="width:'+pct+'%"></i></div><span class="mtxt">'+d+'/'+n+'</span>';
+    }
+    var imgHtml=cat.capa
+      ?'<img src="'+cat.capa+'" alt="'+cat.nome+'">'
+      :'<div class="mc-emoji-ph"><span class="ep-icon">'+cat.emoji+'</span><span class="ep-name">'+cat.nome+'</span></div>';
+    var a=document.createElement('a');
+    a.className='mod-card';
+    a.href=cat.calculator?'calculadora.html':'livro.html?cat='+cat.id;
+    a.innerHTML=
+      '<div class="mc-img">'+imgHtml+'</div>'+
+      '<div class="mc-info">'+
+        '<div class="mc-name">'+cat.nome+'</div>'+
+        '<div class="mc-prog">'+progHtml+'</div>'+
+      '</div>';
+    grid.appendChild(a);
+  }
+
+  function sep(label){
+    var d=document.createElement('div');
+    d.className='mod-sep';
+    d.innerHTML='<span>'+label+'</span>';
+    grid.appendChild(d);
+  }
+
+  // grupo 1 — módulos principais
+  var grupo1=data.categorias.filter(function(c){return VID_IDS.indexOf(c.id)===-1&&NEW_IDS.indexOf(c.id)===-1&&CALC_IDS.indexOf(c.id)===-1});
+  grupo1.sort(function(a,b){var ai=MAIN_ORDER.indexOf(a.id);var bi=MAIN_ORDER.indexOf(b.id);return (ai<0?999:ai)-(bi<0?999:bi);});
+  grupo1.forEach(makeCard);
+
+  // separador + vídeos
+  sep('▶ Receitas em Vídeo');
+  data.categorias.filter(function(c){return VID_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
+
+  // separador + ferramentas
+  sep('🛠️ Ferramentas do Prato Certo');
+  data.categorias.filter(function(c){return CALC_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
+  // card lista de compras
+  (function(){
+    var div=document.createElement('a');
+    div.className='mod-card';
+    div.href='bonus.html#lista';
+    div.innerHTML=
+      '<div class="mc-img"><img src="../img/lista-compras-capa.png" alt="Lista de Compras"></div>'+
+      '<div class="mc-info">'+
+        '<div class="mc-name">Lista de Compras</div>'+
+        '<div class="mc-prog"><span class="mtxt">Gera a lista da semana automaticamente</span></div>'+
+      '</div>';
+    grid.appendChild(div);
+  })();
+
+  // separador + novos módulos (premium)
+  sep('✨ Módulos Extra');
+
+  // módulo order bump — aparece PRIMEIRO (no lugar de Jantares Rápidos)
+  (function(){
+    var temIntestino=_intestino;
+    var ig=document.createElement(temIntestino?'a':'div');
+    if(temIntestino){
+      ig.className='mod-card';
+      ig.href='../guia-intestino-livre.html';
+      ig.target='_blank';
+      ig.innerHTML=
+        '<div class="mc-img"><img src="../img/capa-guia.png" alt="7 Dias Sem Prisão de Ventre"></div>'+
+        '<div class="mc-info">'+
+          '<div class="mc-name">7 Dias Sem Prisão de Ventre</div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--primary)">Abrir Guia 📄</span></div>'+
+        '</div>';
+    } else {
+      ig.className='mod-card mod-locked';
+      ig.style.cursor='pointer';
+      ig.title='Clique para adicionar ao checkout';
+      ig.onclick=function(){window.open('https://pay.hotmart.com/D106921275Y?checkoutMode=10','_blank');};
+      ig.innerHTML=
+        '<div class="mc-img" style="position:relative">'+
+          '<img src="../img/capa-guia.png" alt="7 Dias Sem Prisão de Ventre">'+
+          '<div class="lock-overlay"><span class="lock-icon">🔒</span><span class="lock-txt">Faça Upgrade</span></div>'+
+        '</div>'+
+        '<div class="mc-info">'+
+          '<div class="mc-name">7 Dias Sem Prisão de Ventre</div>'+
+          '<div class="mc-prog"><span class="mtxt" style="color:var(--primary);font-size:11px;font-weight:700">👆 Clique para desbloquear</span></div>'+
+        '</div>';
+    }
+    grid.appendChild(ig);
+  })();
+
+  // depois: Jantares Rápidos, Sopas & Cremes, Doces Saudáveis
+  data.categorias.filter(function(c){return NEW_IDS.indexOf(c.id)!==-1}).forEach(makeCard);
+
+  var pct=totalAll?Math.round(doneAll/totalAll*100):0;
+  document.getElementById('progBadge').textContent=doneAll+' de 190 receitas';
+  document.getElementById('progPct').textContent=pct+'%';
+  setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},150);
+})();
+// dropdown avatar
+function toggleDrop(e){
+  e.stopPropagation();
+  document.getElementById('hDrop').classList.toggle('open');
+}
+document.addEventListener('click',function(){
+  var d=document.getElementById('hDrop');
+  if(d) d.classList.remove('open');
+});
+
+
+// tema claro/escuro
+(function(){
+  var stored=localStorage.getItem('pc-theme');
+  function apply(t){
+    if(t==='light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+    localStorage.setItem('pc-theme',t);
+  }
+  apply(stored||'dark');
+})();
+
+// onboarding: novos utilizadores + quem esteve 5h+ fora
+(function(){
+  var VISIT_KEY='pc_last_visit';
+  var OB_KEY='pc_onboarding_v1';
+  var TIP_KEY='pc_theme_tip_v1';
+  var FIVE_H=5*60*60*1000;
+  var now=Date.now();
+  var last=parseInt(localStorage.getItem(VISIT_KEY)||'0',10);
+  var isEligible=!last||(now-last>FIVE_H);
+  localStorage.setItem(VISIT_KEY,now);
+  if(!isEligible)return;
+
+  // 1. Tooltip do tema (só 1x)
+  if(!localStorage.getItem(TIP_KEY)){
+    localStorage.setItem(TIP_KEY,'1');
+    var tip=document.createElement('div');
+    tip.className='th-tip';
+    tip.textContent='Novo! Alterne entre tema 🌙 escuro e ☀️ claro aqui';
+    document.body.appendChild(tip);
+    setTimeout(function(){tip.style.opacity='0';tip.style.transition='opacity .5s';setTimeout(function(){tip.remove();},500);},4000);
+  }
+
+  // 2. Onboarding lista de compras (só 1x)
+  if(localStorage.getItem(OB_KEY))return;
+  setTimeout(function(){
+    var overlay=document.createElement('div');
+    overlay.className='ob-overlay';
+    overlay.innerHTML=
+      '<div class="ob-sheet">'+
+        '<div class="ob-icon">🛒</div>'+
+        '<div class="ob-title">Você tem uma lista de compras automática!</div>'+
+        '<div class="ob-desc">Selecione as receitas que quer fazer na semana e o aplicativo gera a lista de ingredientes para você — sem esquecer nada.</div>'+
+        '<div class="ob-example">'+
+          '<div class="oe-label">Exemplo de lista gerada</div>'+
+          '<div class="oe-item"><div class="oe-cb"></div>400g de peito de frango</div>'+
+          '<div class="oe-item"><div class="oe-cb"></div>2 ovos</div>'+
+          '<div class="oe-item"><div class="oe-cb"></div>1 abacate maduro</div>'+
+          '<div class="oe-item"><div class="oe-cb"></div>Aveia (150g)</div>'+
+        '</div>'+
+        '<div class="ob-actions">'+
+          '<button class="ob-btn-main" id="obGo">Ver minha lista de compras →</button>'+
+          '<button class="ob-btn-skip" id="obSkip">Pular</button>'+
+        '</div>'+
+      '</div>';
+    document.body.appendChild(overlay);
+    function close(){localStorage.setItem(OB_KEY,'1');overlay.remove();}
+    document.getElementById('obSkip').onclick=close;
+    document.getElementById('obGo').onclick=function(){close();window.location.href='bonus.html#lista';};
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  },1800);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var _s=window.supabase.createClient('https://emxyyijgnjemogwhsokh.supabase.co','sb_publishable_b96piLFzkQEY2SKjwhYvKQ_lpmxeQKa');
+  window._sb=_s;
+  var L='/login-br.html';
+  var hasSb=Object.keys(localStorage).some(function(k){return k.startsWith('sb-')&&k.includes('auth');});
+  if(!hasSb)document.documentElement.style.visibility='hidden';
+  function chk(){_s.auth.getSession().then(function(r){if(!r.data.session){window.location.replace(L);}else{document.documentElement.style.visibility='';}});}
+  chk();
+  window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
+})();
+</script>
+<script>if(localStorage.getItem('pc-theme')==='light')document.documentElement.classList.add('light');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Calculadora de Calorias — Prato Certo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#E46C44;--primary-vibrant:#FD860E;
+  --background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;
+  --text:#F0EDE8;--muted:#8A8278;--line:rgba(255,255,255,.08);
+}
+html.light{--background:#F7F5ED;--surface:#FAF9F5;--surface2:#F0EBE0;--text:#231E1A;--muted:#7A726A;--line:rgba(0,0,0,.09)}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh}
+
+/* header */
+header{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--line);padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.hback{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600;font-size:.9rem}
+.hback svg{width:20px;height:20px;stroke:var(--primary);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.htitle{font-size:.95rem;font-weight:700;color:var(--text)}
+
+/* main */
+main{max-width:600px;margin:0 auto;padding:20px 16px 80px}
+
+h1{font-size:1.4rem;font-weight:800;margin-bottom:4px}
+h1 span{color:var(--primary)}
+.subtitle{font-size:.82rem;color:var(--muted);margin-bottom:24px;line-height:1.5}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+
+/* section title inside card */
+.sec-title{font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+
+/* form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.form-row.full{grid-template-columns:1fr}
+.field label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.field select,.field input{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-family:inherit;font-size:.9rem;color:var(--text);outline:none;transition:.15s;-webkit-appearance:none}
+.field select:focus,.field input:focus{border-color:var(--primary)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A8278' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+html.light .field select,html.light .field input{color:#231E1A}
+
+.dica-txt{font-size:.76rem;color:var(--primary);margin-top:6px}
+.dica-txt::before{content:'💡 '}
+
+/* botões */
+.btn-row{display:flex;gap:10px;margin-top:4px}
+.btn-calc{flex:1;background:var(--primary);color:#fff;border:none;border-radius:10px;padding:13px;font-family:inherit;font-weight:700;font-size:.95rem;cursor:pointer;transition:.15s}
+.btn-calc:hover{background:var(--primary-vibrant)}
+.btn-clear{background:var(--surface2);color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:13px 18px;font-family:inherit;font-weight:600;font-size:.9rem;cursor:pointer;transition:.15s}
+.btn-clear:hover{border-color:var(--primary);color:var(--text)}
+
+/* resultado */
+#resultado{display:none}
+
+/* seus resultados — header */
+.res-sec-header{font-size:.95rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+
+/* BMR + TDEE side by side */
+.top-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.stat-box{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.stat-box .sb-label{font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:10px}
+.stat-box .sb-val{font-size:2rem;font-weight:800;color:var(--primary);line-height:1}
+.stat-box .sb-unit{font-size:.72rem;color:var(--muted);margin-top:4px}
+.stat-box .sb-desc{font-size:.7rem;color:var(--muted);margin-top:5px}
+
+/* META DIÁRIA caixa destaque */
+.meta-box{border:2px solid var(--primary);border-radius:16px;padding:24px 16px 20px;text-align:center;background:rgba(228,108,68,.06)}
+.meta-box .mb-icon{font-size:1.9rem;margin-bottom:8px}
+.meta-box .mb-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}
+.meta-box .mb-val{font-size:3.4rem;font-weight:800;color:var(--primary);line-height:1}
+.meta-box .mb-unit{font-size:.8rem;color:var(--muted);margin-top:5px;margin-bottom:18px}
+.btn-cardapio{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;border:none;border-radius:50px;padding:13px 30px;font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:.15s}
+.btn-cardapio:hover{background:var(--primary-vibrant)}
+
+/* macros */
+.macros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.macro-card{background:var(--surface2);border-radius:12px;padding:14px 10px;text-align:center}
+.macro-card .mv{font-size:1.5rem;font-weight:800;color:var(--text)}
+.macro-card .mg{font-size:.72rem;color:var(--muted);margin-top:2px}
+.macro-card .mn{font-size:.72rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.05em;margin-top:5px}
+
+/* refeições */
+.refeicoes-title{font-size:.88rem;font-weight:700;margin-bottom:12px;color:var(--text)}
+.ref-list{display:flex;flex-direction:column;gap:8px}
+.ref-item{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border-radius:10px;padding:12px 14px}
+.ref-left{display:flex;align-items:center;gap:10px}
+.ref-emoji{font-size:1.3rem;width:32px;text-align:center}
+.ref-nome{font-size:.88rem;font-weight:600}
+.ref-pct{font-size:.72rem;color:var(--muted)}
+.ref-cal{font-size:.9rem;font-weight:700;color:var(--primary)}
+
+/* nota */
+.nota{background:var(--surface2);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:12px 14px;font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:16px}
+.nota strong{color:var(--text)}
+
+/* cardápio gerado */
+#cardapio-section{display:none;margin-top:16px}
+.cardapio-day{margin-bottom:12px}
+.cardapio-day-title{font-size:.78rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.meal-item{display:flex;justify-content:space-between;align-items:flex-start;background:var(--surface2);border-radius:10px;padding:10px 14px;margin-bottom:6px;gap:8px}
+.meal-name{font-size:.85rem;font-weight:600}
+.meal-desc{font-size:.74rem;color:var(--muted);margin-top:2px}
+.meal-cal-tag{font-size:.78rem;font-weight:700;color:var(--primary);white-space:nowrap;margin-top:2px}
+
+/* erro */
+.err-msg{background:rgba(228,108,68,.12);border:1px solid rgba(228,108,68,.3);border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--primary);display:none;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="hback" href="index.html">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar
+  </a>
+  <span class="htitle">🔥 Calculadora</span>
+  <div style="width:60px"></div>
+</header>
+
+<main>
+  <h1>Calculadora de <span>Calorias</span></h1>
+  <p class="subtitle">Descubra quantas calorias você precisa por dia com base no seu corpo e objetivo.</p>
+
+  <div class="card">
+    <div class="form-row">
+      <div class="field">
+        <label>Sexo</label>
+        <select id="sexo">
+          <option value="f">Feminino</option>
+          <option value="m">Masculino</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Idade (anos)</label>
+        <input type="number" id="idade" placeholder="Ex: 28" min="10" max="100">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>Altura (cm)</label>
+        <input type="number" id="altura" placeholder="Ex: 165" min="100" max="250">
+      </div>
+      <div class="field">
+        <label>Peso (kg)</label>
+        <input type="number" id="peso" placeholder="Ex: 65" min="30" max="300" step="0.1">
+      </div>
+    </div>
+    <div class="form-row full">
+      <div class="field">
+        <label>Nível de atividade</label>
+        <select id="atividade">
+          <option value="1.2">Sedentário (0–1 treino/semana)</option>
+          <option value="1.375">Leve (2–3 treinos/semana)</option>
+          <option value="1.55" selected>Moderado (3–5 treinos/semana)</option>
+          <option value="1.725">Alto (6–7 treinos/semana)</option>
+          <option value="1.9">Muito alto (atleta / 2x ao dia)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>Objetivo</label>
+        <select id="objetivo" onchange="toggleIntensidade()">
+          <option value="deficit">Emagrecer (déficit)</option>
+          <option value="manter">Manter peso</option>
+          <option value="superavit">Ganhar massa (superávit)</option>
+        </select>
+      </div>
+      <div class="field" id="campo-intensidade">
+        <label>Intensidade</label>
+        <select id="intensidade">
+          <option value="0.10">Leve (±10%)</option>
+          <option value="0.15" selected>Moderado (±15%)</option>
+          <option value="0.20">Agressivo (±20%)</option>
+        </select>
+      </div>
+    </div>
+    <div class="dica-txt" id="dica-intensidade">Para a maioria, 10–15% costuma ser mais sustentável.</div>
+
+    <div class="err-msg" id="err">Preenche todos os campos corretamente.</div>
+
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn-calc" onclick="calcular()">Calcular</button>
+      <button class="btn-clear" onclick="limpar()">Limpar</button>
+    </div>
+  </div>
+
+  <div id="resultado">
+    <div class="card">
+      <div class="res-sec-header">📊 Seus resultados</div>
+
+      <!-- BMR e TDEE -->
+      <div class="top-stats">
+        <div class="stat-box">
+          <div class="sb-label">Metabolismo Basal (BMR)</div>
+          <div class="sb-val" id="res-bmr">—</div>
+          <div class="sb-unit">kcal/dia</div>
+          <div class="sb-desc">Calorias para viver em repouso</div>
+        </div>
+        <div class="stat-box">
+          <div class="sb-label">Gasto Diário (TDEE)</div>
+          <div class="sb-val" id="res-tdee">—</div>
+          <div class="sb-unit">kcal/dia</div>
+          <div class="sb-desc">Calorias que gastas por dia</div>
+        </div>
+      </div>
+
+      <!-- META DIÁRIA -->
+      <div class="meta-box">
+        <div class="mb-icon">🎯</div>
+        <div class="mb-label">Meta Diária</div>
+        <div class="mb-val" id="res-meta">—</div>
+        <div class="mb-unit" id="res-label">kcal/dia</div>
+        <button class="btn-cardapio" onclick="mostrarCardapio()">🍽️ Cardápio disponível</button>
+      </div>
+    </div>
+
+    <!-- Macros -->
+    <div class="card">
+      <div class="res-sec-header">⚖️ Distribuição de macros</div>
+      <div class="macros-grid">
+        <div class="macro-card">
+          <div class="mv" id="mac-p">—</div>
+          <div class="mg" id="mac-pg">— g</div>
+          <div class="mn">Proteína</div>
+        </div>
+        <div class="macro-card">
+          <div class="mv" id="mac-c">—</div>
+          <div class="mg" id="mac-cg">— g</div>
+          <div class="mn">Carboidratos</div>
+        </div>
+        <div class="macro-card">
+          <div class="mv" id="mac-g">—</div>
+          <div class="mg" id="mac-gg">— g</div>
+          <div class="mn">Gorduras</div>
+        </div>
+      </div>
+
+      <div class="refeicoes-title">Distribuição por refeição</div>
+      <div class="ref-list" id="ref-list"></div>
+
+      <div class="nota">
+        <strong>Nota:</strong> Estes valores são uma estimativa baseada na fórmula de Mifflin-St Jeor. Consulta sempre um nutricionista para um plano personalizado.
+      </div>
+    </div>
+
+    <!-- Cardápio sugerido -->
+    <div id="cardapio-section">
+      <div class="card">
+        <div class="res-sec-header">🍽️ Cardápio sugerido</div>
+        <div id="cardapio-body"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+var _meta=0;
+
+function toggleIntensidade(){
+  var obj=document.getElementById('objetivo').value;
+  document.getElementById('campo-intensidade').style.display=obj==='manter'?'none':'';
+  document.getElementById('dica-intensidade').style.display=obj==='manter'?'none':'';
+}
+
+function calcular(){
+  var sexo=document.getElementById('sexo').value;
+  var idade=parseFloat(document.getElementById('idade').value);
+  var altura=parseFloat(document.getElementById('altura').value);
+  var peso=parseFloat(document.getElementById('peso').value);
+  var ativ=parseFloat(document.getElementById('atividade').value);
+  var obj=document.getElementById('objetivo').value;
+  var intens=parseFloat(document.getElementById('intensidade').value)||0.15;
+  var err=document.getElementById('err');
+
+  if(!idade||!altura||!peso||idade<10||idade>100||altura<100||altura>250||peso<30){
+    err.style.display='block';
+    document.getElementById('resultado').style.display='none';
+    return;
+  }
+  err.style.display='none';
+
+  // Mifflin-St Jeor
+  var bmr;
+  if(sexo==='f') bmr=(10*peso)+(6.25*altura)-(5*idade)-161;
+  else           bmr=(10*peso)+(6.25*altura)-(5*idade)+5;
+  bmr=Math.round(bmr);
+
+  var tdee=Math.round(bmr*ativ);
+
+  var meta;
+  if(obj==='manter') meta=tdee;
+  else if(obj==='deficit') meta=Math.round(tdee*(1-intens));
+  else meta=Math.round(tdee*(1+intens));
+
+  _meta=meta;
+
+  // Macros: 30% proteína, 40% hidratos, 30% gorduras
+  var pPct=0.30, cPct=0.40, gPct=0.30;
+  var pG=Math.round(meta*pPct/4);
+  var cG=Math.round(meta*cPct/4);
+  var gG=Math.round(meta*gPct/9);
+
+  // Atualizar UI
+  document.getElementById('res-bmr').textContent=bmr;
+  document.getElementById('res-tdee').textContent=tdee;
+  document.getElementById('res-meta').textContent=meta;
+  var labels={deficit:'kcal/dia (déficit calórico)',manter:'kcal/dia (manutenção)',superavit:'kcal/dia (superávit calórico)'};
+  document.getElementById('res-label').textContent=labels[obj];
+
+  document.getElementById('mac-p').textContent=Math.round(pPct*100)+'%';
+  document.getElementById('mac-pg').textContent=pG+' g';
+  document.getElementById('mac-c').textContent=Math.round(cPct*100)+'%';
+  document.getElementById('mac-cg').textContent=cG+' g';
+  document.getElementById('mac-g').textContent=Math.round(gPct*100)+'%';
+  document.getElementById('mac-gg').textContent=gG+' g';
+
+  // Refeições
+  var refs=[
+    {emoji:'☀️',nome:'Café da manhã',pct:0.25},
+    {emoji:'🍎',nome:'Lanche da manhã',pct:0.10},
+    {emoji:'🍽️',nome:'Almoço',pct:0.35},
+    {emoji:'🫐',nome:'Lanche da tarde',pct:0.10},
+    {emoji:'🌙',nome:'Jantar',pct:0.20}
+  ];
+  var list=document.getElementById('ref-list');
+  list.innerHTML='';
+  refs.forEach(function(r){
+    var cal=Math.round(meta*r.pct);
+    list.innerHTML+='<div class="ref-item">'+
+      '<div class="ref-left">'+
+        '<span class="ref-emoji">'+r.emoji+'</span>'+
+        '<div><div class="ref-nome">'+r.nome+'</div>'+
+        '<div class="ref-pct">'+Math.round(r.pct*100)+'% do total</div></div>'+
+      '</div>'+
+      '<span class="ref-cal">'+cal+' kcal</span>'+
+    '</div>';
+  });
+
+  document.getElementById('cardapio-section').style.display='none';
+  document.getElementById('resultado').style.display='block';
+  document.getElementById('resultado').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function mostrarCardapio(){
+  var meta=_meta;
+  if(!meta) return;
+
+  // Cardápio baseado nas calorias alvo
+  // Refeições: PA 25%, LM 10%, Almoço 35%, LT 10%, Jantar 20%
+  var refeicoes=[
+    {
+      hora:'07:00 – Café da manhã',
+      cal:Math.round(meta*0.25),
+      itens:[
+        {n:'Iogurte grego natural',d:'200 g + 1 colher mel',c:Math.round(meta*0.08)},
+        {n:'Aveia com fruta',d:'50 g aveia + banana + morangos',c:Math.round(meta*0.10)},
+        {n:'Ovo cozido',d:'1 unidade',c:Math.round(meta*0.07)}
+      ]
+    },
+    {
+      hora:'10:30 – Lanche da manhã',
+      cal:Math.round(meta*0.10),
+      itens:[
+        {n:'Fruta da época',d:'1 peça média (maçã / pera / laranja)',c:Math.round(meta*0.05)},
+        {n:'Nozes ou amêndoas',d:'30 g',c:Math.round(meta*0.05)}
+      ]
+    },
+    {
+      hora:'13:00 – Almoço',
+      cal:Math.round(meta*0.35),
+      itens:[
+        {n:'Proteína grelhada',d:'150 g frango / peixe / tofu',c:Math.round(meta*0.12)},
+        {n:'Arroz ou batata-doce',d:'200 g cozinhado',c:Math.round(meta*0.13)},
+        {n:'Legumes salteados',d:'Brócolis, cenoura, abobrinha',c:Math.round(meta*0.06)},
+        {n:'Azeite extra virgem',d:'1 fio (10 ml)',c:Math.round(meta*0.04)}
+      ]
+    },
+    {
+      hora:'16:30 – Lanche da tarde',
+      cal:Math.round(meta*0.10),
+      itens:[
+        {n:'Queijo fresco + tomate',d:'100 g queijo + tomate cereja',c:Math.round(meta*0.06)},
+        {n:'Torradas integrais',d:'2 unidades',c:Math.round(meta*0.04)}
+      ]
+    },
+    {
+      hora:'20:00 – Jantar',
+      cal:Math.round(meta*0.20),
+      itens:[
+        {n:'Sopa de legumes',d:'300 ml caseira',c:Math.round(meta*0.05)},
+        {n:'Proteína + salada',d:'120 g atum / ovo / frango + folhas verdes',c:Math.round(meta*0.10)},
+        {n:'Pão integral',d:'1 fatia',c:Math.round(meta*0.05)}
+      ]
+    }
+  ];
+
+  var html='';
+  refeicoes.forEach(function(rf){
+    html+='<div class="cardapio-day"><div class="cardapio-day-title">'+rf.hora+' — '+rf.cal+' kcal</div>';
+    rf.itens.forEach(function(it){
+      html+='<div class="meal-item">'+
+        '<div><div class="meal-name">'+it.n+'</div><div class="meal-desc">'+it.d+'</div></div>'+
+        '<div class="meal-cal-tag">~'+it.c+' kcal</div>'+
+      '</div>';
+    });
+    html+='</div>';
+  });
+
+  document.getElementById('cardapio-body').innerHTML=html;
+  document.getElementById('cardapio-section').style.display='block';
+  document.getElementById('cardapio-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function limpar(){
+  document.getElementById('idade').value='';
+  document.getElementById('altura').value='';
+  document.getElementById('peso').value='';
+  document.getElementById('sexo').value='f';
+  document.getElementById('atividade').value='1.55';
+  document.getElementById('objetivo').value='deficit';
+  document.getElementById('intensidade').value='0.15';
+  document.getElementById('resultado').style.display='none';
+  document.getElementById('cardapio-section').style.display='none';
+  document.getElementById('err').style.display='none';
+  _meta=0;
+  toggleIntensidade();
+}
+
+toggleIntensidade();
+</script>
+</body>
+</html>

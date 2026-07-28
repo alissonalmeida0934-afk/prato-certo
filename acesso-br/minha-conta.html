@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var _s=window.supabase.createClient('https://emxyyijgnjemogwhsokh.supabase.co','sb_publishable_b96piLFzkQEY2SKjwhYvKQ_lpmxeQKa');
+  window._sb=_s;
+  var hasSb=Object.keys(localStorage).some(function(k){return k.startsWith('sb-')&&k.includes('auth');});
+  if(!hasSb)document.documentElement.style.visibility='hidden';
+  function chk(){_s.auth.getSession().then(function(r){if(!r.data.session){window.location.replace('/login-br.html');}else{document.documentElement.style.visibility='';}});}
+  chk();
+  window.addEventListener('pageshow',function(e){if(e.persisted)chk();});
+})();
+</script>
+<script>if(localStorage.getItem('pc-theme')==='light')document.documentElement.classList.add('light');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Minha Conta — Prato Certo</title>
+<link rel="icon" href="/img/logo-prato-certo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#E46C44;--primary-vibrant:#FD860E;--background:#0c0c0c;--surface:#161616;--surface2:#1e1e1e;--text:#F0EDE8;--muted:#8A8278;--line:rgba(255,255,255,.08)}
+html.light{--background:#F7F5ED;--surface:#FAF9F5;--surface2:#F0EBE0;--text:#231E1A;--muted:#7A726A;--line:rgba(0,0,0,.09)}
+body{font-family:'Rubik',sans-serif;background:var(--background);color:var(--text);min-height:100vh}
+
+header{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--line);padding:0 18px;height:54px;display:flex;align-items:center;gap:12px}
+.hback{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600;font-size:.9rem}
+.hback svg{width:20px;height:20px;stroke:var(--primary);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+main{max-width:780px;margin:0 auto;padding:28px 16px 100px}
+.page-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:6px}
+h1{font-size:1.6rem;font-weight:800;margin-bottom:32px}
+
+.section-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--line)}
+.section-row:last-of-type{border:none}
+@media(max-width:560px){.section-row{grid-template-columns:1fr}}
+.sec-label h3{font-size:.95rem;font-weight:700;margin-bottom:8px}
+.sec-label p{font-size:.8rem;color:var(--muted);line-height:1.55}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-grid{grid-template-columns:1fr}}
+.form-grid.full{grid-template-columns:1fr}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:.76rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.field input,.field textarea,.field select{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:.88rem;color:var(--text);outline:none;transition:.15s;-webkit-appearance:none;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--primary)}
+.field textarea{min-height:80px}
+html.light .field input,html.light .field textarea,html.light .field select{color:#231E1A}
+
+/* avatar */
+.avatar-wrap{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+.av-circle{width:72px;height:72px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;color:#fff;flex-shrink:0;position:relative;cursor:pointer}
+.av-edit{position:absolute;bottom:0;right:0;width:22px;height:22px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem}
+.av-info{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+/* fuso — só visual, armazenado localmente */
+.field select option{background:var(--surface2)}
+
+/* senha */
+.form-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:540px){.form-3{grid-template-columns:1fr}}
+
+/* rodapé botões */
+.form-footer{display:flex;justify-content:flex-end;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.btn-cancel{background:none;border:1px solid var(--line);border-radius:10px;padding:10px 22px;font-family:inherit;font-size:.88rem;color:var(--muted);cursor:pointer;transition:.15s}
+.btn-cancel:hover{border-color:var(--primary);color:var(--text)}
+.btn-save{background:var(--primary);color:#fff;border:none;border-radius:10px;padding:10px 28px;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;transition:.15s}
+.btn-save:hover{background:var(--primary-vibrant)}
+.btn-save:disabled{opacity:.5;cursor:not-allowed}
+
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 22px;border-radius:99px;font-size:.84rem;font-weight:600;z-index:999;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1}
+
+/* erro senha */
+.field-err{font-size:.74rem;color:var(--primary);margin-top:2px;display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="hback" href="index.html">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar
+  </a>
+</header>
+
+<main>
+  <div class="page-label">Prato Certo</div>
+  <h1>Minha Conta</h1>
+
+  <!-- Perfil -->
+  <div class="section-row">
+    <div class="sec-label">
+      <h3>Meu perfil</h3>
+      <p>Seu nome e informações básicas da conta.</p>
+    </div>
+    <div>
+      <div class="avatar-wrap">
+        <div class="av-circle" id="avCircle">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="av-edit">✏️</span>
+        </div>
+        <div class="av-info">Foto de perfil<br><span id="userEmail" style="color:var(--muted)">—</span></div>
+      </div>
+      <div class="form-grid" style="margin-top:18px">
+        <div class="field">
+          <label>Nome completo</label>
+          <input type="text" id="fNome" placeholder="Seu nome">
+        </div>
+        <div class="field">
+          <label>Telefone</label>
+          <!-- TODO-BR: ajustar máscara/placeholder para o formato de telefone brasileiro -->
+          <input type="tel" id="fTelefone" placeholder="+55 9X XXXX XXXX">
+        </div>
+      </div>
+      <div class="form-grid full" style="margin-top:14px">
+        <div class="field">
+          <label>Biografia</label>
+          <textarea id="fBio" placeholder="Conte um pouco sobre você..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fuso horário -->
+  <div class="section-row">
+    <div class="sec-label">
+      <h3>Fuso horário</h3>
+      <p>Ajuste a data e hora conforme sua região.</p>
+    </div>
+    <div class="field">
+      <label>Fuso horário</label>
+      <select id="fFuso">
+        <option value="America/Sao_Paulo">(GMT-03:00) Brasília / São Paulo</option>
+        <option value="America/Manaus">(GMT-04:00) Manaus</option>
+        <option value="America/Belem">(GMT-03:00) Belém</option>
+        <option value="America/Fortaleza">(GMT-03:00) Fortaleza</option>
+        <option value="America/Recife">(GMT-03:00) Recife</option>
+        <option value="America/Noronha">(GMT-02:00) Fernando de Noronha</option>
+        <option value="America/Rio_Branco">(GMT-05:00) Rio Branco / Acre</option>
+        <option value="Europe/Lisbon">(GMT+00:00) Lisboa / Portugal</option>
+        <option value="Atlantic/Azores">(GMT-01:00) Açores</option>
+        <option value="Africa/Luanda">(GMT+01:00) Luanda / Angola</option>
+        <option value="Africa/Maputo">(GMT+02:00) Maputo / Moçambique</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Alterar senha -->
+  <div class="section-row">
+    <div class="sec-label">
+      <h3>Alterar senha</h3>
+      <p>Deixe em branco caso não queira alterar.</p>
+    </div>
+    <div>
+      <div class="form-3">
+        <div class="field">
+          <label>Senha atual</label>
+          <input type="password" id="fSenhaAtual" placeholder="••••••••">
+        </div>
+        <div class="field">
+          <label>Nova senha</label>
+          <input type="password" id="fSenhaNova" placeholder="••••••••">
+        </div>
+        <div class="field">
+          <label>Confirmar nova senha</label>
+          <input type="password" id="fSenhaConf" placeholder="••••••••">
+          <span class="field-err" id="errSenha">As senhas não coincidem.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-footer">
+    <button class="btn-cancel" onclick="history.back()">Cancelar</button>
+    <button class="btn-save" id="btnSave" onclick="guardar()">Atualizar</button>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var _user=null;
+
+function toast(msg,ok){
+  var t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.background=ok===false?'#c0392b':'#222';
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2800);
+}
+
+// Carregar dados do utilizador
+window._sb.auth.getUser().then(function(r){
+  var u=r.data&&r.data.user;
+  if(!u) return;
+  _user=u;
+  var meta=u.user_metadata||{};
+  var nome=meta.nome||meta.full_name||'';
+  document.getElementById('fNome').value=nome;
+  document.getElementById('fTelefone').value=meta.telefone||'';
+  document.getElementById('fBio').value=meta.bio||'';
+  document.getElementById('userEmail').textContent=u.email||'';
+  // fuso
+  var fuso=meta.fuso||localStorage.getItem('pc-fuso')||'America/Sao_Paulo';
+  document.getElementById('fFuso').value=fuso;
+});
+
+function guardar(){
+  var btn=document.getElementById('btnSave');
+  var nome=document.getElementById('fNome').value.trim();
+  var tel=document.getElementById('fTelefone').value.trim();
+  var bio=document.getElementById('fBio').value.trim();
+  var fuso=document.getElementById('fFuso').value;
+  var senhaAtual=document.getElementById('fSenhaAtual').value;
+  var senhaNova=document.getElementById('fSenhaNova').value;
+  var senhaConf=document.getElementById('fSenhaConf').value;
+  var errEl=document.getElementById('errSenha');
+
+  // validar senha
+  if(senhaNova||senhaConf){
+    if(senhaNova!==senhaConf){
+      errEl.style.display='block';
+      return;
+    }
+    errEl.style.display='none';
+  } else {
+    errEl.style.display='none';
+  }
+
+  btn.disabled=true;
+  btn.textContent='Atualizando...';
+  localStorage.setItem('pc-fuso',fuso);
+
+  var updates={data:{nome:nome,telefone:tel,bio:bio,fuso:fuso}};
+  if(senhaNova) updates.password=senhaNova;
+
+  window._sb.auth.updateUser(updates).then(function(r){
+    btn.disabled=false;
+    btn.textContent='Atualizar';
+    if(r.error){
+      toast('Erro: '+r.error.message,false);
+    } else {
+      // atualizar avatar initials
+      var initials=nome.split(/\s+/).slice(0,2).map(function(w){return w[0]?w[0].toUpperCase():'';}).join('');
+      document.getElementById('avCircle').childNodes[0].textContent=initials||'?';
+      // limpar campos senha
+      document.getElementById('fSenhaAtual').value='';
+      document.getElementById('fSenhaNova').value='';
+      document.getElementById('fSenhaConf').value='';
+      toast('Perfil atualizado com sucesso!');
+    }
+  });
+}
+</script>
+</body>
+</html>
