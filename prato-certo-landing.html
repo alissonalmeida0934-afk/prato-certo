@@ -876,7 +876,11 @@
   <!-- OFERTA -->
   <section id="oferta" style="background:#f8faf2;padding:48px 0">
     <div class="container">
-      <h2 class="offer-title" style="color:#1A2A12;text-align:center;margin-bottom:28px">Escolhe o teu plano<br>e começa hoje</h2>
+      <h2 class="offer-title" style="color:#1A2A12;text-align:center;margin-bottom:16px">Escolhe o teu plano<br>e começa hoje</h2>
+      <div style="max-width:420px;margin:0 auto 28px;text-align:center;background:#fff3e6;border:2px solid #E46C44;border-radius:14px;padding:14px 18px">
+        <p style="margin:0 0 8px;font-size:13px;font-weight:800;color:#c0392b;text-transform:uppercase;letter-spacing:.03em">🔥 Oferta especial termina em</p>
+        <div id="countdown" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:#E46C44;letter-spacing:.02em">--:--:--</div>
+      </div>
       <div id="checkout-btn" style="display:grid;grid-template-columns:1fr;gap:24px;max-width:680px;margin:0 auto">
         <style>
           @media(min-width:480px){#checkout-btn{grid-template-columns:1fr 1fr;gap:12px}}
@@ -1056,14 +1060,20 @@
 })();
 
 (function(){
-  var el = document.getElementById('offerDate');
+  var el = document.getElementById('countdown');
   if (!el) return;
-  var dias = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
-  var now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Lisbon'}));
-  var d = now.getDate().toString().padStart(2,'0');
-  var m = (now.getMonth()+1).toString().padStart(2,'0');
-  var y = now.getFullYear();
-  el.textContent = dias[now.getDay()] + ', ' + d + '/' + m + '/' + y;
+  function tick(){
+    var now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Lisbon'}));
+    var end = new Date(now); end.setHours(24,0,0,0);
+    var diff = Math.max(0, end - now);
+    var h = Math.floor(diff/3600000);
+    var m = Math.floor((diff%3600000)/60000);
+    var s = Math.floor((diff%60000)/1000);
+    function p(n){ return n.toString().padStart(2,'0'); }
+    el.textContent = p(h)+':'+p(m)+':'+p(s);
+  }
+  tick();
+  setInterval(tick, 1000);
 })();
 
 (function(){
