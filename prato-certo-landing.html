@@ -1300,63 +1300,6 @@
   });
 })();
 </script>
-
-<!-- DOWNSELL EXIT-INTENT -->
-<div id="downsell-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:16px">
-  <div style="background:#fff;border-radius:18px;max-width:400px;width:100%;padding:28px 24px;text-align:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4)">
-    <button id="downsell-close" aria-label="Fechar" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:none;background:#f0f0f0;color:#666;font-size:18px;cursor:pointer;line-height:1">✕</button>
-    <p style="font-size:13px;font-weight:800;color:#c0000e;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">⚠️ Espera, antes de saíres...</p>
-    <h3 style="font-size:1.3rem;font-weight:800;color:#1A2A12;line-height:1.3;margin-bottom:12px">Última oportunidade: leva o Prato Certo por menos</h3>
-    <p style="font-size:14px;color:#444;line-height:1.5;margin-bottom:18px">Só desta vez, acesso completo às 190 receitas por um preço ainda mais baixo:</p>
-    <div style="margin-bottom:20px">
-      <span style="text-decoration:line-through;color:#999;font-size:18px;font-weight:600;margin-right:8px">7,90€</span>
-      <span style="color:#0D4D1F;font-weight:900;font-size:32px">5,90€</span>
-    </div>
-    <a href="https://pay.hotmart.com/J106507414X?checkoutMode=10&off=DOWNSELL590" target="_blank" class="pc-cta" style="display:block;background:#0D4D1F;color:#fff;font-weight:800;font-size:15px;padding:15px;border-radius:50px;text-decoration:none;margin-bottom:10px" onclick="(function(){var id='ds_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'begin_checkout',eventID:id,plano:'downsell'});})()">Quero por 5,90€</a>
-    <button id="downsell-dismiss" style="background:none;border:none;color:#999;font-size:13px;text-decoration:underline;cursor:pointer;font-family:inherit">Não, obrigada</button>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='pc_downsell_shown';
-  var clickedCheckout=false;
-  document.querySelectorAll('.pc-cta, #hero-cta').forEach(function(b){
-    b.addEventListener('click', function(){ clickedCheckout=true; });
-  });
-  function alreadyShown(){
-    try{ return sessionStorage.getItem(KEY)==='1'; }catch(e){ return false; }
-  }
-  function markShown(){
-    try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-  }
-  function showModal(){
-    if(clickedCheckout||alreadyShown()) return;
-    markShown();
-    var m=document.getElementById('downsell-modal');
-    m.style.display='flex';
-    window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'downsell_view'});
-  }
-  function closeModal(){
-    document.getElementById('downsell-modal').style.display='none';
-  }
-  document.getElementById('downsell-close').addEventListener('click', closeModal);
-  document.getElementById('downsell-dismiss').addEventListener('click', closeModal);
-  document.getElementById('downsell-modal').addEventListener('click', function(e){
-    if(e.target.id==='downsell-modal') closeModal();
-  });
-  // Desktop: rato a sair pelo topo da janela
-  document.addEventListener('mouseleave', function(e){
-    if(e.clientY<=0) showModal();
-  });
-  // Mobile: sem exit-intent real, fallback por tempo (45s) + já rolou a página
-  var isMobile = window.matchMedia('(max-width:900px)').matches;
-  if(isMobile){
-    setTimeout(function(){
-      if(window.scrollY>300) showModal();
-    }, 45000);
-  }
-})();
-</script>
 </body>
 </html>
+
